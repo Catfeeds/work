@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui">
+    <title>404</title>
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <style>
+    html,body{width:100%;height:100%;max-width: 750px;max-height: 1334px;background-color:#3185ff;position:relative;text-align: center;color:#fff;margin:0 auto;}
+    .head{width:100%;padding-top:60%;position:relative;background-color: #4deeec;}
+    img{width:100%;}
+    .banner404{width:100%;font-size:0;position:absolute;bottom:-1px;}
+    .text{font-size: 15px;width: 100%;margin-top: 5px;position:relative;z-index:999;}
+    .text a{color:#fff;}
+    .logo{width: 6.67%;display: inline-block;padding-right: 5px;}
+    .msg{display: inline-block;position: relative;top:-4px;}
+    .footer{width: 95.6%;font-size: 0;position: absolute;bottom:0;left:50%;-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-ms-transform:translateX(-50%);-o-transform:translateX(-50%);transform:translateX(-50%);}
+    </style>
+</head>
+
+<body>
+    <div class="head">
+        <div class="banner404"><img src="/static/404/images/404.png"></div>
+    </div>
+    <p class="text"> <i class="logo"><img src="/static/404/images/logo.png"></i><span class="msg">oops！您访问的页面找不到了~</span></p>
+    <p class="text"><a href="<?= baf_CHtml::createUrl('/');?>">返回首页</a></p>
+    <div class="footer"><img src="/static/404/images/bottom.png"></div>
+</body>
+
+</html>

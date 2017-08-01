@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-weixin.css" rel="stylesheet">
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-sj.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/daterangepicker-bs3.css" rel="stylesheet">
+    <script src="/static/icharts/Chart.js"></script>
+    <script src="/static/javascripts/jquery.min.js"></script>
+    <script src="/static/jquery-page/jquery.page.js"></script>
+    <script src="/static/daterangepicker/js/business.js"></script>
+    <script src="/static/daterangepicker/js/moment.min.js"></script>
+    <script src="/static/daterangepicker/js/daterangepicker.js"></script>
+    <title>趣运动商家后台管理系统</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="sj-nav">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+          <div class="sidebar" role="navigation" style="padding-top:20px;">
+              <div class="sidebar-nav navbar-collapse">
+                  <div class='sj-head'>
+                    <div class='flex-body sj-name flex-align-center'>
+                      <div class='sj-avatar'><img src=''></div>
+                      <div class="btn-group sj-name-button">
+                        <button type="button" class="btn-noborder btn btn-default  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <b>趣运动好鬼犀利集团趣运动好鬼犀利集团</b> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">账号管理</a></li>
+                          <li><a href="#">超级管理员</a></li>
+                          <li><a href="#">退出</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class='sj-all'><a href='#'>全球馆状况</a></div>
+                    <div class="btn-group" style="width:100%;">
+                      <button style="width:90%;margin-left:10px;" type="button" class="btn-sj btn-bdru btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        名师足球 <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">名师足球</a></li>
+                        <li><a href="#">名师蓝球</a></li>
+                        <li><a href="#">名师羽毛球名师羽毛球名师羽毛球名师羽毛球名师羽毛球</a></li>
+                        <li><a href="#">名师乒乓球</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <ul class="nav">
+                      <li>
+                        <div class='sj-nav-title'><span>营业概括</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#" class='active'><i class='icon-sj'><i class='icon icon-sj-time'></i></i>营业日结</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-fd'></i></i>多前台收入</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-detail'></i></i>收入明细</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li>
+                        <div class='sj-nav-title'><span>会员概括</span></div>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-summary'></i></i>交易汇总</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-detail'></i></i>交易明细</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-data'></i></i>消费数据</a>
+                                  <!-- /.nav-third-level -->
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li>
+                        <div class='sj-nav-title'><span>商品概括</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-summary'></i></i>交易汇总</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-detail'></i></i>交易明细</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-statistics'></i></i>收入统计</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li></li>
+                      <li>
+                        <div class='sj-nav-title'><span>场地操作</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-booking'></i></i>场地预订</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-lock'></i></i>批量锁场</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-zip'></i></i>批量打包</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li></li>
+                      <li>
+                        <div class='sj-nav-title'><span>财务结算</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-settle'></i></i>趣运动结算</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-report'></i></i>佣金报表</a>
+                              </li>
+                              <li>
+                                  <a href="#"><i class='icon-sj'><i class='icon icon-sj-record'></i></i>推广记录</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                  </ul>
+              </div>
+              <!-- /.sidebar-collapse -->
+          </div>
+                <!-- /.navbar-static-side -->
+        </nav>
+      </div>
+      <div id="page-wrapper" class="sj-content">
+        <link rel="stylesheet" href="/static/shangjia/css/admin.css?v=1.8">
+        <link rel="stylesheet" href="/static/shangjia/css/shangjia.css" type="text/css">
+        <link rel="stylesheet" href="/static/shangjia/css/bindcourt.css" type="text/css">
+        <script type="text/javascript" src="/static/shangjia/js/bindcourt.js"></script>
+        <div class="bind-header">
+          <div class="bind-nav"><span class="active">场地打包</span><span>查看场地打包</span></div>
+          <div class="bind-title"><span>打包场地</span></div>
+        </div>
+        <div class="sj-date">
+          <ul>
+            <li class="active"><a style="display:block;height:22px;" href="/?book_date=2016-07-05">07-05<em>周二</em></a></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-06"></a>07-06<em>周三</em></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-07">07-07<em>周四</em></a></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-08">07-08<em>周五</em></a></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-09">07-09<em>周六</em></a></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-10">07-10<em>周日</em></a></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-11">07-11<em>周一</em></a></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-12">07-12<em>周二</em></a></li>
+            <li><a style="display:block;height:22px;" href="/?book_date=2016-07-13">07-13<em>周三</em></a></li>
+          </ul>
+        </div>
+        <div class="col-busi">
+          <table class="tablesearch">
+            <tr>
+              <td class="tdmain">
+                <div class="col01-busi">
+                  <div class="infotableout">
+                    <div class="tablewrap l">
+                      <table class="time-table">
+                        <tr>
+                          <th width="87"></th>
+                          <th><em>9:00</em></th>
+                          <th><em>10:00</em></th>
+                          <th><em>11:00</em></th>
+                          <th><em>12:00</em></th>
+                          <th><em>13:00</em></th>
+                          <th><em>14:00</em></th>
+                          <th><em>15:00</em></th>
+                          <th><em>16:00</em></th>
+                          <th><em>17:00</em></th>
+                          <th><em>18:00</em></th>
+                          <th><em>19:00</em></th>
+                          <th><em>20:00</em></th>
+                          <th><em>21:00</em></th>
+                          <th><em>22:00</em></th>
+                          <th><em>23:00</em></th>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">改名测试哈哈哈哈哈哈哈</td>
+                          <td style="padding:0px;"><span id="span_79029165" content="8:00-9:00 改名测试哈哈哈哈哈哈哈" goods_id="79029165" course_id="694" class="td-cgsd"></span></td>
+                          <td colspan="2" style="padding:0px;"><span id="span_79029166" onmousedown="UnLockCourse(this,14076)" content="9:00-11:00 改名测试哈哈哈哈哈哈哈" group_id="14076" class="td-cgsd-group"></span></td>
+                          <td style="padding:0px;"><span id="span_79029168" content="11:00-12:00 改名测试哈哈哈哈哈哈哈" goods_id="79029168" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029169" content="12:00-13:00 改名测试哈哈哈哈哈哈哈" goods_id="79029169" course_id="694" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029170" content="13:00-14:00 改名测试哈哈哈哈哈哈哈" goods_id="79029170" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029171" content="14:00-15:00 改名测试哈哈哈哈哈哈哈" goods_id="79029171" course_id="694" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029172" content="15:00-16:00 改名测试哈哈哈哈哈哈哈" goods_id="79029172" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029173" content="16:00-17:00 改名测试哈哈哈哈哈哈哈" goods_id="79029173" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029174" content="17:00-18:00 改名测试哈哈哈哈哈哈哈" goods_id="79029174" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029175" content="18:00-19:00 改名测试哈哈哈哈哈哈哈" goods_id="79029175" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029176" content="19:00-20:00 改名测试哈哈哈哈哈哈哈" goods_id="79029176" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029177" content="20:00-21:00 改名测试哈哈哈哈哈哈哈" goods_id="79029177" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029178" content="21:00-22:00 改名测试哈哈哈哈哈哈哈" goods_id="79029178" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029179" content="22:00-23:00 改名测试哈哈哈哈哈哈哈" goods_id="79029179" course_id="694" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029180" content="23:00-24:00 改名测试哈哈哈哈哈哈哈" goods_id="79029180" course_id="694" class="td-cgsd"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">VIP场</td>
+                          <td style="padding:0px;"><span id="span_79029181" content="8:00-9:00 VIP场" goods_id="79029181" course_id="695" class="td-cgsd"></span></td>
+                          <td colspan="2" style="padding:0px;"><span id="span_79029182" onmousedown="UnLockCourse(this,14077)" content="9:00-11:00 VIP场" group_id="14077" class="td-cgsd-group"></span></td>
+                          <td style="padding:0px;"><span id="span_79029184" content="11:00-12:00 VIP场" goods_id="79029184" course_id="695" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029185" content="12:00-13:00 VIP场" goods_id="79029185" course_id="695" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029186" content="13:00-14:00 VIP场" goods_id="79029186" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029187" content="14:00-15:00 VIP场" goods_id="79029187" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029188" content="15:00-16:00 VIP场" goods_id="79029188" course_id="695" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029189" content="16:00-17:00 VIP场" goods_id="79029189" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029190" content="17:00-18:00 VIP场" goods_id="79029190" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029191" content="18:00-19:00 VIP场" goods_id="79029191" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029192" content="19:00-20:00 VIP场" goods_id="79029192" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029193" content="20:00-21:00 VIP场" goods_id="79029193" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029194" content="21:00-22:00 VIP场" goods_id="79029194" course_id="695" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029195" content="22:00-23:00 VIP场" goods_id="79029195" course_id="695" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029196" content="23:00-24:00 VIP场" goods_id="79029196" course_id="695" class="td-cgsd"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">VIP场地</td>
+                          <td style="padding:0px;"><span id="span_79029197" content="8:00-9:00 VIP场地" goods_id="79029197" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029198" content="9:00-10:00 VIP场地" goods_id="79029198" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029199" content="10:00-11:00 VIP场地" goods_id="79029199" course_id="696" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029200" content="11:00-12:00 VIP场地" goods_id="79029200" course_id="696" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029201" content="12:00-13:00 VIP场地" goods_id="79029201" course_id="696" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029202" content="13:00-14:00 VIP场地" goods_id="79029202" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029203" content="14:00-15:00 VIP场地" goods_id="79029203" course_id="696" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029204" content="15:00-16:00 VIP场地" goods_id="79029204" course_id="696" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029205" content="16:00-17:00 VIP场地" goods_id="79029205" course_id="696" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029206" content="17:00-18:00 VIP场地" goods_id="79029206" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029207" content="18:00-19:00 VIP场地" goods_id="79029207" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029208" content="19:00-20:00 VIP场地" goods_id="79029208" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029209" content="20:00-21:00 VIP场地" goods_id="79029209" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029210" content="21:00-22:00 VIP场地" goods_id="79029210" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029211" content="22:00-23:00 VIP场地" goods_id="79029211" course_id="696" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029212" content="23:00-24:00 VIP场地" goods_id="79029212" course_id="696" class="td-cgsd"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">4号场VIP</td>
+                          <td style="padding:0px;"><span id="span_79029213" content="8:00-9:00 4号场VIP" goods_id="79029213" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029214" content="9:00-10:00 4号场VIP" goods_id="79029214" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029215" content="10:00-11:00 4号场VIP" goods_id="79029215" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029216" content="11:00-12:00 4号场VIP" goods_id="79029216" course_id="697" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029217" content="12:00-13:00 4号场VIP" goods_id="79029217" course_id="697" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029218" content="13:00-14:00 4号场VIP" goods_id="79029218" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029219" content="14:00-15:00 4号场VIP" goods_id="79029219" course_id="697" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029220" content="15:00-16:00 4号场VIP" goods_id="79029220" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029221" content="16:00-17:00 4号场VIP" goods_id="79029221" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029222" content="17:00-18:00 4号场VIP" goods_id="79029222" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029223" content="18:00-19:00 4号场VIP" goods_id="79029223" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029224" content="19:00-20:00 4号场VIP" goods_id="79029224" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029225" content="20:00-21:00 4号场VIP" goods_id="79029225" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029226" content="21:00-22:00 4号场VIP" goods_id="79029226" course_id="697" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029227" content="22:00-23:00 4号场VIP" goods_id="79029227" course_id="697" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029228" content="23:00-24:00 4号场VIP" goods_id="79029228" course_id="697" class="td-cgsd"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">羽球半场12</td>
+                          <td style="padding:0px;"><span id="span_79029229" content="8:00-9:00 羽球半场12" goods_id="79029229" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029230" content="9:00-10:00 羽球半场12" goods_id="79029230" course_id="698" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029231" content="10:00-11:00 羽球半场12" goods_id="79029231" course_id="698" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029232" content="11:00-12:00 羽球半场12" goods_id="79029232" course_id="698" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029233" content="12:00-13:00 羽球半场12" goods_id="79029233" course_id="698" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029234" content="13:00-14:00 羽球半场12" goods_id="79029234" course_id="698" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029235" content="14:00-15:00 羽球半场12" goods_id="79029235" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029236" content="15:00-16:00 羽球半场12" goods_id="79029236" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029237" content="16:00-17:00 羽球半场12" goods_id="79029237" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029238" content="17:00-18:00 羽球半场12" goods_id="79029238" course_id="698" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029239" content="18:00-19:00 羽球半场12" goods_id="79029239" course_id="698" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029240" content="19:00-20:00 羽球半场12" goods_id="79029240" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029241" content="20:00-21:00 羽球半场12" goods_id="79029241" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029242" content="21:00-22:00 羽球半场12" goods_id="79029242" course_id="698" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029243" content="22:00-23:00 羽球半场12" goods_id="79029243" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029244" content="23:00-24:00 羽球半场12" goods_id="79029244" course_id="698" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">1号半场A</td>
+                          <td style="padding:0px;"><span id="span_79029245" content="8:00-9:00 1号半场A" goods_id="79029245" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029246" content="9:00-10:00 1号半场A" goods_id="79029246" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029247" content="10:00-11:00 1号半场A" goods_id="79029247" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029248" content="11:00-12:00 1号半场A" goods_id="79029248" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029249" content="12:00-13:00 1号半场A" goods_id="79029249" course_id="699" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029250" content="13:00-14:00 1号半场A" goods_id="79029250" course_id="699" class="td-wlyd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029251" content="14:00-15:00 1号半场A" goods_id="79029251" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029252" content="15:00-16:00 1号半场A" goods_id="79029252" course_id="699" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029253" content="16:00-17:00 1号半场A" goods_id="79029253" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029254" content="17:00-18:00 1号半场A" goods_id="79029254" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029255" content="18:00-19:00 1号半场A" goods_id="79029255" course_id="699" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029256" content="19:00-20:00 1号半场A" goods_id="79029256" course_id="699" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029257" content="20:00-21:00 1号半场A" goods_id="79029257" course_id="699" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029258" content="21:00-22:00 1号半场A" goods_id="79029258" course_id="699" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029259" content="22:00-23:00 1号半场A" goods_id="79029259" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029260" content="23:00-24:00 1号半场A" goods_id="79029260" course_id="699" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">羽球半场7</td>
+                          <td style="padding:0px;"><span id="span_79029261" content="8:00-9:00 羽球半场7" goods_id="79029261" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029262" content="9:00-10:00 羽球半场7" goods_id="79029262" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029263" content="10:00-11:00 羽球半场7" goods_id="79029263" course_id="700" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029264" content="11:00-12:00 羽球半场7" goods_id="79029264" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029265" content="12:00-13:00 羽球半场7" goods_id="79029265" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029266" content="13:00-14:00 羽球半场7" goods_id="79029266" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029267" content="14:00-15:00 羽球半场7" goods_id="79029267" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029268" content="15:00-16:00 羽球半场7" goods_id="79029268" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029269" content="16:00-17:00 羽球半场7" goods_id="79029269" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029270" content="17:00-18:00 羽球半场7" goods_id="79029270" course_id="700" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029271" content="18:00-19:00 羽球半场7" goods_id="79029271" course_id="700" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029272" content="19:00-20:00 羽球半场7" goods_id="79029272" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029273" content="20:00-21:00 羽球半场7" goods_id="79029273" course_id="700" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029274" content="21:00-22:00 羽球半场7" goods_id="79029274" course_id="700" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029275" content="22:00-23:00 羽球半场7" goods_id="79029275" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029276" content="23:00-24:00 羽球半场7" goods_id="79029276" course_id="700" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">1234567897654321</td>
+                          <td style="padding:0px;"><span id="span_79029277" content="8:00-9:00 1234567897654321" goods_id="79029277" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029278" content="9:00-10:00 1234567897654321" goods_id="79029278" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029279" content="10:00-11:00 1234567897654321" goods_id="79029279" course_id="701" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029280" content="11:00-12:00 1234567897654321" goods_id="79029280" course_id="701" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029281" content="12:00-13:00 1234567897654321" goods_id="79029281" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029282" content="13:00-14:00 1234567897654321" goods_id="79029282" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029283" content="14:00-15:00 1234567897654321" goods_id="79029283" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029284" content="15:00-16:00 1234567897654321" goods_id="79029284" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029285" content="16:00-17:00 1234567897654321" goods_id="79029285" course_id="701" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029286" content="17:00-18:00 1234567897654321" goods_id="79029286" course_id="701" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029287" content="18:00-19:00 1234567897654321" goods_id="79029287" course_id="701" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029288" content="19:00-20:00 1234567897654321" goods_id="79029288" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029289" content="20:00-21:00 1234567897654321" goods_id="79029289" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029290" content="21:00-22:00 1234567897654321" goods_id="79029290" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029291" content="22:00-23:00 1234567897654321" goods_id="79029291" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029292" content="23:00-24:00 1234567897654321" goods_id="79029292" course_id="701" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">9号场</td>
+                          <td style="padding:0px;"><span id="span_79029293" content="8:00-9:00 9号场" goods_id="79029293" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029294" content="9:00-10:00 9号场" goods_id="79029294" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029295" content="10:00-11:00 9号场" goods_id="79029295" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029296" content="11:00-12:00 9号场" goods_id="79029296" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029297" content="12:00-13:00 9号场" goods_id="79029297" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029298" content="13:00-14:00 9号场" goods_id="79029298" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029299" content="14:00-15:00 9号场" goods_id="79029299" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029300" content="15:00-16:00 9号场" goods_id="79029300" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029301" content="16:00-17:00 9号场" goods_id="79029301" course_id="702" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029302" content="17:00-18:00 9号场" goods_id="79029302" course_id="702" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029303" content="18:00-19:00 9号场" goods_id="79029303" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029304" content="19:00-20:00 9号场" goods_id="79029304" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029305" content="20:00-21:00 9号场" goods_id="79029305" course_id="702" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029306" content="21:00-22:00 9号场" goods_id="79029306" course_id="702" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029307" content="22:00-23:00 9号场" goods_id="79029307" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029308" content="23:00-24:00 9号场" goods_id="79029308" course_id="702" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">10号场</td>
+                          <td style="padding:0px;"><span id="span_79029309" content="8:00-9:00 10号场" goods_id="79029309" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029310" content="9:00-10:00 10号场" goods_id="79029310" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029311" content="10:00-11:00 10号场" goods_id="79029311" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029312" content="11:00-12:00 10号场" goods_id="79029312" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029313" content="12:00-13:00 10号场" goods_id="79029313" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029314" content="13:00-14:00 10号场" goods_id="79029314" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029315" content="14:00-15:00 10号场" goods_id="79029315" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029316" content="15:00-16:00 10号场" goods_id="79029316" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029317" content="16:00-17:00 10号场" goods_id="79029317" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029318" content="17:00-18:00 10号场" goods_id="79029318" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029319" content="18:00-19:00 10号场" goods_id="79029319" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029320" content="19:00-20:00 10号场" goods_id="79029320" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029321" content="20:00-21:00 10号场" goods_id="79029321" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029322" content="21:00-22:00 10号场" goods_id="79029322" course_id="703" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029323" content="22:00-23:00 10号场" goods_id="79029323" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029324" content="23:00-24:00 10号场" goods_id="79029324" course_id="703" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">11号场</td>
+                          <td style="padding:0px;"><span id="span_79029325" content="8:00-9:00 11号场" goods_id="79029325" course_id="704" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029326" content="9:00-10:00 11号场" goods_id="79029326" course_id="704" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029327" content="10:00-11:00 11号场" goods_id="79029327" course_id="704" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029328" content="11:00-12:00 11号场" goods_id="79029328" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029329" content="12:00-13:00 11号场" goods_id="79029329" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029330" content="13:00-14:00 11号场" goods_id="79029330" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029331" content="14:00-15:00 11号场" goods_id="79029331" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029332" content="15:00-16:00 11号场" goods_id="79029332" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029333" content="16:00-17:00 11号场" goods_id="79029333" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029334" content="17:00-18:00 11号场" goods_id="79029334" course_id="704" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029335" content="18:00-19:00 11号场" goods_id="79029335" course_id="704" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029336" content="19:00-20:00 11号场" goods_id="79029336" course_id="704" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029337" content="20:00-21:00 11号场" goods_id="79029337" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029338" content="21:00-22:00 11号场" goods_id="79029338" course_id="704" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029339" content="22:00-23:00 11号场" goods_id="79029339" course_id="704" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029340" content="23:00-24:00 11号场" goods_id="79029340" course_id="704" class="td-cgsd"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">12号场</td>
+                          <td style="padding:0px;"><span id="span_79029341" content="8:00-9:00 12号场" goods_id="79029341" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029342" content="9:00-10:00 12号场" goods_id="79029342" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029343" content="10:00-11:00 12号场" goods_id="79029343" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029344" content="11:00-12:00 12号场" goods_id="79029344" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029345" content="12:00-13:00 12号场" goods_id="79029345" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029346" content="13:00-14:00 12号场" goods_id="79029346" course_id="705" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029347" content="14:00-15:00 12号场" goods_id="79029347" course_id="705" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029348" content="15:00-16:00 12号场" goods_id="79029348" course_id="705" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029349" content="16:00-17:00 12号场" goods_id="79029349" course_id="705" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029350" content="17:00-18:00 12号场" goods_id="79029350" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029351" content="18:00-19:00 12号场" goods_id="79029351" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029352" content="19:00-20:00 12号场" goods_id="79029352" course_id="705" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029353" content="20:00-21:00 12号场" goods_id="79029353" course_id="705" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029354" content="21:00-22:00 12号场" goods_id="79029354" course_id="705" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029355" content="22:00-23:00 12号场" goods_id="79029355" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029356" content="23:00-24:00 12号场" goods_id="79029356" course_id="705" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">13号场</td>
+                          <td style="padding:0px;"><span id="span_79029357" content="8:00-9:00 13号场" goods_id="79029357" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029358" content="9:00-10:00 13号场" goods_id="79029358" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029359" content="10:00-11:00 13号场" goods_id="79029359" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029360" content="11:00-12:00 13号场" goods_id="79029360" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029361" content="12:00-13:00 13号场" goods_id="79029361" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029362" content="13:00-14:00 13号场" goods_id="79029362" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029363" content="14:00-15:00 13号场" goods_id="79029363" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029364" content="15:00-16:00 13号场" goods_id="79029364" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029365" content="16:00-17:00 13号场" goods_id="79029365" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029366" content="17:00-18:00 13号场" goods_id="79029366" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029367" content="18:00-19:00 13号场" goods_id="79029367" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029368" content="19:00-20:00 13号场" goods_id="79029368" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029369" content="20:00-21:00 13号场" goods_id="79029369" course_id="706" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029370" content="21:00-22:00 13号场" goods_id="79029370" course_id="706" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029371" content="22:00-23:00 13号场" goods_id="79029371" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029372" content="23:00-24:00 13号场" goods_id="79029372" course_id="706" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">14号场</td>
+                          <td style="padding:0px;"><span id="span_79029373" content="8:00-9:00 14号场" goods_id="79029373" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029374" content="9:00-10:00 14号场" goods_id="79029374" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029375" content="10:00-11:00 14号场" goods_id="79029375" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029376" content="11:00-12:00 14号场" goods_id="79029376" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029377" content="12:00-13:00 14号场" goods_id="79029377" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029378" content="13:00-14:00 14号场" goods_id="79029378" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029379" content="14:00-15:00 14号场" goods_id="79029379" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029380" content="15:00-16:00 14号场" goods_id="79029380" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029381" content="16:00-17:00 14号场" goods_id="79029381" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029382" content="17:00-18:00 14号场" goods_id="79029382" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029383" content="18:00-19:00 14号场" goods_id="79029383" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029384" content="19:00-20:00 14号场" goods_id="79029384" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029385" content="20:00-21:00 14号场" goods_id="79029385" course_id="707" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029386" content="21:00-22:00 14号场" goods_id="79029386" course_id="707" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029387" content="22:00-23:00 14号场" goods_id="79029387" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029388" content="23:00-24:00 14号场" goods_id="79029388" course_id="707" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">15号场</td>
+                          <td style="padding:0px;"><span id="span_79029389" content="8:00-9:00 15号场" goods_id="79029389" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029390" content="9:00-10:00 15号场" goods_id="79029390" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029391" content="10:00-11:00 15号场" goods_id="79029391" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029392" content="11:00-12:00 15号场" goods_id="79029392" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029393" content="12:00-13:00 15号场" goods_id="79029393" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029394" content="13:00-14:00 15号场" goods_id="79029394" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029395" content="14:00-15:00 15号场" goods_id="79029395" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029396" content="15:00-16:00 15号场" goods_id="79029396" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029397" content="16:00-17:00 15号场" goods_id="79029397" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029398" content="17:00-18:00 15号场" goods_id="79029398" course_id="708" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029399" content="18:00-19:00 15号场" goods_id="79029399" course_id="708" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029400" content="19:00-20:00 15号场" goods_id="79029400" course_id="708" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029401" content="20:00-21:00 15号场" goods_id="79029401" course_id="708" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029402" content="21:00-22:00 15号场" goods_id="79029402" course_id="708" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029403" content="22:00-23:00 15号场" goods_id="79029403" course_id="708" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029404" content="23:00-24:00 15号场" goods_id="79029404" course_id="708" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">16号场</td>
+                          <td style="padding:0px;"><span id="span_79029405" content="8:00-9:00 16号场" goods_id="79029405" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029406" content="9:00-10:00 16号场" goods_id="79029406" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029407" content="10:00-11:00 16号场" goods_id="79029407" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029408" content="11:00-12:00 16号场" goods_id="79029408" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029409" content="12:00-13:00 16号场" goods_id="79029409" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029410" content="13:00-14:00 16号场" goods_id="79029410" course_id="709" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029411" content="14:00-15:00 16号场" goods_id="79029411" course_id="709" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029412" content="15:00-16:00 16号场" goods_id="79029412" course_id="709" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029413" content="16:00-17:00 16号场" goods_id="79029413" course_id="709" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029414" content="17:00-18:00 16号场" goods_id="79029414" course_id="709" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029415" content="18:00-19:00 16号场" goods_id="79029415" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029416" content="19:00-20:00 16号场" goods_id="79029416" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029417" content="20:00-21:00 16号场" goods_id="79029417" course_id="709" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029418" content="21:00-22:00 16号场" goods_id="79029418" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029419" content="22:00-23:00 16号场" goods_id="79029419" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029420" content="23:00-24:00 16号场" goods_id="79029420" course_id="709" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">17号场</td>
+                          <td style="padding:0px;"><span id="span_79029421" content="8:00-9:00 17号场" goods_id="79029421" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029422" content="9:00-10:00 17号场" goods_id="79029422" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029423" content="10:00-11:00 17号场" goods_id="79029423" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029424" content="11:00-12:00 17号场" goods_id="79029424" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029425" content="12:00-13:00 17号场" goods_id="79029425" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029426" content="13:00-14:00 17号场" goods_id="79029426" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029427" content="14:00-15:00 17号场" goods_id="79029427" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029428" content="15:00-16:00 17号场" goods_id="79029428" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029429" content="16:00-17:00 17号场" goods_id="79029429" course_id="710" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029430" content="17:00-18:00 17号场" goods_id="79029430" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029431" content="18:00-19:00 17号场" goods_id="79029431" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029432" content="19:00-20:00 17号场" goods_id="79029432" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029433" content="20:00-21:00 17号场" goods_id="79029433" course_id="710" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029434" content="21:00-22:00 17号场" goods_id="79029434" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029435" content="22:00-23:00 17号场" goods_id="79029435" course_id="710" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029436" content="23:00-24:00 17号场" goods_id="79029436" course_id="710" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">18号场</td>
+                          <td style="padding:0px;"><span id="span_79029437" content="8:00-9:00 18号场" goods_id="79029437" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029438" content="9:00-10:00 18号场" goods_id="79029438" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029439" content="10:00-11:00 18号场" goods_id="79029439" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029440" content="11:00-12:00 18号场" goods_id="79029440" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029441" content="12:00-13:00 18号场" goods_id="79029441" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029442" content="13:00-14:00 18号场" goods_id="79029442" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029443" content="14:00-15:00 18号场" goods_id="79029443" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029444" content="15:00-16:00 18号场" goods_id="79029444" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029445" content="16:00-17:00 18号场" goods_id="79029445" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029446" content="17:00-18:00 18号场" goods_id="79029446" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029447" content="18:00-19:00 18号场" goods_id="79029447" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029448" content="19:00-20:00 18号场" goods_id="79029448" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029449" content="20:00-21:00 18号场" goods_id="79029449" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029450" content="21:00-22:00 18号场" goods_id="79029450" course_id="711" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029451" content="22:00-23:00 18号场" goods_id="79029451" course_id="711" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029452" content="23:00-24:00 18号场" goods_id="79029452" course_id="711" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr>
+                          <td style="height:42px;padding:0px;">19号场</td>
+                          <td style="padding:0px;"><span id="span_79029453" content="8:00-9:00 19号场" goods_id="79029453" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029454" content="9:00-10:00 19号场" goods_id="79029454" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029455" content="10:00-11:00 19号场" goods_id="79029455" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029456" content="11:00-12:00 19号场" goods_id="79029456" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029457" content="12:00-13:00 19号场" goods_id="79029457" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029458" content="13:00-14:00 19号场" goods_id="79029458" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029459" content="14:00-15:00 19号场" goods_id="79029459" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029460" content="15:00-16:00 19号场" goods_id="79029460" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029461" content="16:00-17:00 19号场" goods_id="79029461" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029462" content="17:00-18:00 19号场" goods_id="79029462" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029463" content="18:00-19:00 19号场" goods_id="79029463" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029464" content="19:00-20:00 19号场" goods_id="79029464" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029465" content="20:00-21:00 19号场" goods_id="79029465" course_id="712" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029466" content="21:00-22:00 19号场" goods_id="79029466" course_id="712" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029467" content="22:00-23:00 19号场" goods_id="79029467" course_id="712" class="td-cgsd"></span></td>
+                          <td style="padding:0px;"><span id="span_79029468" content="23:00-24:00 19号场" goods_id="79029468" course_id="712" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                        <tr class="tdbg">
+                          <td style="height:42px;padding:0px;">20号场</td>
+                          <td style="padding:0px;"><span id="span_79029469" content="8:00-9:00 20号场" goods_id="79029469" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029470" content="9:00-10:00 20号场" goods_id="79029470" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029471" content="10:00-11:00 20号场" goods_id="79029471" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029472" content="11:00-12:00 20号场" goods_id="79029472" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029473" content="12:00-13:00 20号场" goods_id="79029473" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029474" content="13:00-14:00 20号场" goods_id="79029474" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029475" content="14:00-15:00 20号场" goods_id="79029475" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029476" content="15:00-16:00 20号场" goods_id="79029476" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029477" content="16:00-17:00 20号场" goods_id="79029477" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029478" content="17:00-18:00 20号场" goods_id="79029478" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029479" content="18:00-19:00 20号场" goods_id="79029479" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029480" content="19:00-20:00 20号场" goods_id="79029480" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029481" content="20:00-21:00 20号场" goods_id="79029481" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029482" content="21:00-22:00 20号场" goods_id="79029482" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029483" content="22:00-23:00 20号场" goods_id="79029483" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                          <td style="padding:0px;"><span id="span_79029484" content="23:00-24:00 20号场" goods_id="79029484" course_id="713" onmousedown="LockCourse(event,this)"></span></td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="col02-busi"></div>
+        <div class="popbg"> </div>
+        <div style="height: 260px;" class="pop-validorder2 tl pa">
+          <div class="top-validorder pr l"><span class="closepop cur pa"></span>
+            <h4>场地打包</h4>
+          </div>
+          <div class="mid-validorder l">
+            <div style="margin-top: 10px;" class="part02-preorder fl"></div>
+            <ul id="lock_preorder" style="width: 220px;" class="preorderul"></ul><span id="lockedSubmit" class="okbtn2 fr">确定打包</span>
+          </div>
+        </div>
+        <div class="bind-layer">
+          <div class="bind-layer-header">
+            <div class="bind-layer-close fr"><img src="/static/shangjia/images/closebtn.jpg" alt=""></div>
+            <div class="bind-nav"><span class="active">打包场地</span><span>查看场地打包</span></div>
+          </div>
+          <div class="bind-layer-form">
+            <ul>
+                <li>
+                    打包场地：14：00-15：00 SVIP2号场
+                </li>
+                <li>
+                    打包场地：14：00-15：00 SVIP2号场
+                </li>
+            </ul>
+            <ul>
+              <li>
+                <label for="bindCurrent">
+                  <input id="bindCurrent" type="radio" name="bindCourt"><em></em><span>打包当前场地</span>
+                </label>
+              </li>
+              <li>
+                <label for="bindFollowUp">
+                  <input id="bindFollowUp" type="radio" name="bindCourt"><em></em><span>打包后续同一时间段的场地</span>
+                </label>
+              </li>
+            </ul>
+            <div class="bind-sure">确定</div>
+          </div>
+        </div>
+        <div style="padding-top: 10px;" class="footer">
+          <div class="cnt">
+            <div>
+              <div class="link-w"></div>
+              <div class="site-info">Copyright © 2013-2014 7yundong.cn，All Rights Reserved<a href=" http://www.miibeian.gov.cn/publish/query/indexFirst.action" rel="nofollow">粤ICP备08114786号-1</a>					版权所有<a href="http://www.7yundong.cn/" target="_blank" rel="nofollow">广州柠蜜信息科技有限公司</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

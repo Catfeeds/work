@@ -1,0 +1,119 @@
+.sport {
+	.index {
+		background: url(../images/bg.png) left 270px no-repeat;
+		.col1, .col2 {
+			float: left;
+		}
+		.title1 {
+			color: #fff;
+			font-size: 48px;
+			font-family: 'SimHei';
+			border-bottom: 2px solid #fff;
+			display: inline-block;
+		}
+		.cont1 {
+			color: #b0f1ff;
+			font-size: 24px;
+			font-family: 'microsoft yahei';
+			margin-top: 14px;
+		}
+		.title2 {
+			color: #0ac3ec;
+			font-size: 48px;
+			font-family: 'SimHei';
+			border-bottom: 2px solid #0ac3ec;
+			display: inline-block;
+		}
+		.cont2 {
+			color: #6f6f6f;
+			font-size: 24px;
+			font-family: 'microsoft yahei';
+			margin-top: 14px;
+		}
+		.row {
+			display: block;
+			clear: both;
+		}
+		.row1 {
+			padding-top: 53px;
+			*padding-top: 23px;
+			.col1 {
+				padding: 0 105px 0 167px;
+			}
+			.col2 {
+				padding-top: 80px;
+			}
+			.text1 {
+				margin-bottom: 28px;
+			}
+			.code, .btns {
+				float: left;
+			}
+			.code {
+				margin-right: 63px;
+				text-align: center;
+			}
+			.code p {
+				color: #0ac3ec;
+				font-size: 16px;
+				font-family: 'microsoft yahei';
+				width: 122px;
+			}
+			.btns a {
+				width: 167px;
+				height: 53px;
+				display: block;
+			}
+			.iphone {
+				margin-bottom: 28px;
+			}
+		}
+		.row2 {
+			padding-top: 170px;
+			*padding-top: 80px;
+			.col1 {
+				padding: 80px 77px 0 85px;
+			}
+		}
+		.row3 {
+			.col1 {
+				padding: 0 117px 0 54px;
+			}
+			.col2 {
+				padding-top: 206px;
+			}
+		}
+		.row4 {
+			padding-top: 84px;
+			.col1 {
+				padding: 112px 134px 0 70px;
+			}
+		}
+		.row5 {
+			padding-top: 39px;
+			*padding-top: 10px;
+			.col1 {
+				padding: 0 234px 0 27px;
+			}
+			.col2 {
+				padding-top: 175px;
+			}
+		}
+
+		.footer-index {
+			clear: both;
+			padding: 120px 0 8px;
+			font-size: 12px;
+			text-align: center;
+			color: #e6faff;
+			background: #0ac3ec;
+			font-family: 'microsoft yahei';
+			p {
+				margin-bottom: 5px;
+			}
+			.copyright {
+				font-size: 16px;
+			}
+		}
+	}
+}

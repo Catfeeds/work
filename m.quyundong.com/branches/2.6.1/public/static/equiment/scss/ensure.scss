@@ -1,0 +1,139 @@
+body{
+	background: #F4F4F8;
+}
+a:active{
+	text-decoration: none;
+}
+/* head */
+.head {
+  width: 100%;
+  height: 50px;
+  background: white;
+  font-size: 1.5rem;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  -webkit-display: flex;
+  -ms-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+.head div{
+  width:33.33%;
+  line-height: 50px;
+}
+.head div:nth-child(1){
+  text-indent: 1rem;
+}
+.head div:nth-child(2){
+  text-align: center;
+}
+.head div:nth-child(3){
+  text-align: right;
+  padding-right: 1rem;
+}
+.head img{
+  width: 2.2rem;
+}
+.bg{
+	width: 100%;
+	.sel-goods-property{
+		width: 100%;
+		padding: 1rem;
+		display: flex;
+		background: white;
+		margin-top: 60px;
+		img{
+			display: block;
+			border: 1px solid #e8e8e8;
+			flex:1;
+			width:8rem;
+			height: 8rem;
+		}
+		.have-sel{
+			flex:2;
+			padding: 1rem;
+			padding-top: 0.5rem;
+			line-height: 2.1rem;
+			.goods-name{
+				color:black;
+				font-size: 1.2rem;
+			}
+			.goods-color{
+				color: #787878;
+			}
+			.goods-price{
+				span{
+					display: inline-block;
+				}
+				.groud{
+					display: inline-block;
+				    background: #FF5A5E;
+				    padding: 0rem 0.6rem;
+				    border-radius: 3.5rem;
+				    color: white;
+				    font-size: 0.6rem;
+				}
+				span:nth-child(2){
+					color:#5A72f1;
+					font-size: 1.2rem;
+				}
+				span:nth-child(3){
+					font-size: 0.2rem;
+					margin-left: 3rem;
+
+				}
+			}
+		}
+	}
+	.goods-mount{
+		display: flex;
+		justify-content:space-between;
+		padding: 1rem;
+		margin-top: 1rem;
+		background: white;
+	}
+	.address{
+		margin-top: 1rem;
+		background: white;
+		padding: 1rem;
+		padding-bottom: 0.2rem;
+		color:black;
+		.send-address{
+			margin-top: 1rem;
+			color:#666666;
+			line-height: 2rem;
+			display: flex;
+			justify-content:space-between;
+			.glyphicon{
+				line-height: 4rem;
+			}
+		}
+	}
+	.fooster{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: white;
+		height: 50px;
+		line-height: 50px;
+		display: flex;
+		.all-price{
+			flex:2;
+			text-indent: 3rem;
+			font-size: 1.6rem;
+		}
+		.buy-now{
+			flex:1;
+			background: #5A72F1;
+			text-align: center;
+			color:white;
+			font-size: 1.2rem;
+		}
+	}
+}

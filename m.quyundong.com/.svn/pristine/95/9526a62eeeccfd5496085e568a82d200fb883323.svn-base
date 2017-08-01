@@ -1,0 +1,46 @@
+.sport {
+	.join-us {
+		color: #9f9f9f;
+		line-height: 24px;
+		font-family: 'microsoft yahei';
+		.col1, .col2 {
+			width: 390px;
+			float: left;
+		}
+		.col1 {
+			padding-left: 20px;
+			margin-right: 180px;
+		}
+		.row1 {
+			text-align: center;					
+			margin-top: 36px;
+			width: 100%;
+		}
+		.resume {
+			color: #7b7b7b;
+			margin-top: 18px;
+		}
+		.email {
+			color: #3ecff0;
+		}
+		.row2 {
+			margin-top: 66px;
+		}
+		h1 {
+			color: #0ac3ec;
+			font-size: 24px;
+			margin-bottom: 16px;
+		}
+		h2 {
+			color: #7b7b7b;
+			margin: 6px 0;
+		}
+		.job {
+			margin-bottom: 50px;
+		}
+		.job p {
+			margin-bottom: 18px;
+			line-height: 28px;
+		}
+	}
+}

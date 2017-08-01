@@ -1,0 +1,386 @@
+/* line 3, ../sass/orderConfirm.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #f5f5f9;
+  line-height: 1.375;
+}
+
+/* line 16, ../sass/orderConfirm.scss */
+body {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f5f5f9;
+  font-size: 0.12rem;
+  color: #000;
+}
+
+/* line 30, ../sass/orderConfirm.scss */
+input {
+  -webkit-box-sizing: border-box;
+}
+
+/* line 34, ../sass/orderConfirm.scss */
+a,
+input,
+lable,
+button,
+div {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* line 43, ../sass/orderConfirm.scss */
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 50, ../sass/orderConfirm.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 54, ../sass/orderConfirm.scss */
+input::-ms-input-placeholder {
+  text-align: center;
+  color: #a9a9a9;
+}
+
+/* line 59, ../sass/orderConfirm.scss */
+input::-webkit-input-placeholder {
+  text-align: center;
+  color: #a9a9a9;
+}
+
+/* line 64, ../sass/orderConfirm.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+/* line 74, ../sass/orderConfirm.scss */
+.loading-icon {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 125, ../sass/orderConfirm.scss */
+img {
+  width: 100%;
+}
+
+/* line 194, ../sass/orderConfirm.scss */
+.order-header-tips, .order-info .order-info-tips, .cj-oc-foot .cj-oc-foot-tips {
+  font-size: 0.12rem;
+  color: #666;
+}
+
+/* line 199, ../sass/orderConfirm.scss */
+.order-header-tips {
+  padding: 0.15rem 0 0.1rem 0.15rem;
+}
+
+/* line 204, ../sass/orderConfirm.scss */
+.common-menu {
+  border-top: 1px solid #f5f5f9;
+  border-bottom: 1px solid #f5f5f9;
+  padding-left: 0.15rem;
+  font-size: 0.15rem;
+  background-color: #fff;
+}
+/* line 210, ../sass/orderConfirm.scss */
+.common-menu > li {
+  padding: 0.12rem 0;
+  border-bottom: 1px solid #f5f5f9;
+}
+/* line 130, ../sass/orderConfirm.scss */
+.common-menu > li:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 214, ../sass/orderConfirm.scss */
+.common-menu > li:last-of-type {
+  border-bottom: none;
+}
+/* line 218, ../sass/orderConfirm.scss */
+.common-menu > li > div:nth-of-type(1) {
+  float: left;
+  width: 5em;
+  margin-right: 0.15rem;
+  color: #666;
+}
+/* line 224, ../sass/orderConfirm.scss */
+.common-menu > li > div:nth-of-type(2) {
+  overflow: hidden;
+  text-align: right;
+  padding-right: 0.15rem;
+  color: #222;
+}
+/* line 229, ../sass/orderConfirm.scss */
+.common-menu > li > div:nth-of-type(2) p {
+  line-height: 1.8;
+}
+/* line 236, ../sass/orderConfirm.scss */
+.common-menu .common-link img {
+  width: 0.18rem;
+  vertical-align: middle;
+  margin-left: 0.1rem;
+  margin-top: -0.03rem;
+}
+/* line 243, ../sass/orderConfirm.scss */
+.common-menu a,
+.common-menu a:hover,
+.common-menu a:visited {
+  display: block;
+  color: #666;
+}
+
+/* line 252, ../sass/orderConfirm.scss */
+.order-info .order-info-tips {
+  color: #aaa;
+}
+/* line 257, ../sass/orderConfirm.scss */
+.order-info p img {
+  width: 0.15rem;
+  vertical-align: -0.02rem;
+  margin-left: 0.05rem;
+}
+
+/* line 265, ../sass/orderConfirm.scss */
+.order-money {
+  margin-top: 0.15rem;
+}
+
+/* line 269, ../sass/orderConfirm.scss */
+.cj-oc-foot {
+  margin: 0.15rem 0.25rem 0;
+  text-align: left;
+}
+/* line 272, ../sass/orderConfirm.scss */
+.cj-oc-foot .cj-oc-foot-tips {
+  text-indent: 0.05rem;
+}
+/* line 276, ../sass/orderConfirm.scss */
+.cj-oc-foot .mt100 {
+  margin-top: 0.5rem;
+}
+/* line 279, ../sass/orderConfirm.scss */
+.cj-oc-foot .cj-oc-buttom {
+  width: 100%;
+  line-height: 0.4rem;
+  text-align: center;
+  background-color: #5b73f2;
+  color: #fff;
+  margin: 0.12rem auto;
+  border-radius: 0.21rem;
+}
+
+/* line 291, ../sass/orderConfirm.scss */
+.book-noPaySprite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 303, ../sass/orderConfirm.scss */
+.book-noPaySprite ul {
+  width: 275px;
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
+  line-height: 1;
+  text-align: left;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 5px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+/* line 317, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(1) {
+  padding: 0 15px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 0.17rem;
+}
+
+/* line 324, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(2) {
+  padding: 10px 15px;
+  line-height: 1.6;
+}
+
+/* line 329, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(2) p span:nth-of-type(1) {
+  float: left;
+  margin-right: 0;
+}
+
+/* line 334, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(2) p span:nth-of-type(2) {
+  color: #888;
+  display: block;
+  overflow: hidden;
+  text-align: right;
+}
+
+/* line 341, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(2) p span:nth-of-type(2) em {
+  display: block;
+}
+
+/* line 345, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(3) {
+  text-align: center;
+  border-top: 1px solid #e6e6e6;
+}
+
+/* line 350, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(3):after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* line 359, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(3) div {
+  float: left;
+  width: 50%;
+  line-height: 40px;
+}
+
+/* line 365, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(3) #book-Cancel {
+  background-image: url(/themes/koubei/order/images/border-r.jpg);
+  background-position: right top;
+  background-repeat: repeat-y;
+}
+
+/* line 371, ../sass/orderConfirm.scss */
+.book-noPaySprite ul li:nth-of-type(3) div {
+  color: #00aaee;
+}
+
+/* line 375, ../sass/orderConfirm.scss */
+.book-noPaySprite a,
+.book-noPaySprite a:hover,
+.book-noPaySprite a:visited {
+  color: #00aaee;
+}
+
+/* line 381, ../sass/orderConfirm.scss */
+.toast {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* line 389, ../sass/orderConfirm.scss */
+.toast .toast-alert {
+  width: 2.35rem;
+  height: 1.3rem;
+  padding: 0 0.2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.65rem;
+  margin-left: -1.175rem;
+  border-radius: 6px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 404, ../sass/orderConfirm.scss */
+.toast .toast-alert .toast-msg {
+  padding-top: 0.25rem;
+  height: 0.9rem;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 0.15rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: relative;
+}

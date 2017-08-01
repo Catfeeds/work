@@ -1,0 +1,150 @@
+.main{
+	.detail-head{
+		position:relative;
+		border-bottom:1px solid #e6e6e6;
+		text-align:left;
+		color:#222;
+		background:#fff;
+		padding:0.15rem;
+		p{
+			line-height:1;
+		}
+		.detail-head-name{
+			font-size:0.15rem;
+			margin-bottom:0.12rem;
+		}
+		.detail-head-time{
+			font-size:0.12rem;
+		}
+		.pcDetail-arrow{
+			position: absolute;
+			top:50%;
+			right:0.15rem;
+			margin-top:-0.075rem;
+			height:0.15rem;
+			width:0.15rem;
+			background:url(../images/pcDetail-6.png) right center no-repeat;
+			background-size:auto 100%;
+		}
+	}
+	.detail-info{
+		text-align:left;
+		margin-top:0.15rem;
+		padding-left:0.15rem;
+		color:#666;
+		font-size:0.12rem;
+		background:#fff;
+		border-top:1px solid #e6e6e6;
+		border-bottom:1px solid #e6e6e6;
+		li{
+			padding-right:0.15rem;
+			div{
+				float:right;
+			}
+		}
+		.detail-info-type{
+			padding-top:0.15rem;
+			padding-bottom:0.15rem;
+			border-bottom:1px solid #e6e6e6;
+			line-height:0.18rem;
+			span{
+				font-size:0.15rem;
+				color:#222;
+			}
+		}
+		.detail-info-money{
+			padding-top:0.15rem;
+			padding-bottom:0.15rem;
+			span{
+				font-size:0.24rem;
+				color:#009ff0;
+				em{
+					font-size:0.15rem;
+				}
+			}
+			p{
+				line-height:1.5;
+			}
+		}
+	}
+    .detail-join{
+    	.detail-join-btn{
+    		width:2.1rem;
+    		line-height:0.4rem;
+    		border:1px solid #009ff0;
+    		margin:0.15rem auto 0;
+    		color:#009ff0;
+    		font-size:0.15rem;
+    		border-radius:0.2rem;
+    		&.started{
+    			border:1px solid #aaa;
+    			color:#aaa;
+    		}
+    	}
+    }
+	
+	.detail-rate{
+		border-top:1px solid #e6e6e6;
+		background:#fff;
+		.orderdetail-bar{
+			li{
+				div{
+					background:#e9e9e9;
+					em{
+						color:#666;
+						i.detail-current{
+							color:#009ff0;
+						}
+					}
+					span {
+					    background: #bbb;
+					    color:#fff;
+					    &:after{
+					    	border-top: 0.06rem solid #bbb;
+					    }
+					}
+					.detail-full{
+						background: #009ff0;
+					    &:after{
+					    	border-top: 0.06rem solid #009ff0;
+					    }
+					}
+				}
+			}
+			li.active{
+				div{
+					background:#009ff0;
+				}
+			}
+
+		}
+
+		.orderdetail-member{
+			border-top:none;
+		}
+	}
+    .detail-tip{
+		text-align:left;
+		padding:0.15rem;
+		color:#666;
+    	img{
+	    	width:0.12rem;
+	    	margin-right:0.05rem;	
+	    	vertical-align:-2px;
+    	}
+    }
+    .detail-observe{
+    	position:fixed;
+    	bottom:2px;
+    	left:50%;
+    	transform:translateX(-50%);
+    	-webkit-transform:translateX(-50%);
+    	-ms-transform:translateX(-50%);
+    	width:100%;
+    	max-width:750px;
+    	font-size:0;
+    }
+    .detail-space70{
+    	height:0.8rem;
+    }
+}

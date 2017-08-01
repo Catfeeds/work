@@ -1,0 +1,165 @@
+body {
+  background: #F4F4F8; }
+
+a:active {
+  text-decoration: none; }
+
+/* head */
+.head {
+  width: 100%;
+  height: 50px;
+  background: white;
+  font-size: 1.5rem;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  -webkit-display: flex;
+  -ms-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flex;
+  display: -o-flex; }
+
+.head div {
+  width: 33.33%;
+  line-height: 50px; }
+
+.head div:nth-child(1) {
+  text-indent: 1rem; }
+
+.head div:nth-child(2) {
+  text-align: center; }
+
+.head div:nth-child(3) {
+  text-align: right;
+  padding-right: 1rem; }
+
+.head img {
+  width: 2.2rem; }
+
+.content {
+  margin-top: 50px;
+  z-index: 99; }
+  .content .address {
+    margin-top: 1rem;
+    background: white;
+    padding-bottom: 0.2rem;
+    color: black; }
+    .content .address .send-address {
+      margin-top: 1rem;
+      line-height: 2.5rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      padding: 0.5rem 1.5rem;
+      border-bottom: 1px solid #D7D7DB; }
+      .content .address .send-address .glyphicon {
+        line-height: 4rem; }
+      .content .address .send-address .default {
+        display: inline-block;
+        background: #FF565B;
+        padding: 0rem 0.4rem;
+        margin-right: 1rem;
+        border-radius: 0.3rem;
+        color: white;
+        font-size: 0.6rem;
+        line-height: 1.8rem; }
+  .content .new-address {
+    margin-top: 8rem; }
+    .content .new-address .add-btn {
+      margin: 0 auto;
+      text-align: center;
+      width: 50%;
+      border-radius: 2rem;
+      color: white;
+      height: 40px;
+      line-height: 40px;
+      background: #5B73F2; }
+
+.add-address {
+  width: 100%;
+  height: 100%;
+  background: #F5F5F9;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100; }
+  .add-address .add-address-content {
+    margin-top: 50px; }
+    .add-address .add-address-content input {
+      width: 100%;
+      border: none;
+      height: 4rem;
+      border-bottom: 1px solid #e6e6e6;
+      padding: 0rem 1rem; }
+    .add-address .add-address-content input:first-child {
+      border-top: 1px solid #e6e6e6; }
+    .add-address .add-address-content .sel-city {
+      width: 100%;
+      height: 4rem;
+      border-bottom: 1px solid #e6e6e6;
+      padding: 0rem 1rem;
+      background: white;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      line-height: 4rem; }
+  .add-address .save-address {
+    -webkit-display: flex;
+    -moz-display: flex;
+    -ms-display: flex;
+    -o-display: flex;
+    display: flex;
+    padding:1rem;
+    margin-top: 2.5rem; }
+    .add-address .save-address .add-btn {
+      text-align: center;
+      width: 75%;
+      border-radius: 2rem;
+      color: white;
+      height: 40px;
+      line-height: 40px;
+      background: #5B73F2; }
+    .add-address .save-address .del-btn {
+      margin: 0 auto;
+      text-align: center;
+      width: 75%;
+      margin: 0 1rem;
+      border-radius: 2rem;
+      color: white;
+      height: 40px;
+      line-height: 40px;
+      background: #b93734; }
+      
+
+.radio {
+  text-align: center;
+  margin-top: 3rem; }
+  .radio .ins {
+    width: 1.8rem;
+    height: 1.8rem;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    margin-top: -0.3rem; }
+    .radio .ins .have-sel {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      margin: 0 auto;
+      margin-top: 0.2rem; }
+  .radio span {
+    display: inline-block;
+    vertical-align: middle; }
+  .radio .checked {
+    background-position: -168px 0px; }

@@ -1,0 +1,117 @@
+'use strict';
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!',
+        initEqui: {
+            group_info: { group_price: 0 },
+            pic_list: [" "],
+            service_list: []
+        },
+        pre: 20, //参团人数百分比
+        have_join: 0, //已经参加人数
+        tips: '后结束',
+        sel_price: ""
+    },
+    beforeCreate: function beforeCreate() {
+        var _this = this;
+
+        axios.get("/user/indexAction", {
+            params: {
+                ID: 123555
+            }
+        }).then(function (res) {
+            console.log(res.data);
+            var initEqui = res.data;
+            var pre = initEqui.group_info.group_join_count / initEqui.group_info.group_count * 100;
+            pre = pre > 20 ? pre > 100 ? 100 : pre : 20;
+            var have_join = pre > 100 ? "已成团" : initEqui.group_info.group_join_count + '人参与';
+            _this.initEqui = res.data;
+            _this.pre = pre;
+            _this.have_join = have_join;
+            _this.sel_price = initEqui.price;
+
+            // init time
+            var now = Date.parse(new Date()) / 1000;
+            var status = initEqui.group_info.is_group;
+            var time = status == 2 ? initEqui.group_info.start_time : initEqui.group_info.end_time;
+            var tips = status == 2 ? '后开始拼团' : '后结束';
+            _this.tips = tips;
+
+            window.setInterval(function () {
+                now++;
+                var last = time - now;
+                var h, i, s;
+                if (last > 0) {
+                    h = parseInt(last / 3600);
+                    var hl = last % 3600;
+                    i = parseInt(hl / 60);
+                    var il = hl % 60;
+                    if (h < 2) h = '0' + h;
+                    if (i.length < 2) i = '0' + i;
+                    if (il.length < 2) il = '0' + il;
+                    $('#start_time span').html(h + ':' + i + ':' + il);
+                    //this.time = h + ':' + i + ':' + il;
+                } else {
+                    $('#start_time').remove();
+                }
+            }, 1000);
+            var timer = setTimeout(function () {
+                init();
+            }, 500);
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
+    mounted: function mounted() {},
+
+    methods: {
+        showEnsure: function showEnsure() {
+            $("#goods_ensure_bg").show();
+            $(".goods-ensure-detail").animate({ bottom: 0 }, function () {
+                $("body").css({ height: '100%', overflow: "hidden" });
+            });
+            $(".goods-ensure-detail").css({
+                bottom: 0
+            });
+        },
+        closeEnsure: function closeEnsure() {
+            $("body").css({ height: 'auto', overflow: "auto" });
+            $(".goods-ensure-detail").animate({ bottom: "-75%" }, function () {
+                $("#goods_ensure_bg").hide();
+            });
+        },
+        buyReady: function buyReady() {
+            $("#sel_goods_bg").show();
+            $("body").css({ height: '100%', overflow: "hidden" });
+            var timeout = setTimeout(function () {
+                $(".sel-goods").css({ transform: 'translateY(0%)' });
+            }, 10);
+        },
+        closeSel: function closeSel(e) {
+            $(".sel-goods").css({ transform: 'translateY(105%)' });
+            var timer = setTimeout(function () {
+                $("#sel_goods_bg").hide();
+                $("body").css({ height: 'auto', overflow: "auto" });
+            }, 500);
+        },
+        stopPro: function stopPro(e) {
+            e.stopPropagation();
+        }
+    }
+});
+
+function init(argument) {
+    // banner
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+}

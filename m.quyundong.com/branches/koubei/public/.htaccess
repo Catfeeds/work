@@ -1,0 +1,7 @@
+#.htaccess, 当然也可以写在httpd.conf
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(index\.php|upload\.php|js|robots\.txt)
+RewriteRule .* index.php
+

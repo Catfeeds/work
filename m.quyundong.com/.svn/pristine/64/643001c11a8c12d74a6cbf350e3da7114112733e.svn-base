@@ -1,0 +1,73 @@
+@import "compass/css3";
+@mixin border-box{
+	@include box-sizing(border-box);
+}
+$pre:'.nm-';
+html{
+	width: 100%;
+	font-size: 100px;
+	background-color: #f0f0f0;
+	line-height: 1.375;
+}
+body{
+	width: 100%;
+	max-width: 640px;
+	font-size: 0.16rem;
+	margin: 0 auto;
+	color:#636363;
+	background-color: #f0f0f0;
+	overflow-x: hidden;
+}
+a{
+	text-decoration: none;
+	color:#636363;
+}
+a:visited{
+	color:#636363;
+}
+#{$pre}coach-h2{
+	text-align: center;
+	font-size: 0.2rem;
+	margin-top:0.1rem;
+	margin-left: 0.1rem; 
+}
+#{$pre}coach-card{
+	width: 90%;
+	margin: 0.1rem auto;
+	border: 1px solid #e1e1e1;
+	@include border-box;
+}
+#{$pre}coach-card .title{
+	width: 100%;
+	min-height: 0.4rem;
+	font-size: 0.14rem;
+	@include border-box;
+	padding:0.1rem;
+	color:#636363;
+	background-color: #f9f9f9;
+}
+#{$pre}coach-card .content{
+	font-size: 0.14rem;
+	color: #939393;
+	width: 100%;
+	height: auto;
+	line-height: 1.375;
+	border-top: 1px solid #e1e1e1;
+	@include border-box;
+	padding:0.1rem;
+	background-color: #fff;
+	overflow: hidden;
+}
+#{$pre}coach-btn-back{
+	display: block;
+	width: 90%;
+	height: 0.4rem;
+	margin: 0.3rem auto;
+	@include border-box;
+	border-radius: 6px;
+	background-color: #74affb;
+	line-height: 0.4rem;
+	color:#fff;
+	font-size: 0.16rem;
+	text-align: center;
+}

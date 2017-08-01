@@ -1,0 +1,111 @@
+@import '../../../../koubei/sass-lib/reset';
+@import '../../../../koubei/sass-lib/common';
+
+.main{
+	overflow:hidden;
+	min-height:100%;
+	height:auto;
+}
+
+.main .phone-login{
+	display:block;
+	margin-top:0;
+}
+
+.phone-btn{
+	margin-top:0.2rem;
+}
+
+.phone-tips{
+	padding:0.1rem 0 0.1rem 0.15rem;
+	text-align:left;
+    color:#888;
+}
+
+.phone-tel{
+	#phone-tel{
+		text-align:left;
+	}
+}
+
+.phone-login,#phoneSubmit,.phone-tel,#phoneChange{
+	display:none;
+}
+
+.no-login{
+	.phone-login,#phoneSubmit{
+		display:block;
+	}
+	.phone-tel,#phoneChange{
+		display:none;
+	}
+}
+
+.is-login{
+	.phone-login,#phoneSubmit{
+		display:none;
+	}
+	.phone-tel,#phoneChange{
+		display:block;
+	}
+}
+
+.common-menu {
+    border-top: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
+    padding-left: 0.15rem;
+    font-size: 0.15rem;
+    background-color: #fff;
+    >li {
+        padding: 0.12rem 0;
+        border-bottom: 1px solid $borderColor;
+        @include clearfix;
+        &:last-of-type {
+            border-bottom: none;
+        }
+        >div {
+            &:nth-of-type(1) {
+                float: left;
+                width: 4em;
+                margin-right: 0.15rem;
+            }
+            &:nth-of-type(2) {
+                overflow: hidden;
+                text-align: right;
+                padding-right: 0.15rem;
+                color: #888;
+            }
+        }
+    }
+    a, a:hover, a:visited{
+      display:block;
+      color:#888;
+    }
+}
+
+.common-login {
+    margin-top: 0.2rem;
+    li {
+        >div {
+            &:nth-of-type(2) {
+                input {
+                    width: 100%;
+                    font-size: 0.15rem;
+                    padding:0;
+                }
+                div {
+                    &:nth-of-type(1) {
+                        float: right;
+                        color: #00aaee;
+                        padding-left: 1em;
+                        margin-left: 0.1rem;
+                        border-left: 1px solid $borderColor;
+                    }
+                    &:nth-of-type(2) {
+                        overflow: hidden;
+                    }
+                }
+            }
+        }
+    }
+}

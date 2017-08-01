@@ -1,0 +1,214 @@
+.main{
+	min-height:100%;
+	.orderdetail-head{
+		background:url(../images/pcDetail-1.jpg) left top repeat-x;
+		background-size:1px 100%;
+		color:#fff;
+		padding-bottom:0.1*200px;
+        .orderdetail-statuImg{
+        	padding-top:0.15*200px;
+        	img{
+        		width:0.4*200px;
+        	}
+        }
+        .orderdetail-statuText{
+        	margin-top:0.1*200px;
+        	margin-bottom:0.2*200px;
+        	font-size:0.15*200px;
+        }
+        .orderdetail-statuTip{
+        	font-size:0.12*200px;
+        }
+	}
+
+	.orderdetail-gym{
+		text-align:left;
+		margin-top:0.16*200px;
+		background:#fff;
+		// border-top:1px solid #e6e6e6;
+		// border-bottom:1px solid #e6e6e6;
+		li{
+			font-size:0.12*200px;
+			color:#222;
+			margin-top:0.15*200px;
+			padding-left:0.15*200px;
+			padding-top:0.18*200px;
+			padding-bottom:0.18*200px;
+			border-top:1px solid #e6e6e6;
+			border-bottom:1px solid #e6e6e6;
+			p{
+				line-height:1;
+			}
+			.orderdetail-gym-p1{
+				margin-bottom:0.1*200px
+			}
+		}
+		.orderdetail-gym-li1{
+			position:relative;
+			font-size:0.15*200px;
+			.pcDetail-arrow{
+				position: absolute;
+				top:50%;
+				right:0.15*200px;
+				margin-top:-0.5em;
+				line-height:1;
+				width:auto;
+				padding-right:0.15*200px;
+				background:url(../images/pcDetail-6.png) right center no-repeat;
+				background-size:auto 100%;
+			}
+		}
+	}
+	
+	.orderdetail-time {
+		margin-top:0.08*200px;
+		img{
+			margin-right:0.04*200px;
+			width:0.1*200px;
+			height:0.12*200px;
+			vertical-align:-2px;
+		}
+		
+	}
+
+	.orderdetail-struct{
+		>li{
+			float: left;
+			width:16.6667%;
+		}
+	}
+
+    .orderdetail-rate{
+    	padding-top:0.42*200px;
+    	padding-bottom:0.21*200px;
+    	padding-left:0.15*200px;
+   		padding-right:0.15*200px;
+		.orderdetail-bar{
+			li{
+				div{
+					height:0.03*200px;
+					background:#bbb;
+					margin-left:1px;
+					margin-right:1px;
+					position:relative;
+					text-align:right;
+					em{
+						display:inline-block;
+						margin-top:0.08*200px;
+						margin-right:-1em;
+					}
+					span{
+						display:inline-block;
+						text-align:center;
+						width:0.45*200px;
+						line-height:0.18*200px;
+						color:#009cec;
+						border-radius:0.1*200px;
+						background:#fff;
+						position:absolute;
+						bottom:0.15*200px;
+						font-size:0.12*200px;
+						&:after{
+							content:"";
+							position:absolute;
+							bottom:-0.16*200px;
+							border-top:0.09*200px solid #fff;
+							border-bottom:0.09*200px solid transparent;
+							border-left:0.09*200px solid transparent;
+							border-right:0.09*200px solid transparent;
+						}
+					}
+					.orderdetail-start{
+						right:0;
+						margin-right:-0.225*200px;
+						&:after{
+							left:50%;
+							margin-left:-0.09*200px;
+						}
+					}
+					.orderdetail-end{
+						right:-0.12*200px;
+						&:after{
+							right:0.05*200px;
+						}
+					}
+				}
+			}
+			.active{
+				div{
+					background:#fff;
+				}
+			}
+		}
+
+		
+    }
+    .orderdetail-friend{
+    	text-align:left;
+    	padding:0.25*200px 0 0.15*200px 0.15*200px;
+    }
+    .orderdetail-member{
+		background:#fff;
+		padding-top:0.2*200px;
+		padding-bottom:0.2*200px;
+		border-top:1px solid #e6e6e6;
+		border-bottom:1px solid #e6e6e6;
+		li{
+			text-align:center;
+			.orderdetail-member-div1{
+				width:0.45*200px;
+				height:0.45*200px;
+				background-position:center;
+				background-repeat:no-repeat;
+				background-size:100% 100%;
+				margin:0 auto 0.08*200px;
+				div{
+					width:100%;
+					height:100%;	
+					border-radius:50%;
+					// background-image:url(../images/pcDetail-5.png);
+					background-position:center;
+					background-repeat:no-repeat;
+					background-size:cover;
+				}
+			}
+		}
+	}
+    .orderdetail-que{
+    	text-align:right;
+    	margin-top:0.25*200px;
+    	margin-right:0.15*200px;
+    	padding-bottom:0.2*200px;
+		span{
+			color:#666;
+			padding-left:0.22*200px;
+			background-repeat:no-repeat;
+			background-size:auto 0.15*200px;
+			background-position:left center;
+			background-image:url(../images/pcList-1.png);
+		}
+    }
+
+    .detail-rate{
+		.orderdetail-bar{
+			li{
+				div{
+					background:#e9e9e9;
+					span  {
+					    background: #009ff0;
+					    color:#fff;
+					    &:after{
+					    	border-top: 0.09*200px solid #009ff0;
+					    }
+					}
+				}
+			}
+			li.active{
+				div{
+					background:#009ff0;
+				}
+			}
+		}
+	}
+}
+

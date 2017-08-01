@@ -1,0 +1,244 @@
+@import "compass/css3";
+
+html{
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x:hidden; 
+  overflow: auto;
+  background-color:#f0f0f0;
+  line-height: 1.375;
+}
+body{
+  margin: 0 auto;
+  height: 100%;
+  width: 3.2rem;
+  max-width: 640px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f0f0f0;
+  color:#636363;
+}
+a,a:hover,a:visited{
+  text-decoration: none;
+  color: #636363;
+}
+.loading{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.loading-icon{
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(http://m.quyundong.com/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+@-moz-keyframes rotate360 {
+    from {
+        transform:rotateZ(0deg);
+    }
+    to {
+        transform:rotateZ(360deg);
+    }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+    transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+    transform:rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+  }
+}
+.hide{
+  display: none !important;
+}
+.opacity0{
+  opacity: 0;
+}
+img{
+  width: 100%;
+}
+.main{
+  background-color: #f0f0f0;
+  font-size: 0.14rem;
+  text-align: left;
+}
+
+.team-title{
+  width: 100%;
+  height: 0.45rem;
+  position: relative;
+  line-height: 0.45rem;
+  background-color: #f9f9f9;
+  padding-left: 0.35rem;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  @include box-sizing(border-box);
+  color:#939393;
+  font-size: 0.14rem;
+}
+.card{
+  width: 100%;
+  margin: 0 auto 0.1rem;
+}
+.team-show{
+  width: 3.2rem;
+  height: 2rem;
+  border:0.1rem solid #fff;
+  @include box-sizing(border-box);
+  background-color: #fff;
+  background:#fff url(../images/vipticket.jpg) no-repeat;
+  @include background-size(cover);
+}
+.team-desc{
+  width: 100%;
+  padding:0.15rem 0.1rem;
+  border-top:1px solid #e1e1e1;
+  border-bottom:1px solid #e1e1e1;
+  background-color: #fff;
+  color:#636363;
+  font-size: 0.14rem;
+  @include box-sizing(border-box);
+}
+.team-show2{
+  width: 3.2rem;
+  height: 2rem;
+  border-top:0.1rem solid #fff;
+  border-bottom:0.2rem solid #fff;
+  @include box-sizing(border-box);
+  background-color: #fff;
+  background:#fff url(../images/threeticket.png) no-repeat;
+  @include background-size(cover);
+  position: relative;
+}
+.team-show2::before{
+  width: 100%;
+  position: absolute;
+  display: block;
+  content:"";
+  border-top: 1px solid #e1e1e1;
+  bottom:-0.2rem;
+  left:0;
+}
+.team-Carousel{
+  width: 100%;
+  height: 1.8rem;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  position: relative;
+}
+.team-Carousel i{
+  position: absolute;
+  top:50%;
+  z-index: 99;
+  @include transform(translate3d(0,-50%,0));
+  @include transition(all 0.6s ease 0s);
+}
+.team-Carousel .icon-left{
+  left:0.1rem;
+}
+.team-Carousel .icon-right{
+  right:0.1rem;
+}
+.team-Carousel ul{
+  width: 300%;
+  height: 100%;
+}
+.team-Carousel li{
+  width: 3.2rem;
+  height: 100%;
+  float: left;
+  position: relative;
+}
+.team-card{
+  width: 2.47rem;
+  height:1.475rem;
+  position: absolute;
+  top:50%;
+  left:50%;
+  @include transform(translate3d(-50%,-50%,0));
+}
+.team-yu{
+  background:url(../images/yuticket.png) no-repeat;
+  @include background-size(cover);
+}
+.team-basketball{
+  background:url(../images/basketball.png) no-repeat;
+  @include background-size(cover);
+}
+.team-football{
+  background:url(../images/football.png) no-repeat;
+  @include background-size(cover);
+}
+.team-recommend{
+  width: 100%;
+  padding-left: 0.1rem;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  @include box-sizing(border-box);
+  background-color: #fff;
+  margin: 0.1rem auto;
+}
+.team-recommend li{
+  height: 0.43rem;
+  line-height: 0.43rem;
+  border-bottom: 1px solid #e1e1e1;
+  @include box-sizing(border-box);
+  @include transform(translateY(-2px));
+}
+.team-recommend i{
+  width: 0.43rem;
+  line-height: 0.43rem;
+  position: relative;
+  display: inline-block;
+  height: 0.43rem;
+  text-indent: -9999px;
+  @include box-sizing(border-box);
+  border-right: 1px solid #e1e1e1;
+}
+.team-recommend span,.team-recommend a{
+  display: inline-block;
+  position: relative;
+  line-height: 0.43rem;
+  height: 0.43rem;
+  text-indent: 0.16rem;
+}
+.team-recommend li:last-child{
+  border-bottom: 0px;
+}
+.team-title.team-title-1{
+  border-bottom: 0px;
+  margin: 0 auto -0.1rem;
+  padding-left: 0.1rem;
+}
+

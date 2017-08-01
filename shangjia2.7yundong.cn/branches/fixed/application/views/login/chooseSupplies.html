@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>选择商家-趣运动商家后台管理系统</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-weixin.css" rel="stylesheet">
+    <!-- <link href="/static/stylesheets/admin-sj.css" rel="stylesheet"> -->
+    <style>
+			body{
+				background-color: #fff;
+			}
+    </style>
+</head>
+<body>
+<div class="ui-aw-login">
+	
+	<form class="form-inline" style="width:100%;margin-bottom:30px;">
+	  <div class="form-group">
+			<select name="type" class="form-control">
+				<option value="" >-请选择-</option>
+				<option value="1" <?php if ($search['type'] == 1) { echo 'selected="selected"'; } ?> >场馆名称</option>
+				<option value="2" <?php if ($search['type'] == 2) { echo 'selected="selected"'; } ?> >账号名称</option>
+				<option value="3" <?php if ($search['type'] == 3) { echo 'selected="selected"'; } ?> >连锁商家名称</option>
+			</select>
+	  </div>
+	  <div class="form-group">
+			<input type="text" class="form-control"  name="name"  value="<?=$search['name'];?>" />
+	  </div>
+	  <button type="submit" class="btn btn-default" style="margin:0;line-height:1.42857143;display:inline-block">搜索</button>
+		<div class="form-group" style="margin-left: 100px;">
+			<a href="/login/logout"><button type="button" class="btn btn-default" style="margin:0;line-height:1.42857143;display:inline-block">退出</button></a>
+		</div>
+	</form>
+
+	<table class="table table-bordered">
+			  <thead>
+				<tr>
+					<th>账号名称</th>
+					<th>昵称</th>
+					<?php if ($search['type'] == 1) {?>
+						<th>商家ID</th>
+						<th>场馆名称</th>
+						<th>场馆ID</th>
+					<?php } elseif ($search['type'] == 3) {?>
+						<th>连锁商家名称</th>
+					<?php } ?>
+					<th>单店/多店</th>
+					<th>&nbsp;</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<?php foreach ($suppliersUserList as $row) { ?>
+					<tr>
+						<td><?= $row['username']; ?></td>
+						<td><?= $row['nickname']; ?></td>
+						
+						<?php if ($search['type'] == 1) {?>
+							<th><?= $row['suppliers_id']; ?></th>
+							<th><?= $row['venues_name']; ?></th>
+							<th><?= $row['venues_id']; ?></th>
+						<?php } elseif ($search['type'] == 3) {?>
+							<th><?= $row['headquarter_name']; ?></th>
+						<?php } ?>
+						
+						<td><?php 
+							if ($row['suppliers_id'] > 0) {
+								echo '单店';
+							} elseif ($row['suppliers_headquarters_id'] > 0) {
+								echo '多店';
+							}
+						?></td>
+						<td><a href="/login/loginSupplies?id=<?= $row['id']; ?>" class="btn btn-primary">登录</a></td>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+</div>
+<script src="/static/javascripts/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

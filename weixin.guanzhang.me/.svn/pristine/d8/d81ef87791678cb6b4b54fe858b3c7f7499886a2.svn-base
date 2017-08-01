@@ -1,0 +1,12 @@
+<div class="prev" ng-click="prevDate()">
+	<i class="icon-7"></i>
+</div>
+<div class="list dis-flex">
+	<a class="item dis-flex-1" ng-repeat="item in dateList" ng-class="{'current':item.day==selectDate}" ng-click="getData('{{item.day}}')" ng-animate>
+		<h4>{{item.day | setDay}}</h4>
+		<p>{{item.week | setWeek}}</p>
+	</a>
+</div>
+<div class="next" ng-class="{'disable':!nextDateShow}" ng-click="nextDate()">
+	<i class="icon-8"></i>
+</div>

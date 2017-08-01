@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>馆掌</title>
+		<script>
+			//截取url关键参数
+			function getUrlKey(key){
+				var curUrl = window.location.href,
+					first = curUrl.indexOf('?'),
+					str,
+					pstr,
+					i;
+				if(first<0){
+					return false;
+				}
+				str = curUrl.substring(first+1,curUrl.length);
+				str = str.split('&');
+				for(i=0;i<str.length;i++){
+					pstr = str[i].split('=');
+					if(pstr[0]==key){
+						return pstr[1];
+					}
+				}
+				return false;
+			}
+			var _url = window.location.href,
+				_venueId = getUrlKey('venueId'),
+				_date = getUrlKey('date'),
+				_templateMsgId = getUrlKey('templateMsgId'),
+				_callback;
+			if(_date && _venueId && _templateMsgId){
+				_callback = window.location.origin + '/wxreport/oauth.action?venueId=' + _venueId + '&date=' + _date + '&templateMsgId=' + _templateMsgId;
+			}else{
+				_callback = window.location.origin + '/wxuserindex/oauth.action';
+			}
+			window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxa7aee2f8bd8aeb54&redirect_uri=' + encodeURIComponent(_callback) + '&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect';
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

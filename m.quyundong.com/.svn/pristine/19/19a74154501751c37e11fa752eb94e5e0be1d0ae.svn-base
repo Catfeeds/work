@@ -1,0 +1,171 @@
+@import "compass/reset";
+@import "compass/css3";
+
+
+@import "../../../sass-lib/base";
+@import "../../../sass-lib/loading";
+
+html{
+  background-color: #f5f5f9;
+}
+body{
+  background-color: #f5f5f9;
+  text-align: left;
+}
+
+.loading{
+  position: fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+}
+
+.header{
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #e6e6e6;
+  height: pxToRem(60px);
+  padding:pxToRem(10px) 0;
+  position: relative;
+  .back{
+    position: absolute;
+    line-height: pxToRem(60px);
+    padding:0 pxToRem(20px);
+    left:0;
+    top:pxToRem(10px);
+    img{
+      width: pxToRem(20px);
+      line-height: inherit;
+      vertical-align: middle;
+    }
+  }
+  .search{
+    width: pxToRem(600px);
+    height: pxToRem(60px);
+    background-color: #e6e6e6;
+    border-radius: 3em;
+    margin-left: pxToRem(80px);
+    line-height: pxToRem(60px);
+    input{
+      width: pxToRem(500px);
+      margin-left: pxToRem(36px);
+      background-color: transparent;
+      border:none;
+      outline: none;
+    }
+  }
+}
+.body{
+  .index{
+    font-size: pxToRem(28px);
+    color:#222;
+    h3{
+      color:#aaa;
+    }
+    h4{
+      font-size: pxToRem(24px);
+      padding-left: pxToRem(30px);
+      color:#aaa;
+    }
+    span{
+      color:#222;
+    }
+    .location-city{
+      margin-top: pxToRem(30px);
+      padding: pxToRem(30px);
+      background-color: #fff;
+    }
+    .GPS-city,.hot-city{
+      margin-top: pxToRem(30px);
+      h4{
+        margin-bottom: pxToRem(20px);
+        
+      }
+      ul{
+        padding:0 pxToRem(30px);
+        background-color:#fff;
+        padding-bottom: pxToRem(20px);
+      }
+      li{
+        display: inline-block;
+        @include box-sizing(border-box);
+        min-width: pxToRem(160px);
+        padding:pxToRem(10px) pxToRem(20px);
+        border:1px solid #aaa;
+        border-radius:pxToRem(6px);
+        text-align: center;
+        margin-top:pxToRem(20px);
+        margin-right: pxToRem(18px);
+      }
+    }
+    .city-list{
+      margin-bottom: pxToRem(20px);
+      h4{
+        margin-bottom: pxToRem(20px);
+        margin-top: pxToRem(30px);
+      }
+      ul{
+        padding-left:pxToRem(30px);
+        background-color:#fff;
+      }
+      li{
+        display: block;
+        line-height: pxToRem(90px);
+        border-bottom:1px solid #e6e6e6;
+        &:last-child{
+          border: none;
+        }
+      }
+    }
+  }
+}
+.location-side-bar{
+  font-size: 10px;
+  position: fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  width: pxToRem(70px);
+  color:#222;
+  background-color: rgba(#fff,0.6);
+  text-align: center;
+  .location-side-bar-text{
+    width: 100%;
+    position: absolute;
+    top:50%;
+    right:0;
+    @include transform(translate3d(0,-50%,0));
+  }
+  li{
+    margin:pxToRem(2px) 0;
+  }
+}
+#search{
+  padding-top: pxToRem(20px);
+  ul{
+    padding-left:pxToRem(30px);
+    background-color:#fff;
+  }
+  li{
+    display: block;
+    line-height: pxToRem(90px);
+    border-bottom:1px solid #e6e6e6;
+    &:last-child{
+      border: none;
+    }
+  }
+  .none{
+    padding-top: pxToRem(300px);
+    img{
+      display: block;
+      width: pxToRem(282px);
+      margin:0 auto;
+      margin-bottom: pxToRem(50px);
+    }
+    p{
+      text-align: center;
+      color:#666;
+    }
+  }
+}

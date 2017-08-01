@@ -1,0 +1,41 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='/css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='/css/pc/stylesheets/join.css')
+  script(src="/js/jquery/jquery-1.8.3.min.js")
+  script(src="/js/pc/join.js")
+block content
+  body
+    include ./_header
+    .main
+      form(action='/api/join/add',mothod='post')#joinForm
+        h2 申请加入趣运动/馆掌
+        .row
+          label 场馆名称<span> *</span>
+          input.input(type='text',name='name',id='name')
+          .error-tips 
+        .row
+          label 联系人<span> *</span>
+          input.input(type='text',id='userName',name='userName')
+          .error-tips 
+        .row
+          label 联系电话<span> *</span>
+          input.input(type='text',name='tel',id='tel')
+          .error-tips 
+        .row.clearfix
+          label 城市<span> *</span>
+          input.input.province(type='text',name='province',id='province')
+          span.p 省
+          input.input.city(type='text',name='city',id='city')
+          span.c 市
+          .error-tips 
+        .row
+          label 详细地址<span> *</span>
+          textarea.input(type='text',id='address',name='address')
+          .error-tips 
+        .row
+          #submit.btn(onclick="submitJoin()") 立即提交
+          p.error(style='color:red;')
+        .row
+          p.tip 提交申请后1小时内会有工作人员与您联系<br />工作时间：周一至周六  9:00-18:00
+    include ./_footer

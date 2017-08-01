@@ -1,0 +1,76 @@
+.color-width {
+  color: #fff; }
+
+.tdmain {
+  border: none; }
+
+.td-cgsd-group {
+  background: url(../images/bind-icon.png) center no-repeat;
+  background-color: #38b6b5;
+  border: 1px solid #38b6b5 !important; }
+
+.bind-nav span {
+  display: inline-block;
+  color: #222;
+  font-size: 23px;
+  padding-bottom: 10px;
+  margin-right: 40px; }
+  .bind-nav span.active {
+    color: #0384da;
+    border-bottom: 2px solid #0384da; }
+  .bind-nav span:hover {
+    color: #0384da; }
+
+.bind-header .bind-title {
+  font-size: 14px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #3d4456; }
+
+  .bind-header .bind-title span:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #38b6b5; }
+
+.bind-layer {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  height: 305px;
+  width: 500px;
+  z-index: 1002;
+  margin-left: -250px;
+  margin-top: -152px;
+  background-color: #fff;
+  border-radius: 5px; }
+  .bind-layer .bind-layer-header {
+    padding: 20px; }
+  .bind-layer .bind-nav span {
+    font-size: 15px; }
+  .bind-layer .bind-layer-form {
+    font-size: 15px;
+    width: 280px;
+    margin: 20px auto 0; }
+    .bind-layer .bind-layer-form .order-list {
+      max-height: 110px;
+      min-height: 20px;
+      overflow: auto; }
+    .bind-layer .bind-layer-form .bind-tips {
+      text-align: center;
+      margin-top: 20px; }
+    .bind-layer .bind-layer-form .bind-sure {
+      margin: 30px auto 0;
+      width: 130px;
+      line-height: 40px;
+      height: 40px;
+      font-size: 15px;
+      color: #fff;
+      text-align: center;
+      background-color: #0384da;
+      border-radius: 20px; }
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html  lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>王者之战</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui" />
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style type="text/css">
+		html{
+			-ms-text-size-adjust: 100%; 
+			-webkit-text-size-adjust: 100%;
+			 font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+			width: 100%;
+			height: 100%;
+			font-size: 100px;
+			overflow: auto;
+			background-color:#fff;
+		}
+		button{
+			border:0px;
+			padding: 0.02rem 0.05rem ;
+		}
+		body{
+			margin: 0 auto;
+			width: 3.2rem;
+			height: 5.68rem;
+			max-width: 640px;
+			max-height:1136px; 
+			/*overflow: hidden;*/
+			background-color:#fff;
+			font-size: 0.24rem;
+			text-align: center;
+		}
+		.main{
+			width: 100%;
+			/*background: pink;*/
+			margin: 0 auto;
+		}
+		div.image{
+			width: 100%;
+		}
+		div.image img{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<section class="main">
+		<div class="image"><img src="images/dy/yu_01.png"></div>
+		<div class="image" style="height:0.12rem"></div>
+		<div class="image"><img src="images/dy/yu_03.png"></div>
+		<div class="image" style="height:0.31rem"></div>
+		<div class="image"><img src="images/dy/yu_05.png"></div>
+		<div class="image"><img src="images/dy/yu_06.png"></div>
+		<div class="image" style="height:0.20rem"></div>
+		<div class="image"><img src="images/dy/yu_08.png"></div>
+		<div class="image" style="height:0.23rem"></div>
+		<div class="image"><img src="images/dy/yu_10.png"></div>
+		
+	</section>
+	<script type="text/javascript" src="js/zeptoWithFxTouch.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var $windowWidth = $(window).width();
+			setTimeout(function(){
+				$windowWidth = $(window).width();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+			},100);
+			
+
+			$(window).resize(function(){
+				$windowWidth = $(window).width();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+			});
+		});
+	</script>
+</body>
+</html>

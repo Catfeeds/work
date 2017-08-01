@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+a:link {
+  color: none; }
+
+a:hover {
+  color: none; }
+
+a:visited {
+  color: none; }
+
+a:active {
+  color: none; }
+
+#mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: black;
+  opacity: 0.3;
+  z-index: 101;
+  display: none; }
+  #mask div {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    background: #999;
+    left: 46%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-animation: animations 0.5s linear infinite alternate;
+    -webkit-animation: animations 0.5s linear infinite alternate;
+    -o-animation: animations 0.5s linear infinite alternate;
+    -ms-animation: animations 0.5s linear infinite alternate;
+    -webkit-transform: scale(2);
+    -moz-transform: scale(2);
+    -ms-transform: scale(2); }
+@-webkit-keyframes animations {
+  0% {
+    -webkit-transform: scale(2); }
+  100% {
+    -webkit-transform: scale(1); } }
+  #mask div:nth-child(2) {
+    left: 54%;
+    -webkit-animation-delay: 0.5s; }
+
+#back_top {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  right: 25px;
+  top: 80%;
+  background: #f07dc3;
+  text-align: center;
+  line-height: 40px;
+  z-index: 101;
+  font-size: 40px;
+  color: purple; }
+
+#head {
+  width: 100%;
+  height: 50px;
+  background: #DE2319;
+  position: fixed;
+  top: 0;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  z-index: 100; }
+  #head span {
+    float: right;
+    color: white;
+    line-height: 50px;
+    margin-right: 5px;
+    font-size: 22px; }
+
+#nav {
+  width: 100%;
+  height: 50px;
+  background: white;
+  border: 1px solid #ccc;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-size: 14px;
+  z-index: 100; }
+  #nav .font {
+    width: 100%;
+    height: 50%; }
+    #nav .font span {
+      line-height: 30px;
+      float: left;
+      width: 20%; }
+  #nav .nav {
+    width: 100%;
+    height: 50%; }
+    #nav .nav span {
+      line-height: 10px;
+      float: left;
+      width: 20%; }
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  top: 50px;
+  bottom: 50px;
+  left: 0;
+  background: #f1f1f1; }
+  #wrapper #content {
+    bottom: 50px;
+    z-index: 1;
+    width: 100%; }
+    #wrapper #content .banner {
+      height: 30%;
+      width: 100%; }
+      #wrapper #content .banner .swiper-container {
+        width: 100%;
+        height: 100%; }
+        #wrapper #content .banner .swiper-container .swiper-wrapper {
+          width: 100%;
+          height: 100%; }
+          #wrapper #content .banner .swiper-container .swiper-wrapper img {
+            width: 100%;
+            height: 100%; }
+    #wrapper #content .culling {
+      width: 100%;
+      height: 10%; }
+      #wrapper #content .culling img {
+        width: 100%;
+        height: 100%; }
+    #wrapper #content .classify_nav {
+      width: 100%;
+      overflow: scroll; }
+      #wrapper #content .classify_nav div {
+        height: 24%;
+        padding: 2px;
+        margin: 0; }
+/*        #wrapper #content .classify_nav div img {
+          width: 100%;
+          height: 100%; }*/
+          #wrapper #content .classify_nav .circle_nav div{
+            width: 20%;
+            height: 50px;
+            float: left;
+            margin: 5px 0px;
+            border-radius: 30%;
+            position: relative;
+          }
+          #wrapper #content .classify_nav .classify_hot{
+            height: 30px;
+          }
+          #wrapper #content .classify_hot{
+            height: 30px;
+            text-align: center;
+            font-size: 10px;
+            color: red;
+            background: white;
+          }
+           #wrapper #content .classify_hot i{
+              line-height: 30px;
+           }
+          #wrapper #content .classify_nav .circle_nav div img{
+            width: 50px;
+            height: 40px;
+            border-radius: 30%;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform:translate(-50%,-50%);
+          }
+          #wrapper #content .classify_nav .circle_nav div p{
+            font-size: 10px;
+            text-align: center;
+            line-height: 105px;
+            color:#999;
+          }
+          #wrapper #content .classify_nav .classify_box{
+            height: 10%;
+            padding: 0;
+            width: 48%;
+            margin: 1% 1% 1% 1%;
+            border: 1px solid #ccc;
+            text-align: center;
+            float: left;
+          }
+          #wrapper #content .classify_nav .classify_box div,img{
+            width: 50%;
+            float: left;
+          }
+          #wrapper #content .classify_nav .classify_box div img{
+            width: 100%;
+            height: 50%;
+          }
+          #wrapper #content .classify_nav .classify_box div p{
+            font-size: 12px;
+            line-height: 15px;
+            color:#666;
+          }
+    #wrapper #content #pro_list {
+      width: 100%;
+      overflow: hidden; }
+      #wrapper #content #pro_list .thumbnail {
+        width: 50%;
+        margin: 2%;
+        float: left;
+        padding: 4px;
+        height: 200px;
+        margin: 0; }
+        #wrapper #content #pro_list img{
+          width: 100%;
+          height: 150px;
+        }
+      #wrapper #content #pro_list .thumbnail .caption p {
+        line-height: 15px;
+        font-size: 12px; }
+      #wrapper #content #pro_list .thumbnail .caption p:nth-child(2) {
+        color: red;
+        line-height: 10px;
+        font-weight: bold;
+        font-size: 14px; }
+        #wrapper #content #pro_list .thumbnail .caption p:nth-child(2) span:nth-child(2){
+          color:#999;
+          font-size: 8px;
+          float: right;
+        }
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,31 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='./css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='./css/pc/stylesheets/platform.css')
+  script(src='./js/jquery/jquery-1.8.3.min.js')
+block content
+  body
+    include ./_header
+    .main.w1180
+      h2 新客源源不断
+      p 用馆掌，您的空场直接卖给8亿用户
+      .cb
+        .row
+          .cell
+            img(src='/images/pc/v2/meituan.png')
+            br
+            .li 美团
+          .cell
+            img(src='/images/pc/v2/dianpin.png')
+            br
+            .li 大众点评
+        .row
+          .cell
+            img(src='/images/pc/v2/koubei.png')
+            br
+            .li 支付宝 口碑
+          .cell
+            img(src='/images/pc/v2/baidu.png')
+            br
+            .li 百度地图
+    include ./_footer

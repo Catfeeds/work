@@ -1,0 +1,92 @@
+.myCoupons-container {
+  min-height: 100%;
+  font-size: 62.5%;
+  font-family: "Microsoft Yahei", "Trebuchet MS", Georgia,"Times New Roman",Times,sans-serif;
+  background: #eaeaed;
+}
+.myCoupons-container .myCoupons-wrap {
+  padding: 2em 2em;
+  text-align: left;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card {
+  min-height: 8em;
+  border-bottom: 4px solid #009ff0;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  padding: 1.6em 2.4em 1em;
+  background-color: #fff;
+  background-image: url(../images/logo1.png);
+  background-position: right bottom;
+  background-size: 8.4em auto;
+  background-repeat: no-repeat;
+  color: #222;
+  font-size: 1.2em;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-money {
+  float: right;
+  font-size: 1.2em;
+  margin-top: -1em;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-money span {
+  font-size: 2.4em;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-name {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  height: 24px;
+  white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis;
+  overflow: hidden;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-limit {
+  height: 5.6em;
+  margin-bottom: 0.5em;	
+  overflow: hidden;
+  font-size: 12px;		
+}
+.myCoupons-limit p {white-space:nowrap; text-overflow:ellipsis; -o-text-overflow:ellipsis;}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-limit li {
+  line-height: 1.4;
+  list-style: none;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-limit li:before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  float: left;
+  background: #222;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-limit li p {
+  overflow: hidden;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-deadline {
+  line-height: 1.4;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-deadline span:nth-of-type(2) {
+  color: #000000;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-password {
+  line-height: 1.4;
+  color: #666;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-card .myCoupons-password span {
+  color: #222;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-disable {
+  color: #666;
+  border-bottom: 4px solid #c5c5c5;
+  background-image: url(../images/logo2.png);
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-disable .myCoupons-money, .myCoupons-container .myCoupons-wrap .myCoupons-disable .myCoupons-name {
+  color: #aaa;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-disable .myCoupons-password {
+  color: #666;
+}
+.myCoupons-container .myCoupons-wrap .myCoupons-disable .myCoupons-password span {
+  color: #666;
+}

@@ -1,0 +1,123 @@
+<!-- 搜索模块 start -->
+<form action="">
+    <div class="bbs-header">
+        <div class="filter-control">
+            <div class="filter-radio">
+                <label>
+                    <input type="radio" name="accountType" value="1"  <?php if($accountType==1) echo "checked"; ?> /><em> </em><span>收款时间</span>
+                </label>
+            </div>
+            <div class="filter-radio">
+                <label>
+                    <input type="radio" name="accountType" value="2" <?php if($accountType==2) echo "checked"; ?> ><em> </em><span>消费时间</span>
+                </label>
+            </div>
+        </div>
+        <div class="filter-control">
+            <!-- 日期选择插件 -->
+            <div class="filter-time"><span id="timeStart" class="btn-bdru"><?php echo $startDate;?><i
+                    class="glyphicon glyphicon-chevron-down"></i></span><em>至</em><span id="timeEnd" class="btn-bdru"><?php echo $endDate; ?><i
+                    class="glyphicon glyphicon-chevron-down"></i></span><input id="reservation" type="text" readonly value="<?php echo $startDate .' - '. $endDate; ?>">
+                <script>
+                    $(document).ready(function () {
+                        $('#reservation').daterangepicker({
+                            locale:{
+                                applyLabel: '确认',
+                                cancelLabel: '取消',
+                                fromLabel: '从',
+                                toLabel: '到',
+                                weekLabel: 'W',
+                                customRangeLabel: 'Custom Range',
+                                daysOfWeek:["日","一","二","三","四","五","六"],
+                                monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+                            }
+                        }, function (start, end, label) {
+                            var t1 = new Date(start.toString());
+                            var t2 = new Date(end.toString());
+                            var txt1 = t1.format('yyyy-MM-dd');
+                            var txt2 = t2.format('yyyy-MM-dd');
+                            $("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                            $("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                            $('#startDate').val(txt1);
+                            $('#endDate').val(txt2);
+                        });
+                    // 给导出结算记录按钮绑定事件
+                    $("#export_venue_consume_btn").click(function () {
+                        var accountType = $("input[name=accountType]").val();
+                        var startDate =  $("#startDate").val();
+                        var endDate =  $("#endDate").val();
+                        var href = $(this).attr("data-href") + "?export=1&startDate=" + startDate + "&endDate=" + endDate;
+                        $(this).attr("href", href);
+                        setTimeout(function () {
+                            $("#export_venue_consume_btn").attr('href', 'javascript:void(0);');
+                        }, 0)
+                    });
+                    });
+                </script>
+            </div>
+            <input type="text" hidden id="startDate" name="startDate" value="<?php echo $startDate;?>">
+            <input type="text" hidden id="endDate" name="endDate" value="<?php echo $endDate;?>">
+        </div>
+        
+        <div class="filter-control">
+            <div class="btn search-btn btn-bdru btn-sj-blue" onclick="$('form').submit();"><span>查询</span></div>
+            <a href="javascript:void(0);" data-href="/venuestat/venueConsume" class="search-btn btn-sj-blue btn-bdru btn btn-default" id="export_venue_consume_btn" >导出</a>
+        </div>
+        <!-- 日期选择插件 end -->
+    </div>
+</form>
+<!-- 搜索模块 end -->
+<h1>场地消费统计</h1>
+<!-- 特别的table -->
+<div class="body-table report-table">
+    <table class="table table-bordered">
+        <thead class="sp">
+        <tr>
+            <th colspan="2">项目分类</th>
+            <th colspan="4">收入金额</th>
+            <th colspan="12">收款方式</th>
+        </tr>
+        </thead>
+        <thead>
+        <tr>
+            <th colspan="2">
+                <div style='width:50%;float:left;'>消费项目</div>
+                <div style='width:50%;float:left;'>订单数量</div>
+            </th>
+            <th colspan="4">
+                <div style='width:25%;float:left;'>应收金额</div>
+                <div style='width:25%;float:left;'>优惠/赠送(-)</div>
+                <div style='width:25%;float:left;'>退款退费(-)</div>
+                <div style='width:25%;float:left;'>实收金额</div>
+            </th>
+            <th colspan="12">
+                <?php foreach($payMode AS $k=>$m){ ?>
+                <div style='width:8%;float:left;'><?php echo $m ?></div>
+                <?php } ?>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($consumeList AS $v){ ?>
+        <tr>
+            <td colspan="2">
+                <div style='width:50%;float:left;'><?php echo $v['category_name'] ? $v['category_name'] : '-'; ?></div>
+                <div style='width:50%;float:left;'><?php echo $v['order_count']; ?></div>
+            </td>
+            <td colspan="4">
+                <div style='width:25%;float:left;'><?php echo $v['payable_amount']; ?></div>
+                <div style='width:25%;float:left;'><?php echo $v['cut_amount']; ?></div>
+                <div style='width:25%;float:left;'><?php echo $v['back_amount']; ?></div>
+                <div style='width:25%;float:left;'><?php echo $v['apay_amount']; ?></div>
+            </td>
+            <td colspan="12">
+                <?php foreach($payMode AS $k=>$m){ ?>
+                <div style='width:8%;float:left;'><?php echo isset($v['pay_mode_list'][$k]) ? $v['pay_mode_list'][$k] :  0 ?></div>
+                <?php } ?>
+            </td>
+        </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+</div>
+

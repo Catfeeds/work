@@ -1,0 +1,21 @@
+<div id="mobile_login">
+    <div class="point-1"></div>
+    <div class="point-2"></div>
+    <div class="point-3"></div>
+    <div class="point-4"></div>
+    <div class="form">
+        <div class="tips">提供您在馆掌的验证号码</div>
+        <div class="tel">
+            <input type="text" name="tel" ng-model="tel" class="input" placeholder="请输入手机号" autocomplete="off" />
+        </div>
+        <div class="code">
+            <div class="input">
+                <input type="text" name="codeMsg" ng-model="codeMsg" placeholder="请输入验证码" autocomplete="off" />
+            </div>
+            <span class="getCode disable" ng-if="msgTime>0" ng-click="sendMsg()">重新发送({{msgTime}})</span>
+            <span class="getCode" ng-if="!msgTime" ng-click="sendMsg()">获取验证码</span>
+        </div>
+        <button type="button" class="btn" ng-click="confirm()">确认提交</button>
+    </div>
+    
+</div>

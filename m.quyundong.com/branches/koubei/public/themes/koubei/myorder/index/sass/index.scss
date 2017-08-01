@@ -1,0 +1,111 @@
+@import '../../../../koubei/sass-lib/reset';
+@import '../../../../koubei/sass-lib/common';
+@import '../../../../koubei/sass-lib/base';
+
+.myorder-index-card{
+  &:not(:first-child):before{
+    @extend %borderH1px;
+    top:0;
+    left:0;
+  }
+  width: 100%;
+  @include box-sizing(border-box);
+  background-color: #fff;
+  padding-left: pxToRem(30px);
+  padding-bottom: pxToRem(10px);
+  position: relative;
+  font-size: pxToRem(30px);
+  text-align: left;
+  color:#000;
+  margin-bottom: pxToRem(40px);
+  .myorder-index-card-header{
+    width: 100%;
+    height: pxToRem(90px);
+    line-height: pxToRem(90px);
+    position: relative;
+    .myorder-index-card-header-right{
+      width: 100%;
+      height: pxToRem(90px);
+      line-height: pxToRem(90px);
+      @include box-sizing(border-box);
+      padding-right:pxToRem(30px); 
+      position: absolute;
+      top:0;
+      right:0;
+      text-align: right;
+      span{
+        color:#888;
+      }
+      .alert{
+        color:$kouBeiRed;
+      }
+      a.pay{
+        display: inline-block;
+        font-size: pxToRem(26px);
+        color:$kouBeiRed;
+        padding:pxToRem(15px) pxToRem(30px);
+        border: 1px solid $kouBeiRed;
+        border-radius: 4px;
+        line-height: 1;
+      }
+    }
+  }
+  .myorder-index-card-body{
+    padding-top:pxToRem(30px);
+    padding-right:pxToRem(30px);
+    @include box-sizing(border-box);
+    width: 100%;
+    li{
+      width: 100%;
+      height: pxToRem(30px);
+      line-height: pxToRem(30px);
+      margin-bottom: pxToRem(30px);
+      text-align: justify;
+      &:after{
+        content: " ";
+        width: 100%;
+        height: 0;
+        display: inline-block;
+        overflow: hidden;
+      }
+      .left{
+        display: inline-block;
+        text-align: left;
+      }
+      .right{
+        display: inline-block;
+        text-align: right;
+        color:#888;
+      }
+    }
+  }
+}
+.declare{
+  text-align: center;
+  margin: pxToRem(20px) auto;
+  font-size: pxToRem(30px);
+  color:#888;
+}
+.nm-fixed-bottom{
+  width: 100%;
+  height: pxToRem(190px);
+  border-top:1px solid #ddd;
+  padding-top: pxToRem(20px);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fbfbfb;
+  z-index: 99999;
+  .koubei-button-white{
+    top:pxToRem(20px);
+    position: absolute;
+    bottom:pxToRem(100px);
+    left:50%;
+    @include transform(translateX(-50%));
+  }
+  
+}
+.common-quyundongtipsSpace{
+    height: pxToRem(200px);
+  }
+

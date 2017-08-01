@@ -1,0 +1,326 @@
+@import "compass/reset";
+
+@import "compass/css3";
+
+html{
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x:hidden; 
+  overflow: auto;
+  background-color:#f0f0f0;
+  line-height: 1.375;
+}
+body{
+  margin: 0 auto;
+  width: 3.2rem;
+  max-width: 640px;
+  font-size: 0.24rem;
+  height: 100%;
+  text-align: center;
+  background-color: #1c2747;
+}
+a,a:hover,a:visited{
+  text-decoration: none;
+  color: #fff;
+}
+input::-ms-input-placeholder{text-align: center;}
+input::-webkit-input-placeholder{text-align: center;}
+.loading{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgba(255,255,255,1);
+}
+.loading-icon{
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(http://m.quyundong.com/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+@-moz-keyframes rotate360 {
+    from {
+        transform:rotateZ(0deg);
+    }
+    to {
+        transform:rotateZ(360deg);
+    }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+    transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+    transform:rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+  }
+}
+.hide{
+  display: none !important;
+}
+img{
+  width: 100%;
+}
+
+// main
+.main{
+  color:#fff;
+  font-size: 0.12rem;
+}
+.banner{
+  width: 100%;
+}
+.getcode{
+  width: 2.75rem;
+  height:3.84rem;
+  padding-top: 0.2rem;
+  border-radius: 0.1rem;
+  margin: 0.2rem auto;
+  @include box-sizing(border-box);
+  background-color: #f4f5f0;
+  .logo{
+    width: 2.28rem;
+    margin: 0 auto;
+  }
+}
+.btn{
+  display: block;
+  width: 1.5rem;
+  height: 0.5rem;
+  border-radius: 0.1rem;
+  margin: 0.3rem auto 0.35rem;
+  background-color: #ee4a6d;
+  position: relative;
+  z-index: 99;
+}
+.btn:before{
+  display: block;
+  content: "";
+  position: absolute;
+  left:0;
+  top:-0.1rem;
+  width: 1.5rem;
+  height: 0.5rem;
+  border-radius: 0.1rem;
+  border: 1px solid #f5a6b7;
+  @include box-sizing(border-box);
+  background-color: #cf0b35;
+  z-index: 9;
+}
+.btn:after{
+  display: block;
+  content: "";
+  position: absolute;
+  z-index: 30;
+  width: 1.05rem;
+  height: 0.25rem;
+  background-position: center center;
+  @include background-size(cover);
+  top:50%;
+  left:50%;
+  @include transform(translate3d(-50%,-85%,0));
+}
+
+.btn1{
+  background-color: #cf0b35;
+}
+.btn1:before{
+  background-color: #ee4a6d;
+}
+.btn1:after{
+  background-image: url(../images/get.png);
+}
+.btn2{
+  background-color: #e4224c;
+}
+.btn2:before{
+  background-color: #ff7290;
+}
+.btn2:after{
+  background-image: url(../images/share.png);
+}
+.btn3{
+  background-color: #ee4a6d;
+}
+.btn3:before{
+  background-color: #ff92a9;
+}
+.btn3:after{
+  width: 1.24rem;
+  background-image: url(../images/download.png);
+}
+.btn4{
+  width: 1.2rem;
+  position: absolute;
+  background-color: #004ec2;
+  top:-0.26rem;
+  right: 0;
+}
+.btn4:before{
+  width: 1.2rem;
+  background-color: #1571f9;
+  border-color: #58a2f6;
+}
+.btn4 span{
+  font-size: 0.18rem;
+  position: absolute;
+  display: inline-table;
+  top:50%;
+  left: 50%;
+  @include transform(translate3d(-50%,-85%,0));
+  z-index: 9999;
+  color: #fff;
+}
+.tip{
+  width: 2.3rem;
+  height: 0.2rem;
+  font-size: 0.12rem;
+  color: red;
+  margin: 0.1rem auto;
+  text-align: left;
+}
+.tip2{
+  width: 2.3rem;
+  height: 0.2rem;
+  font-size: 0.12rem;
+  color: red;
+  margin: 0.1rem auto;
+  text-align: left;
+}
+.code{
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 0 auto;
+  position: relative;
+}
+.note{
+  width: 100%;
+  padding:0.35rem;
+  @include box-sizing(border-box);
+  text-align: left;
+  font-size: 0.16rem;
+  line-height: 1.6;
+}
+.note h2{
+  width: 1.03rem;
+  height: 0.26rem;
+  background:transparent url(../images/rule.jpg) left top no-repeat;
+  @include background-size(cover);
+}
+.getcode p{
+  width: 2.3rem;
+  height:0.44rem;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+}
+.phoneNumber{
+  font-size: 0.24rem;
+  width:2.3rem;
+  height:0.44rem;
+  border: 1px solid #000;
+  border-radius: 6px;
+  @include box-sizing(border-box);
+}
+
+.checkCode{
+  font-size: 0.24rem;
+  width:1rem;
+  height:0.44rem;
+  border: 1px solid #000;
+  border-radius: 6px;
+  @include box-sizing(border-box);
+}
+
+.alert{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 99999999;
+}
+
+.info{
+  font-size: 0.16rem;
+  width: 60%;
+  height: 1.8rem;
+  padding-top: 0.4rem;
+  padding-left: 0.1rem;
+  padding-right: 0.1rem;
+  @include box-sizing(border-box);
+  line-height: 1.5;
+  text-align: center;
+  color:#000;
+  position: absolute;
+  top:50%;
+  left:50%;
+  background-color: #fff;
+  border-radius: 6px;
+  @include transform(translate3d(-50%,-50%,0));
+  z-index: 99999999;
+}
+.close{
+  width: 0.8rem;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  position: absolute;
+  border: 1px solid #000;
+  border-radius: 6px;
+  top:70%;
+  left:50%;
+  @include transform(translate3d(-50%,-50%,0));
+}
+.share{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 99999999;
+}
+.shareweixin{
+  width: 2.52rem;
+  height: 2.14rem;
+  margin: 0 auto;
+}
+.code span{
+  width: 1.2rem;
+  height: 0.15rem;
+  font-size: 0.12rem;
+  position: absolute;
+  left: 50%;
+  bottom:0;
+  color:#fff;
+  @include transform(translate3d(-50%,200%,0));
+}

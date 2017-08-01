@@ -1,0 +1,278 @@
+@import "compass/reset";
+@import "compass/css3";
+
+
+@import "../../../../../sass-lib/base";
+@import "../../../../../sass-lib/loading";
+
+html{
+  background-color: #e6e6e6;
+}
+body{
+
+  background-color: #fff;
+  text-align: left;
+}
+.page{
+  position: relative;
+  background-color: #fff;
+  .step{
+    font-size: pxToRem(30px);
+    margin-top: pxToRem(48px);
+    color:#382980;
+    text-indent: pxToRem(50px);
+    i{
+      font-size: pxToRem(36px);
+      margin-right: 1em;
+      font-style: italic;
+    }
+  }
+  margin-bottom:pxToRem(100px);
+}
+.page-head{
+  width: 100%;
+  height: pxToRem(740px);
+  margin-bottom: 0;
+  background:transparent url('/static/appwebview/app2.2/h5/images/back.png') left top no-repeat;
+  @include background-size(cover);
+  .dm{
+    width: 100%;
+    height: pxToRem(350px);
+    padding-top: pxToRem(80px);
+    margin:0 auto;
+    overflow: hidden;
+    font-size: pxToRem(24px);
+    ul{
+      margin-bottom: pxToRem(60px);
+      // width: 300%;
+      display: table;
+      text-indent: 2em;
+      text-align: left;
+      // margin-left: 100%;
+      @include transform(translateX(0));
+    }
+    li{
+      text-indent: 0;
+      display: inline-block;
+      display: table-cell;
+      padding:pxToRem(16px) pxToRem(24px);
+      background-color: #fff;
+      white-space:nowrap;
+      margin-right: pxToRem(140px);
+      border-radius: 5px;
+      box-shadow: pxToRem(-2px) pxToRem(5px) 0px pxToRem(2px) #7f6aa9;
+      position: relative;
+      &.br{
+        background-color: inherit;
+        box-shadow:none;
+        padding-left: pxToRem(140px);
+        &:after,&:before{
+          display:none;
+        }
+      }
+      i.emoji-1{
+        display: inline-block;
+        width: pxToRem(42px);
+        height:0;
+        position: relative;
+        margin-left: pxToRem(10px);
+        &:after{
+          content: '';
+          display: block;
+          width: 100%;
+          height: pxToRem(42px);
+          background:transparent url('/static/appwebview/app2.2/h5/images/emoji.png') left top no-repeat;
+          @include background-size(cover);
+          position: absolute;
+          top:0;
+          left:0;
+          margin-top: pxToRem(-30px);
+        }
+      }
+      i.emoji-2{
+        display: inline-block;
+        width: pxToRem(44px);
+        height:0;
+        position: relative;
+        margin-left: pxToRem(10px);
+        &:after{
+          content: '';
+          display: block;
+          width: 100%;
+          height: pxToRem(38px);
+          background:transparent url('/static/appwebview/app2.2/h5/images/emoji1.png') left top no-repeat;
+          @include background-size(cover);
+          position: absolute;
+          top:0;
+          left:0;
+          margin-top: pxToRem(-28px);
+        }
+      }
+      &.sp{
+        background-color: #2db497;
+        box-shadow: pxToRem(-2px) pxToRem(5px) 0px pxToRem(2px) #37647b;
+        color:#fff;
+        &:after{
+          border-right: pxToRem(12px) solid #2db497;
+        }
+        &:before{
+          border-right: pxToRem(18px) solid #37647b;
+        }
+      }
+      &:after{
+        content: "";
+        display: block;
+        position: absolute;
+        border-right: pxToRem(12px) solid #fff;
+        border-top: pxToRem(10px) solid transparent;
+        border-bottom: pxToRem(10px) solid transparent;
+        top:50%;
+        margin-top: pxToRem(-10px);
+        left:pxToRem(-12px);
+        z-index: 99;
+      }
+      &:before{
+        content: "";
+        display: block;
+        position: absolute;
+        border-right: pxToRem(18px) solid #7f6aa9;
+        border-top: pxToRem(15px) solid transparent;
+        border-bottom: pxToRem(15px) solid transparent;
+        top:50%;
+        margin-top: pxToRem(-10px);
+        left:pxToRem(-18px);
+        z-index: 9;
+      }
+    }
+  }
+  .body{
+    width: pxToRem(238px);
+    height: pxToRem(227px);
+    margin:0 auto;
+    position: relative;
+    z-index: 9999;
+    background:transparent url('/static/appwebview/app2.2/h5/images/body.png') left top no-repeat;
+    @include background-size(cover);
+    .head{
+      width: pxToRem(204px);
+      height: pxToRem(219px);
+      background:transparent url('/static/appwebview/app2.2/h5/images/head.png') left top no-repeat;
+      @include background-size(cover);
+      position: absolute;
+      top:pxToRem(-160px);
+      left:50%;
+      margin-left: pxToRem(-102px);
+      @include transform(translateY(10%));
+    }
+  }
+  .cloud{
+    width: 100%;
+    height: pxToRem(200px);
+    position: absolute;
+    bottom:-1px;
+    left:0;
+    background:transparent url('/static/appwebview/app2.2/h5/images/white.png') left top no-repeat;
+    @include background-size(cover);
+    z-index: 9999;
+  }
+}
+.page-step1{
+  .title{
+    width:pxToRem(627px);
+    height: pxToRem(78px);
+    margin:0 auto;
+    margin-bottom: pxToRem(80px);
+    background:transparent url('/static/appwebview/app2.2/h5/images/title1.png') left top no-repeat;
+    @include background-size(cover);
+  }
+  .pic{
+    width:pxToRem(691px);
+    height:pxToRem(282px);
+    margin:0 auto;
+    background:transparent url('/static/appwebview/app2.2/h5/images/page1.png') left top no-repeat;
+    @include background-size(cover);
+  }
+}
+.page-step2{
+  .pic{
+    width: pxToRem(691px);
+    height: pxToRem(232px);
+    margin:0 auto;
+    background:transparent url('/static/appwebview/app2.2/h5/images/page2.png') left top no-repeat;
+    @include background-size(cover);
+  }
+}
+
+.page-step3{
+  .pic{
+    width: pxToRem(691px);
+    height: pxToRem(232px);
+    margin:0 auto;
+    background:transparent url('/static/appwebview/app2.2/h5/images/page3.png') left top no-repeat;
+    @include background-size(cover);
+  }
+}
+
+.page-step4{
+  .pic{
+    width: pxToRem(691px);
+    height: pxToRem(264px);
+    margin:0 auto;
+    background:transparent url('/static/appwebview/app2.2/h5/images/page4.png') left top no-repeat;
+    @include background-size(cover);
+  }
+}
+
+.page-foot{
+  width: 100%;
+  height: pxToRem(140px);
+  background-color: #fff;
+  margin-top: pxToRem(100px);
+  background-color:#e6e6e6;
+  text-align: center;
+  margin-bottom: 0;
+  a.btn{
+    text-align: center;
+    color:#fff;
+    padding:pxToRem(24px) pxToRem(120px);
+    display: inline;
+    background-color: #472a84;
+    font-size: pxToRem(36px);
+    position: absolute;
+    top:50%;
+    left:50%;
+    @include transform(translate(-50%,-50%));
+    white-space:nowrap;
+    border-radius: 3em;
+  }
+}
+
+.animation-1{
+  @include animation(dm 10s linear 0s infinite);
+}
+
+@-webkit-keyframes dm
+{
+  from {
+    @include transform(translateX(0));
+  }
+  to {
+    @include transform(translateX(-50%));
+  }
+}
+
+.animation-2{
+  @include animation(head 2s linear 0s infinite);
+}
+
+
+@-webkit-keyframes head{
+  0%{@include transform(translateY(10%))}
+  12%{@include transform(translateY(0%))}
+  24%{@include transform(translateY(10%))}
+  36%{@include transform(translateY(5%))}
+  48%{@include transform(translateY(10%))}
+  60%{@include transform(translateY(5%))}
+  72%{@include transform(translateY(10%))}
+  100%{@include transform(translateY(10%))}
+}

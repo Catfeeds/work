@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>装备商城-拼团</title>
+	<link rel="stylesheet" type="text/css" href="plugin/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="plugin/swiper.css">
+	<link rel="stylesheet" type="text/css" href="./css/team.css">
+	<script type="text/javascript" src='plugin/jquery-2.1.1.min.js'></script>
+	<script type="text/javascript" src='plugin/swiper.js'></script>
+	<script>
+        var offWidth = window.screen.width/30;
+        document.getElementsByTagName("html")[0].style.fontSize = offWidth + 'px';
+    </script>
+</head>
+<body>
+	<!-- head -->
+	<div class="head">
+		<div class="glyphicon glyphicon-menu-left"></div>
+		<div >装备详情</div>
+		<div><img src="images/share-1.5x.png"></div>
+	</div>
+	<div class="content">
+		<div class="banner">
+			<div class="swiper-container">
+		        <div class="swiper-wrapper">
+		            <div class="swiper-slide"><img src="images/1.jpg"></div>
+		            <div class="swiper-slide"><img src="images/2.jpg"></div>
+		            <div class="swiper-slide"><img src="images/3.jpg"></div>
+		            <div class="swiper-slide"><img src="images/4.jpg"></div>
+		        </div>
+		        <!-- Add Pagination -->
+		        <div class="swiper-pagination"></div>
+	    	</div>
+		</div>
+		<div class="goods-introduce">
+			<div class="goods-name">亚狮龙999号羽毛球</div>
+			<div class="goods-inbox">
+				<div class="goods-type"><span class="goods-type-bg">拼团价</span></div>
+				<div class="goods-price">￥119</div>
+				<div class='goods-oPrice'>原价222</div>
+				<div class="goods-haveSale">已售4444件</div>
+			</div>
+			
+			<div class="active-start">
+				<div class="progress">
+					<div class="progress-bar progress-bar-danger" role="progressbar"
+						 aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+						 style="width: 50%;">
+						 <div class="have-join">47人参与</div>
+					</div>
+				</div>
+				<div class="short">还差3个就可以成团啦</div>
+			</div>
+
+			<div class="goods-start"><span >17:45:45</span>后开始讲团</div>
+		</div>
+		<div class="goods-ensure">
+			<div><img src="images/icon_red_check1.png">全国包邮</div>
+			<div><img src="images/icon_red_check1.png">支持退款</div>
+			<div><img src="images/icon_red_check1.png">统一发货</div>
+			<div><img src="images/icon_red_check1.png">正品保证</div>
+			<div class="glyphicon glyphicon-menu-right"></div>
+		</div>
+		
+		<div class="goods-detail">
+			<div class="goods-detail-title">商品详情</div>
+			<div class="goods-detail-img"><img src="images/1.jpg" alt=""></div>
+		</div>
+	</div>
+	
+	<!-- fooster status 1 -->
+	<div class="fooster active-ready"  style="display: none;">
+		<div class="button">单独购买（￥120）</div>
+	</div>
+	
+	<!-- fooster status 2 -->
+	<div class="fooster active-havestart">
+		<div><img src="images/icon_share_gift1.png" alt="">分享有奖</div>
+		<div>
+			单独购买<br/>(￥120)
+		</div>
+		<div>马上拼团</div>
+	</div>
+</body>
+<script type="text/javascript">
+	// banner
+	var swiper = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		paginationClickable: true,
+		spaceBetween: 30,
+		centeredSlides: true,
+		autoplay: 2500,
+		autoplayDisableOnInteraction: false,
+	});
+
+</script>
+</html>

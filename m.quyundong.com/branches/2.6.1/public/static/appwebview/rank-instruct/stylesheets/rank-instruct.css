@@ -1,0 +1,277 @@
+/* line 5, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 3, ../sass/rank-instruct.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #fff;
+  line-height: 1.375;
+}
+
+/* line 15, ../sass/rank-instruct.scss */
+body {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #fff;
+  font-size: 0.12rem;
+  color: #fff;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 28, ../sass/rank-instruct.scss */
+input {
+  -webkit-box-sizing: border-box;
+}
+
+/* line 31, ../sass/rank-instruct.scss */
+a, lable, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 32, ../sass/rank-instruct.scss */
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* line 36, ../sass/rank-instruct.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 40, ../sass/rank-instruct.scss */
+input::-ms-input-placeholder {
+  text-align: center;
+  color: #fff;
+}
+
+/* line 45, ../sass/rank-instruct.scss */
+input::-webkit-input-placeholder {
+  text-align: center;
+  color: #fff;
+}
+
+/* line 49, ../sass/rank-instruct.scss */
+img {
+  width: 100%;
+}
+
+/* line 50, ../sass/rank-instruct.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+/* line 59, ../sass/rank-instruct.scss */
+.loading-icon {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 108, ../sass/rank-instruct.scss */
+img {
+  width: 100%;
+}
+
+/* line 112, ../sass/rank-instruct.scss */
+.main {
+  margin: 0 0.25rem;
+  font-size: 0.14rem;
+  color: #222;
+  text-align: left;
+  overflow: hidden;
+}
+/* line 118, ../sass/rank-instruct.scss */
+.main .rank-title {
+  margin: 0.3rem 0 0.27rem;
+  color: #666666;
+}
+/* line 123, ../sass/rank-instruct.scss */
+.main .rank-list li {
+  margin-top: 0.27rem;
+}
+/* line 126, ../sass/rank-instruct.scss */
+.main .rank-list .rank-list-title {
+  border-bottom: 1px solid #e6e6e6;
+}
+/* line 128, ../sass/rank-instruct.scss */
+.main .rank-list .rank-list-title span {
+  border-bottom: 2px solid #666666;
+}
+/* line 132, ../sass/rank-instruct.scss */
+.main .rank-list p {
+  margin: 0.1rem 0;
+}
+/* line 136, ../sass/rank-instruct.scss */
+.main .rank-table {
+  width: 100%;
+}
+/* line 138, ../sass/rank-instruct.scss */
+.main .rank-table th, .main .rank-table td {
+  padding: 0.15rem 0;
+}
+/* line 141, ../sass/rank-instruct.scss */
+.main .rank-table th {
+  background: #e6e6e6;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+}
+/* line 145, ../sass/rank-instruct.scss */
+.main .rank-table th:first-child {
+  text-align: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+/* line 151, ../sass/rank-instruct.scss */
+.main .rank-table td {
+  box-sizing: border-box;
+  border: 1px solid #e6e6e6;
+  border-spacing: collapse;
+}
+/* line 155, ../sass/rank-instruct.scss */
+.main .rank-table td:first-child {
+  text-align: center;
+}
+/* line 158, ../sass/rank-instruct.scss */
+.main .rank-table td:nth-child(2) {
+  text-indent: 3em;
+}
+/* line 161, ../sass/rank-instruct.scss */
+.main .rank-table td img {
+  width: 0.2rem;
+  vertical-align: middle;
+  margin-right: 0.1rem;
+  position: relative;
+  top: -0.01rem;
+}
+/* line 170, ../sass/rank-instruct.scss */
+.main .rank-space {
+  height: 0.2rem;
+}

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>装备商城-拼团</title>
+    <link rel="stylesheet" type="text/css" href="/static/equiment/plugin/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/equiment/plugin/swiper.css">
+    <link rel="stylesheet" type="text/css" href="/static/equiment/css/team.css">
+    <script type="text/javascript" src='/static/equiment/plugin/jquery-2.1.1.min.js'></script>
+    <script type="text/javascript" src='/static/equiment/plugin/vue.min.js'></script>
+    <script type="text/javascript" src='/static/equiment/plugin/axios.min.js'></script>
+    <script type="text/javascript" src='/static/equiment/plugin/swiper.js'></script>
+    <script type="text/javascript" src="/static/js/commom.js"></script>
+    <script>
+        loading(true);
+        window.setTimeout(function (argument) {
+            loading(false)
+        },500);
+        var offWidth = window.screen.width/35;
+        document.getElementsByTagName("html")[0].style.fontSize = offWidth + 'px';
+    </script>
+</head>
+<body>
+<div id="app">
+    <!-- head -->
+    <div class="head">
+        <div class="glyphicon glyphicon-menu-left" onclick="javascript:history.go(-1);"></div>
+        <div >装备详情</div>
+        <div><img src="/static/equiment/images/share-1.5x.png" style="display: none;"></div>
+    </div>
+    <div class="content">
+        <div class="banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" v-if='initEqui.pic_list'>
+                    <div class="swiper-slide" v-for='item in initEqui.pic_list'><img v-bind:src='item'></div>  
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="goods-introduce">
+            <div class="goods-name">{{initEqui.name}}</div>
+            <div class="goods-inbox">
+                <div class="goods-type" v-if="initEqui.group_info.length!=0"><span class="goods-type-bg">拼团价</span></div>
+                <div class="goods-price" v-if="initEqui.group_info.group_price">￥{{initEqui.group_info.group_price}}</div>
+                <div class='goods-oPrice' v-if="initEqui.group_info.group_price">原价￥{{initEqui.price}}</div>
+                <div class="goods-price" v-else>￥{{initEqui.price}}</div>
+                <div class="goods-haveSale">已售{{initEqui.sale_count}}件</div>
+            </div>
+          
+            <div class="active-start" v-if='initEqui.group_info.length!=0'>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar"
+                         aria-valuenow="60" aria-valuemin="0" v-bind:aria-valuemax="initEqui.group_info.group_count"
+                         v-bind:style="'width:'+pre+'%; line-height:3rem;'"> 
+                        {{have_join}}
+                         <div class="have-join"></div>
+                    </div>
+                </div>
+                <div class="short">
+                {{initEqui.group_info.group_count-initEqui.group_info.group_join_count<=0
+                ?'拼团结束后统一发货'
+                :'还差'+(initEqui.group_info.group_count-initEqui.group_info.group_join_count)+'个就可以成团啦'}}
+                </div>
+            </div>
+            <div id="start_time" class="goods-start" v-if="initEqui.group_info.is_group">
+                <span></span>{{tips}}
+            </div>
+        </div>
+        
+        <div class="goods-ensure" id="goods_ensure" v-if="initEqui.service_list.length>0" v-on:click="showEnsure">
+            <div v-for="item in initEqui.service_list">
+                <img src="/static/equiment/images/icon_red_check1.png">{{item.title}}
+            </div>
+            <div class="glyphicon glyphicon-menu-right"></div>
+        </div>
+
+        <div class="goods-detail">
+            <div class="goods-detail-title">商品详情</div>
+            <div class="goods-detail-img" v-html="initEqui.content"></div>
+        </div>
+    </div>
+    
+    <!-- fooster status 1 -->
+    <div class="fooster active-ready"  v-if="initEqui.group_info.length==0" v-on:click.stop='buyReady(1)'>
+        <div class="button">单独购买（￥{{initEqui.price}}）</div>
+    </div>
+    
+    <!-- fooster status 2 -->
+    <div class="fooster active-havestart" v-if="initEqui.group_info.length!=0" >
+        <div id="gosport" v-on:click.stop='buyReady(1)'>
+            单独购买(￥{{initEqui.price}})
+        </div>
+        <div v-on:click.stop='buyReady(2)'>
+            马上拼团
+        </div>
+    </div>
+    
+    
+    <div class="goods-ensure-detail-bg" id="goods_ensure_bg"  v-on:click="closeEnsure" style="display: none">
+        <div class="goods-ensure-detail"  id="show_ensure" v-on:click.stop="stopPro">
+            <div class="close-ensure" v-on:click="closeEnsure"><div class="glyphicon glyphicon-remove"></div> </div>
+            <div class="goods-ensure-title">支持服务</div>
+            <div v-for="item in initEqui.service_list">
+                <div class="goods-ensure-detail-item">
+                    <div class="ensure-img"><img src="/static/equiment/images/icon_red_check1.png"></div>
+                    <div class="ensure-title">{{item.title}}</div>
+                </div>
+                <div class="ensure-content">{{item.remark}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sel-goods-bg goods-ensure-detail-bg" id="sel_goods_bg" v-on:click.stop="closeSel" style="display:none;">
+        <div class="sel-goods" id="sel_good" v-on:click.stop="stopPro">
+            <div class="close-sel"  v-on:click.stop="closeSel">
+                <div class="glyphicon glyphicon-remove close-sel"></div>
+            </div>
+            <div class="have-sel">
+                <img v-bind:src="sel_property.pic">
+                <div class="sel-property">
+                    <div class="sel-price">￥{{sel_property.price}}</div>
+                    <div class="have-sel-property"> 
+                        {{sel_property.hint.join(' ')}}
+                    </div> 
+                </div>
+            </div>
+            <div style="overflow: scroll;">
+                <div class="goods-property" v-for="(item,index) in initEqui.property_list">
+                    <div class="property-title">{{item.name}}</div>
+                    <div v-for="(it,i) in item.list" v-on:click="selProperty(item,index,i,it.status)"
+                        v-bind:class="{
+                        'property-item':true,
+                        'have-sel-active':it.status==2,
+                        'nont-goods':it.status==3
+                        }" >
+                        {{it.value}}{{it.cat_pro_value_id}}
+                    </div>
+                </div>
+                <div class="sel-mount">
+                    <div>购买数量</div>
+                    <div class='sel-mount-operate'>
+                       <div class="input-group">
+                          <span class="input-group-addon" v-on:click="chgMount(-1)">-</span>
+                          <input type="text" class="form-control" v-bind:value="sel_property.mount">
+                          <span class="input-group-addon" v-on:click="chgMount(1)">+</span>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="go-buy">
+                <div class="button" v-on:click="goBuy">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var goodsId = <?=$id;?>;
+</script>
+<script type="text/javascript">
+try{
+    alert("UC块跑起来")
+    var app = new Vue({
+    el: '#app',
+    data: {
+        initEqui: {
+            group_info: { group_price: 0 },
+            pic_list: [" "],
+            service_list: []
+        },
+        pre: 20, //参团人数百分比
+        have_join: 0, //已经参加人数
+        tips: '后结束',
+        sel_property: {
+            pic: "",
+            price: "0.01",
+            mount: 1,
+            property: [{ name: "", sel: {} }],
+            goods_id: "",
+            group_id: "",
+            hint: ["请选择"],
+            origin_hint: ["请选择"],
+            pro: {} //商品id
+        } //已选属性
+    },
+    beforeCreate: function() {
+        var _this = this;
+        axios.get("/equiment/getGoodsData", {
+            params: {
+                id: goodsId
+            }
+        }).then(function (res) {
+            if(res.data.status!='0000'){
+                var msg = res.data.msg ? res.data.msg : '系统繁忙';
+                return;
+            }
+            var initEqui = res.data.data;
+            var pre = initEqui.group_info.group_join_count / initEqui.group_info.group_count * 100;
+            pre = pre > 20 ? pre > 100 ? 100 : pre : 20;
+            var have_join = pre >= 100 ? "已成团" : initEqui.group_info.group_join_count + '人参与';
+            _this.pre = pre;
+            _this.have_join = have_join;
+
+            // init time
+            var now = Date.parse(new Date()) / 1000;
+            var status = initEqui.group_info.is_group;
+            var time = status == 2 ? initEqui.group_info.start_time : initEqui.group_info.end_time;
+            var tips = status == 2 ? '后开始拼团' : '后结束';
+            _this.tips = tips;
+            // 时间计时器
+            window.setInterval(function () {
+                now++;
+                var last = time - now;
+                var h = void 0,
+                    i = void 0,
+                    s = void 0;
+                if (last > 0) {
+                    h = parseInt(last / 3600);
+                    var hl = last % 3600;
+                    i = parseInt(hl / 60);
+                    var il = hl % 60;
+                    if (h < 2) h = '0' + h;
+                    if (i.length < 2) i = '0' + i;
+                    if (il.length < 2) il = '0' + il;
+                    $('#start_time span').html(h + ':' + i + ':' + il);
+                    //this.time = h + ':' + i + ':' + il;
+                } else {
+                    $('#start_time').remove();
+                }
+            }, 1000);
+            var timer = setTimeout(function () {
+                init();
+            }, 500);
+
+            // 属性选择初始化赋值 1 可选  2 已选  3 不能选
+            for (var i = 0; i < initEqui.property_list.length; i++) {
+                for (var j = 0; j < initEqui.property_list[i].list.length; j++) {
+                    initEqui.property_list[i].list[j].status = 1;
+                }
+            }
+
+            // 初始化选择对象
+            var sel_property = { property: [], hint: ['请选择'], origin_hint: ['请选择'] };
+            for (var _i = 0; _i < initEqui.property_list.length; _i++) {
+                sel_property.property.push({ name: initEqui.property_list[_i].name, sel: {} });
+                sel_property.hint.push(initEqui.property_list[_i].name);
+                sel_property.origin_hint.push(initEqui.property_list[_i].name);
+            }
+            sel_property.pic = initEqui.property_pic;
+            sel_property.price = initEqui.price;
+            sel_property.mount = 1;
+            sel_property.goods_id = initEqui.goods_id;
+            sel_property.group_id = initEqui.group_info ? initEqui.group_info.group_id : "";
+            _this.sel_property = sel_property;
+
+            _this.initEqui = initEqui;
+
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+    },
+    updated: function() {
+    },
+
+    methods: {
+        showEnsure: function() {
+            $("#goods_ensure_bg").show();
+            $(".goods-ensure-detail").animate({ bottom: 0 }, function () {
+                $("body").css({ height: '100%', overflow: "hidden" });
+            });
+        },
+        closeEnsure: function() {
+            $("body").css({ height: 'auto', overflow: "auto" });
+            $(".goods-ensure-detail").animate({ bottom: "-75%" }, function () {
+                $("#goods_ensure_bg").hide();
+            });
+        },
+        buyReady: function(buyStatus) {
+            $("#sel_goods_bg").show();
+            $("body").css({ height: '100%', overflow: "hidden" });
+            var timeout = setTimeout(function () {
+                $(".sel-goods").css({ transform: 'translateY(0%)' });
+            }, 10);
+
+            if (this.sel_property.pro) {
+                if (buyStatus == 1) {
+                    //已选是单独购买价格
+                    this.sel_property.price = this.sel_property.pro.price;
+                    this.sel_property.group_id = "";
+                } else if (buyStatus == 2) {
+                    //当前已选是拼团价
+                    this.sel_property.price = this.sel_property.pro.group_price;
+                    this.sel_property.group_id = this.initEqui.group_info.group_id;
+                }
+            } else {
+                //首次选择
+                if (buyStatus == 1) {
+                    //已选是单独购买价格
+                    this.sel_property.price = this.initEqui.price;
+                    this.sel_property.group_id = "";
+                } else if (buyStatus == 2) {
+                    //当前已选是拼团价
+                    this.sel_property.price = this.initEqui.group_info.group_price;
+                    this.sel_property.group_id = this.initEqui.group_info.group_id;
+                }
+            }
+
+            // if (buyStatus==1) { //已选是单独购买价格
+            //     this.sel_property.price = this.initEqui.price;
+            //     this.sel_property.group_id = "";
+            // }else if(buyStatus==2){ //当前已选是拼团价
+            //     this.sel_property.price = this.initEqui.group_info.group_price;
+            //     this.sel_property.group_id = this.initEqui.group_info.group_id;
+            // }
+        },
+        closeSel: function(e) {
+            $(".sel-goods").css({ transform: 'translateY(105%)' });
+            var timer = setTimeout(function () {
+                $("#sel_goods_bg").hide();
+                $("body").css({ height: 'auto', overflow: "auto" });
+            }, 500);
+        },
+        stopPro: function(e) {
+            e.stopPropagation();
+        },
+        selProperty: function(item, index, i, status) {
+            //index=>所选属性下标  i=>属性项下标  status 1=>可选 2=>已选 3=>不可选
+            if (status == 3) {
+                return;
+            }
+            // let have_sel_id = this.sel_property.property[index].sel.cat_pro_value_id;
+            // let goods_id = item.list[i].cat_pro_value_id
+            if (status == 2) {
+                //已选再点就取消选择
+                this.sel_property.property[index].sel = {};
+                this.initEqui.property_list[index].list[i].status = 1;
+            } else {
+                this.sel_property.property[index].sel = item.list[i];
+                this.initEqui.property_list[index].list[i].status = 2;
+            }
+
+            // 购买栏提示语改变
+            var have_sel_property = this.sel_property.property;
+            var hint = [];
+            var assemble = []; //属性组合
+            for (var _i2 = 0; _i2 < have_sel_property.length; _i2++) {
+                if (have_sel_property[_i2].sel.value) {
+                    hint.push(have_sel_property[_i2].sel.value);
+                }
+                assemble.push(have_sel_property[_i2].sel.cat_pro_value_id);
+            };
+            if (hint.length > 0) {
+                hint.unshift('已选');
+                this.sel_property.hint = hint;
+            } else if (hint.length == 0) {
+                this.sel_property.hint = this.sel_property.origin_hint;
+            }
+
+            var goods = this.initEqui.product_list;
+            var can_sel_array = [];
+            for (var l = 0; l < goods.length; l++) {
+                //查找剩余可选组合
+                var can_sel = true; //默认可选
+                for (var k = 0; k < assemble.length; k++) {
+                    if (assemble[k] != goods[l].spe_list[k] && assemble[k] ) {
+                        can_sel = false;
+                    }
+                }
+                if (can_sel) {
+                    can_sel_array.push(goods[l]);
+                }
+            }
+
+            var initEqui = this.initEqui;
+            // 属性选择初始化赋值 1 可选  2 已选  3 不能选
+            for (var _i3 = 0; _i3 < initEqui.property_list.length; _i3++) {
+                for (var j = 0; j < initEqui.property_list[_i3].list.length; j++) {
+                    for (var o = 0; o < can_sel_array.length; o++) {
+                        if (initEqui.property_list[_i3].list[j].cat_pro_value_id == can_sel_array[o].spe_list[_i3]) {
+                            if (initEqui.property_list[_i3].list[j].status != 2) {
+                                initEqui.property_list[_i3].list[j].status = 1;
+                            };
+                            break;
+                        } else {
+                            initEqui.property_list[_i3].list[j].status = 3;
+                        }
+                    }
+                }
+            }
+
+            // 通过属性组合查找对应商品
+            for (var y = 0; y < goods.length; y++) {
+                if (assemble.join(',') == goods[y].spe_list.join(',')) {
+                    this.sel_property.pic = goods[y].pic;
+                    this.sel_property.price = this.sel_property.group_id ? goods[y].group_price : goods[y].price;
+                    this.sel_property.pro = goods[y];
+                    break;
+                } else {
+                    this.sel_property.pro = "";
+                }
+            };
+        },
+        chgMount: function(mount) {
+            var origin_mount = this.sel_property.mount + mount;
+            this.sel_property.mount = origin_mount <= 1 ? 1 : origin_mount;
+        },
+        goBuy: function() {
+            //确认购买
+            console.log(this.sel_property);
+            var property = this.sel_property.property;
+            for (var i = 0; i < property.length; i++) {
+                if (!property[i].sel.cat_pro_value_id) {
+                    msg("请选择" + property[i].name,1500);
+                    return;
+                }
+            }
+
+            var params = {
+                goods_id:this.sel_property.goods_id,
+                group_id:this.sel_property.group_id?this.sel_property.group_id:0,
+                mount:this.sel_property.mount,
+                pro:this.sel_property.pro,
+                name:this.initEqui.name,
+                sel_property:this.sel_property.hint
+            }
+
+            window.localStorage.setItem("pro", JSON.stringify(params));
+            console.log(window.localStorage.getItem("pro"))
+
+            var esc = encodeURIComponent;
+            var queryData = {
+                    goods_id:params.goods_id,
+                    group_id:params.group_id,
+                    pro_id:params.pro.pro_id,
+                    number:params.mount
+                };
+
+            var query = Object.keys(queryData)
+                .map(k => esc(k) + '=' + esc(queryData[k]))
+                .join('&');
+            window.location.href = '/order/confirmGoodsOrder?'+query;
+
+        }
+    }
+});
+ } catch(e){
+    alert(e)
+ }
+function init(argument) {
+    // banner
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+}
+</script>
+</html>

@@ -1,0 +1,150 @@
+@import "../includes/orderCommon";
+@import "../../../../sass-lib/header";
+
+.txy-style{
+	color:#5b73f2
+}
+%tips {
+    font-size: 0.12rem;
+    color: #666;
+}
+
+@mixin clearfix {
+    &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
+.common-menu {
+    border-top: none;
+    border-bottom: none;
+}
+
+.order-header-tips {
+    @extend %tips;
+    padding: 0.15rem 0 0.1rem 0.15rem;
+}
+
+.order-money,.order-user,.order-total,.order-login {
+    margin-top: 0.2rem;
+}
+
+.order-tel {
+    padding: 0.15rem 0 0 0.25rem;
+    color: #666;
+}
+
+.order-login{
+	input{
+		width:100%;
+		text-align:right;
+		font-size:0.14rem;
+		padding:0;
+	}
+}
+
+.order-submit {
+    margin: 0.85rem 0.25rem 0.2rem;
+    .order-button {
+        width: 100%;
+        line-height: 0.4rem;
+        text-align: center;
+        background-color: #5b73f2;
+        color: #fff;
+        margin: 0.12rem auto;
+        border-radius: 0.21rem;
+    }
+    .order-nosupport {
+       	color:#666;
+        img {
+            width: 0.15rem;
+            margin-right: 0.03rem;
+            vertical-align: text-bottom;
+        }
+    }
+}
+
+.common-coupon {
+	div:nth-of-type(2){
+		span{
+			color:#666;
+		}
+	}
+	i{
+		float: left;
+		color: #222;
+	    font-size: 0.14rem;
+	    text-decoration: underline;
+	}
+}
+
+.cop-text{
+	line-height:2.5;
+}
+
+.cop-numContainer {
+    float: right;
+}
+
+.quantity-component {
+    border: 1px solid #dddddd;
+    border-radius: 0.04rem;
+    overflow: hidden;
+    text-align: center;
+    font-size: 0.15rem;
+    @include clearfix;
+    li {
+        float: left;
+        width: 0.3rem;
+        height: 0.3rem;
+        line-height: 0.3rem;
+        background-color: #f5f5f5;
+        background-size: 100% 100%;
+        &:nth-of-type(1) {
+            background-image: url(/themes/qu205/order/images/sub.png);
+            &.disable {
+                background-image: url(/themes/qu205/order/images/sub-off.png);
+            }
+        }
+        &:nth-of-type(2) {
+            width: 0.45rem;
+            background-color: #fff;
+            border-left: 1px solid #dddddd;
+            border-right: 1px solid #dddddd;
+        }
+        &:nth-of-type(3) {
+            background-image: url(/themes/qu205/order/images/add.png);
+            &.disable {
+                background-image: url(/themes/qu205/order/images/add-off.png);
+            }
+        }
+    }
+}
+
+.book-noPaySprite ul li:nth-of-type(3) #book-Cancel{
+	background-image: url(/static/activity/orderConfirm/images/border-r.jpg);
+}
+
+.qu{
+	min-height:100%;
+	background-color:#f0efed;
+}
+.qu-fe-CT .nothing { color: #cccbca; padding-top: 180px; text-align: center; }
+.qu-fe-CT .bottombar { width: 100%; height: 40px; position: fixed; border-top: 1px solid #cccbca; bottom: 0; left: 0; background-color: #fff; line-height: 40px; text-align: center; font-size: 12px; color: #74affb; }
+.qu-fe-CT .bottombar span { display: inline-block; padding-left: 5px; }
+.qu-fe-CT .bottombar .icon-add-blue { display: inline-block; width: 15px; height: 15px; background: transparent url("../images/icon-add-blue.png") left top no-repeat; -moz-background-size: cover; -o-background-size: cover; -webkit-background-size: cover; background-size: cover; vertical-align: text-bottom; }
+.qu-fe-CT .bottombar .icon-sm-blue { display: inline-block; width: 15px; height: 15px; background: transparent url("../images/icon-sm-blue.png") left top no-repeat; -moz-background-size: cover; -o-background-size: cover; -webkit-background-size: cover; background-size: cover; vertical-align: text-bottom; }
+.qu-fe-CT .bottombar .bottombar-left { color: #74affb; display: block; width: 50%; height: 40px; float: left; border-right: 1px solid #cccbca; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.qu-fe-CT .bottombar .bottombar-right { color: #74affb; display: block; width: 50%; height: 40px; float: left; }
+
+.myCoupons-container .nothing {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    padding-top: 20px;
+}

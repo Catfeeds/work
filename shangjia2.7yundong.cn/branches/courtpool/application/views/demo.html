@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-weixin.css" rel="stylesheet">
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-sj.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/daterangepicker-bs3.css" rel="stylesheet">
+    <script src="/static/icharts/Chart.js"></script>
+    <script src="/static/javascripts/jquery.min.js"></script>
+    <script src="/static/jquery-page/jquery.page.js"></script>
+    <script src="/static/daterangepicker/js/business.js"></script>
+    <script src="/static/daterangepicker/js/moment.min.js"></script>
+    <script src="/static/daterangepicker/js/daterangepicker.js"></script>
+    <title>趣运动商家后台管理系统</title>
+  </head>
+  <body>
+    <div class="main">
+    <!-- nav栏 -->
+      <div class="sj-nav">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+          <div class="sidebar" role="navigation">
+            <div class="sj-head">
+            <!-- logo -->
+              <div class="sj-head-logo">
+                <div class="sj-head-logo-icon"></div>
+                <div class="sj-head-logo-text">
+                  <p>掌管</p>
+                  <h3>一个会赚钱的管理系统</h3>
+                </div>
+              </div>
+            <!-- logo end -->
+            <!-- 用户信息 -->
+              <div class="sj-head-admin">
+                <div class="sj-head-admin-company">趣运动好犀利呵呵集团趣运动好犀利呵呵集团趣运动好犀利呵呵集团趣运动好犀利呵呵集团趣运动好犀利呵呵集团趣运动好犀利呵呵集团趣运动好犀利呵呵集团趣运动好犀利呵呵集团</div>
+                <div class="sj-head-admin-name"><i class='person'></i>管理员大大管理员大大管理员大大管理员大大管理员大大管理员大大管理员大大管理员大大管理员大大管理员大大</div>
+                <div class="sj-head-admin-button">
+                  <button class='btn btn-sj btn-bdru'>修改密码</button>
+                  <button class='btn btn-sj btn-bdru'>退出登陆</button>
+                </div>
+              </div>
+              <!-- 用户end -->
+
+              <div class="sj-head-all"><a>全球馆状况</a></div>
+              <!-- 选分店 -->
+              <div class="sj-head-select">
+                <div class="dropdown">
+                  <button class="btn btn-sj btn-noborder dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width:100%;">
+                    员村二横路分店员村二横路分店员村二横路分店员村二横路分店员村二横路分店员村二横路分店
+                    <i class='glyphicon glyphicon-chevron-right'></i>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a href="#">员村三横路分店员村三横路分店员村三横路分店员村三横路分店员村三横路分店员村三横路分店员村三横路分店</a></li>
+                    <li><a href="#">员村四横路分店</a></li>
+                    <li><a href="#">员村五横路分店</a></li>
+                    <li><a href="#">员村六横路分店</a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- 分店end -->
+            </div>
+            <!-- 导航 -->
+              <div class="sidebar-nav navbar-collapse">
+                  <ul class="nav">
+                      <li>
+                        <div class='sj-nav-title'><span>营业概括</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#" class='active'>营业日结</a>
+                              </li>
+                              <li>
+                                  <a href="#">多前台收入</a>
+                              </li>
+                              <li>
+                                  <a href="#">收入明细</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li>
+                        <div class='sj-nav-title'><span>会员概括</span></div>
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#">交易汇总</a>
+                              </li>
+                              <li>
+                                  <a href="#">交易明细</a>
+                              </li>
+                              <li>
+                                  <a href="#">消费数据</a>
+                                  <!-- /.nav-third-level -->
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li>
+                        <div class='sj-nav-title'><span>商品概括</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#">交易汇总</a>
+                              </li>
+                              <li>
+                                  <a href="#">交易明细</a>
+                              </li>
+                              <li>
+                                  <a href="#">收入统计</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li></li>
+                      <li>
+                        <div class='sj-nav-title'><span>场地操作</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#">场地预订</a>
+                              </li>
+                              <li>
+                                  <a href="#">批量锁场</a>
+                              </li>
+                              <li>
+                                  <a href="#">批量打包</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                      <li></li>
+                      <li>
+                        <div class='sj-nav-title'><span>财务结算</span></div>
+                          <!-- 二级菜单 -->
+                          <ul class="nav nav-second-level">
+                              <li>
+                                  <a href="#">趣运动结算</a>
+                              </li>
+                              <li>
+                                  <a href="#">佣金报表</a>
+                              </li>
+                              <li>
+                                  <a href="#">推广记录</a>
+                              </li>
+                          </ul>
+                          <!-- /.nav-second-level -->
+                      </li>
+                  </ul>
+              </div>
+            <!-- 导航end -->
+          </div>
+        </nav>
+      </div>
+    <!-- nav end -->
+    <!-- 右边栏 -->
+      <div id="page-wrapper" class="sj-content">
+      <!-- 顶部搜索模块 -->
+        <form action="">
+          <div class="bbs-header">
+            <div class="filter-control border-r">
+              <div class="filter-radio">
+                <label>
+                  <input type="radio" name="bussiness"><em> </em><span>收款时间</span>
+                </label>
+              </div>
+              <div class="filter-radio">
+                <label>
+                  <input type="radio" name="bussiness"><em> </em><span>消费时间</span>
+                </label>
+              </div>
+            </div>
+            <div class="filter-control">
+              <div class="filter-time"><span id="timeStart" class="btn-bdru">2016年06月24日 <i class="glyphicon glyphicon-chevron-down"></i></span><em>至</em><span id="timeEnd" class="btn-bdru">2016年06月30日 <i class="glyphicon glyphicon-chevron-down"></i></span>
+                <input id="reservation" type="text" readonly value="2016-6-24 - 2016-6-30">
+                <script>
+                  $(document).ready(function() {
+                      $('#reservation').daterangepicker(null, function(start, end, label) {
+                        var t1 = new Date(start.toString());
+                        var t2 = new Date(end.toString());
+                        var txt1 = t1.format('yyyy年MM月dd日');
+                        var txt2 = t2.format('yyyy年MM月dd日');
+                        $("#timeStart").html(txt1+'<i class="glyphicon glyphicon-chevron-down"></i>');
+                        $("#timeEnd").html(txt2+'<i class="glyphicon glyphicon-chevron-down"></i>');
+                          console.log(start.toString(), end.toString(), label);
+                          console.log(t1.getTime(),t2.getTime());
+                      });
+                  });     
+                </script>
+              </div>
+            </div>
+            <div class="filter-control">
+              <div class="search-btn btn-bdru btn-sj-blue"><span>查询</span></div>
+              <div class="search-btn btn-bdru btn-sj-blue"><span>导出</span></div>
+            </div>
+          </div>
+        </form>
+        <h1>营业日结</h1>
+        <label class="title-small">
+          <input type="checkbox"><span class="title-select"> <em></em></span><span>不显示储值卡充值余额</span>
+        </label>
+        <ul class="consume-container">
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon1.png" alt=""></div>
+              <div> 
+                <p>25300</p>
+                <p>营业总额(元)</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon2.png" alt=""></div>
+              <div> 
+                <p>8003</p>
+                <p>现款收入(元)</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon3.png" alt=""></div>
+              <div> 
+                <p>17297</p>
+                <p>会员消费(元)</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h1>趣运动账单</h1>
+        <ul class="consume-container">
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon4.png" alt=""></div>
+              <div> 
+                <p>80000</p>
+                <p>剩余未结算订单数</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon2.png" alt=""></div>
+              <div> 
+                <p>42000</p>
+                <p>金额</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h1>会员交易汇总</h1>
+        <ul class="consume-container">
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon5.png" alt=""></div>
+              <div> 
+                <p>34</p>
+                <p>充值人数</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon1.png" alt=""></div>
+              <div> 
+                <p>20000</p>
+                <p>充值金额</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon3.png" alt=""></div>
+              <div> 
+                <p>80000</p>
+                <p>消费人数</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon2.png" alt=""></div>
+              <div> 
+                <p>42000</p>
+                <p>消费金额</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h1>球馆状况</h1>
+        <ul class="consume-container">
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon1.png" alt=""></div>
+              <div> 
+                <p>80000</p>
+                <p>球馆总收入</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon3.png" alt=""></div>
+              <div> 
+                <p>42000</p>
+                <p>会员总消费</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h1>商品交易汇总</h1>
+        <ul class="consume-container">
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon1.png" alt=""></div>
+              <div> 
+                <p>80000</p>
+                <p>销售总额(元)</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon2.png" alt=""></div>
+              <div> 
+                <p>42000</p>
+                <p>总体盈利(元)</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h1>多前台收入</h1>
+        <ul class="consume-container">
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon1.png" alt=""></div>
+              <div> 
+                <p>80000</p>
+                <p>应收合计(元)</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon2.png" alt=""></div>
+              <div> 
+                <p>42000</p>
+                <p>实收合计(元)</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <h1>收入明细</h1>
+        <ul class="consume-container">
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon4.png" alt=""></div>
+              <div> 
+                <p>20342</p>
+                <p>应收合计(元)</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div><img src="/static/images/consume-icon2.png" alt=""></div>
+              <div> 
+                <p>17297</p>
+                <p>实收合计(元)</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="consume-detail"> <span>现金:7560.00</span><span>会员卡:980.00</span><span>支付宝:0</span><span>代金券:0</span><span>支票:0</span><span>银行卡:0</span><span>次卡:0</span><span>趣运动:0</span><span>微信支付:0</span><span>团购券:0</span><span>多种支付:0</span></div>
+        <h2>日结营业情况报表</h2>
+        <div class="body-table report-table">
+          <table class="table table-bordered">
+            <thead class="sp">
+              <tr>
+                <th>&nbsp;</th>
+                <th colspan="2">现款收入</th>
+                <th colspan="3">会员收费</th>
+                <th>合作收入</th>
+                <th colspan="2">营业额统计</th>
+              </tr>
+            </thead>
+            <thead>
+              <tr>
+                <th>业务</th>
+                <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div></th>
+                <th colspan="3"><div style='width:33%;float:left;'>应收付款</div> <div style='width:33%;float:left;'>余额支付</div><div style='width:33%;float:left;'>赠送金额支付</div></th>
+                <th>实收合计</th>
+                <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>场地</td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+                <td colspan="3"><div style='width:33%;float:left;'></div> <div style='width:33%;float:left;'></div><div style='width:33%;float:left;'></div></td>
+                <td> </td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+              </tr>
+              <tr>
+                <td>商品</td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+                <td colspan="3"><div style='width:33%;float:left;'></div> <div style='width:33%;float:left;'></div><div style='width:33%;float:left;'></div></td>
+                <td> </td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+              </tr>
+              <tr>
+                <td>人次票</td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+                <td colspan="3"><div style='width:33%;float:left;'></div> <div style='width:33%;float:left;'></div><div style='width:33%;float:left;'></div></td>
+                <td> </td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+              </tr>
+              <tr>
+                <td>储值卡充值</td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+                <td colspan="3"><div style='width:33%;float:left;'></div> <div style='width:33%;float:left;'></div><div style='width:33%;float:left;'></div></td>
+                <td> </td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+              </tr>
+              <tr>
+                <td>次卡充值</td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+                <td colspan="3"><div style='width:33%;float:left;'></div> <div style='width:33%;float:left;'></div><div style='width:33%;float:left;'></div></td>
+                <td> </td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+              </tr>
+              <tr>
+                <td>合计</td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+                <td colspan="3"><div style='width:33%;float:left;'></div> <div style='width:33%;float:left;'></div><div style='width:33%;float:left;'></div></td>
+                <td> </td>
+                <td colspan="2"><div style='width:50%;float:left;'></div> <div style='width:50%;float:left;'></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h2>多前台汇总</h2>
+        <div class="body-table stage-table">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>所在区域</th>
+                <th>营业总收入</th>
+                <th>场地收入</th>
+                <th>会员收入</th>
+                <th>会员消费</th>
+                <th>商品收入</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>东前台</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>西前台</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td> </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="chart-container">
+          <div class="chart-title">
+            <h2>营业额(元)</h2>
+          </div>
+          <div class="chart-container"><canvas id="myChart" width="920" height="180"></canvas><span>时间(天)</span></div>
+        </div>
+        <script>
+          var data = {
+            labels : ["2016年06月24日","2016年06月25日","2016年06月26日","2016年06月27日","2016年06月28日","2016年06月29日","2016年06月30日"],
+            datasets : [
+              {
+                fillColor : "#0285db",
+                data : [2000,3000,4000,5000,6000,7000,8000]
+              }
+            ]
+          }
+          options = {
+            scaleOverlay : false,
+            scaleOverride : false,
+            scaleStartValue : null,
+            scaleLineWidth : 1,
+            scaleLabel : "<%=value%>",
+            scaleFontFamily : "'Arial'",
+            scaleFontSize : 12,
+            scaleFontStyle : "normal",
+            scaleFontColor : "#9aabb8",  
+            scaleGridLineColor : "rgba(0,0,0,0)",
+            scaleGridLineWidth : 1, 
+            barShowStroke : true,
+            barStrokeWidth : 2,
+            barValueSpacing : 70,
+            barDatasetSpacing : 1,
+            animation : true,
+            animationSteps : 10,
+            animationEasing : "easeOutQuart",
+            onAnimationComplete : null
+          }
+          var ctx = document.getElementById("myChart").getContext("2d");
+          var myNewChart = new Chart(ctx).Bar(data,options);
+        </script>
+        <div id="pagination1" data-page="22" data-current="22" class="pagination-container">
+          <div class="pagination"></div>
+          <div class="pagination-go"><span class="totalPage"></span><span class="btn-bdru"><i>第</i><input class="page" type='text' /><i>页</i></span><span class="go">GO</span></div>
+        </div>
+        <div id="pagination2" data-page="15" data-current="2" class="pagination-container">
+          <div class="pagination"></div>
+          <div class="pagination-go"><span class="totalPage"></span><span class="btn-bdru"><i>第</i><input class="page" type='text' /><i>页</i></span><span class="go">GO</span></div>
+        </div>
+        <script>
+          var  calFn1 = function(p){
+            console.log('回调1:'+p)
+          };
+          var calFn2 = function(p){
+            console.log('回调2:'+p)
+          };
+          createPageFn($("#pagination1"),calFn1);
+          createPageFn($("#pagination2"),calFn2);
+        </script>
+      </div>
+    </div>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>

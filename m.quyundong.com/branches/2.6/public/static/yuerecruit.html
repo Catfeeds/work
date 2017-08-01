@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui">
+    <title>约练招募</title>
+    <link rel="stylesheet" type="text/css" href="/static/recruit/stylesheets/recruit.css">
+  </head>
+  <body data-design-width="750">
+    <div class="page hide"><img src="/static/recruit/images/bg.jpg" class="hide">
+      <div class="bg">
+        <div class="title"><img src="/static/recruit/images/title_new.png"></div>
+      </div>
+      <div class="step"><img src="/static/recruit/images/step.jpg"></div>
+      <div class="footer">如有疑问，请咨询：4000-410-480</div>
+    </div>
+    <script src="/static/js/zeptoWithFx.min.js"></script>
+    <script src="/static/js/mobileResponsive.js"></script>
+    <script>
+      window.onload = function(){
+        var WH=$(window).height();
+        var WW=$(window).width();
+        if(WH>WW*1.38){
+          $(".bg").css("height",WH);
+        }
+        $(".page").removeClass("hide");
+      };
+    </script>
+  </body>
+</html>

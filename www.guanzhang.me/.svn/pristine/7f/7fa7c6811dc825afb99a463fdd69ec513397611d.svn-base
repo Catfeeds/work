@@ -1,0 +1,176 @@
+@charset "utf-8";
+.page1{
+    .title1{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page1-word.png',sizingMethod='scale');
+    }
+    .field{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/banner_0114.png',sizingMethod='scale');
+    }
+}
+.page2{
+    .title1{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page2-1.png',sizingMethod='scale');
+    }
+    .title2{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page2-2.png',sizingMethod='scale');
+    }
+    .connect{
+        ul{
+            li{
+                &.icon-1{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page2-3.png',sizingMethod='scale');
+                    }
+                }
+                &.icon-2{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page2-4.png',sizingMethod='scale');
+                    }
+                }
+                &.icon-3{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page2-5.png',sizingMethod='scale');
+                    }
+                }
+                &.icon-4{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page2-6.png',sizingMethod='scale');
+                    }
+                }
+                &.fg{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page2-7.png',sizingMethod='scale');
+                    }
+                }
+            }
+        }
+    }
+}
+.page3{
+    .title1{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page3-1.png',sizingMethod='scale');
+    }
+    .title2{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page3-2.png',sizingMethod='scale');
+    }
+    .word{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page3-3.png',sizingMethod='scale');
+    }
+    .mobile{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page3-4.png',sizingMethod='scale');
+    }
+}
+.page4{
+    .title1{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page4-1.png',sizingMethod='scale');
+    }
+    .title2{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page4-2.png',sizingMethod='scale');
+    }
+    .title3{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page4-3.png',sizingMethod='scale');
+    }
+    .pic{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page4.jpg',sizingMethod='scale');
+    }
+}
+.page5{
+    .title{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page5-1.png',sizingMethod='scale');
+    }
+    .word{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page5-2.png',sizingMethod='scale');
+    }
+}
+.page6{
+    .title1{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page6-1.png',sizingMethod='scale');
+    }
+    .title2{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page6-2.png',sizingMethod='scale');
+    }
+    .list{
+        ul{
+            li{
+                i{
+                }
+                &.list-1{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page6-3.png',sizingMethod='scale');
+                    }
+                }
+                &.list-2{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page6-4.png',sizingMethod='scale');
+                    }
+                }
+                &.list-3{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page6-5.png',sizingMethod='scale');
+                    }
+                }
+                &.list-4{
+                    i{
+                        background-image:none;
+                        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page6-6.png',sizingMethod='scale');
+                    }
+                }
+            }
+        }
+    }
+}
+.page7{
+    background: #F4F4F2;
+    .title{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page7-1.png',sizingMethod='scale');
+    }
+    .word{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page7-2.png',sizingMethod='scale');
+    }
+    .mobile{
+        background-image:none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page7-3.gif',sizingMethod='scale');
+    }
+}
+.footer{
+    .t{
+        .title{
+            background-image:none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page8-1.png',sizingMethod='scale');
+        }
+        .erweima{
+            background-image:none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/erweima.jpg',sizingMethod='scale');
+        }
+        .link{
+            background-image:none;
+            filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/pc/page8-2.png',sizingMethod='scale');
+        }
+    }
+}

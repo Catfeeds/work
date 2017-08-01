@@ -1,0 +1,27 @@
+.sport {
+	.contact {
+		margin-top: 66px;
+		.col1, .col2 {
+			float: left;
+		}
+		.col1 {
+			margin-right: 22px;
+			img {
+				border: 1px solid #aeaeae;
+			}
+		}
+		.col2 {
+			color: #7b7b7b;
+			font-family: 'microsoft yahei';
+			margin-top: 31px;
+			.title {
+				padding-bottom: 5px;
+				margin-bottom: 28px;
+				border-bottom: 1px solid #7b7b7b;
+			}
+			.cont {
+				padding-bottom: 23px;
+			}
+		}
+	}
+}

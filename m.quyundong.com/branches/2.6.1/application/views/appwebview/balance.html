@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>我的余额</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="keywords" content="趣运动,在线预订,手机订场,订场优惠,羽毛球订场,足球场,游泳馆查询预订,去运动,订场神器">
+    <meta name="description" content="趣运动专注球场在线预订,羽毛球馆,足球场,网球场,球场在线预订,游泳馆查询预订,手机在线预订,运动场馆价格表,运动场馆优惠信息,去运动就上趣运动.">
+    <script type="text/javascript" src="/static/js/zeptoWithFx.min.js"></script>
+    <script src="/static/js/mobileResponsive.js"></script>
+    <link rel="stylesheet" href="/themes/qq/stylesheets/mobile-qq.css">
+    <script type="text/javascript" src="//open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+    <script type="text/javascript" src="/themes/qq/js/mobile-qq-menu.js?ver=20161111"></script>
+    <script type="text/javascript">
+    var utmSource = '';
+    </script>
+</head>
+
+<body data-design-width="750">
+    <link href="/themes/qu202/css/recharge.css" type="text/css" rel="stylesheet">
+    <div id="loading" data-lock="1" class="loading hide">
+        <div class="loading-icon"></div>
+    </div>
+    <div class="main">
+        <div class="header">
+            <div class="left"><i class="icon-back" onclick="window.location.href='<?= baf_CHtml::createUrl('/user');?>'"></i></div>
+            <div class="center">余额</div>
+        </div>
+        <div class="recharge-header">
+            <div><img src="/themes/qu202/images/extradpr2x.png" alt=""></div>
+            <p>趣运动余额</p>
+            <p>￥0</p>
+        </div>
+        <div class="recharge-selects"><span onclick="location.href='<?= baf_CHtml::createUrl('/appwebview/pageView?id=rule');?>'">使用说明</span><span onclick="location.href='<?= baf_CHtml::createUrl('/user/moneyLog');?>'">历史记录</span></div>
+        <div class="recharge-input">
+            <div id="recharge-btn" onclick="window.location.href='<?= baf_CHtml::createUrl('/user/balance');?>'">充值</div>
+            <div>
+                <input id="recharge-czpw" type="text" placeholder="请输入您的储值卡密码">
+            </div>
+        </div>
+    </div>
+    <div class="nm-cover hide">
+        <div class="nm-alert">
+            <div class="msg">充值成功!</div>
+            <div class="cancel">
+                <div class="l">确定</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

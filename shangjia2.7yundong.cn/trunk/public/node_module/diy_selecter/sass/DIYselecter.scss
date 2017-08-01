@@ -1,0 +1,79 @@
+@import 'compass/css3';
+.DIY-selecter{
+  display: inline-block;
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  text-indent: 10px;
+  background-color: #fff;
+  border: 1px solid #d0d0d0;
+  margin-right: 32px;
+  cursor:pointer;
+  .button{
+    width: 30px;
+    height: 30px;
+    
+    position: absolute;
+    top:-1px;
+    right: -30px;
+    display: block;
+    background:transparent url('../images/down.png') center center no-repeat;
+    background-color: #0a0614;
+    z-index: 99;
+    &[show]{
+      @include transform(rotateZ(180deg));
+    }
+  }
+  ul,li{
+    text-indent: 0;
+    padding:0;
+    margin:0;
+    list-style:none;
+    background-color: #fff;
+  }
+  ul{
+    padding:0;
+    margin:0 -1px;
+    border-top: 1px solid #d0d0d0;
+    border-left: 1px solid #d0d0d0;
+    border-right: 1px solid #d0d0d0;
+    position: absolute;
+    z-index: 999;
+    left:0;
+    top:28px;
+    display: none;
+    max-height: 300px;
+    _height:300px;
+    overflow-y: scroll;
+    _overflow: scroll;
+    &.show{
+      display: block;
+    }
+  }
+  li{
+    text-indent: 10px;
+    border-bottom: 1px solid #d0d0d0;
+    line-height: 30px;
+    padding-right: 39px;
+    white-space:nowrap;
+    position: relative;
+    &:hover{
+      background-color: #aaa;
+    }
+    &[disabled]{
+      color:#eee;
+      &:hover{
+        background-color: inherit;
+        cursor: not-allowed;
+      }
+    }
+    &[selected]{
+      &:after{
+        content:'\2713';
+        position: absolute;
+        right:0;
+        top:0;
+      }
+    }
+  }
+}

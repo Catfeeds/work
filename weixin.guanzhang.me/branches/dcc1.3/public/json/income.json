@@ -1,0 +1,30 @@
+{
+	"success": true,
+	"data":{
+		"date": "2015-08-03",
+		"time": "21:35:00",
+		"sum": {
+			"total": 1225,
+			"real": 952
+		},
+		"field": {
+			"total": 2250,
+			"real": 1520,
+			"price1": 120,
+			"price2": 135,
+			"price3": 435
+		},
+		"goods": {
+			"total": 342,
+			"real": 235,
+			"price1": 120,
+			"price2": 135
+		},
+		"member": {
+			"total": 165,
+			"real": 124,
+			"price1": 120,
+			"price2": 135
+		}
+	}
+}

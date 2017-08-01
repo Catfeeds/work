@@ -1,0 +1,115 @@
+<!-- 搜索模块 start -->
+<form action="">
+    <div class="bbs-header">
+        <div class="filter-control">
+            <!-- 日期选择插件 -->
+            <div class="filter-time"><span id="timeStart" class="btn-bdru"><?php echo $startDate;?>
+                <i class="glyphicon glyphicon-chevron-down"></i></span><em>至</em><span id="timeEnd" class="btn-bdru"><?php echo $endDate; ?>
+                <i class="glyphicon glyphicon-chevron-down"></i></span><input id="reservation" type="text" readonly value="<?php echo $startDate .' - '. $endDate; ?>">
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('#reservation').daterangepicker({
+                        locale: {
+                            applyLabel: '确认',
+                            cancelLabel: '取消',
+                            fromLabel: '从',
+                            toLabel: '到',
+                            weekLabel: 'W',
+                            customRangeLabel: 'Custom Range',
+                            daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
+                            monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+                        }
+                    }, function (start, end, label) {
+                        var t1 = new Date(start.toString());
+                        var t2 = new Date(end.toString());
+                        var txt1 = t1.format('yyyy-MM-dd');
+                        var txt2 = t2.format('yyyy-MM-dd');
+                        $("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                        $("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                        $('#start_date').val(txt1);
+                        $('#end_date').val(txt2);
+                    });
+                });
+            </script>
+        </div>
+        <input type="text" hidden id="start_date" name="startDate" value="<?php echo $startDate;?>">
+        <input type="text" hidden id="end_date" name="endDate" value="<?php echo $endDate;?>">
+
+        <div class="filter-control">
+            <div class="filter-input">
+                <label class="control-label" for="inputGoodsName">商品名</label>
+                <input type="text" name="goods_name" id="inputGoodsName" placeholder="" value="<?php echo $goods_name; ?>">
+            </div>
+        </div>
+        <div class="filter-control">
+            <div class='filter-input'>
+                <label for="">操作人</label>
+                <input type="text" name="operator" value="<?= $operator ?>">
+            </div>
+        </div>
+        <div class="filter-control">
+            <button class="search-btn btn-sj-blue btn-bdru btn btn-default" onclick="$('form').submit();">查询</button>
+            <a href="javascript:void(0);" data-href="/Stat/exportGoodsInventoryLog" class="search-btn btn-sj-blue btn-bdru btn btn-default" id="export" >导出</a>
+        </div>
+    </div>
+</form>
+<!-- 搜索模块 end -->
+<h1>商品出入库统计</h1>
+
+<h2></h2>
+<div class="body-table stage-table">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>时间</th>
+                <th>商品名称</th>
+                <th>进库数量</th>
+                <th>出库数量</th>
+                <th>剩余库存</th>
+                <th>操作人员</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach($list as $val){ ?>
+            <tr>
+                <td><?php echo date('Y-m-d H:i:s', $val['operate_time']) ?></td>
+                <td><?php echo $val['goods_name'] ?></td>
+                <td><?php echo $val['incr_stock_count'] ?></td>
+                <td><?php echo $val['decr_stock_count'] ?></td>
+                <td><?php echo $val['stock_count'] ?></td>
+                <td><?php echo $val['operator'] ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+</div>
+
+
+<script type="text/javascript">
+    $("#export").click(function(){
+        var href = $(this).attr("data-href") + "?start_date=" + $("#start_date").val() + "&end_date=" + $("#end_date").val();
+        $(this).attr("href", href);
+        setTimeout(function(){
+            $("#export_clearing_log_btn").attr('href','javascript:void(0);');
+        },0)
+    });
+</script>
+
+<!--分页-->
+<?php if ($total_page > 1){ ?>
+    <div id="pagination" data-page="<?=$total_page; ?>" data-current="<?= $page; ?>" class="pagination-container">
+        <div class="pagination"></div>
+        <div class="pagination-go">
+            <i style="color:#9baabe">共<?php echo $total_number ?>条，</i><span class="totalPage"></span><span class="btn-bdru"><i>第</i><input class="page" type='text'/><i>页</i></span><span class="go">GO</span>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        $(function(){
+            var calFn1 = function (p) {
+                window.location.href = "/stat/goodsInventoryLog?page="+p+'&'+'<?php echo 'startDate='.$startDate ?>'+'&'+'<?php echo 'endDate='.$endDate ?>'+'&'+'<?php echo 'goods_name='.$goods_name ?>&operator='+ '<?php echo $operator; ?>';
+            };
+            createPageFn($("#pagination"), calFn1);
+        });
+    </script>
+<?php } ?>

@@ -1,0 +1,327 @@
+@import "compass/reset";
+@import "compass/css3";
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    overflow-x: hidden;
+    overflow: auto;
+    background-color: #f5f5f9;
+    line-height: 1.375;
+}
+
+body {
+    @include user-select(none);
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    font-size: 0.24rem;
+    text-align: center;
+    background-color: #f5f5f9;
+    font-size: 0.12rem;
+    color: #000;
+    @include box-sizing(border-box);
+}
+
+input {
+    -webkit-box-sizing: border-box;
+}
+
+a,
+input,
+lable,
+button,
+div {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+.hide {
+    display: none !important;
+}
+
+input::-ms-input-placeholder {
+    text-align: left;
+    color: #aaa;
+}
+
+input::-webkit-input-placeholder {
+    text-align: left;
+    color: #aaa;
+}
+
+img {
+    width: 100%;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 99999;
+}
+
+.loading-icon {
+    width: 0.6rem;
+    height: 0.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.3rem;
+    margin-left: -0.3rem;
+    background: url(/static/images/loading.png) no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -webkit-animation: rotate360 1s linear 0s infinite;
+    -moz-animation: rotate360 1s linear 0s infinite;
+    animation: rotate360 1s linear 0s infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes rotate360 {
+    from {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+@-webkit-keyframes rotate360 {
+    from {
+        -webkit-transform: rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+
+img {
+    width: 100%;
+}
+
+.header {
+    width: 100%;
+    height: 88*0.005+rem;
+    background-color: #009ff0;
+    text-align: center;
+    line-height: 88*0.005+rem;
+    .center {
+        width: 100%;
+        @include box-sizing(border-box);
+        padding: 0 100*0.005+rem;
+        position: relative;
+        font-size: 0.18rem;
+        color: #fff;
+    }
+    .left,
+    .right {
+        width: 100*0.005+rem;
+        height: 88*0.005+rem;
+        position: absolute;
+        top: 0;
+    }
+    .left {
+        left: 0;
+    }
+    .right {
+        right: 0;
+    }
+}
+
+@mixin backgroundStyle($src) {
+    @if $src !="" {
+        background-image:url(#{$src})
+    }
+    ;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+@mixin clearfix {
+    &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
+.main {
+    position: relative;
+    min-height: 100%;
+    .wechat-header {
+        padding: 0.25rem 0;
+        .wechat-avatar {
+            width: 1rem;
+            height: 1rem;
+            margin: 0 auto;
+            border-radius: 50%;
+            @include backgroundStyle("../images/login/default.png");
+            background-size: 80% auto;
+            background-position: center top;
+            background-color: #fff;
+            border: 1px solid #e7e7e8;
+        }
+        .wechat-userAvatar {
+            height: 100%;
+            border-radius: 50%;
+            @include backgroundStyle("");
+        }
+    }
+    .wechat-form {
+        background: #fff;
+        border-top: 1px solid #e6e6e6;
+        border-bottom: 1px solid #e6e6e6;
+        padding-left: 0.15rem;
+        li {
+            padding: 0.1rem 0.15rem 0.1rem 0;
+            line-height: 0.29rem;
+            &:first-child {
+                border-bottom: 1px solid #e6e6e6;
+                div {
+                    &:nth-of-type(1) {
+                        float: right;
+                        border: 1px solid #009ff0;
+                        color: #009ff0;
+                        background: #fff;
+                        margin-left: 0.1rem;
+                        padding: 0 1em;
+                        border-radius: 0.05rem;
+                    }
+                    &:nth-of-type(2) {
+                        overflow: hidden;
+                    }
+                }
+                div.active {
+                    background: #009ff0;
+                    color: #fff;
+                }
+                div.countActive {
+                    color: #aaa;
+                    border: 1px solid #aaa;
+                }
+                @include clearfix;
+            }
+            input {
+                width: 100%;
+                height: 100%;
+                background: none;
+                border: none;
+                outline: none;
+                font-size:0.15rem;
+                font-family: "microsoft yahei";
+            }
+        }
+    }
+    .wechat-tip {
+        color: #666666;
+        margin-top: 0.1rem;
+        margin-left: 0.15rem;
+        text-align: left;
+    }
+    .wechat-bind {
+        font-size: 0.15rem;
+        line-height: 0.4rem;
+        color: #fff;
+        background: #aaa;
+        border-radius: 0.05rem;
+        margin: 0.5rem 0.3rem 0;
+    }
+    .wechat-bind-canClick {
+        background: #009ff0;
+    }
+    .wechat-bind-clickActive {
+        background: #006fa8;
+    }
+    .wechat-law {
+        position: absolute;
+        width: 100%;
+        bottom: 0.3rem;
+        color: #666;
+        a {
+            color: #009ff0;
+        }
+    }
+}
+.wechat-sprite{
+    position:absolute;
+    top:0;
+    height:0;
+    width:100%;
+    height:100%;
+}
+.nm-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    // background-color: rgba(0, 0, 0, 0.7)
+}
+
+.nm-cover .nm-alert {
+    width: 2.35rem;
+    height: 1.3rem;
+    padding:0 0.2rem;
+    background-color: rgba(0,0,0,.75);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.65rem;
+    margin-left: -1.175rem;
+    border-radius: 6px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.nm-cover .nm-alert .msg {
+    padding-top: 0.25rem;
+    // width: 2.35rem;
+    height: 0.9rem;
+    line-height: 1.6;
+    color: #fff;
+    font-size: 0.15rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative
+}
+

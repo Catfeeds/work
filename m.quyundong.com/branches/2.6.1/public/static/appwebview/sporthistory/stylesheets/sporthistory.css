@@ -1,0 +1,323 @@
+/* line 5, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../sass/sporthistory.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #fff;
+  line-height: 1.375;
+}
+
+/* line 16, ../sass/sporthistory.scss */
+body {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  text-align: center;
+  background-color: #fff;
+  font-size: 0.12rem;
+  color: #000;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 28, ../sass/sporthistory.scss */
+input {
+  -webkit-box-sizing: border-box;
+  border: none;
+}
+
+/* line 32, ../sass/sporthistory.scss */
+a, lable, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 36, ../sass/sporthistory.scss */
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* line 40, ../sass/sporthistory.scss */
+.hide, .finish {
+  display: none !important;
+}
+
+/* line 43, ../sass/sporthistory.scss */
+input::-webkit-input-placeholder {
+  text-align: center;
+  color: #cccccc;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+/* line 48, ../sass/sporthistory.scss */
+input::-ms-input-placeholder {
+  text-align: center;
+  color: #cccccc;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+/* line 53, ../sass/sporthistory.scss */
+input::-moz-placeholder {
+  text-align: center;
+  color: #cccccc;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+/* line 58, ../sass/sporthistory.scss */
+img {
+  width: 100%;
+}
+
+/* line 59, ../sass/sporthistory.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+/* line 68, ../sass/sporthistory.scss */
+.loading-icon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 116, ../sass/sporthistory.scss */
+.history-main {
+  padding-top: 10px;
+  font-size: 0.15rem;
+  color: #222;
+  text-align: left;
+}
+/* line 121, ../sass/sporthistory.scss */
+.history-main .load-ajax {
+  width: 100%;
+  height: 0.2rem;
+  position: relative;
+}
+/* line 126, ../sass/sporthistory.scss */
+.history-main .loading-icon {
+  width: 0.1rem;
+  height: 0.1rem;
+  margin-top: -0.05rem;
+  margin-left: -0.05rem;
+  display: block;
+}
+/* line 133, ../sass/sporthistory.scss */
+.history-main .last {
+  width: 100%;
+  text-align: center;
+  font-size: 0.12rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  color: #666;
+}
+/* line 141, ../sass/sporthistory.scss */
+.history-main ul {
+  padding-left: 0.2rem;
+  position: relative;
+}
+/* line 144, ../sass/sporthistory.scss */
+.history-main ul:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #e6e6e6;
+}
+/* line 156, ../sass/sporthistory.scss */
+.history-main li {
+  width: 100%;
+  height: 0.45rem;
+  line-height: 0.45rem;
+  padding-right: 0.2rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+}
+/* line 163, ../sass/sporthistory.scss */
+.history-main li:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  -moz-transform: scaleY(0.5);
+  -ms-transform: scaleY(0.5);
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  background-color: #e6e6e6;
+}
+/* line 174, ../sass/sporthistory.scss */
+.history-main li:last-child:after {
+  content: "";
+  display: none;
+}
+/* line 178, ../sass/sporthistory.scss */
+.history-main li span {
+  display: inline-block;
+  height: 0.45rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+}
+/* line 186, ../sass/sporthistory.scss */
+.history-main li span.date {
+  width: 25%;
+}
+/* line 189, ../sass/sporthistory.scss */
+.history-main li span.desc {
+  width: 43%;
+}
+/* line 192, ../sass/sporthistory.scss */
+.history-main li span.msg {
+  width: 30%;
+  text-align: right;
+  margin-left: auto;
+  position: absolute;
+  right: 0.2rem;
+  top: 0;
+}
+
+/* line 203, ../sass/sporthistory.scss */
+.color-green {
+  color: #3a9883;
+}
+
+/* line 206, ../sass/sporthistory.scss */
+.color-orangered {
+  color: #ff8472;
+}

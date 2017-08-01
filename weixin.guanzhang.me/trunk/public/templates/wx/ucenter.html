@@ -1,0 +1,31 @@
+<div id="ucenter" ng-style="ucenterCss">
+	<div class="ucenter">
+		<h4 class="title" ng-style="titleStyle" ng-if="itemList.length>0">您的微信号已成功绑定以下场馆！</h4>
+		<h4 class="title" ng-style="titleStyle" ng-if="itemList.length<1">您的微信号还没有绑定任何场馆！</h4>
+		<div class="list" ng-if="itemList.length>0">
+			<dl class="iteam" ng-repeat="iteam in itemList">
+				<dt>{{iteam.name}}</dt>
+				<dd>
+					<a class="fl" ng-click="setTitle('{{iteam.name}}','{{iteam.id}}', '{{iteam.soms_is_new}}')">查看日报</a>
+					<span class="fr" ng-click="unbind('{{iteam.name}}','{{iteam.id}}')">解除绑定</span>
+				</dd>
+			</dl>
+		</div>
+		<div class="other" ng-if="itemList.length>0">
+			<h4>还有馆掌运动场馆？</h4>
+			<p>
+				<a href="#login">新增绑定</a>
+			</p>
+		</div>
+		<div class="other" ng-if="itemList.length<1">
+			<p>
+				<span ng-click="unbind2()">去绑定</span>
+			</p>
+		</div>
+	</div>
+	<div class="bg">
+		<div class="bg-1"></div>
+		<div class="bg-2"></div>
+		<div class="bg-3"></div>
+	</div>
+</div>

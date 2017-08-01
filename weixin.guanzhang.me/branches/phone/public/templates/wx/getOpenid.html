@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>馆掌</title>
+    <script>
+        function getUrlKey(e) {
+            var t, n, o, a = window.location.href, i = a.indexOf("?");
+            if (0 > i)return !1;
+            for (t = a.substring(i + 2, a.length), t = t.split("&"), o = 0; o < t.length; o++)if (n = t[o].split("="), n[0] == e)return n[1];
+            return !1
+        }
+    var _url = window.location.href, _venueId = getUrlKey("venueId"), _date = getUrlKey("date"), _templateMsgId = getUrlKey("templateMsgId"), _callback;
+    _callback = _date && _venueId && _templateMsgId ? window.location.origin + "/wxreport/oauth?venueId=" + _venueId + "&date=" + _date + "&templateMsgId=" + _templateMsgId : window.location.origin + "/spuser/oauth",
+            //window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc035bbcac8e06d2&redirect_uri=" + encodeURIComponent(_callback) + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+            //测试
+        window.location.href = window.location.origin + "/spuser/oauth";
+    </script>
+</head>
+<body></body>
+</html>

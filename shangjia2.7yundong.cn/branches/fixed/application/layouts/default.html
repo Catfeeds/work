@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-weixin.css?ver=20160815" rel="stylesheet">
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-sj.css?ver=20160815" rel="stylesheet">
+    <link href="/static/patch/stylesheets/patch.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/daterangepicker-bs3.css" rel="stylesheet">
+    <link href="/node_module/nm_page/stylesheets/nm_page.css" rel="stylesheet">
+    <link href="/node_module/diy_selecter/stylesheets/DIYselecter.css" rel="stylesheet">
+    <script src="/static/javascripts/es5-patch.js"></script>
+    <script src="/static/javascripts/jquery.min.js"></script>
+    <script src="/static/jquery-page/jquery.page.js"></script>
+    <script src="/static/daterangepicker/js/business.js"></script>
+    <script src="/static/daterangepicker/js/moment.min.js"></script>
+    <script src="/static/daterangepicker/js/daterangepicker.js"></script>
+    <script src='/node_module/nm_page/src/index.js'></script>
+    <script src='/node_module/diy_selecter/src/index.js'></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <link href="/static/patch/stylesheets/patch-ie.css" rel="stylesheet">
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <script src="/static/shangjia/js/json2.js"></script>
+<![endif]-->
+    <title>
+        <?php 
+    if (!empty($title)) {
+        echo $title.' - ';
+        $active_menu = isset($active_menu) ? $active_menu : "";
+    }
+    ?>趣运动商家后台管理系统</title>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?e6ebf5cc607ccebd78ae880208d94325";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    <style>
+        .margin-left-0{
+            margin-left:0 !important; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <!-- 左边拦 -->
+        <div class="sj-nav <?php if(isset($_COOKIE['navCloseStatus']) && $_COOKIE['navCloseStatus'] =='close'){?>hide<?php }?>">
+            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+                <div class="sidebar" role="navigation" style='width:240px;*width:200px;'>
+                    <div class="sj-head">
+                        <!-- logo -->
+                        <div class="sj-head-logo" style="padding-top:12px;">
+                            <div class="sj-head-logo-icon"></div>
+                            <div class="sj-head-logo-text">
+                                <p>馆掌</p>
+                                <h3>会赚钱的管理系统</h3>
+                            </div>
+                            <div style="font-size:15px;padding-top:10px;" >
+                                服务热线：020-29826677
+                            </div>
+                        </div>
+                        <!-- logo end -->
+                        <!-- 用户信息 -->
+                        <div class="sj-head-admin">
+                            <div class="sj-head-admin-company">
+                                <?php
+                                  //总店显示总店名，分店显示分店名
+                                  if(isset($login_userInfo['suppliers_headquarters_id']) && $login_userInfo['suppliers_headquarters_id']!=0){ 
+                                 	 echo $login_userInfo['nickname']; 
+                                  }
+                                  else
+                                  {
+                                  	echo isset($currentVenuesInfo['name']) ? $currentVenuesInfo['name'] : $login_userInfo['nickname'];
+                                  }
+                                 ?>
+                            </div>
+                            <div class="sj-head-admin-name">
+                                <div class="dropdown">
+                                    <button class="btn btn-sj btn-noborder dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width:100%;padding:0;">
+                                        <span><i class='person'></i><?php echo isset($login_userInfo['username']) ? $login_userInfo['username'] :""; ?>
+                                </span><i class='glyphicon glyphicon-chevron-right' style='vertical-align: super;'></i>
+                                <i style="display:none;*display:inline;">></i>
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" style='top: -10px;bottom: auto;right: auto;left: 104%;'>
+                                        <li style="color: #3d4456;"><a href="/user/modifyPassword" style='color:#000;'>修改密码</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <?php if (!helper_LoginHelper::isSuperUser()) { // 不是超级管理员 ?>
+                            <div class="sj-head-admin-button">
+                                    <a href="/login/logout" class='btn btn-sj btn-bdru' style="margin: 0 10px;font-size: 14px;min-width: 90px;color: #8796aa;border-color: #8796aa;vertical-align: bottom;">退出登录</a>
+                            </div>
+                            <?php } ?>
+                        </div>
+                        <?php if (helper_LoginHelper::isSuperUser()) { // 是超级管理员登录 ?>
+                        <div class="sj-head-admin" style="background: #f60; ">
+                            <div class="sj-head-admin-company">超级管理员:
+                                <?php echo helper_LoginHelper::getSuperUserField('username'); ?>
+                            </div>
+                            <div class="sj-head-admin-company">
+                                <a href="/user/modifyPasswordSp" style="color: #fff;">修改密码</a>&nbsp;&nbsp;
+                                <a href="/login/chooseSupplies" style="color: #fff;">切换商家</a>&nbsp;&nbsp;
+                            </div>
+                            <div class="sj-head-admin-company">
+                                <a href="/adminlog/index" style="color: #fff;">操作日志</a>&nbsp;&nbsp;
+                                <a href="/login/logout" style="color: #fff;">退出</a>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <!-- 用户end -->
+                        <!-- 总店商家才显示 -->
+                        <?php if(isset($login_userInfo['suppliers_headquarters_id']) && $login_userInfo['suppliers_headquarters_id']!=0){ ?>
+                        <?php if(helper_LoginHelper::isShowStat() && helper_LoginHelper::isReport()){ ?>
+                        <div class="sj-head-all">
+                        <?php if(helper_VenuesHelper::checkSomsVer()) {?>
+                            <a href="/business/totalV2" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/business/totalV2"))) echo "active" ?>'>全球馆状况</a>                 
+                        <?php }else{ ?>
+                        	<a href="/stat/total" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/stat/total"))) echo "active" ?>'>全球馆状况</a>
+                        <?php }?>
+                       
+                        </div>                    
+                        <?php } ?>
+                        <!-- 选分店 -->
+                        <div class="sj-head-select">
+                            <div class="dropdown">
+                                <button class="btn btn-sj btn-noborder dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width:100%;">
+                                    <?php
+                                    echo empty($currentVenuesInfo) ? '全部分店' : $currentVenuesInfo['name'];
+                                 ?>
+                                        <i class='glyphicon glyphicon-chevron-right'></i>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <?php
+                                    foreach(helper_VenuesHelper::getCurrentVenuesList() AS $k => $v){ ?>
+                                        <li>
+                                            <a href="/Venues/switchVenues?venues_id=<?php echo $k; ?>">
+                                                <?php echo $v; ?>
+                                            </a>
+                                        </li>
+                                        <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                        <?php } ?>
+                        <!-- 分店end -->
+                    </div>
+                    <!-- 导航 -->
+                    <div class="sidebar-nav navbar-collapse" style="box-shadow:none;">
+                        <ul class="nav">
+                            <?php 
+                            if((helper_LoginHelper::isShowStat() && helper_LoginHelper::isReport()) || helper_LoginHelper::isSuperUser()){ ?>
+                            <li>
+                                <div class='sj-nav-title'><span>营业概括</span></div>
+                                <!-- 二级菜单 -->
+                                <ul class="nav nav-second-level">
+                                 <?php if(helper_VenuesHelper::checkSomsVer()) {?>
+                                    <!-- DCC2.0新版 -->
+                                    <li>
+                                        <a href="/business/businessV2" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/business/businessV2"))) echo "active" ?>'>营业日结</a>
+                                    </li>
+                                    <li>
+                                        <a href="/business/incomeDetailV2" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/business/incomeDetailV2"))) echo "active" ?>'>收入明细</a>
+                                    </li>
+                                    <li>
+                                        <a href="/business/timeTicketV2" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/business/timeTicketV2"))) echo "active" ?>'>人次票统计</a>
+                                    </li>
+                                    
+                                  <?php }else{?> 
+                                    <li>
+                                        <a href="/stat/business" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/stat/business"))) echo "active" ?>'>营业日结</a>
+                                    </li>
+                                    <?php if(helper_LoginHelper::isMutifront()) {?>
+                                    <li>
+                                        <a href="/stat/front" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/stat/front"))) echo "active" ?>'>多前台收入</a>
+                                    </li>
+                                    <?php }?>
+                                    <li>
+                                        <a href="/stat/incomeDetail" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/stat/incomeDetail"))) echo "active" ?>'>收入明细</a>
+                                    </li>
+                                   
+                                    <li>
+                                        <a href="/venuestat/venueConsume" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/venuestat/venueConsume"))) echo "active" ?>'>多项目统计表</a>
+                                    </li>                                  
+                                    <li>
+                                        <a href="/venuestat/timeTicket" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/venuestat/timeTicket"))) echo "active" ?>'>人次票统计</a>
+                                    </li>
+                                     <?php }?>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <div class='sj-nav-title'><span>会员概括</span></div>
+                                <ul class="nav nav-second-level">
+
+                                     <?php if(helper_VenuesHelper::checkSomsVer()) {?>
+                                	 <!-- DCC2.0新版 -->
+                                    <li>
+                                        <a href="/Memberstat/cardTradingSummary" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Memberstat/cardTradingSummary"))) echo "active" ?>'>交易汇总</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Memberstat/storedCardConsume" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Memberstat/storedCardConsume") || $active_menu == strtolower("/Memberstat/countCardConsume"))  ) echo "active" ?>'>消费统计</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Memberstat/storedCardDetail" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Memberstat/storedCardDetail") || $active_menu == strtolower("/Memberstat/countCardDetail"))) echo "active" ?>'>交易明细</a>
+                                    </li>
+                                <?php }else{?>    
+                                     <!-- DCC1.1 -->
+                                    <li>
+                                        <a href="/Memberstat/memberTotal" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Memberstat/memberTotal"))) echo "active" ?>'>交易汇总</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Memberstat/memberConsume" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Memberstat/memberConsume"))) echo "active" ?>'>消费统计</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Memberstat/memberDetail" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Memberstat/memberDetail"))) echo "active" ?>'>交易明细</a>
+                                    </li>
+                                 <?php }?>   
+                                
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <div class='sj-nav-title'><span>商品概括</span></div>
+                                <!-- 二级菜单 -->
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="/stat/goodsDealSummary" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/stat/goodsDealSummary"))) echo "active" ?>'>交易汇总</a>
+                                    </li>
+                                    <li>
+                                        <a href="/stat/goodsIncome" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/stat/goodsIncome"))) echo "active" ?>'>收入统计</a>
+                                    </li>
+                                    <li>
+                                        <a href="/stat/goodsDetail" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/stat/goodsDetail"))) echo "active" ?>'>交易明细</a>
+                                    </li>
+                                    <li>
+                                        <a href="/stat/goodsInventoryLog" class='<?php if (isset($active_menu) && ($active_menu == strtolower("/stat/goodsInventoryLog"))) echo "active" ?>'>出入库统计</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li></li>
+                            <?php } ?>
+                            <li>
+                                <div class='sj-nav-title'><span>场地操作</span></div>
+                                <!-- 二级菜单 -->
+                                <ul class="nav nav-second-level">
+                                
+                                  <?php if(helper_LoginHelper::isSite()){ ?>
+                                     <li>
+                                        <a href="/Goodslist/index" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Goodslist/index"))) echo "active" ?>'>场地预订</a>
+                                    </li>
+                                    <?php 
+									}else{
+									?>
+									 <li>
+                                        <a href="/Goods/index" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Goods/index"))) echo "active" ?>'>场地预订</a>
+                                    </li>
+									<?php
+									}?> 
+                                     <?php if(helper_LoginHelper::isMember()){ ?>
+                                     <li>
+                                        <a href="/Usercard/index" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Usercard/index"))) echo "active" ?>'>会员管理</a>
+                                    </li>
+                                    <?php }?>
+
+                                    <li>
+                                        <a href="/fixed/index" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/fixed/index"))) echo "active" ?>'>固定场设置</a>
+                                    </li>
+                                    <li>
+                                        <a href="/Goodsgroup/setting" class='<?php if((isset($active_menu) && $active_menu == strtolower("/goodsgroup/index")) || (isset($active_menu) && $active_menu == strtolower("/goodsgroup/setting"))) echo "active" ?>'>场地打包</a>
+                                    </li>
+ 									<!-- <li>
+                                    	<a href="/Comment/index" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/Comment/index"))) echo "active" ?>' >评论管理</a>
+                                	</li> -->
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li></li>
+                            <li>
+                                <div class='sj-nav-title'><span>财务结算</span></div>
+                                <!-- 二级菜单 -->
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="/report/clearingLog" class='<?php if(isset($active_menu) && ($active_menu == strtolower("/report/clearingLog"))) echo "active" ?>'>趣运动结算</a>
+                                    </li>
+                                    <?php $currentVenuesInfo = helper_VenuesHelper::getCurrentVenuesInfo();
+                                    if(isset($currentVenuesInfo['show_spread_report']) && $currentVenuesInfo['show_spread_report'] == 1){ ?>
+                                    <li>
+                                        <a href="/report/spreadLog" class='<?php if((isset($active_menu) && $active_menu == strtolower("/report/spreadLog")) || (isset($active_menu) && $active_menu == strtolower("/report/spreadLogNew")) || (isset($active_menu) && $active_menu == strtolower("/report/spreadAccount")) ) echo "active" ?>'>推广记录</a>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- 导航end -->
+                </div>
+            </nav>
+        </div>
+        <div class="nav-btn">
+            <span class="glyphicon glyphicon-chevron-right"><em style="display: none;*display: inline;font-size:24px;">></em></span>
+        </div>
+        <!-- nav end -->
+        <div id="page-wrapper" class="sj-content <?php
+         if(isset($_COOKIE['navCloseStatus']) && $_COOKIE['navCloseStatus'] =='close'){?>margin-left-0<?php }?>" style="margin-left:242px;min-width:960px;">
+            <?php
+                echo $this->content ;
+            ?>
+        </div>
+    </div>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+    .nav-btn {
+        position: fixed;
+        top: 50%;
+        left: 240px;
+        z-index: 999;
+        color: #fff;
+        width: 30px;
+        height: 60px;
+        line-height: 60px;
+        background: url(/static/images/pull.png);
+        cursor: pointer;
+    }
+    
+    .nav-btn span {
+        margin-left: 3px;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+    }
+    
+    .nav-btn span.pullClose {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+    }
+    </style>
+    <script>
+        function navOpen(duratation){
+            var _this = $(".nav-btn");
+            $(".sj-nav").show(0, function() {
+                $(this).animate({
+                    'marginLeft': '0px'
+                }, duratation);
+            })
+            var l = $(window).scrollLeft() > 240 ? 0 : 240 - $(window).scrollLeft();
+            $("#page-wrapper").animate({
+                'marginLeft': '242px'
+            }, duratation);
+            _this.animate({
+                'left': l
+            }, duratation);
+        }
+
+        function navClose(duratation){
+            var _this = $(".nav-btn");
+            var w = $(".sj-nav").outerWidth();
+            $(".sj-nav").animate({
+                'marginLeft': -w + "px"
+            }, duratation, function() {
+                $(this).hide();
+            });
+            $("#page-wrapper").animate({
+                'marginLeft': 0
+            }, duratation);
+            _this.animate({
+                'left': 0
+            }, duratation);
+        }
+
+        function navBtnPosChange() {
+            var _this = $(".nav-btn");
+            if (!_this.hasClass('navClose')) {
+                var l = $(window).scrollLeft() > 240 ? 0 : 240 - $(window).scrollLeft();
+                _this.css('left', l + 'px')
+            }
+        }
+        function initNavStatus(){
+            var ret = getCookie('navCloseStatus');
+            if(!ret || ret == 'open'){
+                navOpen(0);
+            }else{
+                navClose(0);
+                $(".nav-btn").addClass('navClose');
+                $('.nav-btn span').toggleClass('pullClose');
+            }
+        }
+
+        function saveNavCookieStatus(){
+            var ret = getCookie('navCloseStatus');
+            if(!ret || ret == 'open'){
+                setCookie('navCloseStatus','close',1);
+            }else{
+                setCookie('navCloseStatus','open',1);
+            }
+        }
+
+        //获取cookie
+        function getCookie(c_name)
+        {
+            if (document.cookie.length>0)
+            {
+                c_start=document.cookie.indexOf(c_name + "=")
+                if (c_start!=-1)
+                {
+                    c_start=c_start + c_name.length+1
+                    c_end=document.cookie.indexOf(";",c_start)
+                    if (c_end==-1) c_end=document.cookie.length
+                    return unescape(document.cookie.substring(c_start,c_end))
+                }
+            }
+            return ""
+        }
+
+        //设置cookie
+        function setCookie(c_name,value,expiredays)
+        {
+            var exdate=new Date()
+            exdate.setDate(exdate.getDate()+expiredays)
+            document.cookie=c_name+ "=" +escape(value)+((expiredays==null) ? "" : "; expires="+exdate.toGMTString()+"; path=/")
+        }
+        
+    $(function(){
+        $(window).on('scroll', navBtnPosChange)
+        $('.sj-nav').removeClass('hide')
+        $('#page-wrapper').removeClass('margin-left-0')
+        navBtnPosChange();
+        initNavStatus(); 
+    })
+    $(window).on('load', function() {
+        var h = document.documentElement.scrollHeight || document.body.scrollHeight;
+        var oSidebar = $(".sidebar");
+        oSidebar.height(h);
+        $(".nav-btn").click(function() {
+            var _this = $(this);
+            saveNavCookieStatus();
+            if (!_this.hasClass('navClose')) {
+                navClose(300);
+            } else {
+                navOpen(300);
+            }
+            _this.toggleClass('navClose');
+            $('span', _this).toggleClass('pullClose');
+        })
+    })
+
+    </script>
+    
+   <?php if (helper_LoginHelper::isShowNotice()) { ?>
+    <script type='text/temp' id='tempHtml'>
+        <h3 style='margin: 10px auto;color: #0285db;font-size: 22px;'>通知</h3>
+        <h3>为保证订单通知的及时性和稳定性，减少运营商的错误导致订单通知错漏，即日起通知服务将改用微信推送，短信通知将于10月10日关闭，请管理员尽快绑定微信。</h3>
+        <p style='text-align: left;'>绑定方法：</p>
+        <p style='text-align: left;'>1、使用微信扫描下方二维码，关注”馆掌“公众号</p>
+        <div style='width:200px'> <img src="/static/images/code.jpg" alt="" style='width:200px'></div>
+        <p style='text-align: left;'>2、在“馆掌”公众号菜单上，点击“订单推送”</p>
+        <p style='text-align: left;'>3、在打开的页面上验证手机号，即可用微信接收订单推送</p>
+    </script>
+    <script src='/static/javascripts/sj-notice.js'></script>
+
+    <script type="text/javascript">
+    var s = new SjNotice(document.getElementById('tempHtml').innerHTML)
+    </script>
+    
+    <?php }?>
+</body>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <link href="/static/shangjia/css/iestyle.css" rel="stylesheet">
+<![endif]-->
+</html>

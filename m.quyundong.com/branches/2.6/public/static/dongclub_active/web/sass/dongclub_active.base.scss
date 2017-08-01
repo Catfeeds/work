@@ -1,0 +1,151 @@
+@import "compass/css3";
+
+html{
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x:hidden; 
+  overflow: auto;
+  background-color:#f1f1f1;
+  line-height: 1.375;
+}
+body{
+  margin: 0 auto;
+  height: 100%;
+  width: 3.2rem;
+  max-width: 640px;
+  font-size: 0.24rem;
+  text-align: center;
+}
+img{
+  width: 100%;
+}
+.loading{
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.hide{
+  display: none !important;
+}
+.main{
+  width: 100%;
+  background-color:#fff;
+}
+.dongclub{
+  width: 3.15rem;
+  margin: 0 auto;
+  padding-top: 0.2rem;
+}
+.title88{
+  width: 2.95rem;
+  margin: 0 auto;
+}
+.image1{
+  padding-top: 0.2rem;
+  width: 1.7rem;
+  margin: 0 auto;
+}
+.image2{
+  width: 1.7rem;
+  margin: 0 auto;
+  padding-top: 0.1rem;
+}
+.image3{
+  width: 1.7rem;
+  margin: 0 auto;
+  padding-top: 0.4rem;
+}
+.text1{
+  width: 2.08rem;
+  margin: 0 auto;
+  padding-top: 0.3rem;
+}
+.text2{
+  width: 1.96rem;
+  margin: 0 auto;
+  padding-top: 0.25rem;
+}
+.morechose{
+  width: 100%;
+  margin: 0 auto;
+}
+.howto{
+  width: 2.77rem;
+  margin: 0 auto;
+}
+.btn{
+  display: block;
+  width: 1.57rem;
+  margin: 0 auto;
+  padding-top: 0.2rem;
+  @include transform(translate3d(0,10%,0));
+}
+.end{
+  width: 100%;
+  margin: 0 auto;
+  font-size: 0;
+}
+.wxshare{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 99;
+  background-color:rgba(0,0,0,0.45);
+  font-size: 0.14rem;
+}
+.wxshare .alert{
+  width: 2.6rem;
+  height: 2.35rem;
+  background-color: #fff;
+  border-radius: 6px;
+  position: absolute;
+  top:50%;
+  left:50%;
+  @include transform(translate3d(-50%,-50%,0));
+  padding: 0.2rem 0.2rem;
+  @include box-sizing(border-box);
+  line-height: 1.375;
+}
+.wxshare .alert i{
+  width: 0.16rem;
+  height: 0.16rem;
+  position: absolute;
+  top:0.1rem;
+  right:0.1rem;
+  background: url(http://m.quyundong.com/static/images/yuerecruit/closebtn.png) no-repeat;
+  @include background-size(cover);
+}
+.wxshare .alert p{
+  margin: 0.15rem auto;
+}
+.color93{
+  color:#939393;
+  font-size: 0.12rem;
+}
+.color33{
+  color:#333;
+}
+.color63{
+  text-align: left;
+  color:#636363;
+}
+.wxshare .alert .sharepic{
+  width: 1.05rem;
+  height: 0.66rem;
+  margin: -0.05rem auto;
+  background: url(http://m.quyundong.com/static/images/yuerecruit/sharepic.png) no-repeat;
+  @include background-size(cover);
+}
+.wxshare .alert em{
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.14rem;
+  background: url(http://m.quyundong.com/static/images/yuerecruit/sharebtn.png) no-repeat;
+  @include background-size(cover);
+}

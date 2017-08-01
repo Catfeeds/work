@@ -1,0 +1,113 @@
+<div class="comment-header">
+    <label class="sj-select-lb fl form-inline afterBorder"><i class="glyphicon glyphicon-chevron-down"></i>
+        <select id="cat_id_value" name="cat_id" onchange="changeCat()" style="cursor:pointer;" class="fl form-control sj-select btn-bdru">
+            <option value="1" selected="">羽毛球</option>
+            <option value="6">乒乓球</option>
+            <option value="8">游泳馆</option>
+            <option value="12">网球</option>
+            <option value="13">篮球</option>
+            <option value="16">健身房</option>
+        </select>
+    </label>
+    <div style="margin-bottom:0;margin-left:60px;" class="filter-control">
+        <div class="filter-time afterBorder">
+            <input id="start_date" name="start_date" type="text" value="2016-07-01" class="hide">
+            <input id="end_date" name="end_date" type="text" value="2016-08-01" class="hide"><span id="timeStart" class="btn-bdru">2016-07-01 <i class="glyphicon glyphicon-chevron-down"></i></span><em>至</em><span id="timeEnd" class="btn-bdru">2016-08-01 <i class="glyphicon glyphicon-chevron-down"></i></span>
+            <input id="reservation" type="text" readonly="" value="2016-07-01 - 2016-08-01">
+        </div>
+        <script type="text/javascript">
+        $(function() {
+            $('#reservation').daterangepicker(null, function(start, end, label) {
+                var t1 = new Date(start.toString());
+                var t2 = new Date(end.toString());
+                var txt1 = t1.format('yyyy-MM-dd');
+                var txt2 = t2.format('yyyy-MM-dd');
+                $("#start_date").val(txt1);
+                $("#end_date").val(txt2);
+                $("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                $("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+            });
+        })
+        </script>
+    </div>
+    <button type="submit" class="search-btn btn-sj-blue btn-bdru btn btn-default">查询</button>
+</div>
+<h1>用户评论</h1>
+<table style="text-align:center;" class="comment-table table table-bordered">
+    <thead>
+        <tr>
+            <th>用户名</th>
+            <th>手机号</th>
+            <th>评论时间</th>
+            <th>评分</th>
+            <th>评论内容</th>
+            <th>回复内容</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>老王</td>
+            <td>13800138000</td>
+            <td>2016-06-06 15:22:22</td>
+            <td>每周</td>
+            <td class="comment-content">
+                <p>我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方我表示很方</p>
+                <ul class="comment-img-list">
+                    <li style="background-image:url(/static/images/avatar.png)"></li>
+                    <li style="background-image:url(/static/images/consume-icon1.png)"> </li>
+                    <li style="background-image:url(/static/images/consume-icon2.png)"> </li>
+                    <li style="background-image:url(/static/images/consume-icon3.png)"> </li>
+                    <li style="background-image:url(/static/images/consume-icon4.png)"> </li>
+                    <li style="background-image:url(/static/images/consume-icon5.png)"> </li>
+                </ul>
+            </td>
+            <td>未回复</td>
+            <td>
+                <div class="comment-reply-btn btn-sj-blue btn-bdru">回复</div>
+            </td>
+        </tr>
+        <tr>
+            <td>老王</td>
+            <td>13800138000</td>
+            <td>2016-06-06 15:22:22</td>
+            <td>每周</td>
+            <td class="comment-content">我表示很方</td>
+            <td>方就方吧</td>
+            <td>
+                <div class="comment-reply-btn btn-sj-blue btn-bdru disable">回复</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="popbg"></div>
+<div class="dialog-layer comment-tips btn-bdru">
+    <div class="dialog-close"><img src="/static/shangjia/images/closebtn.jpg" alt="" class=""></div>
+    <div class="dialog-msg">您已被趣运动禁言，可联系趣运动了解详情</div>
+    <div class="dialog-btn btn-sj-blue btn-bdru btn">知道了</div>
+</div>
+<div class="dialog-layer comment-reply btn-bdru">
+    <div class="dialog-close">
+        <span>回复评论</span>
+        <img src="/static/shangjia/images/closebtn.jpg">
+    </div>
+    <div id="textareaCount" class="reply-content">
+        <textarea name="" cols="30" rows="8" max="140"></textarea>
+        <div class="reply-count">0/140</div>
+    </div>
+    <div class="reply-tips">回复后不可再编辑或删除，请谨慎回复</div>
+    <div class="reply-operate">
+        <div class="dialog-btn btn-sj-blue btn-bdru btn cancel">取消</div>
+        <div class="dialog-btn btn-sj-blue btn-bdru btn">确定</div>
+    </div>
+</div>
+<div id="commentPreview" class="dialog-layer comment-preview">
+    <div class="dialog-close"><img src="/static/shangjia/images/closebtn.jpg" alt="" class=""></div>
+    <ul class="preview-list"></ul>
+    <div class="pagination-container">
+        <div class="pagination">
+            <a data-delta="-1" class="prev"></a><em></em>
+            <a data-delta="1" class="next"></a>
+        </div>
+    </div>
+</div>

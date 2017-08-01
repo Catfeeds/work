@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    include ./includes/_public
+    block headContent
+  body
+    block content
+    include ./includes/_baidutj

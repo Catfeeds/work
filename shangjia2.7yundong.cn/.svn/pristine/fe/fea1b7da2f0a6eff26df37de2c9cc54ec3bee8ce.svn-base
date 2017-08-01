@@ -1,0 +1,1187 @@
+<?php 
+
+/**
+* 请求场馆api相关的接口
+* 
+* @author gaojia
+*/
+class api_StatApi extends api_Base
+{
+	/**
+	 * api 秘钥
+	 *
+	 * @var string
+	 */
+	protected $apiKey = '4b111cc14a33b88e37e2e2934f493458';
+
+	/**
+	 * 正式环境的api地址
+	 *
+	 * @var string
+	 */
+	protected $apiProductUrl = 'http://stat.api.guanzhang.me/';
+
+	/**
+	 * 开发环境的api地址
+	 *
+	 * @var string
+	 */
+	protected $apiDevelopmentUrl = 'http://stat.guanzhang.qydw.net/';
+
+
+	/**
+	 * 商品交易明细
+	 * @author gaojia
+	 * @date 2016-08-11
+	 */
+	public function getCommodityDetail($venues_id, $start_date='', $end_date='', $order_code='', $goods_name='', $operator = '', $page='', $count=''){
+
+		if (empty($venues_id)) {
+			baf_Logger::log2File(__METHOD__.'参数出错' . ' error:  venues_id:'. $venues_id .';start_date:'. $start_date. ';end_date:'. $end_date .';order_code:' . $order_code . ';$goods_name:'. $goods_name . ';page:'. $page. ';count:'. $count, 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = array(
+			'action'     => 'dealList',
+			'venues_id'  => $venues_id,
+			'start_date' => $start_date ? strtotime($start_date) : '',
+			'end_date'   => $end_date ? strtotime($end_date. ' 23:59:59') : '',
+			'order_code' => $order_code,
+			'goods_name' => $goods_name,
+			'operator'   => $operator,
+			'page'       => $page,
+			'count'      => $count
+
+		);
+		
+		$response = $this->requestGet($param, 'goods/dealList');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		
+		return $response;
+	}
+
+	/**
+	 * 商品分类交易汇总
+	 */
+	public function getGoodsDealSummary($venues_id, $start_date = '', $end_date = '')
+	{
+
+		if (empty($venues_id)) {
+			baf_Logger::log2File(__METHOD__.'参数出错   error: venues_id:' . $venues_id . ';start_date:' . $start_date .';end_date:'. $end_date , 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = array(
+			'venues_id' => $venues_id,
+			'start_date' => $start_date ? strtotime($start_date) : '',
+			'end_date' => $end_date ? strtotime($end_date. ' 23:59:59') : '',
+		);
+
+		$response = $this->requestGet($param, 'goods/dealSummary');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+
+		return $response;
+	}
+
+	/**
+	 * 商品收入统计
+	 */
+	public function getGoodsIncomeList($venues_id, $start_date = '', $end_date = '', $goods_name = '')
+	{
+
+		if (empty($venues_id)) {
+			baf_Logger::log2File(__METHOD__.'参数出错   error: venues_id:' . $venues_id . ';start_date:' . $start_date .';end_date:'. $end_date . ';goods_name:'. $goods_name, 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = array(
+			'venues_id' => $venues_id,
+			'start_date' => $start_date ? strtotime($start_date) : '',
+			'end_date' => $end_date ? strtotime($end_date. ' 23:59:59') : '',
+			'goods_name' => $goods_name,
+		);
+
+		$response = $this->requestGet($param, 'goods/incomeList');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+
+		return $response;
+	}
+
+	/**
+	 * 商品出入库统计
+	 */
+	public function getGoodsInventoryLog($venues_id, $start_date = '', $end_date = '', $goods_name = '', $operator = '', $page='', $count='')
+	{
+
+		if (empty($venues_id)) {
+			//throw new Exception(__CLASS__ . '::' . __FUNCTION__ . ' 参数不能为空');
+			baf_Logger::log2File(__METHOD__.'参数出错' . ' error:  venues_id:'. $venues_id .';start_date:'. $start_date. ';end_date:'. $end_date .';goods_name:' . $goods_name . ';operater:'. $operator . ';page:'. $page. ';count:'. $count, 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = array(
+			'venues_id' => $venues_id,
+			'start_date' => $start_date ? strtotime($start_date) : '',
+			'end_date' => $end_date ? strtotime($end_date. ' 23:59:59') : '',
+			'goods_name' => $goods_name,
+			'operator' => $operator,
+			'page'       => $page,
+			'count'      => $count
+		);
+
+		$response = $this->requestGet($param, 'goods/inventoryLog');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+
+		return $response;
+	}
+
+
+	/**
+	 * 会员交易明细
+	 *
+	 * @author bumtime
+	 * @date 2016-08-15
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date: 结束时间；type：类型；page：页码；count：每页数量）
+	 * @return array 接口数据
+	 */
+	public function getMembersTradingList(array $params)
+	{
+
+		if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = [
+			'venues_id' => $params['venues_id'],
+			'start_date' => $params['start_date'],
+			'end_date' => $params['end_date']
+		];
+		if (isset($params['type']) && $params['type'] > 0)
+			$param['type'] = $params['type'];
+
+		if (isset($params['page']) && isset($params['count']) && $params['page'] > 0) {
+			$param['page'] = $params['page'];
+			$param['count'] = $params['count'];
+		}
+		 
+		$response = $this->requestGet($param, 'members/MembersTradingLogList');
+		//$response = $this->requestGet($param, 'members/MembersTradingList');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+
+		return $response;
+	}
+
+	/**
+	 * 会员消费统计
+	 *
+	 * @author bumtime
+	 * @date 2016-08-15
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间；member_code： 会员卡信息；card_type：会员类型；page：页码；count：每页数量）
+	 * @return array 接口数据
+	 */
+	public function getMembersTradingCountList(array $params)
+	{
+
+		if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = [
+			'venues_id' => $params['venues_id'],
+			'start_date' => $params['start_date'],
+			'end_date' => $params['end_date'],
+			'member_code' => $params['member_code'],
+			'card_type' => $params['card_type']
+		];
+
+		if ($params['page'] > 0) {
+			$param['page'] = $params['page'];
+			$param['count'] = $params['count'];
+		}
+
+		$response = $this->requestGet($param, 'members/MembersTradingCountList');
+
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+
+		return $response; 
+	}
+
+	/**
+	 * 取场馆的会员卡类型
+	 *
+	 * @author bumtime
+	 * @date 2016-08-15
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID）
+	 * @return array 接口数据
+	 */
+	public function getMembersCardType(array $params)
+	{
+
+		if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = [
+			'venues_id' => $params['venues_id']
+		];
+
+		$response = $this->requestGet($param, 'members/MembersCardType');
+
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+
+		return $response;
+	}
+
+	/**
+	 * 会员交易汇总
+	 *
+	 * @author bumtime
+	 * @date 2016-09-07
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间）
+	 * @return array 接口数据
+	 */
+	public function getMembersTradingAllByCat(array $params)
+	{
+	
+		if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id'  => $params['venues_id'],
+				'start_date' => $params['start_date'],
+				'end_date'   => $params['end_date']
+		];
+	
+
+		$response = $this->requestGet($param, 'members/MembersTotalByCat');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response;
+	}
+	
+	
+	/**
+	 * 取球馆状况
+	 *
+	 * @author zhuangsheng
+	 * @date 2016-08-16
+	 *
+	 */
+	public function getTotalReport($venues_ids, $start_date, $end_date, $account_type = 2)
+	{
+		if (empty($venues_ids) || empty($start_date) || empty($end_date)) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:venues_ids:' . $venues_ids . ';start_date:' . $start_date . ';end_date:' . $end_date, 'Stat_api_error');
+			return [];
+		}
+		// 相关参数
+		$param = [
+			'venues_ids' => $venues_ids,
+			'start_date' => $start_date,
+			'end_date' => $end_date,
+			'account_type' => $account_type,
+		];
+		$response = $this->requestGet($param, 'income/totalReport');
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']['list']) ? $response['data']['list']: [];
+	}
+
+	/**
+	 * 取球馆状况
+	 *
+	 * @author zhuangsheng
+	 * @date 2016-08-16
+	 *
+	 */
+	public function getIncomeDealList(array $param)
+	{
+		if (empty($param['venues_id']) || empty($param['start_date']) || empty($param['end_date'])) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:param:' . json_encode($param), 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$response = $this->requestGet($param, 'income/dealList');
+		
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return $response['data'];
+	}
+
+	/**
+	 * 营业日结
+	 *
+	 * @author zhuangsheng
+	 * @date 2016-08-17
+	 *
+	 */
+	public function getDayReport($venues_id, $start_date, $end_date, $account_type = 2)
+	{
+		if (empty($venues_id) || empty($start_date) || empty($end_date)) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:venues_id:' . $venues_id . ';start_date:' . $start_date . ';end_date:' . $end_date, 'Stat_api_error');
+			return [];
+		}
+		// 相关参数
+		$param = [
+			'venues_id' => $venues_id,
+			'start_date' => $start_date,
+			'end_date' => $end_date,
+			'account_type' => $account_type,
+		];
+
+		$response = $this->requestGet($param, 'income/dayReport');
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']) ? $response['data']: [];
+	}
+	
+	
+	/**
+	 * 取订单明细
+	 *
+	 * @author bumtime
+	 * @date 2016-08-23
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID, order_code，多个订单编号）
+	 * @return array 接口数据
+	 */
+	public function getOrderListByCode(array $params)
+	{
+	
+		if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id' => $params['venues_id'],
+				'order_code' => $params['order_code']
+			
+		];
+	
+		$response = $this->requestGet($param, 'orders/OrderListByCode');
+	
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response;
+	}
+
+	/**
+	 * 场地消费统计
+	 *
+	 * @author zhuangsheng
+	 * @date 2016-09-03
+	 *
+	 */
+	public function getVenueConsumeReport($venues_id, $start_date, $end_date, $account_type = 2)
+	{
+		if (empty($venues_id) || empty($start_date) || empty($end_date)) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:venues_id:' . $venues_id . ';start_date:' . $start_date . ';end_date:' . $end_date, 'Stat_api_error');
+			return [];
+		}
+		// 相关参数
+		$param = [
+			'venues_id' => $venues_id,
+			'start_date' => $start_date,
+			'end_date' => $end_date,
+			'account_type' => $account_type,
+		];
+		$response = $this->requestGet($param, 'income/venueConsumeReport');
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']['list']) ? $response['data']['list']: [];
+	}
+
+	/**
+	 * 人次票统计
+	 * @param $venues_id
+	 * @param $start_date
+	 * @param $end_date
+	 * @return array|mixed
+	 */
+	public function getTimeTicketReport($venues_id, $start_date, $end_date, $page = 0, $count = 0)
+	{
+		if (empty($venues_id) || empty($start_date) || empty($end_date)) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:venues_id:' . $venues_id . ';start_date:' . $start_date . ';end_date:' . $end_date, 'Stat_api_error');
+			return [];
+		}
+		// 相关参数
+		$param = [
+			'venues_id' => $venues_id,
+			'start_date' => strtotime($start_date),
+			'end_date' => strtotime($end_date. " 23:59:59"),
+			'page' => $page,
+			'count' => $count,
+		];
+		$response = $this->requestGet($param, 'income/timeTicketReport');
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']) ? $response['data']: [];
+	}
+
+	
+	/**
+	 * 取多前台收入
+	 *
+	 * @author bumtime
+	 * @date 2016-10-25
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID, order_code，多个订单编号）
+	 * @return array 接口数据
+	 */
+	public function getMultipleOrderList(array $params)
+	{
+		if (empty($params['venues_id']) || empty($params['start_date']) || empty($params['end_date'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+		// 相关参数
+		$param = [
+				'venues_id' => $params['venues_id'],
+				'start_date' => $params['start_date'],
+				'end_date' => $params['end_date'],
+				'account_type' => $params['account_type'],
+				'operate_area' => '',
+				'create_by' => ''
+		];
+
+		if(isset($params['page']) && !empty($params['page'])){
+			$param['page'] = $params['page'];
+		}		
+		if(isset($params['count']) && !empty($params['count'])){
+			$param['count'] = $params['count'];
+		}
+		if(isset($params['operate_area']) && $params['operate_area'] != ''){
+			$param['operate_area'] = $params['operate_area'];
+		}
+		if(isset($params['create_by']) && !empty($params['create_by'])){
+			$param['create_by'] = $params['create_by'];
+		}
+
+		$response = $this->requestGet($param, 'income/multipleDealList');
+
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']) ? $response['data']: [];
+	}
+	
+	/*============================================================DCC2.0新版接口===========================================================*/
+	
+	/**
+	 * 取会员卡列表
+	 *
+	 * @author bumtime
+	 * @date 2016-12-26
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function getUserCardList(array $params)
+	{
+		if (!isset($params['venues_id']) || empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/GetCardList',
+				'venues_id' 	=>	$params['venues_id'],
+				'keyword'		=>	$params['keyword'],				
+				'page'			=>	$params['page'],
+				'page_size' 	=>	$params['page_size'],
+				'sort_key'		=>	$params['sort_key'],	
+				'sort_value'	=>	$params['sort_value'],
+				'type'			=>	$params['type']
+		];
+	
+		$response = $this->requestPost($param, 'card/GetCardList');
+		
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			//return [];
+		}
+	
+		return $response;
+	}
+	
+	/**
+	 * 批量导入会员卡
+	 *
+	 * @author bumtime
+	 * @date 2016-12-26
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function importCard(array $params)
+	{
+		if (!isset($params['venues_id']) || !isset($params['data']) || empty($params['venues_id']) || empty($params['data'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}		
+
+		// 相关参数
+		$param = [
+				'action'		=>	'card/ImportCard',
+				'venues_id' 	=>	$params['venues_id'],
+				'data'			=>	$params['data']
+		];
+ 
+		$response = $this->requestPost($param, 'card/ImportCard');
+	 
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			//return [];
+		}
+	
+		return $response;
+	}
+	
+	/**
+	 * 删除会员卡
+	 *
+	 * @author bumtime
+	 * @date 2016-12-26
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function delCard(array $params)
+	{
+		if (!isset($params['venues_id']) || !isset($params['id']) || empty($params['venues_id']) || empty($params['id'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/DelCard',
+				'venues_id' 	=>	$params['venues_id'],
+				'id'			=>	$params['id']
+		];
+	
+		$response = $this->requestPost($param, 'card/DelCard');
+	
+		if (!is_array($response) || $response['status'] != '0000') {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+		}
+	
+		return $response;
+	}
+	
+	/**
+	 * 修改单个会员卡
+	 *
+	 * @author bumtime
+	 * @date 2016-12-30
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function editCard(array $params)
+	{
+		if (!isset($params['venues_id']) || !isset($params['card_id']) || !isset($params['card_number']) || empty($params['venues_id']) ||  empty($params['card_number'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/ModifyCard',
+				'venues_id' 	=>	$params['venues_id'],
+				'card_id'		=>	$params['card_id'],
+				'card_number' 	=>	$params['card_number'],
+				'phone'			=>	$params['phone'],
+				'name'			=>	$params['name']			
+		];	
+		
+		$response = $this->requestGet($param, 'card/ModifyCard');
+
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+		}
+	
+		return $response;
+	}
+	
+	/**
+	 * 检查会员卡
+	 *
+	 * @author bumtime
+	 * @date 2017-01-04
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function checkCard(array $params)
+	{
+		if (!isset($params['venues_id'])  || !isset($params['card_number']) || empty($params['venues_id']) || empty($params['card_number'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/CheckCard',
+				'venues_id' 	=>	$params['venues_id'],
+				'card_number' 	=>	$params['card_number']
+		];
+	
+		$response = $this->requestPost($param, 'card/CheckCard');
+	
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+		}
+	
+		return $response;
+	}
+	
+	/**
+	 * 添加单个会员卡
+	 *
+	 * @author bumtime
+	 * @date 2017-01-09
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function addCard(array $params)
+	{
+		if (!isset($params['venues_id'])  || !isset($params['card_number']) || empty($params['venues_id']) || empty($params['card_number'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/AddCard',
+				'venues_id' 	=>	$params['venues_id'],
+				'card_number' 	=>	$params['card_number'],
+				'phone'			=>	$params['phone'],
+				'name'			=>	$params['name']
+		];
+	
+		$response = $this->requestPost($param, 'card/AddCard');
+	
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+		}
+	
+		return $response;
+	}
+	
+
+	/**
+	 * 取会员卡列表(按关键词，下拉模糊效果)
+	 *
+	 * @author bumtime
+	 * @date 2017-01-09
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function getUserCardListByKey(array $params)
+	{
+		if (!isset($params['venues_id']) || empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/GetCardListByKey',
+				'venues_id' 	=>	$params['venues_id'],
+				'keyword'		=>	$params['keyword'],
+				'type'			=>	$params['type']
+		];
+	
+		$response = $this->requestGet($param, 'card/GetCardListByKey');
+	
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+		}
+	
+		return $response;
+	}
+	
+	/**
+	 * 取会员卡列表(按card_id)
+	 *
+	 * @author bumtime
+	 * @date 2017-01-18
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function getCardListByCardId(array $params)
+	{
+		if (empty($params['venues_id']) || empty($params['card_id'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/GetCardListByCardId',
+				'venues_id' 	=>	$params['venues_id'],
+				'card_id'		=>	$params['card_id']
+		];
+	
+		$response = $this->requestGet($param, 'card/GetCardListByCardId');
+	
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+		}
+	
+		return $response;
+	}
+	
+	/**
+	 * 取会员卡列表(按card_no)
+	 *
+	 * @author bumtime
+	 * @date 2017-02-09
+	 *
+	 * @param  array $params
+	 * @return array 接口数据
+	 */
+	public function getCardListByCardNo(array $params)
+	{
+		if (empty($params['venues_id']) || empty($params['card_no'])) {
+			baf_Logger::log2File(__METHOD__ .'参数出错:' . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'action'		=>	'card/GetCardListByCardNo',
+				'venues_id' 	=>	$params['venues_id'],
+				'card_no'		=>	$params['card_no']
+		];
+	
+		$response = $this->requestGet($param, 'card/GetCardListByCardNo');
+	 
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+		}
+	
+		return $response;
+	}
+
+	
+	/**
+	 * 储值卡交易明细Dcc2.0
+	 *
+	 * @author bumtime
+	 * @date 2017-03-07
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date: 结束时间；type：类型；page：页码；count：每页数量）
+	 * @return array 接口数据
+	 */
+	public function getStoredCardLogList(array $params)
+	{
+		 if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id' => $params['venues_id'],
+				'start_date' => $params['start_date'],
+				'end_date' => $params['end_date']
+		];
+		if (isset($params['type']) && $params['type'] > 0)
+			$param['type'] = $params['type'];
+	
+		if (isset($params['page']) && isset($params['page_size']) && $params['page'] > 0 && $params['page_size'] >0) {
+			$param['page'] = $params['page'];
+			$param['page_size'] = $params['page_size'];
+		}
+			
+		$response = $this->requestGet($param, 'stat/StoredCardTradingLog');
+	
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response; 
+	}
+	
+	
+	/**
+	 * 次卡交易明细Dcc2.0
+	 *
+	 * @author bumtime
+	 * @date 2017-03-07
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date: 结束时间；type：类型；page：页码；count：每页数量）
+	 * @return array 接口数据
+	 */
+	public function getCountCardLogList(array $params)
+	{
+		 if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id' => $params['venues_id'],
+				'start_date' => $params['start_date'],
+				'end_date' => $params['end_date']
+		];
+		if (isset($params['type']) && $params['type'] > 0)
+			$param['type'] = $params['type'];
+	
+		if (isset($params['page']) && isset($params['page_size']) && $params['page'] > 0 && $params['page_size']>0) {
+			$param['page'] = $params['page'];
+			$param['page_size'] = $params['page_size'];
+		}
+			
+		$response = $this->requestGet($param, 'stat/CountCardTradingLog');
+	
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response; 
+	}
+
+	
+	/**
+	 * 储值卡消费统计Dcc2.0
+	 *
+	 * @author bumtime
+	 * @date 2017-03-07
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间；member_code： 会员卡信息；card_type：会员类型；page：页码；count：每页数量）
+	 * @return array 接口数据
+	 */
+	public function getStoredCardConsumeStat(array $params)
+	{
+
+		if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id' => $params['venues_id'],
+				'start_date' => $params['start_date'],
+				'end_date' => $params['end_date'],
+				'member_code' => $params['member_code'],
+				'card_type' => $params['card_type']
+		];
+	
+		if (isset($params['page']) && isset($params['page_size']) && $params['page'] > 0 && $params['page_size']>0) {
+			$param['page'] = $params['page'];
+			$param['page_size'] = $params['page_size'];
+		}
+	
+		$response = $this->requestGet($param, 'stat/StoredCardConsumeStat');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response; 
+	}
+
+	
+	/**
+	 * 次卡消费统计Dcc2.0
+	 *
+	 * @author bumtime
+	 * @date 2017-03-07
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间；member_code： 会员卡信息；card_type：会员类型；page：页码；count：每页数量）
+	 * @return array 接口数据
+	 */
+	public function getCountCardConsumeStat(array $params)
+	{
+		
+		 if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id' => $params['venues_id'],
+				'start_date' => $params['start_date'],
+				'end_date' => $params['end_date'],
+				'member_code' => $params['member_code'],
+				'card_type' => $params['card_type']
+		];
+
+		if (isset($params['page']) && isset($params['page_size']) && $params['page'] > 0 && $params['page_size']>0) {
+			$param['page'] = $params['page'];
+			$param['page_size'] = $params['page_size'];
+		}
+	
+		$response = $this->requestGet($param, 'stat/CountCardConsumeStat');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response; 
+	}
+	
+	/**
+	 * 储值卡，次卡交易汇总Dcc2.0
+	 *
+	 * @author bumtime
+	 * @date 2016-09-07
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间）
+	 * @return array 接口数据
+	 */
+	public function getCardTradingSummary(array $params)
+	{
+		
+		if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id'  => $params['venues_id'],
+				'start_date' => $params['start_date'],
+				'end_date'   => $params['end_date']
+		];
+	
+		$response = $this->requestGet($param, 'stat/CardTradingSummary');
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response; 
+	}
+	
+	
+	/**
+	 * 取馆掌版本号
+	 *
+	 * @author bumtime
+	 * @date 2017-03-08
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间）
+	 * @return array 接口数据
+	 */
+	public function getVersionInfo(array $params)
+	{
+		 if (empty($params['venues_id'])) {
+			baf_Logger::log2File(__METHOD__.'参数出错:'  . ' error: ' . json_encode($params), 'Stat_api_error');
+			return [];
+		}
+	
+		// 相关参数
+		$param = [
+				'venues_id'  => $params['venues_id']
+		];
+	
+		$response = $this->requestGet($param, 'soms/GetVersionInfo');
+	
+		if (!is_array($response)) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+	
+		return $response['data']; 
+	}
+
+	/**
+	 * 营业收入明细
+	 * 馆掌4.1.0版本增加：时间卡，人次票，人次票等收入统计
+	 * @author chenchao
+	 * @date 2017-04-26
+	 *
+	 */
+	public function getIncomeDealListV2(array $param)
+	{
+		if (empty($param['venues_id']) || empty($param['start_date']) || empty($param['end_date'])) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:param:' . json_encode($param), 'Stat_api_error');
+			return [];
+		}
+		$url = $this->getApiUrl()."stat/DealList?".http_build_query($param);
+		
+		//测试时记录请求URL
+		if (!IS_PRODUCT_ENVIRONMENT){
+			baf_Logger::log2File(__METHOD__ . ',请求URL:' . $url, 'Stat_Api_DealList');
+		}
+		// 相关参数
+		$response = $this->requestGet($param, 'stat/DealList');
+		//测试时记录请求数据
+		if (!IS_PRODUCT_ENVIRONMENT){
+			baf_Logger::log2File(__METHOD__ . ',结果:' . json_encode($response), 'Stat_Api_DealList');
+		}
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return $response['data'];
+	}
+	
+	
+	/**
+	 * 营业日结(dcc2.0)
+	 *
+	 * @author bumtime
+	 * @date 20170511
+	 * 
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间）
+	 * @return array 接口数据
+	 *
+	 */
+	public function getDayReportNew($venues_id, $start_date, $end_date, $account_type = 2)
+	{
+		if (empty($venues_id) || empty($start_date) || empty($end_date)) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:venues_id:' . $venues_id . ';start_date:' . $start_date . ';end_date:' . $end_date, 'Stat_api_error');
+			return [];
+		}
+		// 相关参数
+		$param = [
+			'venues_id' => $venues_id,
+			'start_date' => $start_date,
+			'end_date' => $end_date,
+			'account_type' => $account_type,
+		];
+
+		$response = $this->requestGet($param, 'stat/DayReport');
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']) ? $response['data']: [];
+	}
+	
+	/**
+	 * 全球馆状况(dcc2.0)
+	 *
+	 * @author bumtime
+	 * @date 20170513
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间）
+	 * @return array 接口数据
+	 *
+	 */
+	public function getTotalReportNew($venues_ids, $start_date, $end_date, $account_type = 2)
+	{
+		if (empty($venues_ids) || empty($start_date) || empty($end_date)) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:venues_ids:' . $venues_ids . ';start_date:' . $start_date . ';end_date:' . $end_date, 'Stat_api_error');
+			return [];
+		}
+		// 相关参数
+		$param = [
+			'venues_ids' => $venues_ids,
+			'start_date' => $start_date,
+			'end_date' => $end_date,
+			'account_type' => $account_type,
+		];
+		$response = $this->requestGet($param, 'stat/TotalReport');
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']) ? $response['data']: [];
+	}
+	
+	/**
+	 * 人次票统计(dcc2.0)
+	 *
+	 * @author bumtime
+	 * @date 20170516
+	 *
+	 * @param  array $param 参数数组（venues_id：场馆ID；start_date：开始时间； end_date： 结束时间）
+	 * @return array 接口数据
+	 *
+	 */
+	public function getTimeTicketReportNew($venues_id, $start_date, $end_date)
+	{
+		if (empty($venues_id) || empty($start_date) || empty($end_date)) {
+			baf_Logger::log2File(__METHOD__ . '参数出错:venues_ids:' . $venues_id . ';start_date:' . $start_date . ';end_date:' . $end_date, 'Stat_api_error');
+			return [];
+		}
+
+		// 相关参数
+		$param = [
+				'venues_id' => $venues_id,
+				'start_date' => $start_date,
+				'end_date' => $end_date
+		];
+
+		$response = $this->requestGet($param, 'stat/timeTicketReport');
+
+		if (!is_array($response) || $response['status'] != '0000' || !is_array($response['data'])) {
+			baf_Logger::log2File(__METHOD__ . '接口返回出错:response:' . json_encode($response), 'Stat_api_error');
+			return [];
+		}
+		return !empty($response['data']) ? $response['data']: [];
+	}
+}
+

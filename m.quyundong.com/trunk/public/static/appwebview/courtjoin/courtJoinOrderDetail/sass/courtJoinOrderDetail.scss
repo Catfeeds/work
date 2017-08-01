@@ -1,0 +1,453 @@
+@import "compass/reset";
+@import "compass/css3";
+@import '../../../../../sass-lib/base';
+
+html{
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x:hidden; 
+  overflow: auto;
+  background-color:#f5f5f9;
+  line-height: 1.375;
+}
+body{
+  @include user-select(none);
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f5f5f9;
+  font-size: 0.12rem;
+  color: #000;
+  @include box-sizing(border-box);
+}
+input{
+        -webkit-box-sizing:border-box;
+      }
+a,input,lable,button,div{-webkit-tap-highlight-color:rgba(0,0,0,0);
+  outline: none;
+ }
+a,a:hover,a:visited{
+  text-decoration: none;
+  color: inherit;
+}
+.hide{
+  display: none !important;
+}
+
+input::-ms-input-placeholder {
+  text-align: center;
+  color:#a9a9a9;
+}
+
+input::-webkit-input-placeholder {
+  text-align: center;
+  color:#a9a9a9;
+}
+
+.loading{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left:0;
+  background-color: #fff;
+  z-index: 99999;
+}
+.loading-icon{
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+@-moz-keyframes rotate360 {
+    from {
+        transform:rotateZ(0deg);
+    }
+    to {
+        transform:rotateZ(360deg);
+    }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+    transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+    transform:rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+  }
+}
+
+img{
+  width: 100%;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+
+@mixin textOver($num){
+  overflow: hidden;
+    max-width: $num;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.toast {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.toast .toast-alert {
+    width: 2.35rem;
+    height: 1.3rem;
+    padding:0 0.2rem;
+    background-color: rgba(0,0,0,.75);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.65rem;
+    margin-left: -1.175rem;
+    border-radius: 6px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.toast .toast-alert .toast-msg {
+    padding-top: 0.25rem;
+    height: 0.9rem;
+    line-height: 1.6;
+    color: #fff;
+    font-size: 0.15rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative
+}
+
+.main{
+  width: 100%;
+  min-height: 100%;
+  overflow:hidden;
+}
+
+.header{
+  width: 100%;
+  height: 88*0.005+rem;
+  background-color: #009ff0;
+  text-align: center;
+  line-height: 88*0.005+rem;
+  position: relative;
+  .icon-back{
+    display: inline-block;
+    width: 30*0.005+rem;
+    height: 30*0.005+rem;
+    border-bottom:2px solid #fff;
+    border-left:2px solid #fff;
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-15*0.005+rem;
+    margin-top:-15*0.005+rem;
+    @include transform(rotateZ(45deg));
+  }
+  .center{
+    width: 100%;
+    @include box-sizing(border-box);
+    padding:0 100*0.005+rem;
+    position: relative;
+    font-size: 0.18rem;
+    color:#fff;
+  }
+  .left,.right{
+    height: 88*0.005+rem;
+    position: absolute;
+    top:0;
+    z-index: 99;
+    font-size: 0;
+  }
+  .left{
+    left:0;
+    width: 100*0.005+rem;
+  }
+  .right{
+    right:0.15rem;
+    font-size: 0.15rem;
+  }
+ 
+}
+.cj-od-body{
+  [icon]{
+    display: inline-block;
+    width: pxToRem(30px);
+    height: pxToRem(30px);
+    background: transparent center center / cover no-repeat;
+    position: relative;
+  }
+  .icon-msg{background-image: url('/static/appwebview/courtjoin/courtJoinOrderDetail/images/contact.png');}
+  .icon-phone{background-image: url('/static/appwebview/courtjoin/courtJoinOrderDetail/images/phone.png');}
+  .icon-info{background-image: url('/static/appwebview/courtjoin/courtJoinOrderDetail/images/info.png');}
+}
+.cj-od-h1{
+  width: 100%;
+  @include box-sizing(border-box);
+  font-size: pxToRem(24px);
+  padding:pxToRem(50px);
+  padding-top:pxToRem(40px);
+  padding-bottom: pxToRem(15px);
+  color:#666;
+  text-align: left;
+  .left,.right{
+    display: inline-block;
+  }
+  .right{
+    float: right;
+    color:#222;
+  }
+}
+.cj-od-msg{
+  background-color: #fff;
+  color:#222;
+  font-size: pxToRem(28px);
+  line-height: 2;
+  li{
+    width: 100%;
+    @include box-sizing(border-box);
+    padding:pxToRem(27px) pxToRem(50px);
+    text-align: left;
+    position: relative;
+    .icon-info{
+      margin-left: pxToRem(16px);
+      vertical-align: text-top;
+    }
+    .sp{
+      color:#666;
+    }
+    .vh{
+      visibility: hidden;
+    }
+    .left,.right{
+      display: inline-block;
+    }
+    .right{
+      float: right;
+    }
+    &:not(:last-child):after{
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #f5f5f9;
+      z-index: 99;
+      left:0;
+      bottom:0;
+    }
+    .person-info{
+      width: 100%;
+      height: pxToRem(100px);
+      position: relative;
+      overflow: hidden;
+      .avatar{
+        width: pxToRem(100px);
+        height: pxToRem(100px);
+        border-radius: 50%;     
+        background: transparent  0 0 / cover no-repeat;
+      }
+
+      .name{
+        width: 100%;
+        padding-left: pxToRem(130px);
+        padding-top: pxToRem(6px);
+        @include box-sizing(border-box);
+        position: absolute;
+        top:0;
+        left:0;
+        &:after{
+          content: "";
+          display: inline-block;
+          width: pxToRem(30px);
+          height: pxToRem(30px);
+          background-color: yellow;
+          margin-left: pxToRem(16px);
+          vertical-align: text-top;
+          background: transparent center center / cover no-repeat;
+        }
+        &[male]:after{
+          background-image: url('/static/appwebview/courtjoin/courtJoinOrderDetail/images/male.png');
+        }
+        &[female]:after{
+          background-image: url('/static/appwebview/courtjoin/courtJoinOrderDetail/images/female.png');
+        }
+      }
+
+      .icons{
+        width: 100%;
+        padding-left: pxToRem(130px);
+        padding-top: pxToRem(6px);
+        @include box-sizing(border-box);
+        position: absolute;
+        top:pxToRem(50px);
+        left:0;
+        [icon]:not(:first-child){
+          margin-left: pxToRem(16px);
+        }
+      }
+
+    }
+  }
+}
+.mt150{
+  margin-top: pxToRem(150px);
+}
+
+.cj-od-tips{
+  font-size: pxToRem(24px);
+  color:#aaa;
+  margin-bottom: pxToRem(20px);
+}
+
+a.cj-od-buttom{
+  width: pxToRem(630px);
+  height: pxToRem(80px);
+  line-height:pxToRem(80px);
+  color:#5b73f2;
+  margin: pxToRem(20px) auto;
+  display: block;
+  border: 1px solid #5b73f2;
+  border-radius: pxToRem(42px);
+}
+.icon-msg,.icon-phone,.icon-info{
+  &:after{
+    content: "";
+    position: absolute;
+    top:pxToRem(-20px);
+    right:pxToRem(-20px);
+    bottom:pxToRem(-20px);
+    left:pxToRem(-20px);
+    background-color: transparent;
+  }
+}
+
+.nm-cover {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color:rgba(0,0,0,.5);
+    .nm-alert{
+      position:absolute;
+      top:50%;
+      left:50%;
+      width:2.4rem;
+      transform:translate(-50%,-50%);
+      -webkit-transform:translate(-50%,-50%);
+      background-color:#fff;
+      color:#222;
+      font-size:0.15rem;
+      border-radius:0.03rem;
+      .msg{
+        padding:0.1rem 0.2rem;
+        border-bottom:1px solid #eee;
+        text-align:left;
+      }
+      .opeator{
+        div{
+          float: left;
+          width:50%;
+          padding:0.1rem 0;
+          @include box-sizing(border-box);
+          &:nth-of-type(1){
+            border-right:1px solid #eee;
+          }
+        }
+      }
+    }
+}
+.cj-od-info-show{
+  width: pxToRem(520px);
+  position: fixed;
+  top:50%;
+  left:50%;
+  @include transform(translate3d(-50%,-50%,0));
+  padding:0 pxToRem(30px);
+  @include box-sizing(border-box);
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: left;
+  li{
+    line-height: pxToRem(90px);
+    position: relative;
+    padding:0 pxToRem(20px);
+    font-size: pxToRem(28px);
+    color:#222;
+    .color-blue{
+      color:#5b73f2;
+    }
+    .left,.right{
+      display: inline-block;
+    }
+    .right{
+      float: right;
+    }
+    &:not(:last-child):after{
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #f5f5f9;
+      z-index: 99;
+      left:0;
+      bottom:0;
+    }
+  }
+}
+

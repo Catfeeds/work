@@ -1,0 +1,114 @@
+<link rel="stylesheet" href="/static/shangjia/css/bindcourt.css" type="text/css">
+<div class="bbs-header" style="margin-bottom:30px;">
+    <form action="/report/spreadLog" method="get" class='form-inline'>
+        <div class="filter-control">
+            <label class="sj-select-lb">
+                <i class="glyphicon glyphicon-chevron-down"></i>
+                <select class="form-control sj-select btn-bdru" name="admin_id" id="admin_id" style="cursor:pointer;">
+                    <option value="">选择管理员</option>
+                    <?php foreach ($supplierAdminArr as $adminId => $adminName) { ?>
+                    <option value="<?= $adminId ?>" <?php if ($search[ 'admin_id']> 0 && $adminId == $search['admin_id']) { echo 'selected="selected"'; }?> >
+                        <?= $adminName ?>
+                    </option>
+                    <?php } ?>
+                </select>
+            </label>
+        </div>
+        <div class="filter-control" style='margin-right:0;'>
+            <div class="filter-time">
+                推广时间:
+                <input id="start_date" name="start_date" type="text" class='hide' value="<?= $search['start_date']; ?>" />
+                <input id="end_date" name="end_date" type="text" class='hide' value="<?= $search['end_date']; ?>" />
+                <span id="timeStart" class="btn-bdru"><?= $search['start_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+                <em>至</em>
+                <span id="timeEnd" class="btn-bdru"><?= $search['end_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+                <input id="reservation" type="text" readonly value="<?= $search['start_date'].' - '.$search['end_date']; ?>">
+            </div>
+            <script type="text/javascript">
+            $(function() {
+                $('#reservation').daterangepicker(null, function(start, end, label) {
+                    var t1,t2,txt1,txt2;
+                    t1 = new Date(start.toString());
+                    t2 = new Date(end.toString());
+                    txt1 = t1.format('yyyy-MM-dd');
+                    txt2 = t2.format('yyyy-MM-dd');
+
+                    $("#start_date").val(txt1);
+                    $("#end_date").val(txt2);
+
+                    $("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                    $("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                });
+            });
+            </script>
+        </div>
+        <div class="filter-control sp-line"></div>
+        <div class="filter-control">
+            <button class="search-btn btn-sj-blue btn-bdru btn btn-default" type="submit">查询</button>
+        </div>
+    </form>
+</div>
+<div class="bind-header">
+    <div class="bind-nav">
+        <span class="active">推广记录</span>
+        <?php if($showNewLog){ ?><a href="/report/spreadLogNew"><span>推广记录(新)</span></a>
+        <?php }?>
+        <a href="/report/spreadAccount"><span>佣金报表</span></a>
+        <a href="/report/userOrderedStat"><span>新增人气度</span></a>
+        <a href="/report/userOrderedStatAdd"><span>新交易用户数</span></a>
+    </div>
+</div>
+<table class="table table-bordered" style="margin-top:20px;">
+    <thead>
+        <tr>
+            <th>管理员</th>
+            <th>手机号码</th>
+            <th>是否下单</th>
+            <th>发送时间</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($spreadLogList as $row) { ?>
+        <tr>
+            <td>
+                <?= $row['admin_name']; ?>
+            </td>
+            <td>
+                <?= $row['phone']; ?>
+            </td>
+            <td>
+                <?php  
+						if ($row['order_time']) { 
+							echo '是'; 
+						} else { 
+							echo '否' ;
+						} 
+						?>
+            </td>
+            <td>
+                <?= date('Y-m-d H:i:s', $row['last_update_time']); ?>
+            </td>
+        </tr>
+        <?php } ?>
+    </tbody>
+</table>
+<!-- 分页插件 -->
+<?php if ($page['totalPage'] > 1) { ?>
+<div id="pagination" data-page="<?= $page['totalPage']; ?>" data-current="<?= $page['currentPage']; ?>" class="pagination-container">
+    <div class="pagination"></div>
+    <div class="pagination-go">
+        <span class="totalPage">共<?= $page['totalPage']; ?>页</span>
+        <span class="btn-bdru"><i>第</i>
+				<input class="page" type='text'/><i>页</i></span>
+        <span class="go">GO</span>
+    </div>
+</div>
+<script type='text/javascript'>
+$(function() {
+    var calFn1 = function(p) {
+        window.location.href = "<?= $page['url']; ?>" + p;
+    };
+    createPageFn($("#pagination"), calFn1);
+});
+</script>
+<?php } ?>

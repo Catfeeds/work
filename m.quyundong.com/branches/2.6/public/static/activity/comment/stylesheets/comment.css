@@ -1,0 +1,759 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/* line 9, ../../../../sass-lib/_normalize.scss */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* line 19, ../../../../sass-lib/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/* line 33, ../../../../sass-lib/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* line 54, ../../../../sass-lib/_normalize.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* line 67, ../../../../sass-lib/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* line 77, ../../../../sass-lib/_normalize.scss */
+[hidden],
+template {
+  display: none;
+}
+
+/* line 89, ../../../../sass-lib/_normalize.scss */
+a {
+  background-color: transparent;
+}
+
+/* line 98, ../../../../sass-lib/_normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* line 110, ../../../../sass-lib/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 118, ../../../../sass-lib/_normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/* line 127, ../../../../sass-lib/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/* line 136, ../../../../sass-lib/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* line 145, ../../../../sass-lib/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/* line 154, ../../../../sass-lib/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/* line 162, ../../../../sass-lib/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 170, ../../../../sass-lib/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 174, ../../../../sass-lib/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 185, ../../../../sass-lib/_normalize.scss */
+img {
+  border: 0;
+}
+
+/* line 193, ../../../../sass-lib/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 204, ../../../../sass-lib/_normalize.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/* line 212, ../../../../sass-lib/_normalize.scss */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/* line 221, ../../../../sass-lib/_normalize.scss */
+pre {
+  overflow: auto;
+}
+
+/* line 229, ../../../../sass-lib/_normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* line 252, ../../../../sass-lib/_normalize.scss */
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+/* line 266, ../../../../sass-lib/_normalize.scss */
+button {
+  overflow: visible;
+}
+
+/* line 277, ../../../../sass-lib/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/* line 290, ../../../../sass-lib/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+/* line 302, ../../../../sass-lib/_normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/* line 311, ../../../../sass-lib/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 322, ../../../../sass-lib/_normalize.scss */
+input {
+  line-height: normal;
+}
+
+/* line 334, ../../../../sass-lib/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* line 346, ../../../../sass-lib/_normalize.scss */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* line 356, ../../../../sass-lib/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  box-sizing: content-box;
+}
+
+/* line 367, ../../../../sass-lib/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 376, ../../../../sass-lib/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/* line 387, ../../../../sass-lib/_normalize.scss */
+legend {
+  border: 0;
+  padding: 0;
+}
+
+/* line 396, ../../../../sass-lib/_normalize.scss */
+textarea {
+  overflow: auto;
+}
+
+/* line 405, ../../../../sass-lib/_normalize.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/* line 416, ../../../../sass-lib/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 421, ../../../../sass-lib/_normalize.scss */
+td,
+th {
+  padding: 0;
+}
+
+/* line 1, ../../../../sass-lib/_toast.scss */
+.toast {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* line 10, ../../../../sass-lib/_toast.scss */
+.toast .toast-alert {
+  width: 2.35rem;
+  height: 1.3rem;
+  padding: 0 0.2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.65rem;
+  margin-left: -1.175rem;
+  border-radius: 6px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 26, ../../../../sass-lib/_toast.scss */
+.toast .toast-alert .toast-msg {
+  padding-top: 0.25rem;
+  height: 0.9rem;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 0.15rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: relative;
+}
+
+/* line 6, ../sass/comment.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  background-color: #fff;
+  line-height: 1.375;
+}
+
+/* line 17, ../sass/comment.scss */
+body {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  text-align: center;
+  background-color: #fff;
+  font-size: 0.12rem;
+  color: #000;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 29, ../sass/comment.scss */
+input {
+  -webkit-box-sizing: border-box;
+}
+
+/* line 32, ../sass/comment.scss */
+a, input, lable, button, div {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* line 35, ../sass/comment.scss */
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* line 39, ../sass/comment.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 42, ../sass/comment.scss */
+.opacity0 {
+  opacity: 0 !important;
+}
+
+/* line 45, ../sass/comment.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 99999;
+}
+
+/* line 54, ../sass/comment.scss */
+.loading-icon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 105, ../sass/comment.scss */
+.main {
+  width: 100%;
+}
+
+/* line 109, ../sass/comment.scss */
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+/* line 112, ../sass/comment.scss */
+ul li {
+  list-style: none;
+}
+
+/* line 116, ../sass/comment.scss */
+.header {
+  width: 100%;
+  height: 0.44rem;
+  background-color: #5b73f2;
+  text-align: center;
+  line-height: 0.44rem;
+  position: relative;
+}
+/* line 123, ../sass/comment.scss */
+.header .icon-back {
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.15rem;
+  margin-top: -0.075rem;
+  -moz-transform: rotateZ(45deg);
+  -ms-transform: rotateZ(45deg);
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+/* line 136, ../sass/comment.scss */
+.header .center {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+  position: relative;
+  font-size: 0.18rem;
+  color: #fff;
+}
+/* line 144, ../sass/comment.scss */
+.header .left, .header .right {
+  height: 0.44rem;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  font-size: 0;
+}
+/* line 151, ../sass/comment.scss */
+.header .left {
+  left: 0.15rem;
+  width: 0.6rem;
+  color: white;
+  font-size: 0.15rem;
+}
+/* line 156, ../sass/comment.scss */
+.header .left span {
+  margin-left: 0.3rem;
+}
+/* line 161, ../sass/comment.scss */
+.header .right {
+  right: 0.15rem;
+  font-size: 0.15rem;
+  color: #fff;
+}
+
+/* line 169, ../sass/comment.scss */
+textarea.conmenttxt {
+  font-size: 0.14rem;
+  border: 0px;
+  padding: 0.2rem;
+  text-align: left;
+  height: 1.5rem;
+  width: 100%;
+  line-height: 0.2rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  outline: none;
+}
+
+/* line 184, ../sass/comment.scss */
+#ct-wordsNum {
+  right: 0;
+  font-size: 0.13rem;
+  margin-top: -0.3rem;
+  margin-right: 0.1rem;
+  position: absolute;
+  color: #c0c0c0;
+}
+
+/* line 192, ../sass/comment.scss */
+.error {
+  width: 0.86rem;
+  height: 0.86rem;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 99;
+  overflow: hidden;
+  background-image: url("/static/activity/comment/images/warning.png");
+  background-size: 0.17rem 0.15rem;
+  background-repeat: no-repeat;
+  background-position: 0.6rem 0.6rem;
+}
+
+/* line 204, ../sass/comment.scss */
+.addpic {
+  border-top: 1px solid #c0c0c0;
+  padding: 0.05rem;
+  margin: 0 auto;
+  width: 100%;
+  height: 2.9rem;
+  background-color: white;
+  transform: translateY(-0.03rem);
+  -webkit-transform: translateY(-0.03rem);
+}
+/* line 214, ../sass/comment.scss */
+.addpic ul.addpic-box li {
+  margin: 0.02rem;
+  list-style: none;
+  float: left;
+  width: 0.84rem;
+  height: 0.84rem;
+  border: 1px solid #c0c0c0;
+  overflow: hidden;
+}
+/* line 222, ../sass/comment.scss */
+.addpic ul.addpic-box li img {
+  margin: 0 auto;
+}
+/* line 227, ../sass/comment.scss */
+.addpic ul {
+  margin: 0px;
+}
+/* line 229, ../sass/comment.scss */
+.addpic ul .addbtn {
+  margin: 0.02rem;
+  background-image: url("/static/activity/comment/images/addpicBtn.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 0.86rem;
+  height: 0.86rem;
+  display: inline-block;
+  float: left;
+}
+
+/* line 241, ../sass/comment.scss */
+.act-toast {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+/* line 249, ../sass/comment.scss */
+.act-toast .act-toast-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate3d(-50%, -50%, 0);
+  -ms-transform: translate3d(-50%, -50%, 0);
+  -webkit-transform: translate3d(-50%, -50%, 0);
+  transform: translate3d(-50%, -50%, 0);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  width: 2.95rem;
+  border-radius: 10px;
+  background: #f5f5f9 url("/static/activity/index/images/alert.png") 0 0 no-repeat;
+  -moz-background-size: 2.95rem 0.9rem;
+  -o-background-size: 2.95rem 0.9rem;
+  -webkit-background-size: 2.95rem 0.9rem;
+  background-size: 2.95rem 0.9rem;
+}
+/* line 260, ../sass/comment.scss */
+.act-toast .act-toast-alert .act-toast-msg {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.15rem;
+  margin-top: 0.9rem;
+  background-color: #fff;
+}
+
+/* line 270, ../sass/comment.scss */
+.delete {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  z-index: 999;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 277, ../sass/comment.scss */
+.delete .delete-tc {
+  width: 2rem;
+  height: 1rem;
+  border-radius: 0.05rem;
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 70%;
+  font-size: 0.13rem;
+}
+/* line 285, ../sass/comment.scss */
+.delete .delete-tc p {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-top: 0.24rem;
+  padding-bottom: 0.05rem;
+}
+/* line 290, ../sass/comment.scss */
+.delete .delete-tc ul {
+  font-size: 0.15rem;
+  border-top: 1px solid #c0c0c0;
+}
+/* line 293, ../sass/comment.scss */
+.delete .delete-tc ul li {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: bold;
+  padding: 0.085rem;
+  float: left;
+  width: 49%;
+  color: #5a73f1;
+}
+/* line 301, ../sass/comment.scss */
+.delete .delete-tc ul li:first-child {
+  border-right: 1px solid #c0c0c0;
+}
+
+/* line 311, ../sass/comment.scss */
+.allcomment {
+  margin-top: 0.1rem;
+}
+/* line 314, ../sass/comment.scss */
+.allcomment .allcomment-box {
+  border-bottom: 1px solid #999999;
+  background-color: white;
+  margin: 0 auto;
+  width: 3.52rem;
+  padding: 0.14rem;
+  overflow: hidden;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 322, ../sass/comment.scss */
+.allcomment .allcomment-box ul:first-child {
+  float: left;
+  width: 0.5rem;
+  height: 100%;
+}
+/* line 326, ../sass/comment.scss */
+.allcomment .allcomment-box ul:first-child .allcomment-tx {
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+/* line 330, ../sass/comment.scss */
+.allcomment .allcomment-box ul:first-child .allcomment-tx img {
+  height: 0.4rem;
+  width: 0.4rem;
+}
+/* line 336, ../sass/comment.scss */
+.allcomment .allcomment-box ul:nth-child(2) {
+  float: right;
+  width: 2.7rem;
+  text-align: left;
+}
+/* line 340, ../sass/comment.scss */
+.allcomment .allcomment-box ul:nth-child(2) span.al-usename {
+  font-size: 0.13rem;
+  color: #5b73f2;
+  line-height: 0.25rem;
+}
+/* line 345, ../sass/comment.scss */
+.allcomment .allcomment-box ul:nth-child(2) span.al-time {
+  font-size: 0.12rem;
+  color: #666666;
+}
+/* line 349, ../sass/comment.scss */
+.allcomment .allcomment-box ul:nth-child(2) p {
+  font-size: 0.13rem;
+  color: black;
+}
+/* line 353, ../sass/comment.scss */
+.allcomment .allcomment-box ul:nth-child(2) img {
+  width: 0.85rem;
+  height: 0.85rem;
+  padding: 0.025rem;
+}
+
+/* line 363, ../sass/comment.scss */
+#wrapper {
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* line 371, ../sass/comment.scss */
+#scroller {
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+
+/* line 376, ../sass/comment.scss */
+#scroller ul:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+/* line 382, ../sass/comment.scss */
+#waitting {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  z-index: 99;
+}

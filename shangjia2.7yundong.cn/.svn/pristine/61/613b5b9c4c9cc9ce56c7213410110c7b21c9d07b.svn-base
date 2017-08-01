@@ -1,0 +1,103 @@
+ <link href="/static/patch/3.0/stylesheets/3.0.css" rel="stylesheet"><!-- 搜索模块 start -->
+<div class='paddng-bottom-30 border-bottom-1'>
+  <input class="search-input" type="text" placeHolder="会员卡号、姓名、手机号" id='keywordSearchInput' />
+  <div class="p-afterBorder">
+    <div class="btn search-btn btn-bdru btn-sj-blue" id='keywordSearchBtn'>搜索</div>
+  </div>
+  <div class="btn search-btn btn-bdru btn-sj-blue" id='addMemberBtn'>添加会员</div>
+  <div class="btn search-btn btn-bdru btn-sj-blue" id='btnShowUploadComponent'>导入</div>
+  <div class="btn search-btn btn-bdru btn-sj-blue" id='exportMemberCard'  data-href='/usercard/export'  ><a>导出</a> </div>
+</div>
+<h2 id='memberDataTableTips'>没有会员数据</h2>
+
+<div id="memberDataTable"></div>
+
+<div class="show-alert hide " id='blackCoverForUpload'></div>
+<div class="show-alert hide " id='blackCoverForEdit'></div>
+<div class="show-alert hide " id='blackCoverForFixedCourt'></div>
+
+<div class="dialogue-box hide" id='memberEdit'>
+  <div class="dialogue-box-inner">
+    <h2>编辑会员</h2>
+    <p><label for='editMemberNumber'>会员卡号</label><input type="text" id='editMemberNumber' value='' maxlength='20'><i class='hide red'>*</i></p>
+    <p><label for='editMemberName'>姓名</label><input type="text" id='editMemberName' value='' maxlength='20'></p>
+    <p><label for='editMemberPhone'>手机</label><input type="text" data-type='phone' id='editMemberPhone' value='' maxlength='11'><i class='hide red'>*</i></p>
+    <p><a class='hide' id='showFixedCourtConfig'>固定场设置</a></p>
+    <p class='p-btn'><span class="btn search-btn btn-bdru btn-sj-blue" id='editMemberSure'>保存修改</span><span class="btn search-btn btn-bdru btn-cancel" id='editMemberCancel'>取消</span></p>
+  </div>
+</div>
+
+<div class="dialogue-box sm hide" id='uploadComponent'>
+  <div class="dialogue-box-inner">
+    <h2>导入会员</h2>
+    <p>请选择导入的文件：</p>
+    <p>
+      <label class='pwd' for='uploadFile'>
+        <input class='pwd' type='text' disabled id='uploadFileName' style="width:260px;" />
+        <img src="/static/images/dir.png" alt="" id='uploadBtn' />
+      </label>
+      <form action="/usercard/importForm" method="post" id='uploadFileForm' enctype="multipart/form-data" ><input name='csvfile' type="file" class='hide' id='uploadFile'></form>
+    </p>
+    <p><a data-href="/Usercard/downCsv" id='downloadM'>下载模版</a></p>
+    <p class='p-btn'><span class="btn search-btn btn-bdru btn-sj-blue" id='sureImport' disabled>确认导入</span><span class="btn search-btn btn-bdru btn-cancel">取消</span></p>
+  </div>
+</div>
+
+<div class="dialogue-box large hide" id='fixedCountBox'>
+  <div class="dialogue-box-inner">
+    <i class="close"></i>
+    <h2>固定场设置</h2>
+    <div id='fixedCountBoxInfo'></div>
+    <a class='add-fixed-count' id='fixedCountBoxAddItem'>添加固定场</a>
+    <table class='table table-bordered'>
+      <thead>
+        <tr>
+          <th style="width:110px;">项目</th>
+          <th style="width:273px;">锁定周期</th>
+          <th style="width:454px;">锁定时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan='4' class='table-in-table'>
+            <div>
+                <p id='fixedTips'>暂时没有固定场</p>
+                <ul id='fixedCourtTbody'>
+                </ul>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan='4'>
+            <p class='table-btn'><span class="btn search-btn btn-bdru btn-sj-blue" id='fixedCourtBoxCheck'>检查</span><span class="btn search-btn btn-bdru btn-sj-blue" id='fixedCourtBoxSave'>保存</span><span class="btn search-btn btn-bdru btn-cancel" id='fixedCourtBoxCancel'>取消</span></p>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="pagination"></div>
+
+<script>
+ // 给导出结算记录按钮绑定事件
+	$("#exportMemberCard").click(function(){
+    window.location.href = $(this).attr("data-href") + "?keyword=" + $("#keywordSearchInput").val();
+	});
+  $('#downloadM').click(function(){
+    window.location.href = $(this).attr("data-href");
+  });
+</script>
+
+
+<script src='/static/patch/3.0/js/fixedCourt.js'></script>
+<script src='/static/patch/3.0/js/3.0.js'></script>
+
+
+<!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <script src="/static/shangjia/js/json2.js"></script>
+<![endif]-->
+

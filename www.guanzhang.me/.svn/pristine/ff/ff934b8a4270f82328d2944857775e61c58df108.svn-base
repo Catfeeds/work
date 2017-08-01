@@ -1,0 +1,128 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='./css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='./css/pc/stylesheets/index.css')
+  script(src='./js/jquery/jquery-1.8.3.min.js')
+  script(src='./js/jquery/jquery.easing.min.js')
+  script(type='text/javascript', src='./js/fullpage/fullpage.js')
+  script(type='text/javascript', src='./js/pc/main.js')
+  script(type='text/javascript', src='./js/pc/carousel.js')
+block content
+  body
+    #fullpage
+      include ./_header
+      .page1.page.section
+        .bg
+        .lb
+          .title 馆掌
+          p 体育场馆管理大师
+          img.logo(src='/images/pc/v2/logo.png')
+        .bb
+          .title1 解决场馆管理5大痛点
+          .row
+            span 手工管理<em>效率</em>低
+            span 经营有<em>漏洞</em>
+            span 人力<em>成本</em>高
+            span 没有宣传<em>渠道</em>
+            span 客户<em>资源</em>分散
+      .page2.page.section
+        .wrap
+          .cb
+            h2 馆掌的功能库
+            h3 你想到的都有，没有想到的也有
+            a.understand(target='_blank',href='/system.html') 了解详情
+            .row
+              .cell
+                img.icon(src='/images/pc/v2/icon1.png')
+                p 场地管理
+              .cell
+                img.icon(src='/images/pc/v2/icon2.png')
+                p 门票售卖
+              .cell
+                img.icon(src='/images/pc/v2/icon3.png')
+                p 会员体系
+              .cell
+                img.icon(src='/images/pc/v2/icon4.png')
+                p 商品进销存
+            .row
+              .cell
+                img.icon(src='/images/pc/v2/icon5.png')
+                p 培训管理
+              .cell
+                img.icon(src='/images/pc/v2/icon6.png')
+                p 器材／物品租赁
+              .cell
+                img.icon(src='/images/pc/v2/icon7.png')
+                p 智能硬件接入
+              .cell
+                img.icon(src='/images/pc/v2/icon8.png')
+                p 实时报表
+          
+      .page3.page.section
+        .wrap
+          .cb
+            h2 无人化管理
+            h3 全顾客自助，新时代的消费体验
+            a.understand(target='_blank',href='/hardware.html') 了解详情
+            .row
+              .lb
+                .tb 微信订场<img class='icon-right' src='/images/pc/v2/icon-right.png'>到场自助开灯
+                .bb
+                  img.iphone1(src='/images/pc/v2/iphone1.png')
+                  img.icon-light(src='/images/pc/v2/icon-light.png')
+              .rb
+                .tb(style='padding-left:40px;') 微信扫码购票<img class='icon-right' src='/images/pc/v2/icon-right.png'>闸机识别自助进闸
+                .bb
+                  img.iphone2(src='/images/pc/v2/iphone2.png')
+                  img.icon-gate(src='/images/pc/v2/icon-gate.png')
+      .page4.page.section
+        .wrap
+          .lb
+            h2 防堵经营漏洞
+            h3 让你做到每一笔收入清清楚楚
+            .row
+              .cell
+                a.btn.light-blue(target='_blank',href='/report.html') 连接智能灯控
+                p 记录开灯时长对应场地收费
+              .cell
+                a.btn.dark-blue(target='_blank',href='/report.html') 连接智能门闸
+                p 记录进闸次数对应售票数据
+          .rb
+            img.baobiao1.cur(src='/images/pc/v2/baobiao1.png')
+            img.baobiao2(src='/images/pc/v2/baobiao2.png')
+            
+      .pageWX.page.section
+        .wrap
+          .cb
+            h2 新客源源不断
+            h3 用馆掌，你的场馆将连接8大渠道，引流变现两不误
+            a.understand(target='_blank',href='/platform.html') 了解详情
+            .row
+              img(src='/images/pc/v2/banner5.png')
+      .page5.page.section
+        .wrap
+          .cb
+            h2 定制微信公众号
+            h3 把顾客圈起来，为开展新业务打好基础
+            a.understand(target='_blank',href='/official.html') 了解详情
+            .row
+              .lb
+                img(src='/images/pc/v2/phone3.png')
+              .rb 为您的场馆定制官方微信公众号，<br>架构订场、购票功能、活动／培训／比赛报名功能
+      .page6.page.section
+        .wrap
+          .cb
+            h2 全国馆掌用户数<em>（至2017）</em>
+            h3 <em>2307</em>
+        script.
+          $(document).ready(function() {
+          gz.carousel = new Carousel($('#carousel')[0], {
+          gap: 20,
+          visibleItem: 3,
+          //- carouselOn:true,
+          leftDom: $('#left')[0],
+          rightDom: $('#right')[0]
+          })
+          })
+      .page7.page.section.footer
+        include ./_footer

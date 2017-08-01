@@ -1,0 +1,6 @@
+function ajaxCreateActive(b,a){$.ajax({type:"get",url:"/coachActivity/create?client_time="+newDate(),success:function(d){var c=JSON.parse(d);b(c);},error:function(d,c){a();
+}});}function ajaxCash(e,d,c,a,b){$.ajax({type:"get",url:"/coachActivity/cash/?activity_id="+d.activity_id+"&open_id="+d.open_id+"&phone="+c+"&sms_code="+a+"&client_time="+newDate(),success:function(g){var f=JSON.parse(g);
+e(f);},error:function(g,f){b();}});}function ajaxBargain(d,c,a,b){$.ajax({type:"get",url:"/coachActivity/bargain/?activity_id="+c.activity_id+"&open_id="+c.open_id+"&client_time="+newDate()+"&playmate="+a,success:function(f){var e=JSON.parse(f);
+d(e);},error:function(f,e){b();}});}function ajaxRank(c,b,a){$.ajax({type:"get",url:"/coachActivity/rank/?activity_id="+b.activity_id+"&open_id="+b.open_id+"&client_time="+newDate(),success:function(e){var d=JSON.parse(e);
+c(d);},error:function(e,d){a();}});}function ajaxGetSmsCode(c,b,a){$.ajax({type:"get",url:"/coachActivity/getSmsCode/?phone="+b+"&client_time="+newDate(),success:function(e){var d=JSON.parse(e);
+c(d);},error:function(e,d){a();}});}function newDate(){return parseInt(new Date().getTime()/1000);}

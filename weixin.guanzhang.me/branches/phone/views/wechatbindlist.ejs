@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>馆掌</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="/bind/stylesheets/wechatbind.css">
+  </head>
+  <body data-design-width="750" data-design-dpr="2">
+    <div id="loading" data-lock="1" class="loading">
+      <div class="loading-icon"></div>
+    </div>
+    <div class="main wechatbindlist hide">
+      <div class="body">
+        <div class="content">
+          <h2 class="tip">您的手机已绑定的球馆:</h2>
+          <ul>
+            <% for(var i=0;i<venueList.length;i++){ %>
+            <li>
+              <h3><%= venueList[i]['name'] %></h3><a class="btn" href="/wxreport-<%= venueList[i]['venue_id']%>#!/ReportIndex/<%= today %>">查看日报</a>
+            </li>
+            <% }%>
+          </ul>
+        </div>
+      </div>
+      <div class="foot"><a class="clear">解除绑定</a></div>
+    </div>
+  </body>
+  <script src="/javascripts/zeptoWithFx.min.js"></script>
+  <script src="/bind/js/showWait.js"></script>
+  <script>
+    $(window).on('load',function(){
+      var loadInterval = setInterval(function() {
+        if($(".loading").attr("data-lock") == 1){
+          $(".loading").addClass("hide");
+          $(".main").removeClass("hide");
+          clearInterval(loadInterval);
+        }
+      },500);
+    })
+    var okCallback = function(cb){
+      $.ajax({
+        url: '/binding/unbind',
+        type: 'GET',
+        success: function (data) {
+          if(data.status == '0000'){
+            window.location.href = '/binding/login?type=2';
+          }else{
+            alert(data.msg);
+          }
+        },
+        error: function (data) {
+          alert('网络不给力，请稍候再试！');
+        }
+      });
+      cb();
+    }
+    var cancelCallback = function(cb){
+      cb()
+    }
+    var showWait = new ShowWait('确认解除馆掌微信报表绑定吗？<br>解绑后将无法再收取微信报表推送。',okCallback,cancelCallback)
+    $('a.clear').click(function(){
+      showWait.showCover()
+    })
+  </script>
+</html>

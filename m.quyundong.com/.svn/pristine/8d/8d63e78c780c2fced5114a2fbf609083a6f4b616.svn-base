@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>装备商城-拼团</title>
+	<link rel="stylesheet" type="text/css" href="/static/equiment/css/team.css">
+    <link rel="stylesheet" type="text/css" href="/static/equiment/plugin/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/equiment/plugin/swiper.css">
+    <script type="text/javascript" src='/static/equiment/plugin/jquery-2.1.1.min.js'></script>
+    <script type="text/javascript" src='/static/equiment/plugin/vue.min.js'></script>
+    <script type="text/javascript" src='/static/equiment/plugin/axios.min.js'></script>
+    <script type="text/javascript" src='/static/equiment/plugin/swiper.js'></script>
+    <script type="text/javascript" src="/static/js/commom.js"></script>
+    <script>
+        loading(true);
+        var offWidth = window.screen.width/35;
+        document.getElementsByTagName("html")[0].style.fontSize = offWidth + 'px';
+    </script>
+</head>
+<body>
+<div id="app">
+    <!-- head -->
+    <div class="head">
+        <div class="glyphicon glyphicon-menu-left" onclick="javascript:history.go(-1);"></div>
+        <div >装备详情</div>
+        <div><img src="/static/equiment/images/share-1.5x.png" style="display: none;"></div>
+    </div>
+    <div class="content">
+        <div class="banner">
+            <div class="swiper-container">
+                <div class="swiper-wrapper" v-if='initEqui.pic_list'>
+                    <div class="swiper-slide" v-for='item in initEqui.pic_list'><img v-bind:src='item'></div>  
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="goods-introduce">
+            <div class="goods-name">{{initEqui.name}}</div>
+            <div class="goods-inbox">
+                <div class="goods-type" v-if="initEqui.group_info.length!=0"><span class="goods-type-bg">拼团价</span></div>
+                <div class="goods-price" v-if="initEqui.group_info.group_price">￥{{initEqui.group_info.group_price}}</div>
+                <div class='goods-oPrice' v-if="initEqui.group_info.group_price">原价￥{{initEqui.price}}</div>
+                <div class="goods-price" v-else>￥{{initEqui.price}}</div>
+                <div class="goods-haveSale">已售{{initEqui.sale_count}}件</div>
+            </div>
+          
+            <div class="active-start" v-if='initEqui.group_info.length!=0'>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar"
+                         aria-valuenow="60" aria-valuemin="0" v-bind:aria-valuemax="initEqui.group_info.group_count"
+                         v-bind:style="'width:'+pre+'%; line-height:3rem;'"> 
+                        {{have_join}}
+                         <div class="have-join"></div>
+                    </div>
+                </div>
+                <div class="short">
+                {{initEqui.group_info.group_count-initEqui.group_info.group_join_count<=0
+                ?'拼团结束后统一发货'
+                :'还差'+initEqui.group_info.group_count-initEqui.group_info.group_join_count+'个就可以成团啦'}}
+                </div>
+            </div>
+            <div id="start_time" class="goods-start" v-if="initEqui.group_info.is_group">
+                <span></span>{{tips}}
+            </div>
+        </div>
+        
+        <div class="goods-ensure" id="goods_ensure" v-if="initEqui.service_list.length>0" v-on:click="showEnsure">
+            <div v-for="item in initEqui.service_list">
+                <img src="/static/equiment/images/icon_red_check1.png">{{item.title}}
+            </div>
+            <div class="glyphicon glyphicon-menu-right"></div>
+        </div>
+
+        <div class="goods-detail">
+            <div class="goods-detail-title">商品详情</div>
+            <div class="goods-detail-img" v-html="initEqui.content"></div>
+        </div>
+    </div>
+    
+    <!-- fooster status 1 -->
+    <div class="fooster active-ready"  v-if="initEqui.group_info.length==0" v-on:click.stop='buyReady(1)'>
+        <div class="button">单独购买（￥{{initEqui.price}}）</div>
+    </div>
+    
+    <!-- fooster status 2 -->
+    <div class="fooster active-havestart" v-if="initEqui.group_info.length!=0" >
+        <div id="gosport" v-on:click.stop='buyReady(1)'>
+            单独购买(￥{{initEqui.price}})
+        </div>
+        <div v-on:click.stop='buyReady(2)'>
+            马上拼团
+        </div>
+    </div>
+    
+    
+    <div class="goods-ensure-detail-bg" id="goods_ensure_bg"  v-on:click="closeEnsure" style="display: none">
+        <div class="goods-ensure-detail"  id="show_ensure" v-on:click.stop="stopPro">
+            <div class="close-ensure" v-on:click="closeEnsure"><div class="glyphicon glyphicon-remove"></div> </div>
+            <div class="goods-ensure-title">支持服务</div>
+            <div v-for="item in initEqui.service_list">
+                <div class="goods-ensure-detail-item">
+                    <div class="ensure-img"><img src="/static/equiment/images/icon_red_check1.png"></div>
+                    <div class="ensure-title">{{item.title}}</div>
+                </div>
+                <div class="ensure-content">{{item.remark}}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sel-goods-bg goods-ensure-detail-bg" id="sel_goods_bg" v-on:click.stop="closeSel" style="display:none;">
+        <div class="sel-goods" id="sel_good" v-on:click.stop="stopPro">
+            <div class="close-sel"  v-on:click.stop="closeSel">
+                <div class="glyphicon glyphicon-remove close-sel"></div>
+            </div>
+            <div class="have-sel">
+                <img v-bind:src="initEqui.property_pic">
+                <div class="sel-property">
+                    <div class="sel-price">￥{{sel_property.price}}</div>
+                    <div class="have-sel-property"> 
+                        {{sel_property.hint.join(' ')}}
+                    </div> 
+                </div>
+            </div>
+            <div style="overflow: scroll;">
+                <div class="goods-property" v-for="(item,index) in initEqui.property_list">
+                    <div class="property-title">{{item.name}}</div>
+                    <div v-for="(it,i) in item.list" v-on:click="selProperty(item,index,i,it.status)"
+                        v-bind:class="{
+                        'property-item':true,
+                        'have-sel-active':it.status==2,
+                        'nont-goods':it.status==3
+                        }" >
+                        {{it.value}}
+                    </div>
+                </div>
+                <div class="sel-mount">
+                    <div>购买数量</div>
+                    <div class='sel-mount-operate'>
+                       <div class="input-group">
+                          <span class="input-group-addon" v-on:click="chgMount(-1)">-</span>
+                          <input type="text" class="form-control" v-bind:value="sel_property.mount">
+                          <span class="input-group-addon" v-on:click="chgMount(1)">+</span>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="go-buy">
+                <div class="button" v-on:click="goBuy">确定</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script type="text/javascript">
+    var goodsId = <?=$id;?>;
+</script>
+<script type="text/javascript" src='/static/equiment/js/index.js?v=12345'></script>
+</html>

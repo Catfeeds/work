@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>馆掌</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="/bind/stylesheets/wechatbind.css">
+  </head>
+  <body data-design-width="750" data-design-dpr="2">
+    <div id="loading" data-lock="1" class="loading">
+      <div class="loading-icon"></div>
+    </div>
+    <div class="success" >
+      <div class="icon-success" style="width:2.43rem;margin:1rem auto 0.8rem;"><img src="/bind/images/success.png"></div>
+      <h2 style="font-size:0.18rem">绑定成功！</h2>
+      <p style="margin-bottom:0.12rem;font-size:0.14rem;">
+        绑定商家:<i style='color:#222;'><%= venueNames.join('、'); %><i>
+      </p>
+      <p style="font-size:0.12rem;">Tips:已绑定商家的订单消息将会通过微信推送给您</p>
+    </div>
+    <div class="toast hide">
+      <div class="toast-alert">
+        <div class="toast-msg"></div>
+      </div>
+    </div>
+  </body>
+  <script src="/javascripts/zeptoWithFx.min.js"></script>
+  <script>
+    $(window).on('load',function(){
+      var loadInterval = setInterval(function() {
+        if($(".loading").attr("data-lock") == 1){
+          $(".loading").addClass("hide");
+          $(".main").removeClass("hide");
+          clearInterval(loadInterval);
+        }
+      },500);
+    })
+  </script>
+</html>

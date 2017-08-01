@@ -1,0 +1,115 @@
+@import 'compass/css3';
+
+
+.nm_page-container {
+    color: #2c3e50;
+    font-size: 20px;
+    text-align:center;
+    width: 100%;
+    .nm_page {
+        display: inline-block;
+        padding: 0px 20px;
+        margin:0;
+        text-align: center;
+        color: #ccc;
+        ul,li{list-style: none;}
+        li{
+            display: inline-block;
+            width:38px;
+            height: 38px;
+            line-height: 38px;
+            overflow:hidden;
+            // padding: 0 10px;
+            margin: 0 5px;
+            text-align:center;
+            border-radius: 50%;
+            vertical-align: middle;
+            cursor: pointer;
+            &.sp{
+              border: none;
+              cursor: auto;
+            }
+        }
+    }
+    
+    .nm_page li {
+        color: #8796aa;
+        border: 1px solid #8796aa;
+    }
+    .nm_page li:hover {
+        text-decoration: none;
+        // border: 1px solid rgba(135,150,170,0.9);
+        // color:rgba(135,150,170,0.9);
+    }
+    .nm_page li.cur {
+        color: #3d4456;
+        // background-color: #428bca;
+        border: 1px solid #3d4456;
+    }
+    .nm_page li.disabled {
+      width:38px;
+        color:rgb(174,180,187);
+        // background: #ddd;
+        border: 1px solid rgb(174,180,187);
+    }
+    %next-prev {
+      width:38px;
+      background-size:50% auto;
+      background-position:center;
+      background-repeat:no-repeat;
+    }
+    .nm_page li:first-child,.nm_page li:first-child{
+      background-image:url(../images/left.png);
+    @extend %next-prev;
+    }
+    .nm_page li:first-child[disabled],.nm_page li:first-child[disabled]{
+        background-image:url(../images/left-off.png);
+        cursor:not-allowed;
+        @extend %next-prev;
+    }
+
+    .nm_page li:last-child,.nm_page li:last-child{
+      background-image:url(../images/right.png);
+    @extend %next-prev;
+    }
+    .nm_page li:last-child[disabled],.nm_page li:last-child[disabled]{
+        background-image:url(../images/right-off.png);
+        cursor:not-allowed;
+        @extend %next-prev;
+    }
+}
+
+.nm_page-container{
+  .goto{
+      float: right;
+      // margin-top:36px;
+      font-size:16px;
+      span{
+          display: inline-block;
+          margin:0 5px;
+          color:#9baabe;
+          &:nth-of-type(2){
+              padding:0.6em;
+              border:1px solid #9baabe;
+              border-radius: 3em;
+          }
+          &:nth-of-type(3){
+              color:#2c3e50;
+              border:1px solid #2c3e50;
+              border-radius:50%;
+              width:38px;
+              line-height:38px;
+              cursor:pointer;
+          }
+      }
+      input{
+          color:#000;
+          border:none;
+          background:none;
+          outline:none;
+          width:2em;
+          margin:0 3px;
+          text-align:center;
+      }
+  }
+}

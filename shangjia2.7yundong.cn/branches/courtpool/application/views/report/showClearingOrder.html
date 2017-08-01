@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-weixin.css" rel="stylesheet">
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-sj.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/daterangepicker-bs3.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/static/jquery-page/jquery.page.js"></script>
+    <script src="/static/daterangepicker/js/business.js"></script>
+    <script src="/static/daterangepicker/js/moment.min.js"></script>
+    <script src="/static/daterangepicker/js/daterangepicker.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <script src="/static/shangjia/js/json2.js"></script>
+<![endif]-->
+    <title><?php 
+    if (!empty($title)) {
+        echo $title.' - ';
+        $active_menu = isset($active_menu) ? $active_menu : "";
+    }
+    ?>趣运动商家后台管理系统</title>
+</head>
+<body>
+<div class="main" style=" margin-top: 10px;">
+   
+    <div class="sj-content"  style="width:98%; margin: 0 auto;">
+        <div>
+            <div>
+                <div class="bbs-header">
+                        <div class="filter-control">
+                            <div class="filter-time afterBorder">
+                                结算周期:
+                                <span id="timeStart" class="btn-bdru"><?= $search['start_date']; ?></span>
+                                <em>至</em>
+                                <span id="timeEnd" class="btn-bdru"><?= $search['end_date']; ?></span>
+                            </div>
+                         </div>
+                </div>
+                <h1>查看结算订单</h1>
+                <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                            <th>订单编号</th>
+                            <th>手机尾号</th>
+                            <th>预定方式</th>
+                            <th>订单金额</th>
+                            <th>场地结算</th>
+                            <th>商品结算</th>
+                            <th>结算总金额</th>
+                            <th>项目分类</th>
+                            <th>场次信息</th>
+                            <th>商品信息</th>
+                            <th>订单状态</th>
+                            <th>是否结算</th>       
+                            <th>下单时间</th>              
+                            <th>订单备注</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        if(!empty($orderList)){
+                         foreach ($orderList as $row) { 
+                         ?>
+                            <tr>
+                                <td><?= $row['sn'] ?></td>
+                                <td><?= $row['mobile'] ?></td>
+                                <td><?php echo (isset($row['utm_medium'] ) && ($row['utm_medium'] == helper_VenuesHelper::getutmMedium())) ? "预留" : "趣运动"; ?></td>
+                                <td><?php echo (isset($row['utm_medium'] ) && ($row['utm_medium'] == helper_VenuesHelper::getutmMedium())) ? $row['third_amount'] :  $row['amount'] ?></td>
+                                <td><?= $row['base_s_amount'] ?></td>
+                                <td><?= $row['sale_s_amount'] ?></td>
+                                <td><?= $row['total_s_amount'] ?></td>
+                                <td><?= $row['cat'] ?></td>
+                                <td><?= implode("<br/>", $row['court_info']) ?></td>
+                                <td><?= implode("<br/>", $row['sale_info']) ?></td>
+                                <td><?= $row['order_status'] ?></td>
+                                <td><?= $row['account_status'] ?></td>
+                                <td><?= date('Y-m-d H:i', $row['add_time'])?></td>
+                                <td><?= $row['remark']?></td>
+
+                            </tr>
+                        <?php
+                            }
+                         } ?>
+                    </tbody>
+                </table>
+                
+                <!-- 分页插件 -->
+                <?php if ($page['totalPage'] > 1) { ?>
+                <div id="pagination" data-page="<?= $page['totalPage']; ?>" data-current="<?= $page['currentPage']; ?>" class="pagination-container" style=" margin-bottom:10px;">
+                    <div class="pagination"></div>
+                    <div class="pagination-go">
+                        <span class="totalPage">共<?= $page['totalPage']; ?>页</span>
+                        <span class="btn-bdru"><i>第</i>
+                        <input class="page" type='text'/><i>页</i></span>
+                        <span class="go">GO</span>
+                    </div>
+                </div>
+                <script type='text/javascript'>
+                    $(function(){
+                         var calFn1 = function (p) {
+                            window.location.href = "<?= $page['url']; ?>" + p;
+                        };
+                        createPageFn($("#pagination"), calFn1);
+                    });
+                    </script>
+                <?php } ?>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <link href="/static/shangjia/css/iestyle.css" rel="stylesheet">
+<![endif]-->
+</html>
+
+

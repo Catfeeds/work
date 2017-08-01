@@ -1,0 +1,19 @@
+<?php 
+class UserAddressController extends UserBaseController
+{
+	public function indexAction(){
+
+	}
+
+	public function addAction(){
+
+	}
+
+	public function editAction(){
+
+	}
+
+	public function removeAction(){
+
+	}
+}

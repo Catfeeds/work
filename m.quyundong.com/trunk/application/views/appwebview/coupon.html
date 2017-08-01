@@ -1,0 +1,117 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>我的卡券</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="keywords" content="趣运动,在线预订,手机订场,订场优惠,羽毛球订场,足球场,游泳馆查询预订,去运动,订场神器">
+    <meta name="description" content="趣运动专注球场在线预订,羽毛球馆,足球场,网球场,球场在线预订,游泳馆查询预订,手机在线预订,运动场馆价格表,运动场馆优惠信息,去运动就上趣运动.">
+    <link rel="stylesheet" href="/themes/qu/css/qu.css?ver=1.92">
+    <link href="/themes/qu/css/qu_fe.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/themes/qu/js/common.js?v=1.9.1"></script>
+    <link rel="stylesheet" href="/themes/qq/stylesheets/mobile-qq.css">
+    <script type="text/javascript" src="/themes/qu/js/zepto.min.js"></script>
+    <script type="text/javascript" src="//open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+    <script type="text/javascript" src="/themes/qq/js/mobile-qq-menu.js?ver=20161111"></script>
+    <script type="text/javascript">
+    var utmSource = '';
+    </script>
+</head>
+
+<body>
+    <link rel="stylesheet" href="/static/myCoupons/stylesheets/myCoupons.css?v=1.1">
+    <style>
+    body {
+        font-size: 12px;
+    }
+    
+    .qu .header {
+        background: #009ff0;
+        height: 44px;
+        border-bottom: none;
+    }
+    
+    .qu .header h1 {
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        line-height: 44px;
+    }
+    
+    .qu .header .left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: visible;
+    }
+    
+    .qu .header .icon-back {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        border-bottom: 2px solid #fff;
+        border-left: 2px solid #fff;
+        position: absolute;
+        top: 11px;
+        left: 17px;
+        margin: 0;
+        -moz-transform: rotateZ(45deg);
+        -ms-transform: rotateZ(45deg);
+        -webkit-transform: rotateZ(45deg);
+        transform: rotateZ(45deg);
+        background-image: none;
+    }
+    
+    .qu .myCoupons-container {
+        background: none;
+    }
+    
+    .qu .myCoupons-container .nothing {
+        text-align: center;
+        font-size: 16px;
+        color: #666;
+        padding-top: 20px;
+    }
+    </style>
+    <div class="qu fontfamily">
+        <div class="page page-order">
+            <div class="header mobile-qq-coupon">
+                <div class="left"><a href="<?= baf_CHtml::createUrl('/user');?>"><i class="icon-back"></i></a></div>
+                <div class="center">
+                    <h1>卡券</h1></div>
+            </div>
+            <section class="myCoupons-container">
+                <div class="myCoupons-wrap">
+                <h3 style="text-align:center;font-size:18px;">没有卡券哦～</h3>
+                </div>
+            </section>
+            <!-- 自定义部分开始结束-->
+            <div class="qu-fe-CT">
+                <div class="bottombar">
+                    <a href="<?= baf_CHtml::createUrl('/Coupon/Activate');?>" class="bottombar-left"><i class="icon-add-blue"></i><span>绑定卡券</span></a><a href="<?= baf_CHtml::createUrl('/help/detail/?id=38');?>" class="bottombar-right"><i class="icon-sm-blue"></i><span>卡券说明</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="/static/js/mobileResponsive.js"></script>
+    <script type="text/javascript" src="/themes/qu/js/confirmOrder.js?ver=20161111"></script>
+    <div style="display: none;">
+        <script>
+        setTimeout(function() {
+            $('.main').removeClass('hide')
+            $('#loading').addClass('hide')
+        }, 5000);
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?faab40fbb816cf9bb1c5c940b05b0b98";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+    </div>
+</body>
+
+</html>

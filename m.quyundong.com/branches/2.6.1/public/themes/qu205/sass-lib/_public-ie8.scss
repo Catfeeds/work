@@ -1,0 +1,41 @@
+.borderBottom1px{
+  &:after{
+    @extend %borderH1px;
+    left: 0;
+    bottom:0;
+  }
+}
+
+.borderTop1px{
+  &:before{
+    @extend %borderH1px;
+    left: 0;
+    top:0;
+  }
+}
+.borderRight1px{
+  &:before{
+    @extend %borderV1px;
+    right: 0;
+    top:0;
+  }
+}
+
+.borderLeft1px{
+  &:before{
+    @extend %borderV1px;
+    left: 0;
+    top:0;
+  }
+}
+
+.icon-right{
+  display: block;
+  width: 12*0.005*200px;
+  height: 22*0.005*200px;
+  position: absolute;
+  top:50%;
+  right:30*0.005*200px;
+  margin-top: -11*0.005*200px;
+  img{display: block;width: 100%;}
+}

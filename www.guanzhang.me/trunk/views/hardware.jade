@@ -1,0 +1,50 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='./css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='./css/pc/stylesheets/hardware.css')
+  script(src='./js/jquery/jquery-1.8.3.min.js')
+block content
+  body
+    include ./_header
+    .main.w1180
+      h2 订场
+      .row
+        .cell
+          img(src='/images/pc/v2/hard1.png')
+          p 打开场馆官方公众号
+        .cell.line
+          img(src='/images/pc/v2/line.png')
+        .cell
+          img(src='/images/pc/v2/hard2.png')
+          p 选择时间场地
+        .cell.line
+          img(src='/images/pc/v2/line.png')
+        .cell
+          img(src='/images/pc/v2/hard3.png')
+          p 支付
+        .cell.line
+          img(src='/images/pc/v2/line.png')
+        .cell
+          img(src='/images/pc/v2/hard4.png')
+          p 到场自动开灯
+      h2 自助购／验票
+      .row
+        .cell
+          img(src='/images/pc/v2/hard5.png')
+          p 到场扫码<br><span>（打开馆掌官方公众号）</span>
+        .cell.line1
+          img(src='/images/pc/v2/line.png')
+        .cell
+          img(src='/images/pc/v2/hard6.png')
+          p 选择门票项目／数量<br>&nbsp;
+        .cell.line1
+          img(src='/images/pc/v2/line.png')
+        .cell
+          img(src='/images/pc/v2/hard7.png')
+          p 支付<br>&nbsp;
+        .cell.line1
+          img(src='/images/pc/v2/line.png')
+        .cell
+          img(src='/images/pc/v2/hard8.png')
+          p 凭支付成功二维码<br>通过门闸
+    include ./_footer

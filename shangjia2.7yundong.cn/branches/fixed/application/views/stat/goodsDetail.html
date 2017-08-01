@@ -1,0 +1,154 @@
+<!-- 搜索模块 start -->
+<form action="/stat/goodsDetail" method="post" >
+    <div class="bbs-header">
+        <div class="filter-control">
+            <!-- 日期选择插件 -->
+            <div class="filter-time"><span id="timeStart" class="btn-bdru"><?= $startDate;?>
+                <i class="glyphicon glyphicon-chevron-down"></i></span><em>至</em><span id="timeEnd" class="btn-bdru"><?= $endDate; ?>
+                <i class="glyphicon glyphicon-chevron-down"></i></span><input id="reservation" type="text" readonly value="<?= $startDate .' - '. $endDate; ?>">
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('#reservation').daterangepicker({
+                        locale: {
+                            applyLabel: '确认',
+                            cancelLabel: '取消',
+                            fromLabel: '从',
+                            toLabel: '到',
+                            weekLabel: 'W',
+                            customRangeLabel: 'Custom Range',
+                            daysOfWeek: ["日", "一", "二", "三", "四", "五", "六"],
+                            monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"]
+                        }
+                    }, function (start, end, label) {
+                        var t1 = new Date(start.toString());
+                        var t2 = new Date(end.toString());
+                        var txt1 = t1.format('yyyy-MM-dd');
+                        var txt2 = t2.format('yyyy-MM-dd');
+                        $("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                        $("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                        $('#startDate').val(txt1);
+                        $('#endDate').val(txt2);
+                    });
+
+			// 给导出结算记录按钮绑定事件
+			$("#export_goods_detail_log_btn").click(function(){
+				var href = $(this).attr("data-href") + "?startDate=" + $("#startDate").val() + "&endDate=" + $("#endDate").val();
+				$(this).attr("href", href);
+				setTimeout(function(){
+					$("#export_goods_detail_log_btn").attr('href','javascript:void(0);');
+				},0)
+			});
+
+                });
+            </script>
+        </div>
+        <input type="text" hidden id="startDate" name="startDate" value="<?= $startDate;?>">
+        <input type="text" hidden id="endDate" name="endDate" value="<?= $endDate;?>">
+        <!-- 日期选择插件 end -->
+        <div class="filter-control">
+          <div class='filter-input'>
+            <label for="">订单号</label>
+            <input type="text" name="order_code"  value="<?= $order_code ?>">
+          </div>
+        </div>
+        <div class="filter-control">
+          <div class='filter-input'>
+            <label for="">商品名</label>
+            <input type="text" name="goods_name"  value="<?= $goods_name ?>">
+          </div>
+        </div>
+		<div class="filter-control">
+      <div class='filter-input'>
+        <label for="">操作人</label>
+        <input type="text" name="operator"  value="<?= $operator ?>">
+      </div>
+		</div>
+        <div class="filter-control">
+            <div class="btn-sj-blue search-btn btn-bdru btn" onclick="$('form').submit();"><span>查询</span></div>
+            <a href="javascript:void(0);" data-href="/stat/exportGoodsDetailLog" class="search-btn btn-sj-blue btn-bdru btn btn-default" id="export_goods_detail_log_btn" >导出</a>
+        </div>
+    </div>
+    
+</form>
+<!-- 搜索模块 end -->
+<h1>商品交易明细</h1>
+<div class="body-table stage-table">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>消费时间</th>
+				<th>订单号</th>
+				<th>商品类型</th>
+				<th>商品名称</th>
+				<th>销售数量</th>
+				<th>单价</th>
+				<th>顾客姓名</th>
+				<th>支付方式</th>
+				<th>应付金额</th>
+				<th>实付金额</th>
+				<th>操作员</th>
+			</tr>
+		</thead>
+		
+		<?php if( !empty($list) ){ ?>
+			<?php foreach($list AS $key=>$val){ ?>
+			<tr>
+				<td><?= date("Y-m-d H:i:s",$val['consume_time']); ?></td>
+				<td><?= $val['order_code']; ?></td>
+				<td><?= $val['catalog_name']; ?></td>
+				<td><?= $val['goods_name']; ?></td>
+				<td><?= $val['count']; ?></td>
+				<td><?= $val['price']; ?></td>
+				<td><?= $val['customer_name']; ?></td>
+				<?php 
+				$pay_category = array(
+					'0'=>'现金',
+					'1'=>'会员卡',
+					'2'=>'银行卡',
+					'3'=>'次卡',
+					'4'=>'赠送余额支付',
+					'5'=>'白条',
+					'6'=>'储值卡',
+					'7'=>'趣运动',
+					'8'=>'微信支付',
+					'9'=>'团购券',
+					'10'=>'支付宝',
+					'11'=>'代金卷',
+					'12'=>'支票',
+					'100'=>'赠送会员卡',
+					'999'=>'多种混合的支付方式'
+				);
+				 ?>
+				<?php foreach($pay_category AS $k=>$v){ ?>
+					<?php if( $val['pay_mode'] == $k ){ ?>
+					<td><?= $v; ?></td>
+					<?php } ?>
+				<?php } ?>
+				<td><?= $val['payable_amount']; ?></td>
+				<td><?= $val['apay_amount']. ($val['discount'] ? '<span style="color: red;">(订单优惠'. $val['discount'] .'元)</span>' : ''); ?></td>
+				<td><?= $val['create_by']; ?></td>
+			</tr>
+			<?php } ?>
+		<?php } ?>
+
+	</table>
+</div>
+
+
+<?php if ($total_page > 1){ ?>
+<div id="pagination" data-page="<?=$total_page; ?>" data-current="<?= $page; ?>" class="pagination-container">
+    <div class="pagination"></div>
+    <div class="pagination-go">
+    	 <i style="color:#9baabe">共<?php echo $total_number ?>条，</i><span class="totalPage"></span><span class="btn-bdru"><i>第</i><input class="page" type='text'/><i>页</i></span><span class="go">GO</span>
+    </div>
+</div>
+<script type='text/javascript'>
+$(function(){
+     var calFn1 = function (p) {
+        window.location.href = "/stat/goodsDetail?page="+p+'&'+'<?php echo 'startDate='.$startDate ?>'+'&'+'<?php echo 'endDate='.$endDate ?>'+'&'+'<?php echo 'goods_name='.$goods_name ?>&operator='+ '<?php echo $operator; ?>';
+    };
+    createPageFn($("#pagination"), calFn1);
+});
+</script>
+<?php } ?>

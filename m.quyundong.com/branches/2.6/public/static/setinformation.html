@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui" />
+	<title>活动报名</title>
+	<script type="text/javascript" src="js/zeptoWithFxTouch.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style type="text/css">
+
+		html,body{
+			width: 100%;
+			font-size: 18px;
+			overflow-x:hidden;
+			background-color:#f0efed; 
+			word-wrap:break-word;
+			font-family: "Source Han Sans"; 
+
+		}
+		i{
+			font-style: normal;
+		}
+
+		header,section.main{
+			width: 100%;
+			max-width: 500px;
+			margin: 0 auto;
+			
+		}
+		header{
+			height: 40px;
+			background-color: #74affb;
+			position: fixed;
+			text-align: center;
+			line-height: 40px;
+			font-size: 22px;
+			color: #fff;
+			z-index: 999;
+			left:50%;
+			-webkit-transform:translateX(-50%);
+			transform:translateX(-50%);
+		}
+
+		header .gotoIndex{
+			width: 50px;
+			position: relative;
+			height: 30px;
+			font-size: 18px;
+			text-align: center;
+			border-radius: 3px;
+			display: block;
+			text-decoration: none;
+			color: #000;
+			line-height: 30px;
+			position: absolute;
+			top: 50%;
+			left: 5px;
+			cursor: pointer;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		.gotoIndex::after{
+			content: "";
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+			position: absolute;
+			border:10px solid red;
+			border-color: transparent #fff transparent transparent ;
+			top: 50%;
+			left: 0;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+			z-index: 88;
+		}
+		.gotoIndex::before{
+			content: "";
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+			position: absolute;
+			border:10px solid red;
+			border-color: transparent #74affb transparent transparent ;
+			top: 50%;
+			left: 0;
+			margin-left: 3px;
+			z-index: 99;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		.outcsm{
+			width: 100%;
+			height: 50px;
+			background-color: #fff;
+
+		}
+		section.main{
+			font-size: 16px;
+			margin-top: 40px;
+		}
+		section.main h3{
+			border-bottom: 1px solid #e1e1e1;
+			padding-top: 30px;
+			padding-bottom: 10px;
+			text-indent: 1em;
+			font-size: 14px;
+			color:#939393;
+		}
+		.cansaima{
+			height: 30px;
+			font-size: 14px;
+			padding: 10px 0;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			width: 90%;
+			margin: 0 auto;
+			background-color: #fff;
+		}
+		.cansaima>span{
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			width: 70px;
+			color: #636363;
+			letter-spacing: 7px;
+		}
+		#cansaima{
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			color:#ccc;
+			height: 30px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			border: 0px solid #000;
+			-webkit-box-flex:1;
+			-webkit-flex:1;
+			flex:1;
+
+		}
+		.cansaima .submit{
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			width: 78px;
+			background-color: #f28f4c;
+			border-radius: 3px;
+			color: #fff;
+			-webkit-transform: translateX(2px);
+			 -ms-transform: translateX(2px);
+			 -o-transform: translateX(2px);
+			 transform: translateX(2px); 
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			position: relative;
+			border: 0px solid #000;
+			cursor: pointer;
+		}
+		.cansaima .submit i{
+			position: absolute;
+			left: 50%;
+			-webkit-transform: translateX(-50%);
+			 -ms-transform: translateX(-50%);
+			 -o-transform: translateX(-50%);
+			 transform: translateX(-50%); 
+			top:0;
+			height: 30px;
+			line-height: 30px;
+			display: inline-block;
+			text-align: center;
+			font-style: normal;
+		}
+		.successAndDisplay{
+			padding: 20px 0;
+			border-top: 1px solid #e1e1e1;
+			font-size: 14px;
+		}
+		.phoneNumber{
+			
+			/*background-color: pink;*/
+			height: 50px;
+			width: 90%;
+			margin: 0 auto;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			border-bottom: 1px solid #e1e1e1;
+
+		}
+		.outdp{
+			width: 100%;
+			background-color: #fff;
+			border-top: 1px solid #e1e1e1;
+			border-bottom: 1px solid #e1e1e1;
+		}
+		.phoneNumber>span {
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			width: 70px;
+			color:#636363
+		}
+		.phoneNumber>i{
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-flex:1;
+			-webkit-flex:1;
+			flex:1;
+			
+		}
+		.phoneNumber>button{
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			width: 78px;
+			background-color: #f28f4c;
+			border-radius: 3px;
+			color: #fff;
+			line-height: 30px;
+			height: 30px;
+			
+			text-align: center;
+			position: relative;
+			border: 0px solid #000;
+			cursor: pointer;
+		}
+		.phoneNumber > button i{
+			position: absolute;
+			left: 50%;
+			top:0;
+			width: 100%;
+			-webkit-transform: translateX(-50%);
+			 -ms-transform: translateX(-50%);
+			 -o-transform: translateX(-50%);
+			 transform: translateX(-50%); 
+			
+			height: 30px;
+			line-height: 30px;
+			display: inline-block;
+			text-align: center;
+			font-style: normal;
+		}
+
+		.checkNumber{
+			height: 50px;
+			width: 90%;
+			margin: 0 auto;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			/*background-color: yellowgreen;*/
+			
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+		.checkNumber span{
+			width: 70px;
+			letter-spacing: 7px;
+			color:#636363
+		}
+		#checkNumber{
+			width: 200px;
+			height: 20px;
+			color: #ccc;
+			border: 0px solid #000;
+		}
+		.sureCheckNumber{
+			margin-top:20px; 
+			width: 100%;
+			text-align: center;
+		}
+		.sureCheckNumber button{
+			width: 85%;
+			max-width: 300px;
+			border-radius: 3px;
+			height: 40px;
+			line-height: 40px;
+			font-size: 16px;
+			color: #fff;
+			text-align: center;
+			background-color: #f28f4c;
+			margin: 0 auto;
+			border: 0px solid #000;
+			display: inline-block;
+		}
+
+		section.fixedpage{
+			font-size: 16px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+
+		}
+		section.fixedpage>h3{
+			height: 40px;
+			padding-top: 20px;
+			padding-left: 4%;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			border-bottom: 1px solid #e1e1e1;
+			font-size: 14px;
+			color: #939393;
+		}
+		.checkYourMassage{
+			background-color: #fff;
+		}
+		.checkYourMassage>li{
+			height: 43px;
+			color: #636363;
+			border-bottom: 1px solid #e1e1e1;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+		.checkYourMassage .massageLeft{
+			width: 100px;
+			height: 43px;
+			float: left;
+			padding-top: 14px;
+			padding-bottom: 14px;
+			padding-left: 4%;
+			border-right: 1px solid #e1e1e1;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+		.checkYourMassage .massageRight{
+			float: left;
+			height: 43px;
+			padding-top: 14px;
+			padding-bottom: 14px;
+			padding-left: 4%;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+		section.fixedpage p{
+			color: #939393;
+			padding-top: 20px;
+			height: 45px;
+			font-size: 14px;
+			padding-right: 4%;
+			padding-left: 4%;
+			border-bottom: 1px solid #e1e1e1;
+		}
+		section.photoUpdata{
+			padding-top: 10px;
+			height: 160px;
+			padding-left: 4%;
+			border-bottom: 1px solid #e1e1e1;
+			position: relative;
+			background-color: #fff;
+		}
+		section.photoUpdata h3{
+			color: #939393;
+			padding-top: 10px;
+			font-size: 14px;
+		}
+		section.photoUpdata .myPhoto{
+			margin-top:10px;
+			width: 100px;
+			height: 100px;
+			background:url(images/avatar.jpg) no-repeat;
+			-webkit-background-size:cover;
+			background-size:cover;
+			background-position: center center;
+		}
+
+		#photoFile{
+			width: 200px;
+			position: absolute;
+			bottom: 25px;
+			right: 0px;
+		}
+		.paper > li {
+			background-color: #fff;
+			padding-left:4%;
+			font-size: 14px;
+			height: 85px;
+			padding-top: 18px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			border-bottom: 1px solid #e1e1e1;
+		}
+		.paper h3{
+			padding: 5px;
+			
+		}
+		.paper input{
+			display: inline-block;
+			margin-right: 5px;
+		}
+		.paper label{
+			display: inline-block;
+			padding:5px;
+			
+		}
+		.paper input[type="text"]{
+			width: 140px;
+			border:0px solid #000;
+			margin-left: -5px;
+			border-bottom: 1px solid #e1e1e1;
+		}
+		.fixedpage button{
+			display: block;
+			margin: 10px auto;
+			width: 80%;
+			height: 40px;
+			border-radius: 3px;
+			border: 0px solid #000;
+			background-color: #cdcdcd;
+			color: #fff;
+			font-size: 16px;
+		}
+		section.cover{
+			position: fixed;
+			z-index: 9999;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.6);
+			display: none;
+		}
+		#tip{
+			display: none;
+			width: 87%;
+			height: 130px;
+			border-radius: 3px;
+			background-color: #fff;
+			position: absolute;
+			top:200px;
+			left:50%;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+
+		}
+
+		#tip p{
+			padding-top: 34px;
+			text-align: center;
+
+		}
+		#tip button{
+			background-color: #f09029;
+			width:87%;
+			height: 40px;
+			line-height: 40px;
+			position: absolute;
+			bottom: 12px;
+			display: block;
+			left:50%;
+			border-radius: 3px;
+			border: 0px solid #000;
+			color: #fff;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+			
+		}
+	.headimage#myPhoto{
+       background-image: url(images/avatar.jpg);
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+      	background-position: center center;
+		/*margin-left: 10px; */
+		width: 100px;
+		height: 100px;
+		
+    }
+    .paper h3{
+    	color: #636363;
+    }
+	</style>
+</head>
+<body>
+	<header>
+		
+		<h2>活动报名</h2>
+		<a href="index.html" class="gotoIndex"></a>
+	</header>
+	
+	<section class="main" id="mainpage" style="display:block;">
+	
+		<h3>确认您的选手的身份:</h3>
+		<div class="outcsm">
+			<div class="cansaima">
+				<span>参赛码</span>
+				<input id="cansaima" type="text" value="输入通知短信中的参赛码" />
+				<button class="submit" id="submit" ><i>确定</i></button>
+			</div>
+		</div>
+		<div class="successAndDisplay" style="display:none;">
+			<div class="outdp">
+				<div class="phoneNumber">
+					<span >手机号码</span>
+					<i id="phoneNumber">?</i>
+					<button id="catchCheckNumber"><i id="catchCheckNumberInner">获取验证码</i></button>
+				</div>
+				<div class="checkNumber">
+					<span>验证码</span>
+					<input id="checkNumber" type="text" value="输入通知短信中的验证码" />
+				</div>
+			</div>
+			<div class="sureCheckNumber">
+				<button id="sureCheckNumber">确定</button>
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript">
+
+	// alert("width:"+$(window).width()+"height:"+$(window).height());
+	var cansaima = document.getElementById('cansaima');
+		cansaima.onfocus = function () {
+			cansaima.value = "";
+			cansaima.style.color = "#000";
+		}
+
+		cansaima.onblur = function () {
+			if(cansaima.value === ""){
+				cansaima.value = "输入通知短信中的参赛码";
+				cansaima.style.color = "#ccc";
+			}
+		}
+
+
+	
+
+	//微信检查并开启微信config	
+	if(isWeixin()){
+		// alert("在用微信 "+ver);
+		$("header").css("display","none");
+		$("#mainpage").css("margin-top","0px")
+	}else{
+		// alert("不是微信 "+ver);
+		// wxConfigToken (enURL);
+	}
+	//微信判别
+	function isWeixin (){
+		if(window.navigator.userAgent.indexOf("MicroMessenger") === -1 ){
+			return false;
+		}else{return true}
+	}
+	</script>
+	<section class="fixedpage" id="fixedpage" style="display:none">
+		<h3>确认您的参赛资料:</h3>
+		<ul class="checkYourMassage">
+			<li>
+				<div class="massageLeft">参赛码：</div>
+				<div class="massageRight" id="pageNumber">1024</div>
+			</li>
+			<li>
+				<div class="massageLeft" >姓&nbsp;&nbsp;名：</div>
+				<div class="massageRight" id="pageUserName">王小龙</div>
+			</li>
+			
+			<li>
+				<div class="massageLeft">手机号：</div>
+				<div class="massageRight" id="pageUserPhone">13527831922</div>
+			</li>
+		</ul>
+		<p>完善以下资料即可参与活动，每填写一项可获得5个柠檬！柠檬最多可赢取Apple watch!</p>
+		<section class="photoUpdata">
+			<h3>请上传您的头像</h3>
+			<div class="myPhoto" id="myPhoto"></div>
+			<div class="controlPosition"></div>
+			<input type="file" id="photoFile" value="选择照片" />
+		</section>
+		<ul class="paper">
+			<li>
+				<h3>1、每月打几次球：</h3>
+				<div id="sport_frequency">
+					<label><input  type="radio" name="每月打几次球" value="1次" />1次</label>
+					<label><input  type="radio" name="每月打几次球" value="2次" />2次</label>
+					<label><input  type="radio" name="每月打几次球" value="3次"  />3次</label>
+					<label><input  type="radio" name="每月打几次球" value="3次以上"  />3次以上</label>
+				</div>
+			</li>
+			<li>
+				<h3>2、每次打球消费金额（元）：</h3>
+				<div id="sport_money">
+					<label><input id="" type="radio" name="每次打球消费金额" value="0-30" />0-30</label>
+					<label><input id="" type="radio" name="每次打球消费金额" value="31-60" />31-60</label>
+					<label><input id="" type="radio" name="每次打球消费金额" value="61-100" />61-100</label>
+					<label><input id="" type="radio" name="每次打球消费金额" value="100以上" />100以上</label>
+				</div>
+			</li>
+			<li>
+				<h3>3、每次打球多长时间：</h3>
+				<div id="sport_time">
+					<label><input id="" type="radio" name="每次打球多长时间" value="1小时" />1小时</label>
+					<label><input id="" type="radio" name="每次打球多长时间" value="2小时" />2小时</label>
+					<label><input id="" type="radio" name="每次打球多长时间" value="3小时" />3小时</label>
+					<label><input id="" type="radio" name="每次打球多长时间" value="3小时以上" />3小时以上</label>
+				</div>
+			</li>
+			<li style="height:110px">
+				<h3>4、您选择羽毛球馆最重要什么：</h3>
+				<div id="sport_facility">
+					<label><input id="" type="checkbox" name="您选择羽毛球馆最重要什么" value="价格" />价格</label>
+					<label><input id="" type="checkbox" name="您选择羽毛球馆最重要什么" value="位置" />位置</label>
+					<label><input id="" type="checkbox" name="您选择羽毛球馆最重要什么" value="环境" />环境</label>
+					<label><input id="" type="checkbox" name="您选择羽毛球馆最重要什么" value="订场方便" />订场方便</label>
+					<br/>
+					<label><input id="" type="checkbox" name="您选择羽毛球馆最重要什么" value="设施" />设施</label>
+					<label><input id="" type="checkbox" name="您选择羽毛球馆最重要什么" value="服务" />服务</label>
+				</div>
+			</li>
+			<li>
+				<h3>5、您需要一个私人教练吗：</h3>
+				<div id="sport_train">
+					<label><input id="" type="radio" name="您需要一个私人教练吗" value="需要" />需要</label>
+					<label><input id="" type="radio" name="您需要一个私人教练吗" value="不需要" />不需要</label>
+				</div>
+			</li>
+			<li>
+				<h3 style="display:inline">6、您所在的公司行业：</h3>
+				<input id="industry_company" type="text" />
+			</li>
+		</ul>
+		<button id="fixedpagesubmit">请选择您的头像</button>
+	</section>
+	<section class="cover" id="cover">
+		<div id="tip"><p id="tipp">xxx</p><button id="tipClose">关闭</button></div>
+	</section>
+	<script src="js/mobileFix.mini.js"></script>
+	<script src="js/exif.js"></script>
+	<script src="js/lrz.js"></script>
+	<script type="text/javascript">
+	//验证逻辑
+		var checkNumber = document.getElementById('checkNumber');
+		
+		var catchCheckNumber = document.getElementById('catchCheckNumber');
+		var sureCheckNumber = document.getElementById('sureCheckNumber');
+		var fixedpagesubmit = document.getElementById('fixedpagesubmit');
+		var cover = document.getElementById('cover');
+		var tip = document.getElementById('tip');
+		var tipClose = document.getElementById('tipClose');
+		var tipp = document.getElementById('tipp');
+		var strhead = 'http://m.quyundong.com/static/lemonzone.html?number=';
+		// var submitlock = 0 ;
+		var catchCheckNumberlock = 1 ;
+		var submitlock = 0;
+		var catchCheckNumberInner = document.getElementById('catchCheckNumberInner');
+		
+		// var strhead = 'http://m.quyundong.com/static/lemonzone.html?number=';
+		var Gresult;
+		var overtimers = 60;
+		var fromData = {};
+		
+
+		var submit = document.getElementById('submit');
+
+		submit.onclick = function(){
+				if(!isNaN(cansaima.value-"0") == true){
+					var xhr = new XMLHttpRequest();
+					xhr.open('get', 'http://m.quyundong.com/NmbApi/GetUserMobileByNumber/?number='+cansaima.value+'&client_time='+ newDate ());
+					// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+					xhr.onreadystatechange = function () {
+					    if (xhr.readyState === 4 && xhr.status === 200) {
+							Gresult = JSON.parse(xhr.response);
+					        console.log(1,Gresult);
+					        if(Gresult.code == 1){
+					        	$(".successAndDisplay").css("display","block");
+					        	$("#phoneNumber").html(Gresult.data.mobile);
+					        }else{
+					        	$('.cover').css("display","block");
+								$("#tip").css("display","block");
+					        	$("#tip p").html("参赛码有误！");
+					        	$("#tipClose").click(function(){
+					        		$(".cover").css("display","none");
+		        				});			
+					        };
+
+					     }
+					};
+					
+					xhr.send();
+				}else{
+
+					$('.cover').css("display","block");
+					$("#tip").css("display","block");
+		        	$("#tip p").html("参赛码有误！");
+		        	$("#tipClose").click(function(){
+		        		$(".cover").css("display","none");
+		        	});	
+				}
+		}
+		
+	   
+
+		
+		checkNumber.onfocus = function () {
+			checkNumber.value = "";
+			checkNumber.style.color = "#000";
+		}
+
+		checkNumber.onblur = function () {
+			if(checkNumber.value === ""){
+				checkNumber.value = "输入通知短信中的验证码";
+				checkNumber.style.color = "#ccc";
+			}
+		}
+		//完善表单
+		
+		fixedpagesubmit.onclick = function(){
+			if (submitlock === 1) {
+				
+				var $sport_frequency = $("#sport_frequency input");
+					for(var i = 0 ;i < $sport_frequency.length ;i++){
+						console.log($sport_frequency[i].checked);
+						if($sport_frequency[i].checked){fromData.sport_frequency = $sport_frequency[i].value;
+
+						}
+					}
+				var $sport_money = $("#sport_money input");
+					for(var i = 0 ;i < $sport_money.length ;i++){
+						console.log($sport_money[i].checked);
+						if($sport_money[i].checked){fromData.sport_money = $sport_money[i].value;
+
+						}
+					}
+
+				
+				var $sport_time = $("#sport_time input");
+					for(var i = 0 ;i < $sport_time.length ;i++){
+						console.log($sport_time[i].checked);
+						if($sport_time[i].checked){fromData.sport_time = $sport_time[i].value;
+
+						}
+					}
+				
+
+				var $sport_facility = $("#sport_facility input");
+				fromData.sport_facility = []
+					for(var i = 0 ;i < $sport_facility.length ;i++){
+						console.log($sport_facility[i].checked);
+						if($sport_facility[i].checked){fromData.sport_facility[fromData.sport_facility.length] = $sport_facility[i].value;
+
+						}
+					}
+				
+
+				var $sport_train = $("#sport_train input");
+					for(var i = 0 ;i < $sport_train.length ;i++){
+						console.log($sport_train[i].checked);
+						if($sport_train[i].checked){fromData.sport_train = $sport_train[i].value;
+
+						}
+					}
+
+				if($('#industry_company')[0].value != ""){
+					fromData.industry_company = $('#industry_company')[0].value
+				}
+				
+				setTimeout(function () {
+				
+				    // 发送到后端
+				   
+
+				    fromData.number = Gresult.data.number;
+				    fromData.imagebase64Len = (parseInt(fromData.imagebase64Len)-22)+"";
+				    fromData.imagebase64 = fromData.imagebase64.substring(22);
+				    
+
+				 
+				  var postData = JSON.stringify(fromData);
+				  console.log(postData);
+				  
+				    $.ajax({
+						url: 'http://m.quyundong.com/NmbApi/UpdateUserInfo/'+newDate(),
+						type: 'POST',
+						dataType: 'JSON',
+						cache: false,
+						data: {fromData:postData},
+						success: function(res){
+							var result = JSON.parse(res);
+							console.log(result);
+		                   if(result.code == 1){
+		                   	window.localStorage.setItem("quyundongusernumberkey",result.data.number);
+
+		                   	setTimeout(function(){
+				        		window.location.href = strhead + result.data.number;
+
+				        	},100);
+		                   }else{
+		                   		$(".cover").css("display","block");
+			                   	$("#tip").css("display","block");
+			                   	$("#tip p").html(result.msg);
+			                   	$("#tipClose").click(function(){
+			                   		$("#tip").css("display","none");
+			                   		$(".cover").css("display","none");
+			                   	});
+		                   }
+						}
+					});
+
+
+				}, 100);
+
+				
+
+
+			}else{
+				$(".cover").css("display","block");
+				$("#tip").css("display","block");
+	        	$("#tip p").html('请上传您的头像');
+	        	$("#tipClose").click(function(){
+	        		$("#tip").css("display","none");
+	        		$(".cover").css("display","none");
+	        	});
+			}
+		}
+		
+
+
+		//图片上传
+		var photoFile = document.getElementById('photoFile');
+		photoFile.onchange = function(){
+	    if(checkImg(this.files[0])){// 也可以传入图片路径：lrz('../demo.jpg', ...
+	            lrz(this.files[0], {width: 200}, function (results) {
+	                // 你需要的数据都在这里，可以以字符串的形式传送base64给服务端转存为图片。
+	                
+	                submitlock = 1;
+	                fixedpagesubmit.style.backgroundColor = "#74affb";
+					fixedpagesubmit.innerHTML = "提交";
+	                // fromData.imagebase64 = results.base64;
+	                 fromData.imagebase64 = results.base64;
+
+	                fromData.imagebase64Len = results.base64Len;
+
+	                console.log(fromData);
+
+	                var img = new Image();
+	               	
+	               	var size = fromData.imagebase64.length * 0.8;
+
+	                size = (size / 1024).toFixed(2) + 'KB';
+
+	                if(size === 'NaNKB') size = '';
+
+	                img.src = typeof fromData.imagebase64 === 'string' ? fromData.imagebase64 : URL.createObjectURL(fromData.imagebase64);
+
+	                $("#myPhoto").css("background-image","url("+ img.src +")").addClass("headimage");
+	                $(".controlPosition").html(size);
+	               
+
+	                
+	              
+	            });}
+			};
+			// 大小和图片类型判定
+			function checkImg(file){
+			    var t = file.type;
+			    var s = file.size;
+			    if( t === "image/png" || t === "image/jpeg" ){
+			        if (s < 4*1024*1024){
+
+			            return true;
+			        }else{
+			        	$('.cover').css("display","block");
+			        	$("#tip").css("display","block");
+			        	$("#tip p").html("请上传小于4M的JPG或者PNG文件");
+			        	$("#tipClose").click(function(){
+			        		$("#tip").css("display","none");
+			        		$('.cover').css("display","none");
+			        	});
+			       
+			            return false;
+			        }
+			    }else{ 
+			    	$('.cover').css("display","block");
+			        $("#tip").css("display","block");
+		        	$("#tip p").html("请上传小于4M的JPG或者PNG文件");
+		        	$("#tipClose").click(function(){
+		        		$("#tip").css("display","none");
+		        		$('.cover').css("display","none");
+		        	});
+		        
+			        return false;
+
+			    }
+			}
+		//本地存储
+		// document.getElementById("sureCheckNumber").innerHTML = window.localStorage.getItem("key") ;
+		
+		
+
+	function newDate (){
+		return parseInt(new Date().getTime()/1000)
+	}
+	
+    sureCheckNumber.onclick = function (){
+
+    	console.log(1);
+			var xhr = new XMLHttpRequest();
+			xhr.open('get','http://m.quyundong.com/NmbApi/CheckSmsCode/?mobile='+Gresult.data.mobile+'&client_time='+newDate()+'&sms_code='+checkNumber.value+'&number='+Gresult.data.number);
+			
+			// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+			xhr.onreadystatechange = function () {
+			    if (xhr.readyState === 4 && xhr.status === 200) {
+			        var result = JSON.parse(xhr.response);
+					
+			        console.log(3,result);
+
+			        if(result.code == 1){
+			        	console.log("into1");
+			        	if(result.data.status == 0){
+			        		$('#mainpage').css("display","none");
+			        		$("#fixedpage").css("display","block");
+			        		$("header h2").html("请完善您的信息");
+			        		$('#pageUserName').html(result.data.user_info.name);
+			        		$('#pageUserPhone').html(result.data.user_info.mobile);
+			        		$('#pageNumber').html(result.data.user_info.number);
+			        	}else{
+			        		//try catch
+				        	window.localStorage.setItem("quyundongusernumberkey",result.data.user_info.number);
+				        	//goto选手页
+				        	setTimeout(function(){
+				        		window.location.href = strhead + result.data.user_info.number;
+				        	},100);
+			        	
+			        	}
+
+			        }else{
+						console.log("into2");
+						console.log(result.msg);
+						
+			        	$(".cover").css("display","block");
+			        	tip.style.display = "block";
+			        	// $("#tip p").html(result.msg);
+			        	tipp.innerHTML = result.msg;
+			        	// $("#tipClose").click(function(){
+			        	// 	$("#tip").css("display","none");
+			        	// });
+			        	tipClose.onclick = function(){
+			        		tip.style.display = "none";
+			        		$(".cover").css("display","none");
+			        	}
+
+			        }				   
+			    }
+       		}
+       	xhr.send();
+    }
+	var timer60;
+	catchCheckNumber.onclick = function(){
+		if(catchCheckNumberlock){
+
+			overtimers = 60;
+			catchCheckNumber.style.backgroundColor = "#cdcdcd";
+			catchCheckNumberInner.innerHTML = overtimers+"s";
+			catchCheckNumberlock = 0 ;
+
+			clearInterval(timer60);
+
+			timer60 = setInterval(function(){
+				overtimers--;
+				catchCheckNumberInner.innerHTML = overtimers+"s";
+			},1000);
+
+			setTimeout(function(){
+				clearInterval(timer60);
+				catchCheckNumberlock = 1;
+				catchCheckNumber.style.backgroundColor = "#f28f4c";
+				catchCheckNumberInner.innerHTML = "再次获取";
+			},60000);
+    		console.log("star");
+
+		    $.ajax({
+				url: 'http://m.quyundong.com/NmbApi/SendSmsCode/?mobile='+Gresult.data.mobile+'&client_time='+newDate(),
+				type: 'GET',
+				cache: false,
+				success: function(res){
+					var result = JSON.parse(res);
+					console.log(3,result);
+                   if(result.code == 1){
+                   	console.log(111);
+                   }else{
+	                   	$("#tip").css("display","block");
+	                   	$("#tip p").html(result.msg);
+	                   	$("#tipClose").click(function(){
+	                   		$("#tip").css("display","none");
+	                   	});
+                   }
+				}
+			});
+	    }
+	} 
+
+</script>
+	
+</body>
+</html>

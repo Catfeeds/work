@@ -1,0 +1,250 @@
+<link rel="stylesheet" href="/static/patch/3.0/stylesheets/3.0.css">
+<link rel="stylesheet" href="/static/patch/3.1/stylesheets/3.1.css">
+<script src='/static/patch/js/common.js'></script>
+<script src='/static/patch/3.0/js/fixedCourt.js'></script>
+<script src='/static/patch/3.1/js/3.1.js?ver=20170329574'></script>
+<audio id="chatAudio">
+  <source src="/static/shangjia/neworder.mp3" type="audio/mpeg">
+</audio>
+<audio id="refundAudio">
+  <source src="/static/shangjia/refund.mp3" type="audio/mpeg">
+</audio>
+<!-- <div class="top-padding" id='topPadding'></div> -->
+<script>
+  var NOW_DATE = '<?php echo date("Y-m-d") ?>';
+</script>
+<div class="goodlist-top-nav">
+  <div class="inner top flex-body">
+    <div class="input-module input-module1 hide"><label for="admin">管理员</label><select class='' name="admin" id="admin">
+    </select></div>
+    <div class="input-module input-module2"><label for="phone">手机号码</label><input type="text" id='phone'><span class="btn btn-sj btn-bdru" id='send'>发送</span></div>
+    <div class="input-module margin0" id="changeWidth" style="width:80px;"></div>
+    <div class="input-module input-module3 margin0">
+      <a class="input-module" id='checkOrderBtn'><i class='icon'><img src='/static/patch/3.1/images/check.png' /></i>订单验证</a>
+      <a class="input-module" id='callConfig'><i class='icon'><img src='/static/patch/3.1/images/setting.png' /></i>场地设置</a>
+      <a class="input-module" id='serviceBtn'><i class='icon'><img src='/static/patch/3.1/images/phone.png' /></i>使用帮助</a>
+      <a class="input-module margin0" id='lockBtn'><i class='icon'><img src='/static/patch/3.1/images/lock.png' /></i>场次锁定</a>
+    </div>
+  </div>
+  <div class="inner flex-body time-bar">
+    <div class="input-module">
+      <div class='sj-select-lb hide'><i class="glyphicon glyphicon-chevron-down"></i><select name="cat" id="cat" class="hide form-control sj-select btn-bdru"></select>
+      </div>
+    </div>
+    <div class="input-module margin0 hide" id='beforeDate'>
+      <div id="timeEnd" class="sj-select-lb">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+        <span class='form-control sj-select btn-bdru'>时间选择</span>
+        <input id="time" type="text" value="2017-01-10 - 2017-01-10" daterangepicker>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='main-court' id='mainCourt'>
+  <table class='court-name'>
+    <tbody id='tableSide'></tbody>
+  </table>
+  <div class="main-court-inner">
+    <table>
+      <thead><tr id='tableTop'></tr></thead>
+    </table>
+    <table>
+      <thead><tr id='tableTopFixed' class='hide'></tr></thead>
+    </table>
+    <table>
+      <tbody>
+        <tr><td colspan='26' rowspan="12" ><ul id='tableMain' class="court-container" style='height:480px;'>
+            <div class="contextmenu hide" id="contextmenu">
+                <div id='contextmenu1'>延长30分钟</div>
+                <div id='contextmenu2'>会员固定场调整</div>
+                <div id='contextmenu3'>拆分显示</div>
+            </div>
+            <div class="icon-examples hide" id="icon_example">
+              <div class="icon-example arr"><i data-type='arr' class='glyphicon glyphicon-chevron-right'></i>&nbsp;</div>
+              <div class="icon-example"><i data-type='member'></i><b>会员订单</b></div>
+              <div class="icon-example"><i data-type='lock'></i><b>场地锁定</b></div>
+              <div class="icon-example"><i data-type='net'></i><b>趣运动订单</b></div>
+              <div class="icon-example"><i data-type='reserve'></i><b>预留订单</b></div>
+            </div>
+          </ul>
+        </td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="hide" id="empty" style="text-align:center">
+  <img src="/static/shangjia/images/noitem.png">
+  <h2 style="display:block;">暂时没有数据</h2>
+</div>
+<div class="show-alert hide " id='blackCoverForTips'></div>
+<div class="show-alert hide " id='blackCoverForDialog'></div>
+<div class="show-alert hide " id='blackCoverForLoading'></div>
+<div class="show-alert hide " id='blackCoverForLockCourt'></div>
+<div class="show-alert hide " id='blackCoverForVenuesConfig'></div>
+<div class="show-alert hide " id='blackCoverForCheckOrder'></div>
+<div class="show-alert hide " id='blackCoverForFixedCourt'></div>
+<div class="show-alert hide " id='blackCoverForService'></div>
+<div class="show-alert hide " id='blackCoverForReserveing'></div>
+
+<div class="dialogue-box sm hide" id='commonDialogBox'>
+  <div class="dialogue-box-inner">
+    <h2 class='dialogue-title'></h2>
+    <p class='dialogue-desc'></p>
+    <p class='p-btn'><span id='commonDialogBoxSure' class="btn search-btn btn-bdru btn-sj-blue"></span><span id='commonDialogBoxCancel' class="btn search-btn btn-bdru btn-cancel"></span></p>
+  </div>
+</div>
+
+<div class="dialogue-box sm hide" id='checkOrder'>
+  <div class="dialogue-box-inner">
+    <i class="close"></i>
+    <h4>订单验证</h4>
+    <p>
+      <label for='checkOrderInput' style="width:100px;">请输入验证码</label><input type="text" id='checkOrderInput' name="checkOrderInput" value='' maxlength='20' style='width:240px;'>
+    </p>
+    <p class='p-btn'><span id='checkOrderSend' class="btn search-btn btn-bdru btn-sj-blue">确定</span></p>
+  </div>
+</div>
+
+<div class="dialogue-box sm hide" id='tipsBox'>
+  <div class="dialogue-box-inner">
+    <h3></h3>
+    <p class='p-btn'><span class="btn search-btn btn-bdru btn-sj-blue">确认</span></p>
+  </div>
+</div>
+
+<div class="dialogue-box sm hide" id='loadingBox'>
+  <div class="dialogue-box-inner">
+    <h3></h3>
+    <p class='p-btn'><img src='/static/images/loading.gif' /></p>
+  </div>
+</div>
+
+<div class="pop-validorder2 dialogue-box hide" id='lockCourt'>
+  <div class="dialogue-box-inner">
+    <i class="close"></i>
+    <h2 style='margin-bottom:15px;'>场地锁定</h2>
+    <form>
+      <p>
+        <label for='locked_card_number'>会员卡号</label><input type="text" id='locked_card_number' name="locked_number" value='' maxlength='20' autocomplete="off">
+      </p>
+      <p>
+        <label for='locked_name_in'>姓名</label><input type="text" id='locked_name_in' name="locked_name" value='' maxlength='20' autocomplete="off">
+      </p>
+      <p>
+        <label for='locked_mobile_in'>手机</label><input type="text" data-type='phone' id='locked_mobile_in' name="locked_mobile" value='' maxlength='11' autocomplete="off">
+      </p>
+    </form>
+    <div class='preorderul' ><div class="t">场地</div><ul id='lock_preorder'></ul></div>
+    <p><span class="money" style='color:#df494a;'>金额：</span></p>
+    <!-- <p class='p-btn'> -->
+    <p style='text-align:center;'>
+      <span class="btn search-btn btn-bdru btn-sj-blue book-btn " disabled id='bookSubmit'>预留</span>
+      <span class="btn search-btn btn-bdru btn-sj-blue" id='lockedSubmit'>锁定</span>
+    </p>
+    <p class="book-tips" style='text-align:center;color:#9aabb8;'><span>预留最多4片场地，不支持增加半小时</span></p>
+  </div>
+</div>
+
+<div class="dialogue-box hide" id='venuesConfig'>
+  <div class="dialogue-box-inner">
+    <i class="close"></i>
+    <h2>场地设置</h2>
+    <p >
+      <em>会员订场：</em><label for="showNameCheckbox">显示会员姓名</label><input type="checkbox" id='showNameCheckbox'>
+    </p>
+    <p>
+      <em>场地订单显示：</em><label for="mixDisplayTrue">合并显示</label><input type="radio" name="mix_display" id='mixDisplayTrue' value='1'><br /><label for="mixDisplayFalse">分开显示</label><input type="radio" name="mix_display" id='mixDisplayFalse' value='0'>
+    </p>
+    <p class='p-btn'>
+      <span class="btn search-btn btn-bdru btn-sj-blue" id='saveConfig'>保存</span>
+    </p>
+  </div>
+</div>
+
+<div class="dialogue-box large hide" id='fixedCountBox'>
+  <div class="dialogue-box-inner">
+    <i class="close"></i>
+    <h2>固定场设置</h2>
+    <div id='fixedCountBoxInfo'></div>
+    <a class='add-fixed-count' id='fixedCountBoxAddItem'>添加固定场</a>
+    <table class='table table-bordered'>
+      <thead>
+        <tr>
+          <th style="width:110px;">项目</th>
+          <th style="width:273px;">锁定周期</th>
+          <th style="width:454px;">锁定时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th colspan='4' class='table-in-table'>
+            <div>
+                <p id='fixedTips'>暂时没有固定场</p>
+                <ul id='fixedCourtTbody'>
+                </ul>
+            </div>
+          </th>
+        </tr>
+        <tr>
+          <th colspan='4'>
+            <p class='table-btn'><span class="btn search-btn btn-bdru btn-sj-blue" id='fixedCourtBoxCheck'>检查</span><span class="btn search-btn btn-bdru btn-sj-blue" id='fixedCourtBoxSave'>保存</span><span class="btn search-btn btn-bdru btn-cancel" id='fixedCourtBoxCancel'>取消</span></p>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="dialogue-box hide" id='service'>
+  <div class="dialogue-box-inner">
+    <i class="close"></i>
+    <h4><span style="font-weight: bolder;">使用说明：</span><a target="_blank" href="/instruction/index">查看说明</a><b style="display:none;" id='customer_phone'></b></h4>
+    <hr />
+    <h4 class='hide' id='bussiness' >
+      <span style="font-weight: bolder;">商务合作：</span>
+      <em id='serviceName' style="margin-right:20px;"></em>
+      <em id='servicePhone'></em>
+      <em id='serviceWeixin'></em>
+    </h4>
+    <div class="code">
+      <div class="code-tips">微信扫一扫</div>
+      <img src="" alt="" id='serviceCode'>
+    </div>
+  </div>
+</div>
+
+<div class="messager-box hide" id='messagerBox'>
+  <div class="title">
+    <h3>订单信息更新提示</h3>
+    <i class='close'></i>
+  </div>
+  <div class="content">
+    <ul>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="dialogue-box sm hide" id='reserveing'>
+  <div class="dialogue-box-inner">
+    <i class="close"></i>
+    <h3>场地预留</h3>
+    <p >
+      <em>姓名： </em><span id='reserveing_name'></span>
+    </p>
+    <p>
+      <em>手机： </em><span id='reserveing_phone'></span>
+    </p>
+    <p>
+      <em>场地： </em><span id='reserveing_court'></span>
+    </p>
+    <p>
+      <em>金额： </em><span id='reserveing_money'></span>
+    </p>
+    <p class='p-btn'>
+      <span class="btn search-btn btn-bdru btn-sj-blue" id='reSendMsg'>重发短信</span>
+      <span class="btn search-btn btn-bdru btn-sj-blue" id='cancelReserve'>取消预留</span>
+    </p>
+  </div>
+</div>

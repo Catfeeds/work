@@ -1,0 +1,315 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+body{
+  background: #F6F5FA;
+  font-family: "微软雅黑";
+  color:black;
+}
+
+/* head */
+.head {
+  width: 100%;
+  height: 50px;
+  background: white;
+  font-size: 2rem;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  -webkit-display: flex;
+  -ms-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+.head div{
+  width:33.33%;
+  line-height: 50px;
+}
+.head div:nth-child(1){
+  text-indent: 1rem;
+}
+.head div:nth-child(2){
+  text-align: center;
+}
+.head div:nth-child(3){
+  text-align: right;
+  padding-right: 1rem;
+}
+.head img{
+  width: 2.2rem;
+}
+.content{
+  margin-top: 5rem;
+}
+.content .banner .swiper-container{
+  /*height: 19rem;*/
+}
+.content .banner .swiper-container img{
+  width: 100%;
+}
+.content .goods-introduce{
+  padding: 0rem 2rem 1rem 2rem;
+  background: white;
+  margin-top:1rem; 
+}
+.content .goods-introduce .progress{
+  height: 3rem;
+  margin: 1rem 0;
+  position: relative;
+}
+.content .goods-introduce .short{
+  text-align: center;
+  color:#999;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.content .goods-introduce .progress .have-join{
+  position: absolute;
+  left: 50%;
+  top:50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  color: #fff;
+  font-size: 1.2rem;
+}
+.content .goods-introduce .goods-inbox {
+  -webkit-display: flex;
+  -ms-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: -o-flex;
+}
+.content .goods-introduce .goods-name{
+  line-height: 2.5rem;
+  font-size: 1.6rem;
+  padding: 0.5rem 0rem;
+}
+.content .goods-introduce .goods-inbox .goods-price{
+  color:#5B72F2;
+  font-size: 1.6rem;
+  padding: 0.2rem;
+  text-align: center;
+}
+.content .goods-introduce .goods-inbox .goods-type-bg{
+  display: block;
+  background: #FF5A5E;
+  padding: 0.3rem 01rem;
+  border-radius: 3.5rem;
+  color: white;
+  font-size: 1.2rem;
+}
+.content .goods-introduce .goods-inbox .goods-oPrice{
+  text-decoration:line-through;
+  padding:0.5rem;
+  color:#666;
+  font-size: 1.2rem;
+  text-align: center;
+  padding-right: 0;
+}
+.content .goods-introduce .goods-inbox .goods-haveSale{
+  padding:0.5rem 0;
+  color:#666;
+}
+.content .goods-introduce .goods-haveSale{
+    -ms-flex: 2;
+    -moz-flex: 2;
+    -o-flex: 2;
+    -webkit-flex: 2;
+    flex: 2;
+    text-align: right;
+    padding-right: 0;
+    font-size: 1.2rem;
+}
+.content .goods-introduce .goods-start{
+  padding:0.2rem;
+  font-size: 1.3rem;
+  text-align: center;
+  color:#666;
+}
+.content .goods-introduce .goods-start span{
+  color:red;
+}
+.goods-ensure{
+/*  -webkit-display: flex;
+  -ms-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+  display: flex;*/
+  background: #FFFFFF;
+  border-top:1px solid #ccc;
+  overflow: hidden;
+}
+.goods-ensure div{
+  font-size: 1rem;
+  padding: 0.8rem 0rem;
+  color:#999;
+  text-align: center;
+  float: left;
+  margin: 0 0.8rem;
+}
+.goods-ensure div:last-child{
+  float: right;
+}
+.goods-ensure div img{
+  margin-right: 0.2rem;
+  margin-top: 0.05rem;
+}
+.goods-ensure .glyphicon{
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.goods-ensure-detail-bg{
+  width:100%;
+  height: 100%;
+  background: rgba(10,10,10,0.3);
+  z-index: 100;
+  position: fixed;
+  top:0;
+  left: 0;
+}
+.goods-ensure-detail-bg .goods-ensure-detail{
+  width: 100%;
+  height: 70%;
+  background: white;
+  position: absolute;
+  bottom: -75%;
+  left: 0;
+  z-index: 101;
+}
+.goods-ensure-detail-bg .goods-ensure-detail .close-ensure{
+  text-align: right;
+  font-size: 2.2rem;
+  padding: 0.6rem 0.6rem 0rem 0rem;
+}
+.goods-ensure-detail-bg .goods-ensure-detail .goods-ensure-title{
+  width: 100%;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+.goods-ensure-detail-bg .goods-ensure-detail .goods-ensure-detail-item{
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  font-size: 1.6rem;
+}
+.goods-ensure-detail-bg .goods-ensure-detail .goods-ensure-detail-item .ensure-img{
+  width: 15%;
+  text-align: center;
+}
+.goods-ensure-detail-bg .goods-ensure-detail .goods-ensure-detail-item .ensure-title{
+  width: 75%;
+  
+}
+.goods-ensure-detail-bg .goods-ensure-detail .ensure-content{
+  width: 75%;
+  margin-left: 15%;
+  margin-bottom: 3rem;
+  color: #999;
+  font-size: 1.4rem;
+}
+
+.content .goods-detail .goods-detail-title{
+  text-indent: 1.5rem;
+  font-size: 1.5rem;
+  color:#999;
+  padding:1rem 0rem;
+}
+.content .goods-detail .goods-detail-img{
+  width: 100%;
+  margin-bottom: 4rem;
+}
+.content .goods-detail .goods-detail-img img{
+  width: 100%;
+}
+
+.fooster{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: white;
+  height: 50px;
+  width: 100%;
+}
+.fooster .button{
+  border:1px solid #8D9CF7;
+  color:#8D9CF7;
+  margin: 0.5rem auto;
+  border-radius: 2rem;
+  width: 90%;
+  height: 3rem;
+  font-size: 1.4rem;
+  line-height: 3rem;
+  text-align: center;
+}
+/*.active-ready{
+  height: 6rem;
+}*/
+.active-havestart{
+  text-align: center;
+  line-height: 50px;
+   -webkit-display: flex;
+  -ms-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+  display: flex;
+}
+.active-havestart img{
+  margin-bottom: 0.5rem;
+  margin-right: 0.3rem;
+}
+.active-havestart div:first-child{
+  -webkit-flex: 4;
+  -moz-flex: 4;
+  -ms-flex: 4;
+  -o-flex: 4;
+  flex: 4;
+}
+.active-havestart div:nth-child(2){
+  -webkit-flex: 3;
+  -moz-flex: 3;
+  -ms-flex: 3;
+  -o-flex: 3;
+  flex: 3;
+  background: #5B72F2;
+  color: white;
+  line-height: 1.3rem;
+  padding-top: 0.7rem;
+}
+.active-havestart div:last-child{
+  background: #FF5A60;
+  color:white;-webkit-flex: 3;
+  -moz-flex: 3;
+  -ms-flex: 3;
+  -o-flex: 3;
+  flex: 3;
+}
+
+@media screen and (min-width:370px){
+    .content .goods-ensure div{
+      font-size: 1.6rem;
+    }
+}
+@media screen and (max-width:400px){
+    .goods-ensure div{
+      margin: 0 0.3rem;
+    }
+}
+/*@media screen and (max-width:350px){
+    .content .goods-introduce .goods-inbox .goods-price{
+      font-size: 3rem;
+    }
+}*/ 

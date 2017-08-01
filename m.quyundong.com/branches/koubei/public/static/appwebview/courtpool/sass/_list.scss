@@ -1,0 +1,190 @@
+.main{
+	min-height:100%;
+	color:#666666;
+	.list-head{
+		border-bottom:1px solid #e6e6e6;
+		background:#fff;
+		
+		li{
+			float: left;
+			width:33.333%;
+			div{
+				margin-left:0.15rem;
+				margin-right:0.15rem;
+				margin-bottom:-1px;
+				padding-top:0.15rem;
+				padding-bottom:0.15rem;
+			}
+		}
+		.active{
+			div{
+				border-bottom:2px solid #009ff0;
+				color:#009ff0;
+			}
+		}
+	}
+	.list-prepare{
+		padding:0.05rem 0;
+		margin:0.15rem 0.15rem 0;
+		overflow:hidden;
+		background:#fff;
+       	border-radius:3px;
+		div{
+			float:left;
+			width:49%;
+			line-height:0.3rem;
+		}
+		.list-new{
+			width:50%;
+			border-right:1px solid #e6e6e6;
+		}
+	}
+	.list-gym{
+		margin:0.3rem 0.15rem 0;
+    padding-bottom:0.2rem;
+		>li{
+			margin-bottom:0.2rem;
+           .list-gym-h{
+      				text-align:left;
+      				margin-bottom:0.1rem;
+      				color:#666;
+      				font-size:0.12rem;
+              position:relative;
+              height:0.18rem;
+              overflow:hidden;
+      				.list-gym-name{
+      					font-size:0.15rem;
+      					margin-right:0.1rem;
+      				}
+      				em{
+      					font-size:0.15rem;
+                position:absolute;
+                right:0;
+                top:0;
+      				}
+              &:after{
+                  content:"";
+                  display:block;
+                  clear:both;
+                  zoom:1;
+              }
+           }
+           .list-gym-m{
+	           	text-align:left;
+           		li{
+           			margin-bottom:0.1rem;
+           			.list-gym-ml{
+      						width:0.21rem;
+      						height:0.21rem;
+      						background-size:100% 100%;
+                  background-repeat:no-repeat;
+      						float: left;
+      						margin-top:0.18rem;
+      						margin-left:0.03rem;
+      						margin-right:0.18rem;
+           			}
+           			.list-gym-mr{
+           				overflow:hidden;
+           				background:#fff;
+           				padding-top:0.15rem;
+           				padding-bottom:0.15rem;
+       					position: relative;
+       					border-radius:3px;
+           				.list-gym-type{
+           					color:#222;
+           					font-size:0.15rem;
+           					float: left;
+							margin-left:0.1rem;
+							margin-right:0.15rem;
+           				}
+           				.list-gym-arrow{
+           					width:0.1rem;
+           					float: right;
+           					margin-right:0.1rem;
+           					margin-left:0.15rem;
+           				}
+           				.list-gym-rate{
+           					overflow:hidden;
+           					margin-top:0.15rem;
+           					>div{
+           						width:16.667%;
+           						float: left;
+           						div{
+           							margin-left:1px;
+           							margin-right:1px;
+           							height:3px;
+           							background:#e9e9e9;
+           						}
+           						
+           					}
+							.list-active{
+       							div{
+       								background:#009ff0;
+       							}
+       						}
+           				}
+           				.list-rate-txt{
+       						position: absolute;
+       						color:#666;
+       						left:86%;		
+       						// 0/6		20%
+       						// 1/6		32%
+       						// 2/6		42%
+       						// 3/6		53%
+       						// 4/6		64%
+       						// 5/6		75%
+       						// 6/6		86%
+       						top:0.12rem;
+       						&.left-0{
+       							left:20%;
+       						}
+       						&.left-1{
+       							left:32%;
+       						}
+       						&.left-2{
+       							left:42%;
+       						}
+       						&.left-3{
+       							left:53%;
+       						}
+       						&.left-4{
+       							left:64%;
+       						}
+       						&.left-5{
+       							left:75%;
+       						}
+       						&.left-6{
+       							left:86%;
+       						}
+       						.i-blue{
+       							color:#009ff0;
+       						}
+
+       					}
+           			}
+           		}
+           }
+		}
+	}
+  .list-firstSprite{
+    background:rgba(0,0,0,.6);
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    .list-firstSprite-h{
+      margin:0.98rem 0.8rem 0;
+      .firstSpriteBtn{
+        height:2.2rem;
+        background-size:90% 100%;
+        background-position:center;
+        background-repeat:no-repeat;
+      }
+      .list-firstSprite-txt {
+        margin:0.4rem -0.1rem 0;
+      }
+
+    }
+  }
+}

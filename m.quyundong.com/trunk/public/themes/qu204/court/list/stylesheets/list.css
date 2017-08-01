@@ -1,0 +1,592 @@
+/* line 5, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../../../includes/reset.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #f5f5f9;
+  line-height: 1.375;
+}
+
+/* line 17, ../../../includes/reset.scss */
+body {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f5f5f9;
+  font-size: 0.12rem;
+  color: #000;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 31, ../../../includes/reset.scss */
+input {
+  -webkit-box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+/* line 39, ../../../includes/reset.scss */
+a,
+input,
+lable,
+button,
+div {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* line 48, ../../../includes/reset.scss */
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+
+/* line 54, ../../../includes/reset.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 58, ../../../includes/reset.scss */
+input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+/* line 62, ../../../includes/reset.scss */
+input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+/* line 66, ../../../includes/reset.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f9;
+  z-index: 99999;
+}
+
+/* line 75, ../../../includes/reset.scss */
+.loading-icon {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 124, ../../../includes/reset.scss */
+img {
+  width: 100%;
+}
+
+/* line 150, ../../../includes/reset.scss */
+.toast {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* line 159, ../../../includes/reset.scss */
+.toast .toast-alert {
+  width: 2.35rem;
+  height: 1.3rem;
+  padding: 0 0.2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.65rem;
+  margin-left: -1.175rem;
+  border-radius: 6px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 175, ../../../includes/reset.scss */
+.toast .toast-alert .toast-msg {
+  padding-top: 0.25rem;
+  height: 0.9rem;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 0.15rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: relative;
+}
+
+/* line 189, ../../../includes/reset.scss */
+.main {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 4, ../../../sass-lib/_common.scss */
+.borderBottom1px:after, .borderTop1px:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  -moz-transform: translateY(0.5);
+  -ms-transform: translateY(0.5);
+  -webkit-transform: translateY(0.5);
+  transform: translateY(0.5);
+  background-color: #e6e6e6;
+  z-index: 99;
+}
+
+/* line 15, ../../../sass-lib/_common.scss */
+.borderRight1px:before, .borderLeft1px:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  -moz-transform: translateX(0.5);
+  -ms-transform: translateX(0.5);
+  -webkit-transform: translateX(0.5);
+  transform: translateX(0.5);
+  background-color: #e6e6e6;
+  z-index: 99;
+}
+
+/* line 2, ../../../sass-lib/_public.scss */
+.borderBottom1px:after {
+  left: 0;
+  bottom: 0;
+}
+
+/* line 10, ../../../sass-lib/_public.scss */
+.borderTop1px:before {
+  left: 0;
+  top: 0;
+}
+
+/* line 17, ../../../sass-lib/_public.scss */
+.borderRight1px:before {
+  right: 0;
+  top: 0;
+}
+
+/* line 25, ../../../sass-lib/_public.scss */
+.borderLeft1px:before {
+  left: 0;
+  top: 0;
+}
+
+/* line 32, ../../../sass-lib/_public.scss */
+.icon-right {
+  display: block;
+  width: 0.06rem;
+  height: 0.11rem;
+  position: absolute;
+  top: 50%;
+  right: 0.15rem;
+  margin-top: -0.055rem;
+}
+/* line 40, ../../../sass-lib/_public.scss */
+.icon-right img {
+  display: block;
+  width: 100%;
+}
+
+/* line 4, ../../../sass-lib/header.scss */
+.header {
+  width: 100%;
+  height: 0.44rem;
+  background-color: #009ff0;
+  text-align: center;
+  line-height: 0.44rem;
+  position: relative;
+}
+/* line 11, ../../../sass-lib/header.scss */
+.header .center {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+  position: relative;
+  font-size: 0.18rem;
+  color: #fff;
+}
+/* line 19, ../../../sass-lib/header.scss */
+.header .left, .header .right {
+  height: 0.44rem;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  font-size: 0;
+}
+/* line 26, ../../../sass-lib/header.scss */
+.header .left {
+  left: 0;
+  width: 0.5rem;
+}
+/* line 30, ../../../sass-lib/header.scss */
+.header .right {
+  right: 0.15rem;
+  font-size: 0.15rem;
+  color: #fff;
+}
+/* line 35, ../../../sass-lib/header.scss */
+.header .icon-back {
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.075rem;
+  margin-top: -0.075rem;
+  -moz-transform: rotateZ(45deg);
+  -ms-transform: rotateZ(45deg);
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+/* line 3, ../sass/list.scss */
+.main {
+  background-color: #fff;
+}
+
+/* line 8, ../sass/list.scss */
+.header .center {
+  line-height: 1;
+}
+/* line 11, ../sass/list.scss */
+.header .center div:nth-of-type(1) {
+  padding: 0.05rem 0 0.04rem 0;
+}
+/* line 14, ../sass/list.scss */
+.header .center div:nth-of-type(2) {
+  font-size: 0.12rem;
+}
+/* line 16, ../sass/list.scss */
+.header .center div:nth-of-type(2) span {
+  margin-right: 0.05rem;
+}
+/* line 20, ../sass/list.scss */
+.header .center div:nth-of-type(3) {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  margin-left: 0.6rem;
+}
+/* line 25, ../sass/list.scss */
+.header .center div:nth-of-type(3) img {
+  width: 0.1rem;
+}
+/* line 32, ../sass/list.scss */
+.header .expend img {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+/* line 39, ../sass/list.scss */
+.list-container {
+  position: absolute;
+  top: 0.44rem;
+  bottom: 0;
+  left: 0.15rem;
+  right: 0;
+}
+/* line 45, ../sass/list.scss */
+.list-container .list-info {
+  font-size: 0.12rem;
+  color: #666;
+}
+/* line 48, ../sass/list.scss */
+.list-container .list-info li {
+  border-bottom: 1px solid #e6e6e6;
+  line-height: 1;
+  padding: 0.2rem 0;
+  text-align: left;
+}
+/* line 55, ../sass/list.scss */
+.list-container .list-info li div:nth-of-type(1) {
+  font-size: 0.15rem;
+  color: #222;
+}
+/* line 58, ../sass/list.scss */
+.list-container .list-info li div:nth-of-type(1) img {
+  width: 0.13rem;
+  margin-right: 0.08rem;
+}
+/* line 63, ../sass/list.scss */
+.list-container .list-info li div:nth-of-type(2), .list-container .list-info li div:nth-of-type(3) {
+  min-height: 0.14rem;
+}
+/* line 66, ../sass/list.scss */
+.list-container .list-info li div:nth-of-type(2) {
+  margin: 0.1rem 0;
+}
+/* line 71, ../sass/list.scss */
+.list-container .list-info li div:nth-of-type(3) span:nth-of-type(2) {
+  margin-left: 0.08rem;
+  text-decoration: line-through;
+}
+/* line 77, ../sass/list.scss */
+.list-container .list-info li div:nth-of-type(4) {
+  margin-top: 0.1rem;
+  color: #ff850d;
+}
+/* line 80, ../sass/list.scss */
+.list-container .list-info li div:nth-of-type(4) span {
+  display: inline-block;
+  border: 1px solid #ff850d;
+  border-radius: 3px;
+  padding: 0.03rem 0.05rem;
+  margin-right: 0.05rem;
+  margin-bottom: 0.05rem;
+}
+/* line 91, ../sass/list.scss */
+.list-container .list-info > p {
+  padding: 0.1rem 0;
+}
+/* line 95, ../sass/list.scss */
+.list-container .list-noItem {
+  font-size: 0.15rem;
+  color: #222;
+  padding: 0.3rem 0;
+}
+
+/* line 101, ../sass/list.scss */
+.list-sprite {
+  position: absolute;
+  top: 0.44rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+/* line 108, ../sass/list.scss */
+.list-sprite .list-menu {
+  font-size: 0.14rem;
+  color: #666;
+}
+/* line 140, ../../../includes/reset.scss */
+.list-sprite .list-menu:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 112, ../sass/list.scss */
+.list-sprite .list-menu > ul, .list-sprite .list-menu > div {
+  height: 3.25rem;
+}
+/* line 115, ../sass/list.scss */
+.list-sprite .list-menu > ul {
+  float: left;
+  width: 1.25rem;
+  margin-right: 0;
+  border-right: 1px solid #e6e6e6;
+  background-color: #f6f6f9;
+}
+/* line 121, ../sass/list.scss */
+.list-sprite .list-menu > ul .selected {
+  border-right: 1px solid #fff;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  margin-right: -1px;
+  background-color: #fff;
+  color: #009ff0;
+}
+/* line 130, ../sass/list.scss */
+.list-sprite .list-menu > div {
+  overflow: hidden;
+  text-align: left;
+  background-color: #fff;
+  padding-left: 0.15rem;
+}
+/* line 135, ../sass/list.scss */
+.list-sprite .list-menu > div ul {
+  height: 100%;
+  overflow: auto;
+}
+/* line 138, ../sass/list.scss */
+.list-sprite .list-menu > div ul li {
+  border-bottom: 1px solid #e6e6e6;
+}
+/* line 140, ../sass/list.scss */
+.list-sprite .list-menu > div ul li img {
+  width: 0.15rem;
+  vertical-align: middle;
+  margin-right: 0.05rem;
+}
+/* line 148, ../sass/list.scss */
+.list-sprite .list-menu li {
+  line-height: 0.45rem;
+}
+
+/* line 153, ../sass/list.scss */
+#wrapper {
+  position: absolute;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 161, ../sass/list.scss */
+#scroller {
+  -webkit-tap-highlight-color: transparent;
+  width: 100%;
+}
+/*寻球列表页选择城市 add by chenchao 2017-01-11*/
+.court-headCity {
+    padding: 0.07rem 0.15rem
+    float: left;
+    font-size: 0.13rem;
+    width: 1rem;
+}
+.court-headCity img {
+    width: 0.1rem;
+    vertical-align: middle;
+    margin-left: 0.03rem
+}
+.court-headCity a {
+    color: #fff;
+}
+.court-headUser {
+    padding-top:0.05rem;
+}
+.court-headUser img {
+    width: 0.2rem;
+}

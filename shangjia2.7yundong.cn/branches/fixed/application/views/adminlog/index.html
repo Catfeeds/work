@@ -1,0 +1,103 @@
+<div>
+	<div>
+		<div class="bbs-header">
+			<form action="/adminlog/index" method="get" class='form-inline'>
+				<div class="filter-control">
+					<label>分类:</label>
+					<input name="cat" type="text" class="form-control"  value="<?= $search['cat']; ?>" />
+				</div>
+				<div class="filter-control">
+					<label>内容:</label>
+					<input name="content" type="text" class="form-control"  value="<?= $search['content']; ?>" />
+				</div>
+				<div class="filter-control">
+					<div class="filter-time">
+						添加时间:
+						<input id="start_date" name="start_date" type="text" class='hide'  value="<?= $search['start_date']; ?>" />
+						<input id="end_date" name="end_date" type="text" class='hide'  value="<?= $search['end_date']; ?>" />
+						<span id="timeStart" class="btn-bdru"><?= $search['start_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+						<em>至</em>
+						<span id="timeEnd" class="btn-bdru"><?= $search['end_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+						<input id="reservation" type="text"  readonly 
+						
+						<?php if ($search['start_date'] && $search['end_date']) { ?>
+						value="<?= $search['start_date'].' - '.$search['end_date']; ?>"
+						<?php } ?>
+						>
+					</div>
+					<script type="text/javascript">
+						$(function(){
+							$('#reservation').daterangepicker(null, function (start, end, label) {
+								var t1 = new Date(start.toString());
+								var t2 = new Date(end.toString());
+								var txt1 = t1.format('yyyy-MM-dd');
+								var txt2 = t2.format('yyyy-MM-dd');
+								
+								$("#start_date").val(txt1);
+								$("#end_date").val(txt2);
+								
+								$("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+								$("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+							});	
+						});
+					</script>
+				</div>
+				<div class="filter-control">
+					<button class="search-btn btn-sj-blue btn-bdru btn btn-default" type="submit">搜索</button> 
+				</div>
+			</form>
+		</div>
+		<h1>操作日志</h1>
+		
+		<table class="table table-bordered">
+			  <thead>
+				<tr>
+					<th>分类</th>
+					<th>内容</th>
+					<th>控制器</th>
+					<th>商家id</th>
+					<th>用户id</th>
+					<th>超级用户id</th>
+					<th>ip</th>
+					<th>添加时间</th>
+				</tr>
+			  </thead>
+			  <tbody>
+				<?php foreach ($adminlogList as $row) { ?>
+					<tr>
+						<td><?= htmlspecialchars($row['category']); ?></td>
+						<td><?= htmlspecialchars($row['content']); ?></td>
+						<td><?= htmlspecialchars($row['action']); ?></td>
+						<td><?= $row['suppliers_id']; ?></td>
+						<td><?= $row['user_id']; ?></td>
+						<td><?= $row['super_user_id']; ?></td>
+						<td><?= $row['ip']; ?></td>
+						<td><?= date('Y-m-d H:i', $row['add_time']); ?></td>
+					</tr>
+				<?php } ?>
+			</tbody>
+		</table>
+		
+		<!-- 分页插件 -->
+		<?php if ($page['totalPage'] > 1) { ?>
+		<div id="pagination" data-page="<?= $page['totalPage']; ?>" data-current="<?= $page['currentPage']; ?>" class="pagination-container">
+			<div class="pagination"></div>
+			<div class="pagination-go">
+				<span class="totalPage">共<?= $page['totalPage']; ?>页</span>
+				<span class="btn-bdru"><i>第</i>
+				<input class="page" type='text'/><i>页</i></span>
+				<span class="go">GO</span>
+			</div>
+		</div>
+		<script type='text/javascript'>
+			$(function(){
+				 var calFn1 = function (p) {
+					window.location.href = "<?= $page['url']; ?>" + p;
+				};
+				createPageFn($("#pagination"), calFn1);
+			});
+			</script>
+		<?php } ?>
+		
+	</div>
+</div>

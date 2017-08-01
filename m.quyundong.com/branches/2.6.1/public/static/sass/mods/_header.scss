@@ -1,0 +1,47 @@
+.sport {
+	.header {
+		padding-top: 30px;
+		.logo {
+			float: left;
+			padding-left: 14px;
+			a {
+				display: block;
+				background: url(../images/logo.png) left top no-repeat;
+				width: 133px;
+				height: 44px;
+			}
+		}
+		.nav {
+			padding-top: 20px;
+			float: right;
+			a {
+				font-family: 'microsoft yahei';
+				font-size: 14px;
+				color: #7b7b7b;
+				text-decoration: none;
+				padding: 0 10px;
+				display: inline-block;
+			}
+			a.cur, a:hover {
+				color: #0ac3ec;
+			}
+			a+a {
+				border-left: 1px dotted #7b7b7b;
+			}
+		}
+	}
+	.footer {
+		padding: 50px 0 50px;
+		font-size: 12px;
+		text-align: center;
+		color: #9a9a9a;
+		font-family: 'microsoft yahei';
+		clear: both;
+		p {
+			margin-bottom: 5px;
+		}
+		.copyright {
+			font-size: 16px;
+		}
+	}
+}

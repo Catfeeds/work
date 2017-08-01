@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>馆掌</title>
+    <script>
+        var app_id = '<%= app_id %>';
+        function getUrlKey(e) {
+            var t, n, o, a = window.location.href, i = a.indexOf("?");
+            if (0 > i)return !1;
+            for (t = a.substring(i + 2, a.length), t = t.split("&"), o = 0; o < t.length; o++)if (n = t[o].split("="), n[0] == e)return n[1];
+            return !1
+        }
+    var _url = window.location.href, _venueId = '<%= venueId %>', _date = '<%= date %>', _templateMsgId = '<%= templateMsgId %>', _callback;
+    _callback = _date && _venueId && _templateMsgId ? window.location.origin + "/spuser/oauth?venueId=" + _venueId + "&date=" + _date + "&templateMsgId=" + _templateMsgId : window.location.origin + "/spuser/oauth?date="+_date,
+            window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid="+app_id+"&redirect_uri=" + encodeURIComponent(_callback) + "&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect";
+            //测试
+         //window.location.href = _callback+"&code=123";
+    </script>
+</head>
+<body></body>
+</html>

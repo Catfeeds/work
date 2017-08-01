@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.head {
+  width: 100%;
+  height: 50px;
+  background: red;
+  line-height: 50px;
+  text-indent: 20%;
+  font-size: 16px;
+  color: white;
+  font-weight: bold; }
+  .head span {
+    line-height: 50px;
+    float: left;
+    font-weight: 400;
+    text-indent: 10%; }
+
+#listMenu {
+  height: 120px;
+  width: 30%;
+  position: absolute;
+  top: 53px;
+  right: 5px;
+  background: #4c4945;
+  z-index: 102;
+  border-radius: 5px;
+  display: none; }
+  #listMenu span {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-size: 20px;
+    color: #4c4945;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg); }
+  #listMenu li {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    border-bottom: 1px solid white;
+    list-style: none; }
+    #listMenu li a:link {
+      color: white; }
+    #listMenu li a:active {
+      background: purple; }
+  #listMenu li:last-child {
+    border-bottom: none; }
+
+#register_hint {
+  width: 50%;
+  height: 25px;
+  line-height: 30px;
+  float: right;
+  font-size: 12px;
+  text-align: center; }
+  #register_hint span {
+    color: orange; }
+
+#register_tab {
+  border: none; }
+  #register_tab tr {
+    border: none !important; }
+    #register_tab tr td {
+      border: none !important; }
+      #register_tab tr td div button {
+        border-right: none; }
+      #register_tab tr td div input:focus {
+        outline: none !important; }
+  #register_tab tr:nth-child(2n) td {
+    height: 10px;
+    font-size: 10px;
+    color: red; }
+
+/*# sourceMappingURL=register.css.map */

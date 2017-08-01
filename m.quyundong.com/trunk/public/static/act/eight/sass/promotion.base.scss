@@ -1,0 +1,377 @@
+@import "compass/reset";
+@import "compass/css3";
+
+html{
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x:hidden; 
+  overflow: auto;
+  background-color:#fff;
+  line-height: 1.375;
+}
+body{
+  margin: 0 auto;
+  width: 3.2rem;
+  height: 100%;
+  max-width: 640px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #c61752;
+
+}
+a,lable{-webkit-tap-highlight-color:rgba(0,0,0,0); }
+a,a:hover,a:visited{
+  text-decoration: none;
+  color: #fff;
+}
+.loading{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: rgba(255,255,255,1);
+}
+.loading-icon{
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(http://m.quyundong.com/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+@-moz-keyframes rotate360 {
+    from {
+        transform:rotateZ(0deg);
+    }
+    to {
+        transform:rotateZ(360deg);
+    }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+    transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+    transform:rotateZ(360deg);
+  }
+}
+
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform:rotateZ(0deg);
+  }
+  to {
+    -webkit-transform:rotateZ(360deg);
+  }
+}
+.hide{
+  display: none !important;
+}
+img{
+  width: 100%;
+}
+.main{
+  background-color: #c61752;
+  color:#fff;
+  font-size: 0.12rem;
+  padding-bottom: 1.1rem;
+  position: relative;
+}
+.banner{
+  font-size: 0px;
+}
+// list
+.list{
+  width: 100%;
+  background-color: #fff;
+  color:#000;
+}
+
+.list-top{
+  width: 100%;
+  display: inline-block;
+  font-size: 0.16rem;
+  height: 0.4rem;
+  line-height: 0.4rem;
+  span{
+    margin: 0 0.05rem;
+    padding: 0 0.08rem;
+    
+  }
+  span.cur{
+    background-color: #9b00dc;
+    position: relative;
+    color:#fff;
+    border-radius: 2px;
+  }
+  span.cur:before{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    border:2px solid #9b00dc;
+    position: absolute;
+    top:-2px;
+    left:-2px;
+    border-radius:2px;
+  }
+}
+.list-ul{
+  width: 100%;
+  font-size: 0.12rem;
+  padding-left: 0.1rem;
+  @include box-sizing(border-box);
+}
+.list-li{
+  width: 3.1rem;
+  padding-top:0.1rem;
+  padding-bottom:0.1rem;
+  @include box-sizing(border-box);
+  position: relative;
+  background-color: #fff;
+  border-bottom: 1px solid #e1e1e1;
+  .list-a{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top:0;
+    left: 0;
+  }
+}
+.list-li:last-child{
+  border-bottom:none;
+}
+.list-img{
+  width: 0.8rem;
+  height: 0.5rem;
+  padding-bottom: 0.1rem;
+  display: inline-block;
+  position: relative;
+  img{
+    position: absolute;
+    top:50%;
+    left:0;
+    @include transform(translate3d(0,-50%,0));
+  }
+}
+.list-li-l{
+  width: 2rem;
+  padding-left: 0.1rem;
+  text-align: left;
+  display: inline-block;
+  .list-li-title{
+    width: 100%;
+    font-size: 0.14rem;
+    // padding-bottom: 0.1rem;
+  }
+  .list-li-address{
+    width: 100%;
+    color:#9a9a9a;
+    // padding-bottom: 0.1rem;
+  }
+  .list-li-address:before{
+    display: block;
+    content: "";
+    width: 0.16rem;
+    height: 0.16rem;
+    position: absolute;
+    top:0;
+    left:0;
+    // background:transparent url(../images/location.png) left top no-repeat;
+    @include background-size(cover);
+  }
+  .list-li-phone{
+    width: 100%;
+    text-indent: 1.5em;
+    position: relative;
+    padding-bottom: 0.1rem;
+  }
+  .list-li-phone:before{
+    display: block;
+    content: "";
+    width: 0.16rem;
+    height: 0.16rem;
+    position: absolute;
+    top:0;
+    left:0;
+    // background:transparent url(../images/phone.png) left top no-repeat;
+    @include background-size(cover);
+  }
+  .list-old{
+    position: relative;
+    display: inline;
+    margin-left:0.1rem;
+    color:#9a9a9a;
+  }
+  .list-old:before{
+    display: block;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    border-top:1px solid #9a9a9a;
+    top:50%;
+    left:0;
+    @include transform(rotate(-3deg));
+  }
+  .list-new{
+    font-size: 0.2rem;
+    color:#ff8032;
+  }
+}
+.list-li-r{
+  width: 0.8rem;
+  position: absolute;
+  top:0.45rem;
+  right:0.2rem;
+  text-align: center;
+  .list-book{
+    width: 0.8rem;
+    height: 0.24rem;
+    text-align: center;
+    line-height: 0.24rem;
+    font-size:0.16rem;
+    background-color: #ff8032;
+    border-radius: 3px;
+    color: #fff;
+  }
+  
+}
+
+
+// info
+
+.info{
+  width: 100%;
+  text-align: left;
+}
+
+.info-p{
+  width: 100%;
+  padding-left: 0.9rem;
+  position: relative;
+  @include box-sizing(border-box);
+  margin-top: 0.25rem;
+  text-align: left;
+}
+
+.info-p:before{
+  width: 0.75rem;
+  height: 0.26rem;
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left:0.1rem;
+  background-color: #6c0024;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 0.26rem;
+  font-size: 0.16rem;
+  @include transform(translate3d(0,-50%,0));
+}
+
+.info-rush:before{
+  content: "抢购时间";
+}
+
+.info-area:before{
+  content: "活动范围";
+}
+
+.info-time:before{
+  content: "活动时间";
+}
+
+.info-ul{
+  width: 100%;
+  position: relative;
+  padding-top:0.5rem;
+  padding-left: 0.3rem;
+  padding-right: 0.2rem;
+  @include box-sizing(border-box);
+  .info-li{
+    text-indent: -1em;
+    margin-top:0.1rem; 
+  }
+}
+
+.info-ul:before{
+  width: 0.75rem;
+  height: 0.26rem;
+  background-color: #6c0024;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 0.26rem;
+  display: block;
+  content: "活动详情";
+  font-size: 0.16rem;
+  position: absolute;
+  top:0.3rem;
+  left:0.1rem;
+}
+
+// about
+
+.about{
+  width: 3rem;
+  margin: 0.5rem auto 0rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.2rem;
+  border:2px solid #6c0024;
+  position: relative;
+  @include box-sizing(border-box);
+  font-size: 0.12rem;
+  line-height: 1.5;
+}
+.about:before{
+  width:1.69rem;
+  height: 0.3rem;
+  display:block;
+  position: absolute;
+  content: "";
+  background:transparent url(../images/about.jpg) left top no-repeat;
+  @include background-size(cover);
+  top:0;
+  left:50%;
+  @include transform(translate3d(-50%,-50%,0));
+}
+.about-h1{
+  font-size: 0.16rem;
+}
+.about-s{
+  color:#ffd21d;
+}
+.about-b{
+  color:#ffd21d;
+  font-size: 1.5em;
+}
+
+.btnDownload {
+  width: 100%;
+  position: absolute;
+  display: block;
+  left:0;
+  bottom:0;
+}
+
+

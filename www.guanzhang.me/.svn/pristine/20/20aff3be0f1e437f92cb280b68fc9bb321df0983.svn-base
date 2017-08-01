@@ -1,0 +1,685 @@
+@charset "UTF-8";
+/* line 2, ../sass/main.scss */
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+/* line 8, ../sass/main.scss */
+.w1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+/* line 13, ../sass/main.scss */
+.w1180 {
+  width: 1180px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* =======
+ * 头部
+ * =======
+ */
+/* line 25, ../sass/main.scss */
+#fullpage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 30, ../sass/main.scss */
+#fullpage .container {
+  position: relative;
+}
+
+/* line 35, ../sass/main.scss */
+#video {
+  position: absolute;
+  bottom: 80px;
+  right: 0;
+  width: 300px;
+  height: 216px;
+  border: 5px solid #fff;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* line 46, ../sass/main.scss */
+.page {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  -webkit-transform: translate3d(0px, 0, 0);
+}
+/* line 52, ../sass/main.scss */
+.page .wrap {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* line 1, ../sass/_header.scss */
+.header {
+  position: fixed;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #eee;
+  color: #000;
+}
+/* line 11, ../sass/_header.scss */
+.header .row {
+  padding: 0 50px;
+  margin: 0 auto;
+  max-width: 1260px;
+  position: relative;
+  height: 100%;
+}
+/* line 18, ../sass/_header.scss */
+.header .logo {
+  float: left;
+  display: block;
+  width: 187px;
+  height: 60px;
+  background: url(/images/pc/logo.png) no-repeat center;
+  text-indent: -200px;
+  overflow: hidden;
+}
+/* line 27, ../sass/_header.scss */
+.header .logo-new {
+  display: block;
+  width: 100px;
+  height: 38px;
+  padding-left: 58px;
+  background: transparent url("/images/newpc/logo.png") left top no-repeat;
+  position: absolute;
+  top: 50%;
+  margin-top: -19px;
+  left: 50px;
+  color: #000;
+  font-size: 18px;
+  line-height: 1.2;
+}
+/* line 40, ../sass/_header.scss */
+.header .logo-new p {
+  font-size: 14px;
+  color: #000;
+}
+/* line 44, ../sass/_header.scss */
+.header .logo-new h1 {
+  color: #000;
+}
+/* line 48, ../sass/_header.scss */
+.header .nav {
+  float: right;
+  height: 58px;
+  position: relative;
+  padding-right: 140px;
+}
+/* line 54, ../sass/_header.scss */
+.header .nav:hover a.cur {
+  background: none;
+}
+/* line 58, ../sass/_header.scss */
+.header .nav a {
+  display: inline-block;
+  padding: 0;
+  margin-left: 35px;
+  font-size: 16px;
+  height: 60px;
+  line-height: 60px;
+  color: #000;
+  position: relative;
+}
+/* line 67, ../sass/_header.scss */
+.header .nav a.cur {
+  color: #2b6ffe !important;
+}
+/* line 69, ../sass/_header.scss */
+.header .nav a.cur:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #2b6ffe;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+}
+/* line 80, ../sass/_header.scss */
+.header .nav a.join {
+  right: 0;
+  padding: 0;
+  margin-top: -16px;
+  text-align: center;
+  height: auto;
+  line-height: 32px;
+  width: 100px;
+  border-radius: 3em;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  background: #ff8840;
+}
+
+/* line 61, ../sass/main.scss */
+.page1 {
+  background-color: yellowgreen;
+}
+/* line 64, ../sass/main.scss */
+.page1 .title1 {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+  width: 46%;
+  height: 13.7%;
+  background: url(/images/pc/page1-word.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+/* line 75, ../sass/main.scss */
+.page1 .join {
+  position: absolute;
+  height: 25%;
+  top: 45%;
+  left: 20%;
+  z-index: 3;
+  width: 160px;
+  height: 50px;
+  line-height: 50px;
+  cursor: pointer;
+  background: #fce275;
+  color: #174571;
+  text-align: center;
+  font-size: 20px;
+}
+/* line 90, ../sass/main.scss */
+.page1 .field {
+  position: absolute;
+  bottom: 7%;
+  right: 0%;
+  z-index: 1;
+  width: 60%;
+  height: 50%;
+  background: url(/images/pc/banner_0114.png) no-repeat;
+  background-size: contain;
+}
+
+/* line 103, ../sass/main.scss */
+.page2 .title1 {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 80%;
+  height: 19%;
+  background: url(/images/pc/page2-1.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+/* line 114, ../sass/main.scss */
+.page2 .connect {
+  position: absolute;
+  top: 55%;
+  left: 4%;
+  width: 92%;
+  height: 21%;
+}
+/* line 120, ../sass/main.scss */
+.page2 .connect ul {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 125, ../sass/main.scss */
+.page2 .connect ul li {
+  float: left;
+  text-align: center;
+}
+/* line 128, ../sass/main.scss */
+.page2 .connect ul li.icon-1 {
+  height: 100%;
+  width: 18.18%;
+}
+/* line 131, ../sass/main.scss */
+.page2 .connect ul li.icon-1 i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/images/pc/page2-3.png) no-repeat;
+  background-size: contain;
+}
+/* line 139, ../sass/main.scss */
+.page2 .connect ul li.icon-2 {
+  height: 50%;
+  width: 9.09%;
+}
+/* line 142, ../sass/main.scss */
+.page2 .connect ul li.icon-2 i {
+  display: block;
+  margin-top: 50%;
+  width: 100%;
+  height: 100%;
+  background: url(/images/pc/page2-4.png) no-repeat;
+  background-size: contain;
+}
+/* line 151, ../sass/main.scss */
+.page2 .connect ul li.icon-3 {
+  height: 50%;
+  width: 9.09%;
+}
+/* line 154, ../sass/main.scss */
+.page2 .connect ul li.icon-3 i {
+  display: block;
+  margin-top: 50%;
+  width: 100%;
+  height: 100%;
+  background: url(/images/pc/page2-5.png) no-repeat;
+  background-size: contain;
+}
+/* line 163, ../sass/main.scss */
+.page2 .connect ul li.icon-4 {
+  height: 100%;
+  width: 18.18%;
+}
+/* line 166, ../sass/main.scss */
+.page2 .connect ul li.icon-4 i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url(/images/pc/page2-6.png) no-repeat;
+  background-size: contain;
+}
+/* line 174, ../sass/main.scss */
+.page2 .connect ul li.fg {
+  width: 8.27%;
+  height: 100%;
+  margin: 0 3.4%;
+}
+/* line 178, ../sass/main.scss */
+.page2 .connect ul li.fg i {
+  display: block;
+  margin-top: 75%;
+  width: 100%;
+  height: 31%;
+  background: url(/images/pc/page2-7.png) no-repeat;
+  background-size: contain;
+}
+
+/* line 192, ../sass/main.scss */
+.page3 {
+  background: url(/images/pc/page3.jpg) no-repeat center;
+  background-size: cover;
+}
+/* line 195, ../sass/main.scss */
+.page3 .title1 {
+  position: absolute;
+  top: 25%;
+  left: 0%;
+  width: 72%;
+  height: 15%;
+  background: url(/images/pc/page3-1.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+/* line 206, ../sass/main.scss */
+.page3 .word {
+  position: absolute;
+  top: 50%;
+  left: 1%;
+  width: 24.58%;
+  height: 8.5%;
+  background: url(/images/pc/page3-3.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+/* line 217, ../sass/main.scss */
+.page3 .mobile {
+  position: absolute;
+  right: 0%;
+  bottom: 10%;
+  z-index: 10;
+  width: 64.08%;
+  height: 53.19%;
+  background: url(/images/pc/page3-4.png) no-repeat;
+  background-size: contain;
+}
+
+/* line 230, ../sass/main.scss */
+.page4 .title1 {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  z-index: 10;
+  width: 67%;
+  height: 27%;
+  background: url(/images/pc/page4-1.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+/* line 242, ../sass/main.scss */
+.page4 .pic {
+  position: absolute;
+  top: 17.5%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 64.89%;
+  background: url(/images/pc/page4.jpg) no-repeat center;
+  background-size: contain;
+}
+
+/* line 254, ../sass/main.scss */
+.page5 {
+  background: #33CCCC;
+}
+/* line 256, ../sass/main.scss */
+.page5 .title {
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  width: 77%;
+  height: 5%;
+  background: url(/images/pc/page5-1.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+/* line 267, ../sass/main.scss */
+.page5 .word {
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  width: 100%;
+  height: 70.2%;
+  background: url(/images/pc/page5-2.png) no-repeat bottom;
+  background-size: contain;
+}
+
+/* line 278, ../sass/main.scss */
+.page6 {
+  background: #44b1f8;
+}
+/* line 280, ../sass/main.scss */
+.page6 .title1 {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  width: 69%;
+  height: 15.85%;
+  background: url(/images/pc/page6-1.png) no-repeat;
+  background-size: contain;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+/* line 291, ../sass/main.scss */
+.page6 .list {
+  position: absolute;
+  top: 52%;
+  left: 0%;
+  width: 100%;
+  height: 21.28%;
+}
+/* line 297, ../sass/main.scss */
+.page6 .list ul {
+  width: 100%;
+  height: 100%;
+}
+/* line 300, ../sass/main.scss */
+.page6 .list ul li {
+  float: left;
+  width: 24%;
+  height: 100%;
+}
+/* line 304, ../sass/main.scss */
+.page6 .list ul li i {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  text-indent: -9999px;
+}
+/* line 313, ../sass/main.scss */
+.page6 .list ul li.list-1 i {
+  background: url(/images/pc/page6-3.png) no-repeat;
+  background-size: contain;
+}
+/* line 319, ../sass/main.scss */
+.page6 .list ul li.list-2 i {
+  background: url(/images/pc/page6-4.png) no-repeat;
+  background-size: contain;
+}
+/* line 325, ../sass/main.scss */
+.page6 .list ul li.list-3 i {
+  background: url(/images/pc/page6-5.png) no-repeat;
+  background-size: contain;
+}
+/* line 331, ../sass/main.scss */
+.page6 .list ul li.list-4 i {
+  background: url(/images/pc/page6-6.png) no-repeat;
+  background-size: contain;
+}
+
+/* line 341, ../sass/main.scss */
+.page7 {
+  background: #F4F4F2;
+}
+/* line 343, ../sass/main.scss */
+.page7 .title {
+  position: absolute;
+  top: 17%;
+  left: 8%;
+  width: 37%;
+  height: 12.7%;
+  background: url(/images/pc/page7-1.png) no-repeat;
+  background-size: contain;
+}
+/* line 352, ../sass/main.scss */
+.page7 .con {
+  position: absolute;
+  top: 35%;
+  left: 8%;
+  width: 45%;
+}
+/* line 357, ../sass/main.scss */
+.page7 .con p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+/* line 361, ../sass/main.scss */
+.page7 .con .btn {
+  display: block;
+  margin-top: 70px;
+  width: 160px;
+  text-align: center;
+  height: 50px;
+  font-size: 16px;
+  line-height: 50px;
+  background: #36CDFF;
+  color: #fff;
+  cursor: pointer;
+}
+/* line 374, ../sass/main.scss */
+.page7 .mobile {
+  position: absolute;
+  bottom: 0;
+  right: 0%;
+  width: 44.67%;
+  height: 74.47%;
+  background: url(/images/pc/page7-3.gif) no-repeat;
+  background-size: contain;
+}
+
+/* line 385, ../sass/main.scss */
+.footer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* line 389, ../sass/main.scss */
+.footer .t {
+  background: url(/images/pc/page8.jpg) no-repeat top center;
+  background-size: cover;
+  overflow: hidden;
+  height: 60%;
+}
+/* line 394, ../sass/main.scss */
+.footer .t .footer_wrap {
+  position: relative;
+  height: 100%;
+  margin: 0 auto;
+}
+/* line 399, ../sass/main.scss */
+.footer .t .title {
+  position: absolute;
+  top: 15%;
+  left: 10%;
+  width: 79%;
+  height: 11%;
+  background: url(/images/pc/page8-1.png) no-repeat;
+  background-size: contain;
+}
+/* line 408, ../sass/main.scss */
+.footer .t .erweima {
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  width: 21.6%;
+  height: 50%;
+  display: block;
+  background: url(/images/pc/erweima.jpg) no-repeat;
+  background-size: contain;
+}
+/* line 418, ../sass/main.scss */
+.footer .t .link {
+  position: absolute;
+  top: 45%;
+  right: 20%;
+  width: 30%;
+  height: 20%;
+  background: url(/images/pc/page8-2.png) no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+/* line 429, ../sass/main.scss */
+.footer .copyright {
+  background: #fff;
+  margin-top: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  background: #fff;
+}
+/* line 437, ../sass/main.scss */
+.footer .total {
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 80px;
+  border-top: 1px solid #eee;
+  background: url(/images/pc/blackbg.png) repeat;
+  text-align: center;
+}
+/* line 446, ../sass/main.scss */
+.footer .total.fixed {
+  position: fixed;
+}
+/* line 449, ../sass/main.scss */
+.footer .total.absolute {
+  position: absolute;
+}
+/* line 452, ../sass/main.scss */
+.footer .total .w1200 {
+  width: 63%;
+  position: relative;
+}
+/* line 455, ../sass/main.scss */
+.footer .total .w1200 .word {
+  margin: 0 auto;
+  width: 400px;
+  color: #333;
+  line-height: 80px;
+}
+/* line 460, ../sass/main.scss */
+.footer .total .w1200 .word span {
+  float: left;
+  font-size: 18px;
+}
+/* line 464, ../sass/main.scss */
+.footer .total .w1200 .word em {
+  float: left;
+  font-size: 28px;
+  margin-left: 10px;
+  color: #f00;
+}
+/* line 472, ../sass/main.scss */
+.footer .total .close {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: -30px;
+  top: 32px;
+  background: url(/images/pc/close.png) no-repeat;
+}
+
+/* line 484, ../sass/main.scss */
+.menu {
+  position: fixed;
+  top: 50%;
+  margin-top: -100px;
+  right: 10px;
+  z-index: 10;
+}
+/* line 491, ../sass/main.scss */
+.menu ul li {
+  width: 4px;
+  height: 4px;
+  padding: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+/* line 497, ../sass/main.scss */
+.menu ul li span {
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 100%;
+  background: #174571;
+}
+/* line 504, ../sass/main.scss */
+.menu ul li.cur {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+}
+/* line 508, ../sass/main.scss */
+.menu ul li.cur span {
+  width: 14px;
+  height: 14px;
+}
+/* line 513, ../sass/main.scss */
+.menu ul li:hover {
+  width: 10px;
+  height: 10px;
+  padding: 2px;
+}
+/* line 517, ../sass/main.scss */
+.menu ul li:hover span {
+  width: 10px;
+  height: 10px;
+}

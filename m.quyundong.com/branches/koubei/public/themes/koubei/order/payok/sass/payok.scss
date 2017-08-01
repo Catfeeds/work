@@ -1,0 +1,76 @@
+@import '../../../../koubei/sass-lib/reset';
+@import '../../../../koubei/sass-lib/common';
+@import '../../../../koubei/sass-lib/base';
+.main{
+  width: 100%;
+  min-height:100% ;
+  position: relative;
+}
+.order-payok-banner{
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  padding:pxToRem(40px) 0;
+  .order-payok-banner-icon{
+    width: pxToRem(120px);
+    height: pxToRem(120px);
+    margin: 0 auto;
+    background: transparent 0 0 / cover no-repeat;
+  }
+  h2{
+    margin: pxToRem(30px) auto;
+    font-size: pxToRem(34px);
+    color:#000;
+  }
+  h3{
+    font-size: pxToRem(30px);
+    color:#888;
+  }
+}
+.order-payok-info{
+  position: relative;
+  width: 100%;
+  @include box-sizing(border-box);
+  padding: pxToRem(30px);
+  background-color: #fff;
+  p{
+    text-align: left;
+    margin-bottom: pxToRem(30px);
+    font-size: pxToRem(30px);
+  }
+  .tips{
+    text-align: left;
+    font-size: pxToRem(24px);
+    color:#888;
+  }
+  ul{width: 100%}
+  li{
+    @include box-sizing(border-box);
+    padding-left: pxToRem(120px);
+    width: 100%;
+    line-height: 1.6;
+    margin-bottom: pxToRem(30px);
+    position: relative;
+    font-size: pxToRem(30px);
+    &:last-child{
+      margin-bottom: 0;
+      // .right:after{content: "\32";visibility: hidden;}
+    }
+    .left{
+      text-align: left;
+      position: absolute;
+      top:0;
+      left:0
+    }
+    .right{
+      width: 100%;
+      text-align: right;
+      color:#888;
+    }
+  }
+}
+a.order-payok-repay{
+  width: pxToRem(690px);
+  display: block;
+  margin: pxToRem(30px) auto;
+}

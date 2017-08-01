@@ -1,0 +1,702 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline
+}
+
+html {
+    line-height: 1
+}
+
+ol,
+ul {
+    list-style: none
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+caption,
+th,
+td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle
+}
+
+q,
+blockquote {
+    quotes: none
+}
+
+q:before,
+q:after,
+blockquote:before,
+blockquote:after {
+    content: "";
+    content: none
+}
+
+a img {
+    border: none
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    overflow-x: hidden;
+    overflow: auto;
+    background-color: #f5f5f9;
+    line-height: 1.375
+}
+
+body {
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    font-size: 0.24rem;
+    text-align: center;
+    background-color: #f5f5f9;
+    font-size: 0.12rem;
+    color: #000;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+input {
+    -webkit-box-sizing: border-box;
+    border: none;
+    outline: none;
+    background: none;
+    font-family: "microsoft yahei"
+}
+
+a,
+input,
+lable,
+button,
+div {
+    -webkit-tap-highlight-color: transparent;
+    outline: none
+}
+
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: #000
+}
+
+.hide {
+    display: none !important
+}
+
+input::-ms-input-placeholder {
+    color: #aaa
+}
+
+input::-webkit-input-placeholder {
+    color: #aaa
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f5f5f9;
+    z-index: 99999
+}
+
+.loading-icon {
+    width: 0.6rem;
+    height: 0.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.3rem;
+    margin-left: -0.3rem;
+    background: url(/static/images/loading.png) no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -webkit-animation: rotate360 1s linear 0s infinite;
+    -moz-animation: rotate360 1s linear 0s infinite;
+    animation: rotate360 1s linear 0s infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    z-index: 99
+}
+
+@-moz-keyframes rotate360 {
+    from {
+        transform: rotateZ(0deg)
+    }
+    to {
+        transform: rotateZ(360deg)
+    }
+}
+
+@keyframes rotate360 {
+    from {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg)
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg)
+    }
+}
+
+@-webkit-keyframes rotate360 {
+    from {
+        -webkit-transform: rotateZ(0deg)
+    }
+    to {
+        -webkit-transform: rotateZ(360deg)
+    }
+}
+
+img {
+    width: 100%
+}
+
+.toast {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999
+}
+
+.toast .toast-alert {
+    width: 2.35rem;
+    height: 1.3rem;
+    padding: 0 0.2rem;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.65rem;
+    margin-left: -1.175rem;
+    border-radius: 6px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.toast .toast-alert .toast-msg {
+    padding-top: 0.25rem;
+    height: 0.9rem;
+    line-height: 1.6;
+    color: #fff;
+    font-size: 0.15rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative
+}
+
+.main {
+    position: relative;
+    min-height: 100%
+}
+
+.borderBottom1px:after,
+.borderTop1px:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    -moz-transform: translateY(0.5);
+    -ms-transform: translateY(0.5);
+    -webkit-transform: translateY(0.5);
+    transform: translateY(0.5);
+    background-color: #e6e6e6;
+    z-index: 99
+}
+
+.borderRight1px:before,
+.borderLeft1px:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    -moz-transform: translateX(0.5);
+    -ms-transform: translateX(0.5);
+    -webkit-transform: translateX(0.5);
+    transform: translateX(0.5);
+    background-color: #e6e6e6;
+    z-index: 99
+}
+
+.borderBottom1px:after {
+    left: 0;
+    bottom: 0
+}
+
+.borderTop1px:before {
+    left: 0;
+    top: 0
+}
+
+.borderRight1px:before {
+    right: 0;
+    top: 0
+}
+
+.borderLeft1px:before {
+    left: 0;
+    top: 0
+}
+
+.icon-right {
+    display: block;
+    width: 0.06rem;
+    height: 0.11rem;
+    position: absolute;
+    top: 50%;
+    right: 0.15rem;
+    margin-top: -0.055rem
+}
+
+.icon-right img {
+    display: block;
+    width: 100%
+}
+
+.header {
+    width: 100%;
+    height: 0.44rem;
+    background-color: #009ff0;
+    text-align: center;
+    line-height: 0.44rem;
+    position: relative
+}
+
+.header .center {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 0.5rem;
+    position: relative;
+    font-size: 0.18rem;
+    color: #fff
+}
+
+.header .left,
+.header .right {
+    width: 0.5rem;
+    height: 0.44rem;
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    font-size: 0
+}
+
+.header .left {
+    left: 0
+}
+
+.header .right {
+    right: 0;
+    font-size: 0.15rem;
+    color: #fff
+}
+
+.header .icon-back {
+    display: inline-block;
+    width: 0.15rem;
+    height: 0.15rem;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.075rem;
+    margin-top: -0.075rem;
+    -moz-transform: rotateZ(45deg);
+    -ms-transform: rotateZ(45deg);
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg)
+}
+
+.nm-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.7)
+}
+
+.nm-cover .nm-alert {
+    width: 2.75rem;
+    height: 1.3rem;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.65rem;
+    margin-left: -1.375rem;
+    border-radius: 6px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.nm-cover .nm-alert .msg {
+    padding-top: 0.25rem;
+    width: 2.75rem;
+    height: 0.9rem;
+    line-height: 1.6;
+    color: #222;
+    font-size: 0.15rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative
+}
+
+.nm-cover .nm-alert .l,
+.nm-cover .nm-alert .r {
+    width: 50%;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    display: block;
+    float: left;
+    color: #666;
+    font-size: 0.14rem;
+    position: relative;
+    background-color: #f9f9f9
+}
+
+.nm-cover .nm-alert .l {
+    border-bottom-left-radius: 6px
+}
+
+.nm-cover .nm-alert .r {
+    border-bottom-right-radius: 6px
+}
+
+.forget-form {
+    margin-top: 0.15rem
+}
+
+.wechat-form {
+    background: #fff;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding-left: 0.15rem
+}
+
+.wechat-form li {
+    padding: 0.1rem 0.15rem 0.1rem 0;
+    line-height: 0.29rem
+}
+
+.wechat-form li:first-child {
+    border-bottom: 1px solid #e6e6e6
+}
+
+.wechat-form li:first-child div:nth-of-type(1) {
+    float: right;
+    border: 1px solid #009ff0;
+    color: #009ff0;
+    background: #fff;
+    margin-left: 0.1rem;
+    padding: 0 1em;
+    border-radius: 0.05rem
+}
+
+.wechat-form li:first-child div:nth-of-type(2) {
+    overflow: hidden
+}
+
+.wechat-form li:first-child div.active {
+    background: #009ff0;
+    color: #fff
+}
+
+.wechat-form li:first-child div.countActive,
+.wechat-form li:first-child div.pub_disable {
+    color: #aaa;
+    border: 1px solid #aaa
+}
+
+.wechat-form li:first-child:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden
+}
+
+.wechat-form li input {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    color: #666;
+    font-size: 0.15rem;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    padding: 0;
+}
+
+.wechat-form li .wechat-code {
+    color: #222
+}
+
+.wechat-form input::-ms-input-placeholder {
+    color: #aaa
+}
+
+.wechat-form input::-webkit-input-placeholder {
+    color: #aaa
+}
+
+.wechat-bind {
+    font-size: 0.15rem;
+    line-height: 0.4rem;
+    color: #fff;
+    background: #aaa;
+    border-radius: 0.08rem;
+    margin: 0.5rem 0.15rem 0
+}
+
+.wechat-bind-canClick {
+    background: #009ff0
+}
+
+.wechat-bind-clickActive {
+    background: #006fa8
+}
+
+.wechat-sprite {
+    position: absolute;
+    top: 0;
+    height: 0;
+    width: 100%;
+    height: 100%
+}
+
+.recharge-inputPw .recharge-btnGroup {
+    width: 2.75rem;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    border-radius: 0.05rem
+}
+
+.recharge-inputPw .recharge-btnGroup span {
+    position: absolute;
+    top: -0.05rem;
+    right: -0.05rem;
+    background: #fff;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background-image: url(../images/x.png);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40% auto
+}
+
+.recharge-inputPw .recharge-btnGroup p {
+    line-height: 4.5;
+    font-size: 0.14rem;
+    color: #222;
+    border-bottom: 1px solid #e6e6e6
+}
+
+.recharge-inputPw .recharge-btnGroup ul {
+    font-size: 0;
+    width: 2.43rem;
+    margin: 0.15rem auto;
+    position: relative;
+    background: url(../images/passwordBg.png) no-repeat;
+    background-size:100% 100%;
+}
+
+.recharge-inputPw .recharge-btnGroup ul li {
+    position: relative;
+    display: inline-block;
+    height: 0.4rem;
+    width: 16.6666%;
+}
+
+.recharge-inputPw .recharge-btnGroup ul li:last-of-type {
+    border: none
+}
+
+.recharge-inputPw .recharge-btnGroup ul .active:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.06rem;
+    height: 0.06rem;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    background: #222222;
+    border-radius: 50%
+}
+
+.recharge-inputPw .recharge-btnGroup #recharge-pw {
+    position: absolute;
+    opacity: .01;
+    border: 0!important;
+    top: 0;
+    left: 0;
+    -webkit-appearance: none;
+    -webkit-box-sizing: content-box!important;
+    -ms-box-sizing: content-box!important;
+    box-sizing: content-box!important;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0!important;
+    font-family: Courier, monospace;
+    font-size: 0.01px;
+    /*line-height: 32px;*/
+    outline: 0;
+}
+
+.recharge-password,
+.recharge-inputPw {
+    position: absolute;
+    top: 0.44rem;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}

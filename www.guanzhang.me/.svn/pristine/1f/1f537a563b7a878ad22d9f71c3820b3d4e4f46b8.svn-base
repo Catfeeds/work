@@ -1,0 +1,274 @@
+/* line 2, ../sass/product.scss */
+.system-info {
+  padding-top: 200px;
+  margin-bottom: 250px;
+}
+/* line 5, ../sass/product.scss */
+.system-info .lb {
+  display: inline-block;
+  width: 660px;
+}
+/* line 9, ../sass/product.scss */
+.system-info .rb {
+  margin-top: 40px;
+  display: inline-block;
+  width: 460px;
+  border: 8px solid #f5f5f5;
+  position: absolute;
+  right: 0;
+  top: 200px;
+}
+/* line 17, ../sass/product.scss */
+.system-info .rb .menu {
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+}
+/* line 23, ../sass/product.scss */
+.system-info .rb .menu ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+/* line 27, ../sass/product.scss */
+.system-info .rb .menu ul li {
+  display: inline-block;
+  margin-right: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+/* line 34, ../sass/product.scss */
+.system-info .rb .menu ul li.cur {
+  border: 1px solid #2b6ffe;
+  background-color: #fff;
+  width: 4px;
+  height: 4px;
+}
+/* line 44, ../sass/product.scss */
+.system-info .rb .album {
+  width: 460px;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+/* line 49, ../sass/product.scss */
+.system-info .rb .album ul {
+  padding: 0;
+  font-size: 0;
+}
+/* line 52, ../sass/product.scss */
+.system-info .rb .album ul li {
+  margin: 0;
+  width: 460px;
+  padding: 0;
+  display: inline-block;
+}
+
+/* line 63, ../sass/product.scss */
+.channel-info {
+  height: 390px;
+  padding-top: 100px;
+  padding-left: 720px;
+}
+/* line 67, ../sass/product.scss */
+.channel-info .lb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 640px;
+}
+
+/* line 75, ../sass/product.scss */
+.wechat-info {
+  padding-top: 100px;
+  height: 390px;
+}
+/* line 78, ../sass/product.scss */
+.wechat-info .rb {
+  width: 640px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+}
+/* line 84, ../sass/product.scss */
+.wechat-info .lb {
+  padding-top: 50px;
+  position: relative;
+  z-index: 99;
+}
+
+/* line 91, ../sass/product.scss */
+.hardware-info {
+  padding-top: 200px;
+  padding-bottom: 120px;
+}
+/* line 94, ../sass/product.scss */
+.hardware-info .tb {
+  padding-bottom: 80px;
+}
+/* line 97, ../sass/product.scss */
+.hardware-info .bb {
+  font-size: 0;
+}
+/* line 99, ../sass/product.scss */
+.hardware-info .bb .imgbox {
+  display: inline-block;
+  width: 280px;
+  height: 92px;
+  overflow: hidden;
+  margin-right: 20px;
+}
+/* line 105, ../sass/product.scss */
+.hardware-info .bb .imgbox img {
+  width: 92px;
+  margin: 0 auto;
+}
+/* line 110, ../sass/product.scss */
+.hardware-info .bb .textbox {
+  width: 280px;
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 16px;
+  color: #000;
+  padding-top: 14px;
+  text-align: center;
+}
+
+/* line 122, ../sass/product.scss */
+.wechat-report {
+  height: 500px;
+  padding-top: 200px;
+}
+/* line 125, ../sass/product.scss */
+.wechat-report .lb {
+  width: 730px;
+  height: 360px;
+  border: 10px solid #f5f5f5;
+  position: absolute;
+  z-index: 9;
+  left: 0;
+  top: 200;
+}
+/* line 133, ../sass/product.scss */
+.wechat-report .lb span {
+  font-size: 16px;
+  position: absolute;
+  left: 24px;
+  bottom: 24px;
+}
+/* line 139, ../sass/product.scss */
+.wechat-report .lb #menuSp {
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+}
+/* line 145, ../sass/product.scss */
+.wechat-report .lb #menuSp ul {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+/* line 149, ../sass/product.scss */
+.wechat-report .lb #menuSp ul li {
+  display: inline-block;
+  margin-right: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #ddd;
+}
+/* line 156, ../sass/product.scss */
+.wechat-report .lb #menuSp ul li.cur {
+  border: 1px solid #2b6ffe;
+  background-color: #fff;
+  width: 4px;
+  height: 4px;
+}
+/* line 165, ../sass/product.scss */
+.wechat-report .lb ul#carouselSp {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  -moz-perspective: 600px;
+  -webkit-perspective: 600px;
+  perspective: 600px;
+}
+/* line 170, ../sass/product.scss */
+.wechat-report .lb ul#carouselSp li {
+  width: 250px;
+  position: absolute;
+  left: 150px;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 999;
+  box-shadow: 5px 5px 15px 0px rgba(43, 111, 254, 0.2);
+  -moz-transition: all 1s linear 0s;
+  -o-transition: all 1s linear 0s;
+  -webkit-transition: all 1s linear;
+  -webkit-transition-delay: 0s;
+  transition: all 1s linear 0s;
+}
+/* line 179, ../sass/product.scss */
+.wechat-report .lb ul#carouselSp li.cur {
+  z-index: 99;
+  -moz-transform: translate3d(75px, -50%, 0) scale(0.8);
+  -ms-transform: translate3d(75px, -50%, 0) scale(0.8);
+  -webkit-transform: translate3d(75px, -50%, 0) scale(0.8);
+  transform: translate3d(75px, -50%, 0) scale(0.8);
+  box-shadow: none;
+}
+/* line 187, ../sass/product.scss */
+.wechat-report .rb {
+  position: absolute;
+  z-index: 99;
+  top: 250px;
+  left: 580px;
+}
+
+/* line 195, ../sass/product.scss */
+.page {
+  position: relative;
+}
+/* line 196, ../sass/product.scss */
+.page.text-center {
+  text-align: center;
+}
+/* line 200, ../sass/product.scss */
+.page img {
+  width: 100%;
+}
+/* line 203, ../sass/product.scss */
+.page h3, .page h2 {
+  padding-bottom: 26px;
+  font-size: 24px;
+  color: #2b6ffe;
+}
+/* line 208, ../sass/product.scss */
+.page h2 {
+  font-size: 40px;
+}
+/* line 211, ../sass/product.scss */
+.page p {
+  color: #000;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+/* line 217, ../sass/product.scss */
+.page ul {
+  font-size: 18px;
+}
+/* line 220, ../sass/product.scss */
+.page li {
+  margin-bottom: 10px;
+  color: #000;
+}

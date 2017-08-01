@@ -1,0 +1,59 @@
+@import 'compass/css3';
+
+.main{
+  text-align: center;
+  font-size: 18px;
+  color:#000000;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+}
+
+h2{
+  margin-top: 215px;
+  font-size: 40px;
+  color:#2b6ffe;
+  margin-bottom: 30px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+.cb{
+  width: 870px;
+  margin:0 auto;
+  position: relative;
+  margin-bottom: 100px;
+  .rb{
+    position: absolute;
+    top:78px;
+    right:100px;
+    text-align: center;
+  }
+  .lb{
+    position: absolute;
+    top:0;
+    left:0;
+    text-align: center;
+  }
+  img{
+    margin:20px auto;
+  }
+}
+
+h3{
+  font-size: 40px;
+  color:#2b6ffe;
+  margin-top: 10px;
+  margin-bottom: 38px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.tll{
+  text-align: left;
+}
+.tlr{
+  text-align: right;
+}
+
+.rotateZ90{
+  @include transform(rotateZ(90deg));
+}

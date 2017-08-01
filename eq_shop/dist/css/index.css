@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+a:link {
+  color: none; }
+
+a:hover {
+  color: none; }
+
+a:visited {
+  color: none; }
+
+a:active {
+  color: none; }
+
+#head {
+  width: 100%;
+  height: 50px;
+  background: purple;
+  position: fixed;
+  top: 0;
+  font-size: 20px;
+  text-align: center;
+  line-height: 50px;
+  color: white;
+  font-weight: bold;
+  z-index: 100; }
+  #head span {
+    float: right;
+    color: white;
+    line-height: 50px;
+    margin-right: 5px;
+    font-size: 22px; }
+
+#nav {
+  width: 100%;
+  height: 50px;
+  background: white;
+  border: 1px solid #ccc;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  font-size: 14px;
+  z-index: 100; }
+  #nav .font {
+    width: 100%;
+    height: 50%; }
+    #nav .font span {
+      line-height: 30px;
+      float: left;
+      width: 20%; }
+  #nav .nav {
+    width: 100%;
+    height: 50%; }
+    #nav .nav span {
+      line-height: 10px;
+      float: left;
+      width: 20%; }
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  top: 50px;
+  bottom: 50px;
+  left: 0;
+  background: #f1f1f1;
+  border: 1px solid red; }
+  #wrapper #content {
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none; }
+    #wrapper #content .banner {
+      height: 30%;
+      width: 100%; }
+      #wrapper #content .banner .swiper-container {
+        width: 100%;
+        height: 100%; }
+        #wrapper #content .banner .swiper-container .swiper-wrapper {
+          width: 100%;
+          height: 100%; }
+          #wrapper #content .banner .swiper-container .swiper-wrapper img {
+            width: 100%;
+            height: 100%; }
+    #wrapper #content .culling {
+      width: 100%;
+      height: 10%; }
+      #wrapper #content .culling img {
+        width: 100%;
+        height: 100%; }
+    #wrapper #content .classify_nav {
+      width: 100%;
+      overflow: scroll; }
+      #wrapper #content .classify_nav div {
+        height: 15%;
+        padding: 2px;
+        margin: 0; }
+        #wrapper #content .classify_nav div img {
+          width: 100%;
+          height: 100%; }
+    #wrapper #content #pro_list {
+      width: 100%;
+      overflow: hidden; }
+      #wrapper #content #pro_list div {
+        padding: 3px;
+        margin: 0; }
+      #wrapper #content #pro_list .thumbnail .caption p {
+        line-height: 15px;
+        font-size: 12px; }
+      #wrapper #content #pro_list .thumbnail .caption p:nth-child(2) {
+        color: red;
+        line-height: 10px;
+        font-weight: bold;
+        font-size: 14px; }
+
+/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,72 @@
+extends mobile_layout
+block headContent
+  script(src="/js/mobile/zeptoWithFx.min.js")
+  script(src="/js/mobile/mobileResponsive.js")
+block content
+  link(href="/css/mobile/index/stylesheets/index.css",type="text/css",rel="stylesheet")
+  .loading#loading(data-lock="1")
+    .loading-icon
+  .main.hide
+    .page1
+      h2 馆掌，会赚钱的管理系统
+      p 多领域、各行业完美支持
+      p 完美适用多门店连锁球馆
+      p 七大渠道流量变现
+    .page2
+      h2 360°球馆管理无死角
+      p 包含在线预定场地，场地付费，退场换场，锁场打包等日常经营功能，告别本子记录模式，有效减少人力成本。
+      p 带有扫码枪、进销存的商品体系，令球馆老板头痛的库存、利润问题轻松解决，清晰多维度的统计报表，随时随地都可以查看，大大降低财务的工作量和人手。
+      .pic
+        img(src='/images/mobile/index/2.png')
+    .page3
+      h2 七大渠道流量变现
+      p 各大合作平台皆能找到场馆,并可直接付款预订
+      p 大大提升曝光率和订场数,解决球馆经营面临的推广问题
+      .pic
+        img(src='/images/mobile/index/3.png')
+    .page4
+      h2 定制专属微信公众号
+      p 球馆反应，客户和球馆之间仅有打球的交流，无法进行深入的运营。公众号使双方紧密联系，轻松开展多元化业务，时刻比对手抢先一步。 实时推送消费和通知，带有微信声音震动提示，客户100%接收。
+      .pic
+        img(src='/images/mobile/index/4.png')
+    .page5
+      h2 微信上的智能财务
+      p 出门在外难免无法了解球馆情况，来不及做出调整导致错失良机，微信报表能实时显示球馆的多方面数据，结合趋势分析让球馆收益更进一步。
+      .pic
+        img(src='/images/mobile/index/5.png')
+    .page6
+      h2 全新智能硬件升级
+      p 球馆硬件落后一直是导致竞争力不足的原因，经调研50%用户流失归根于此 。你需要有一整套的智能化设备提升竞争力,智能灯控、智能闸机、IC手环能让你的对手望尘莫及。
+      ul
+        li
+          .t
+            img(src='/images/mobile/index/light.png')
+          .b 智能灯控
+        li
+          .t
+            img(src='/images/mobile/index/door.png')
+          .b 智能闸机
+        li
+          .t
+            img(src='/images/mobile/index/cctv.png')
+          .b 全景摄像头
+        li
+          .t
+            img(src='/images/mobile/index/vending.png')
+          .b 一体售卖机
+    .page7
+      h2 1864球馆的共同选择
+      p 国家奥林匹克体育中心、上海宝山体育中心、广州天河体育中心等大型球馆都在使用，你还在等什么？
+    .foot
+      a(href='/mobile_join') 立即加入
+
+  script.
+    window.onload = function  () {
+      var loadInterval = setInterval(function() {
+        if($(".loading").attr("data-lock") == 1){
+           $(".loading").addClass("hide");
+           $(".main").removeClass("hide");
+           clearInterval(loadInterval);
+        }
+      },500);
+    }

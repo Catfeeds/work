@@ -1,0 +1,63 @@
+extends mobile_layout
+block headContent
+  script(src="/js/mobile/zeptoWithFx.min.js")
+  script(src="/js/mobile/mobileResponsive.js")
+block content
+  link(href="/css/mobile/join/stylesheets/join.css",type="text/css",rel="stylesheet")
+  .loading#loading(data-lock="1")
+    .loading-icon
+  .main.hide
+    .page-form
+      .head
+        .logo
+          img(src='/images/mobile/join/logo.png')
+        .title 馆掌
+      form#form(action="/api/join/add",method='post',name='joinForm')
+        p 填写申请信息
+        .row
+          label
+            img(src='/images/mobile/join/1.png')
+          input(type='text',placeHolder='请输入场馆名称',id='name',name='name')
+        .row
+          label
+            img(src='/images/mobile/join/2.png')
+          input(type='text',placeHolder='请输入联系人姓名',id='userName',name='userName')
+        .row
+          label
+            img(src='/images/mobile/join/3.png')
+          input(type='text',placeHolder='请输入联系电话',id='tel',name='tel')
+        .row
+          label
+            img(src='/images/mobile/join/location.png')
+          input(type='text',placeHolder='请输入所在省份',id='province',name='province')
+        .row
+          label
+            img(src='/images/mobile/join/location.png')
+          input(type='text',placeHolder='请输入所在城市',id='city',name='city')
+        .row
+          label
+            img(src='/images/mobile/join/4.png')
+          input(type='text',placeHolder='请输入详细地址',id='address',name='address')
+        .btn#submit 立即提交
+        .tips 提交申请后会有工作人员与您联系
+    .page-success.hide
+      .icon-success
+        img(src='/images/mobile/join/success.png')
+      h2 申请成功
+      p 工作人员会尽快与您联系
+      a.btn(href='/') 返回介绍页
+  .toast.hide
+    .toast-alert
+      .toast-msg
+
+  script(src="/js/mobile/mobile_join.js")
+  script.
+    window.onload = function  () {
+      var loadInterval = setInterval(function() {
+        if($(".loading").attr("data-lock") == 1){
+           $(".loading").addClass("hide");
+           $(".main").removeClass("hide");
+           clearInterval(loadInterval);
+        }
+      },500);
+    }

@@ -1,0 +1,43 @@
+/* line 1, ../sass/hardware.scss */
+.main {
+  text-align: center;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 200;
+}
+
+/* line 8, ../sass/hardware.scss */
+h2 {
+  margin-top: 215px;
+  font-size: 40px;
+  color: #2b6ffe;
+  margin-bottom: 70px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* line 17, ../sass/hardware.scss */
+.cell {
+  display: inline-block;
+  margin: 0 10px;
+}
+/* line 20, ../sass/hardware.scss */
+.cell p {
+  padding-top: 18px;
+}
+/* line 23, ../sass/hardware.scss */
+.cell span {
+  font-size: 14px;
+}
+
+/* line 28, ../sass/hardware.scss */
+.line {
+  position: relative;
+  top: -110px;
+}
+
+/* line 34, ../sass/hardware.scss */
+.line1 {
+  position: relative;
+  top: -130px;
+}

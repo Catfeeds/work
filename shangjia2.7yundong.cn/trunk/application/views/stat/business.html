@@ -1,0 +1,293 @@
+<script src="/static/echarts/echarts.js"></script>
+<!-- 搜索模块 start -->
+<form action="">
+    <div class="bbs-header">
+        <div class="filter-control">
+            
+            <div class="filter-radio">
+                <label>
+                    <input type="radio" name="accountType" value="1"  <?php if($accountType==1) echo "checked"; ?> /><em> </em><span>收款时间</span>
+                </label>
+            </div>
+
+            <div class="filter-radio">
+                <label>
+                    <input type="radio" name="accountType" value="2" <?php if($accountType==2) echo "checked"; ?> ><em> </em><span>消费时间</span>
+                </label>
+            </div>
+        </div>
+        <div class="filter-control">
+            <!-- 日期选择插件 -->
+            <div class="filter-time"><span id="timeStart" class="btn-bdru"><?php echo $startDate;?><i
+                    class="glyphicon glyphicon-chevron-down"></i></span><em>至</em><span id="timeEnd" class="btn-bdru"><?php echo $endDate; ?><i
+                    class="glyphicon glyphicon-chevron-down"></i></span><input id="reservation" type="text" readonly value="<?php echo $startDate .' - '. $endDate; ?>">
+                <script>
+                    $(document).ready(function () {
+                        $('#reservation').daterangepicker({
+                            locale:{
+                                applyLabel: '确认',
+                                cancelLabel: '取消',
+                                fromLabel: '从',
+                                toLabel: '到',
+                                weekLabel: 'W',
+                                customRangeLabel: 'Custom Range',
+                                daysOfWeek:["日","一","二","三","四","五","六"],
+                                monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+                            }
+                        }, function (start, end, label) {
+                            var t1 = new Date(start.toString());
+                            var t2 = new Date(end.toString());
+                            var txt1 = t1.format('yyyy-MM-dd');
+                            var txt2 = t2.format('yyyy-MM-dd');
+                            $("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                            $("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                            $('#startDate').val(txt1);
+                            $('#endDate').val(txt2);
+                        });
+                        
+                        // 给导出结算记录按钮绑定事件
+                        $("#export_business_btn").click(function () {
+                            var accountType = $("input[name=accountType]:checked").val();
+                            var startDate =  $("#startDate").val();
+                            var endDate =  $("#endDate").val();
+                            var href = $(this).attr("data-href") + "?export=1&startDate=" + startDate + "&endDate=" + endDate + "&accountType=" + accountType;
+                          	$(this).attr("href", href);
+                            setTimeout(function () {
+                                $("#export_business_btn").attr('href', 'javascript:void(0);');
+                            }, 0)
+                        });
+
+                    });
+                   /*  function hideMemberCharge(val){
+                        val = val == 1 ? 0 : 1;
+                        window.location.href = '/stat/business?startDate='+$("#startDate").val()+'&endDate='+$("#endDate").val()+'&hideMemberCharge='+val;
+                    } */
+                </script>
+            </div>
+            <input type="text" hidden id="startDate" name="startDate" value="<?php echo $startDate;?>">
+            <input type="text" hidden id="endDate" name="endDate" value="<?php echo $endDate;?>">
+        </div>
+        
+        <div class="filter-control">
+            <div class="btn search-btn btn-bdru btn-sj-blue" onclick="$('form').submit();"><span>查询</span></div>
+              <a href="javascript:void(0);" data-href="/stat/business" class="search-btn btn-sj-blue btn-bdru btn btn-default" id="export_business_btn" >导出</a> 
+        </div>
+        <!-- 日期选择插件 end -->
+    </div>
+</form>
+<!-- 搜索模块 end -->
+<h1>营业日结</h1>
+<!-- <label class="title-small" style="width:220px;cursor:pointer;">
+    <input type="checkbox" name="hideMemberCharge" value="<?php //echo $hideMemberCharge; ?>" <?php //if($hideMemberCharge==1) echo "checked"; ?> onclick="hideMemberCharge($(this).val())">
+    <span class='title-select'><em></em></span><span>不计算储值卡充值余额</span>
+</label> -->
+<ul class="consume-container">
+    <li>
+        <div>
+            <div><img src="/static/images/consume-icon1.png" alt=""></div>
+            <div>
+                <p><?php echo $incomeStat[3]['apay_amount']; ?></p>
+                <p>营业总额(元)</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div>
+            <div><img src="/static/images/consume-icon2.png" alt=""></div>
+            <div>
+                <p><?php echo $incomeStat[0]['apay_amount']; ?></p>
+                <p>现款收入(元)</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div>
+            <div><img src="/static/images/consume-icon3.png" alt=""></div>
+            <div>
+                <p><?php echo $incomeStat[1]['apay_amount']+$incomeStat[1]['gift_amount']; ?></p>
+                <p>会员消费(元)</p>
+            </div>
+        </div>
+    </li>
+</ul>
+<!-- 复杂的table -->
+<h2>日结营业情况报表</h2>
+<!-- 特别的table -->
+<div class="body-table report-table">
+    <table class="table table-bordered">
+        <thead class="sp">
+        <tr>
+            <th>&nbsp;</th>
+            <th colspan="2">现款收入</th>
+            <th colspan="3">会员消费</th>
+            <th colspan="2">合作收入</th>
+            <th colspan="2">营业额统计</th>
+        </tr>
+        </thead>
+        <thead>
+        <tr>
+            <th>业务</th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div></th>
+            <th colspan="3"><div style='width:33%;float:left;'>应收付款</div> <div style='width:33%;float:left;'>余额支付</div><div style='width:33%;float:left;'>赠送金额支付</div></th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php
+            $show_type = $incomeType;
+            array_push($show_type,"合计");
+            foreach($show_type AS $k => $s){
+        ?>
+        <tr>
+            <td><?php echo $s; ?></td>
+            <td colspan="2"><div style='width:50%;float:left;'><?php echo $businessStat[$k][0]['payable_amount']; ?></div> <div style='width:50%;float:left;'><?php echo $businessStat[$k][0]['apay_amount']; ?></div></td>
+            <td colspan="3"><div style='width:33%;float:left;'><?php echo $businessStat[$k][1]['payable_amount']; ?></div> <div style='width:33%;float:left;'><?php echo $businessStat[$k][1]['apay_amount']; ?></div><div style='width:33%;float:left;'><?php echo $businessStat[$k][1]['gift_amount']; ?></div></td>
+            <td colspan="2"><div style='width:50%;float:left;'><?php echo $businessStat[$k][2]['payable_amount']; ?></div> <div style='width:50%;float:left;'><?php echo $businessStat[$k][2]['apay_amount']; ?></div></td>
+            <td colspan="2"><div style='width:50%;float:left;'><?php echo $businessStat[$k][3]['payable_amount']; ?></div> <div style='width:50%;float:left;'><?php echo $businessStat[$k][3]['apay_amount']; ?></div></td>
+        </tr>
+        <?php
+            }
+        ?>
+        </tbody>
+    </table>
+</div>
+<h2>现款收入统计表</h2>
+<!-- 特别的table -->
+<div class="body-table report-table">
+    <table class="table table-bordered">
+        <thead class="sp">
+        <tr>
+            <th>&nbsp;</th>
+            <?php foreach(helper_StatHelper::INCOME_ORDER_TYPE AS $v){ ?>
+            <th colspan="2"><?php echo $v ?></th>
+            <?php } ?>
+            <th colspan="2">合计</th>
+        </tr>
+        </thead>
+        <thead>
+        <tr>
+            <th>业务</th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div></th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+            <th colspan="2"><div style='width:50%;float:left;'>应收合计</div> <div style='width:50%;float:left;'>实收合计</div> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach($payType AS $k => $v){ ?>
+        <tr>
+            <td><?php echo $v; ?> </td>
+            <?php foreach($cashIncome[$k] AS $c){ ?>
+            <td colspan="2"><div style='width:50%;float:left;'><?php echo $c['payable_amount']; ?></div> <div style='width:50%;float:left;'><?php echo $c['apay_amount']; ?></div></td>
+            <?php } ?>
+        </tr>
+        <?php } ?>
+        </tbody>
+    </table>
+</div>
+
+<!-- 简单的table -->
+<?php if(helper_LoginHelper::isMutifront()) {?>
+<h2>多前台汇总</h2>
+<div class="body-table stage-table">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>所在区域</th>
+                <th>营业总收入</th>
+                <th>场地收入</th>
+                <th>会员收入</th>
+                <th>商品收入</th>
+                <th>会员消费</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
+        foreach($multiple_list as $value){
+        ?>
+            <tr>
+                <td><?php echo $value['operate_area_name'] == ""  ? StatController::DEFALULT_FRONT : $value['operate_area_name'];?></td>
+                <td><?=$value['amount_total']?></td>
+                <td><?=$value['amount_course_total']?></td>
+                <td><?=$value['amount_member_total']?></td>
+                <td><?=$value['amount_goods_total']?></td>
+                <td><?=$value['amount_member_pay_total']?></td>
+            </tr>
+         <?php }?>  
+        </tbody>
+    </table>
+</div>
+<?php } ?>
+<!-- icharts -->
+<div class="chart-container">
+    <div class="chart-title">
+        <h2>营业收入对比</h2>
+    </div>
+    <div class="chart-container">
+        <div id="echart" style="width: 920px;height:380px;"></div>
+    </div>
+</div>
+<!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <script src="/static/shangjia/js/json2.js"></script>
+<![endif]-->
+<script>
+    require.config({
+        paths: {
+            echarts: '/static/echarts'
+        }
+    });
+    require([
+                'echarts',
+                'echarts/chart/line',   // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                'echarts/chart/bar'
+            ],
+            function (ec) {
+                var myChart = ec.init(document.getElementById('echart'));
+                var option = {
+                    title: {
+                        text: ''
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        show: false,
+                        data: ['营业额']
+                    },
+                    toolbox: {
+                        show: false
+                    },
+                    //calculable : true,
+                    xAxis: [
+                        {
+                            name: "时间（天）",
+                            type: 'category',
+                            data: JSON.parse('<?php echo json_encode($chartX); ?>')
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            name: "营业额（元）",
+                            type: 'value'
+                        }
+                    ],
+                    series: [
+                        {
+                            barCategoryGap: '50%',
+                            name: '营业额',
+                            type: 'bar',
+                            itemStyle: {normal: {color: "#45A6D8"}},
+                            data: JSON.parse('<?php echo json_encode($chartY); ?>')
+                        }
+                    ]
+                };
+                myChart.setOption(option);
+            });
+</script>
+<!-- icharts end -->
+

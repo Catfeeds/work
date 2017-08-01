@@ -1,0 +1,102 @@
+@import "../../../includes/orderCommon";
+@import "../../../sass-lib/header";
+
+%radioSelect {
+    float: right;
+    width: 0.16rem;
+    height: 0.16rem;
+    background-image: url(/themes/qu205/order/images/selecte-off.png);
+    background-size: 100% 100%;
+    border-radius: 50%;
+}
+
+.main {
+    height: 100%;
+    text-align: left;
+}
+
+
+
+.co-info {
+    li {
+        background: url(/themes/qu205/order/images/border-r.jpg) 0.85rem top repeat-y;
+        @include clearfix;
+        > div {
+            &:nth-of-type(1) {
+                float: left;
+                color: #666666;
+                width: 0.85rem;
+            }
+            &:nth-of-type(2) {
+                overflow: hidden;
+                padding-left: 0.15rem;
+                color: #222;
+                p {
+                    margin-bottom: 0.05rem;
+                    span {
+                        margin-right: 0.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.co-paySelection {
+    margin-top: 0.15rem;
+    border-top: 1px solid #e6e6e6;
+    label {
+        @include clearfix;
+        display: block;
+        span {
+            padding-left: 0.3rem;
+            background-size: 0.2rem 0.2rem;
+            background-repeat: no-repeat;
+            background-position: left center;
+        }
+        input {
+            display: none;
+        }
+        input:checked+em {
+            background-image: url(/themes/qu205/order/images/radio-on.png);
+        }
+        em {
+            float: right;
+            width: 0.2rem;
+            height: 0.2rem;
+            background-image: url(/themes/qu205/order/images/radio-off.png);
+            background-size: 100% 100%;
+            border-radius: 50%;
+        }
+    }
+    .co-vip-info {
+        border-bottom: 1px solid #e6e6e6;
+        padding: 0.15rem;
+        span {
+            color: #666;
+            padding-left:0;
+            display:inline-block;
+            width:8em;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            &:first-of-type{
+                margin-right:0.1rem;
+            }
+            i {
+                color: #222;
+            }
+        }
+        em {
+            @extend %radioSelect;
+            width:0.2rem;
+            height:0.2rem;
+        }
+        &.selected{
+            em{
+                background-image: url(/themes/qu205/order/images/selecte-on.png);
+            }
+        }
+    }
+}
+

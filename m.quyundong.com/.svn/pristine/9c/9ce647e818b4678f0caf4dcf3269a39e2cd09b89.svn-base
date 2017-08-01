@@ -1,0 +1,233 @@
+@import 'base';
+$borderColor:#ddd!default;
+$kouBeiRed:#fb6165!default;
+%borderH1px {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    @include transform(translateY(0.5));
+    background-color: $borderColor;
+    z-index: 99;
+}
+
+%borderV1px {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    @include transform(translateX(0.5));
+    background-color: $borderColor;
+    z-index: 99;
+}
+
+%cardBox {
+    display: block;
+    width: 100%;
+    padding-left: 30*0.005+rem;
+    background-color: #fff;
+    position: relative;
+    @include box-sizing(border-box);
+}
+
+%cardBox {
+    display: block;
+    width: 100%;
+    padding-left: 30*0.005+rem;
+    background-color: #fff;
+    position: relative;
+    @include box-sizing(border-box);
+}
+
+%useBackground {
+    background-position: center center;
+    background-repeat: no-repeat;
+    @include background-size(cover);
+}
+
+%textOverflowEllipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.borderBottom1px {
+    &:after {
+        @extend %borderH1px;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.borderTop1px {
+    &:before {
+        @extend %borderH1px;
+        left: 0;
+        top: 0;
+    }
+}
+
+.borderRight1px {
+    &:before {
+        @extend %borderV1px;
+        right: 0;
+        top: 0;
+    }
+}
+
+.borderLeft1px {
+    &:before {
+        @extend %borderV1px;
+        left: 0;
+        top: 0;
+    }
+}
+
+.icon-right {
+    display: block;
+    width: 12*0.005+rem;
+    height: 22*0.005+rem;
+    position: absolute;
+    top: 50%;
+    right: 30*0.005+rem;
+    margin-top: -11*0.005+rem;
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+.koubei-button-white{
+  display: block;
+  width:pxToRem(690px);
+  height: pxToRem(84px);
+  line-height: pxToRem(84px);
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  background-color: #fff;
+  color:#000;
+  font-size: pxToRem(34px);
+  border-radius: pxToRem(10px);
+  &:active{
+    background-color: #ddd;
+  }
+}
+
+@mixin clearfix {
+    &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        overflow: hidden;
+        visibility: hidden;
+    }
+}
+
+.common-btn {
+    line-height: 0.42rem;
+    font-size: 0.18rem;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.05rem;
+    background-color: $kouBeiRed;
+    margin: 0 0.15rem;
+    &.disable{
+        color:rgba(255,255,255,.5);
+    }
+    &:active:not(.disable) {
+        background-color: #d95559;
+    }
+}
+
+.common-quyundongtips{
+    position:absolute;
+    bottom:0.2rem;
+    width:100%;
+    font-size:0.12rem;
+    color:#888;
+    text-align:center;
+}
+.common-quyundongtipsSpace{
+    height:0.5rem;
+}
+
+.toast {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.toast .toast-alert {
+    width: 2.35rem;
+    height: 1.3rem;
+    padding: 0 0.2rem;
+    background-color: rgba(0, 0, 0, .75);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.65rem;
+    margin-left: -1.175rem;
+    border-radius: 6px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.toast .toast-alert .toast-msg {
+    padding-top: 0.25rem;
+    height: 0.9rem;
+    line-height: 1.6;
+    color: #fff;
+    font-size: 0.15rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative
+}
+
+.common-toast {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    .common-alert {
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:2.7rem;
+        transform:translate(-50%,-50%);
+        -webkit-transform:translate(-50%,-50%);
+        background-color:#fff;
+        font-size:0.17rem;
+        border-radius:0.05rem;
+        overflow:hidden;
+        .common-msg {
+            color:#000;
+            padding:0.3rem 0.15rem;
+        }
+        .common-sure {
+            color:#00aaee;
+            line-height:0.45rem;
+            border-top:1px solid #ddd;
+            &:active{
+                background-color:#dddddd;
+            }
+        }
+    }
+}
+
+%text-overflow{
+  white-space:nowrap;
+  text-overflow:ellipsis; 
+  overflow:hidden;
+}

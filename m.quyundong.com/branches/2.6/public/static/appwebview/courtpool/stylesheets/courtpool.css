@@ -1,0 +1,1047 @@
+/* line 5, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../sass/courtpool.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #f5f5f9;
+  line-height: 1.375;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 17, ../sass/courtpool.scss */
+body {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f5f5f9;
+  font-size: 0.12rem;
+  color: #fff;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 30, ../sass/courtpool.scss */
+input {
+  -webkit-box-sizing: border-box;
+}
+
+/* line 33, ../sass/courtpool.scss */
+a, lable, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* line 34, ../sass/courtpool.scss */
+a, a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+  color: #222;
+}
+
+/* line 38, ../sass/courtpool.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 42, ../sass/courtpool.scss */
+input::-ms-input-placeholder {
+  text-align: center;
+  color: #fff;
+}
+
+/* line 47, ../sass/courtpool.scss */
+input::-webkit-input-placeholder {
+  text-align: center;
+  color: #fff;
+}
+
+/* line 51, ../sass/courtpool.scss */
+img {
+  width: 100%;
+}
+
+/* line 52, ../sass/courtpool.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f9;
+  z-index: 99999;
+}
+
+/* line 61, ../sass/courtpool.scss */
+.loading-icon {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -30px;
+  margin-left: -30px;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 110, ../sass/courtpool.scss */
+img {
+  width: 100%;
+}
+
+/* line 114, ../sass/courtpool.scss */
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  zoom: 1;
+}
+
+/* line 1, ../sass/_list.scss */
+.main {
+  min-height: 100%;
+  color: #666666;
+}
+/* line 4, ../sass/_list.scss */
+.main .list-head {
+  border-bottom: 1px solid #e6e6e6;
+  background: #fff;
+}
+/* line 8, ../sass/_list.scss */
+.main .list-head li {
+  float: left;
+  width: 33.333%;
+}
+/* line 11, ../sass/_list.scss */
+.main .list-head li div {
+  margin-left: 0.15rem;
+  margin-right: 0.15rem;
+  margin-bottom: -1px;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+}
+/* line 20, ../sass/_list.scss */
+.main .list-head .active div {
+  border-bottom: 2px solid #009ff0;
+  color: #009ff0;
+}
+/* line 26, ../sass/_list.scss */
+.main .list-prepare {
+  padding: 0.05rem 0;
+  margin: 0.15rem 0.15rem 0;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 3px;
+}
+/* line 32, ../sass/_list.scss */
+.main .list-prepare div {
+  float: left;
+  width: 49%;
+  line-height: 0.3rem;
+}
+/* line 37, ../sass/_list.scss */
+.main .list-prepare .list-new {
+  width: 50%;
+  border-right: 1px solid #e6e6e6;
+}
+/* line 42, ../sass/_list.scss */
+.main .list-gym {
+  margin: 0.3rem 0.15rem 0;
+  padding-bottom: 0.2rem;
+}
+/* line 45, ../sass/_list.scss */
+.main .list-gym > li {
+  margin-bottom: 0.2rem;
+}
+/* line 47, ../sass/_list.scss */
+.main .list-gym > li .list-gym-h {
+  text-align: left;
+  margin-bottom: 0.1rem;
+  color: #666;
+  font-size: 0.12rem;
+  position: relative;
+  height: 0.18rem;
+  overflow: hidden;
+}
+/* line 55, ../sass/_list.scss */
+.main .list-gym > li .list-gym-h .list-gym-name {
+  font-size: 0.15rem;
+  margin-right: 0.1rem;
+}
+/* line 59, ../sass/_list.scss */
+.main .list-gym > li .list-gym-h em {
+  font-size: 0.15rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+/* line 65, ../sass/_list.scss */
+.main .list-gym > li .list-gym-h:after {
+  content: "";
+  display: block;
+  clear: both;
+  zoom: 1;
+}
+/* line 72, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m {
+  text-align: left;
+}
+/* line 74, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li {
+  margin-bottom: 0.1rem;
+}
+/* line 76, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-ml {
+  width: 0.21rem;
+  height: 0.21rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  float: left;
+  margin-top: 0.18rem;
+  margin-left: 0.03rem;
+  margin-right: 0.18rem;
+}
+/* line 86, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr {
+  overflow: hidden;
+  background: #fff;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  position: relative;
+  border-radius: 3px;
+}
+/* line 93, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-gym-type {
+  color: #222;
+  font-size: 0.15rem;
+  float: left;
+  margin-left: 0.1rem;
+  margin-right: 0.15rem;
+}
+/* line 100, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-gym-arrow {
+  width: 0.1rem;
+  float: right;
+  margin-right: 0.1rem;
+  margin-left: 0.15rem;
+}
+/* line 106, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-gym-rate {
+  overflow: hidden;
+  margin-top: 0.15rem;
+}
+/* line 109, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-gym-rate > div {
+  width: 16.667%;
+  float: left;
+}
+/* line 112, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-gym-rate > div div {
+  margin-left: 1px;
+  margin-right: 1px;
+  height: 3px;
+  background: #e9e9e9;
+}
+/* line 121, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-gym-rate .list-active div {
+  background: #009ff0;
+}
+/* line 126, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt {
+  position: absolute;
+  color: #666;
+  left: 86%;
+  top: 0.12rem;
+}
+/* line 138, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt.left-0 {
+  left: 20%;
+}
+/* line 141, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt.left-1 {
+  left: 32%;
+}
+/* line 144, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt.left-2 {
+  left: 42%;
+}
+/* line 147, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt.left-3 {
+  left: 53%;
+}
+/* line 150, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt.left-4 {
+  left: 64%;
+}
+/* line 153, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt.left-5 {
+  left: 75%;
+}
+/* line 156, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt.left-6 {
+  left: 86%;
+}
+/* line 159, ../sass/_list.scss */
+.main .list-gym > li .list-gym-m li .list-gym-mr .list-rate-txt .i-blue {
+  color: #009ff0;
+}
+/* line 169, ../sass/_list.scss */
+.main .list-firstSprite {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 176, ../sass/_list.scss */
+.main .list-firstSprite .list-firstSprite-h {
+  margin: 0.98rem 0.8rem 0;
+}
+/* line 178, ../sass/_list.scss */
+.main .list-firstSprite .list-firstSprite-h .firstSpriteBtn {
+  height: 2.2rem;
+  background-size: 90% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* line 184, ../sass/_list.scss */
+.main .list-firstSprite .list-firstSprite-h .list-firstSprite-txt {
+  margin: 0.4rem -0.1rem 0;
+}
+
+/* line 1, ../sass/_orderdetail.scss */
+.main {
+  min-height: 100%;
+}
+/* line 3, ../sass/_orderdetail.scss */
+.main .orderdetail-head {
+  background: url(../images/pcDetail-1.jpg) left top repeat-x;
+  background-size: 1px 100%;
+  color: #fff;
+  padding-bottom: 0.1rem;
+}
+/* line 8, ../sass/_orderdetail.scss */
+.main .orderdetail-head .orderdetail-statuImg {
+  padding-top: 0.15rem;
+}
+/* line 10, ../sass/_orderdetail.scss */
+.main .orderdetail-head .orderdetail-statuImg img {
+  width: 0.4rem;
+}
+/* line 14, ../sass/_orderdetail.scss */
+.main .orderdetail-head .orderdetail-statuText {
+  margin-top: 0.1rem;
+  margin-bottom: 0.2rem;
+  font-size: 0.15rem;
+}
+/* line 19, ../sass/_orderdetail.scss */
+.main .orderdetail-head .orderdetail-statuTip {
+  font-size: 0.12rem;
+}
+/* line 24, ../sass/_orderdetail.scss */
+.main .orderdetail-gym {
+  text-align: left;
+  margin-top: 0.16rem;
+}
+/* line 27, ../sass/_orderdetail.scss */
+.main .orderdetail-gym li {
+  font-size: 0.12rem;
+  color: #222;
+  margin-top: 0.15rem;
+  padding-left: 0.15rem;
+  padding-top: 0.18rem;
+  padding-bottom: 0.18rem;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  background: #fff;
+}
+/* line 37, ../sass/_orderdetail.scss */
+.main .orderdetail-gym li:nth-of-type(1) {
+  position: relative;
+  font-size: 0.15rem;
+}
+/* line 40, ../sass/_orderdetail.scss */
+.main .orderdetail-gym li:nth-of-type(1) .pcDetail-arrow {
+  position: absolute;
+  top: 50%;
+  right: 0.15rem;
+  margin-top: -0.5em;
+  line-height: 1;
+  width: auto;
+  padding-right: 0.2rem;
+  background: url(../images/pcDetail-6.png) right center no-repeat;
+  background-size: auto 100%;
+}
+/* line 52, ../sass/_orderdetail.scss */
+.main .orderdetail-gym li p {
+  line-height: 1;
+}
+/* line 54, ../sass/_orderdetail.scss */
+.main .orderdetail-gym li p:nth-of-type(1) {
+  margin-bottom: 0.1rem;
+}
+/* line 61, ../sass/_orderdetail.scss */
+.main .orderdetail-time {
+  margin-top: 0.08rem;
+}
+/* line 63, ../sass/_orderdetail.scss */
+.main .orderdetail-time img {
+  margin-right: 0.04rem;
+  width: 0.1rem;
+  height: 0.12rem;
+  vertical-align: -1px;
+}
+/* line 72, ../sass/_orderdetail.scss */
+.main .orderdetail-struct > li {
+  float: left;
+  width: 16.6667%;
+}
+/* line 78, ../sass/_orderdetail.scss */
+.main .orderdetail-rate {
+  padding-top: 0.42rem;
+  padding-bottom: 0.21rem;
+  padding-left: 0.15rem;
+  padding-right: 0.15rem;
+}
+/* line 83, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar {
+  position: relative;
+}
+/* line 86, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div {
+  height: 0.03rem;
+  background: rgba(255, 255, 255, 0.2);
+  margin-left: 1px;
+  margin-right: 1px;
+  position: relative;
+  text-align: right;
+}
+/* line 93, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div em {
+  display: inline-block;
+  margin-top: 0.08rem;
+  margin-right: -1em;
+}
+/* line 98, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div em i:nth-of-type(1) {
+  color: #fff;
+}
+/* line 103, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div span {
+  display: inline-block;
+  text-align: center;
+  width: 0.45rem;
+  line-height: 0.18rem;
+  color: #009cec;
+  border-radius: 0.1rem;
+  background: #fff;
+  position: absolute;
+  bottom: 0.15rem;
+  font-size: 0.12rem;
+}
+/* line 114, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div span:after {
+  content: "";
+  position: absolute;
+  bottom: -0.1rem;
+  border-top: 0.06rem solid #fff;
+  border-bottom: 0.06rem solid transparent;
+  border-left: 0.06rem solid transparent;
+  border-right: 0.06rem solid transparent;
+}
+/* line 124, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div .orderdetail-start {
+  right: 0;
+  margin-right: -0.225rem;
+}
+/* line 127, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div .orderdetail-start:after {
+  left: 50%;
+  margin-left: -0.06rem;
+}
+/* line 132, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div .orderdetail-end {
+  right: -0.12rem;
+}
+/* line 134, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li div .orderdetail-end:after {
+  right: 0.06rem;
+}
+/* line 140, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li:first-child div {
+  border-radius: 3px 0 0 3px;
+}
+/* line 146, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar li:last-of-type div {
+  border-radius: 0 3px 3px 0;
+}
+/* line 153, ../sass/_orderdetail.scss */
+.main .orderdetail-rate .orderdetail-bar .active div {
+  background: #fff;
+}
+/* line 161, ../sass/_orderdetail.scss */
+.main .orderdetail-friend {
+  text-align: left;
+  color: #666;
+  padding: 0.25rem 0 0.15rem 0.15rem;
+}
+/* line 166, ../sass/_orderdetail.scss */
+.main .orderdetail-member {
+  background: #fff;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+/* line 172, ../sass/_orderdetail.scss */
+.main .orderdetail-member li {
+  text-align: center;
+}
+/* line 175, ../sass/_orderdetail.scss */
+.main .orderdetail-member li div:nth-of-type(1) {
+  width: 0.45rem;
+  height: 0.45rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto 0.08rem;
+}
+/* line 182, ../sass/_orderdetail.scss */
+.main .orderdetail-member li div:nth-of-type(1) div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* line 192, ../sass/_orderdetail.scss */
+.main .orderdetail-member li div:nth-of-type(2) {
+  width: 5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 201, ../sass/_orderdetail.scss */
+.main .orderdetail-que {
+  text-align: right;
+  margin-top: 0.25rem;
+  margin-right: 0.15rem;
+  padding-bottom: 0.2rem;
+}
+/* line 206, ../sass/_orderdetail.scss */
+.main .orderdetail-que span {
+  color: #666;
+  padding-left: 0.22rem;
+  background-repeat: no-repeat;
+  background-size: auto 0.15rem;
+  background-position: left center;
+  background-image: url(../images/pcList-1.png);
+}
+/* line 219, ../sass/_orderdetail.scss */
+.main .detail-rate .orderdetail-bar li div {
+  background: #e9e9e9;
+}
+/* line 221, ../sass/_orderdetail.scss */
+.main .detail-rate .orderdetail-bar li div span {
+  background: #009ff0;
+  color: #fff;
+}
+/* line 224, ../sass/_orderdetail.scss */
+.main .detail-rate .orderdetail-bar li div span:after {
+  border-top: 0.06rem solid #009ff0;
+}
+/* line 231, ../sass/_orderdetail.scss */
+.main .detail-rate .orderdetail-bar li.active div {
+  background: #009ff0;
+}
+
+/* line 239, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt {
+  position: absolute;
+  color: #666;
+  top: 0.12rem;
+}
+/* line 242, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt .i-blue {
+  color: #009ff0;
+}
+/* line 246, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt.left-0 {
+  left: -2%;
+}
+/* line 249, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt.left-1 {
+  left: 14%;
+}
+/* line 252, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt.left-2 {
+  left: 30%;
+}
+/* line 255, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt.left-3 {
+  left: 47%;
+}
+/* line 258, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt.left-4 {
+  left: 64%;
+}
+/* line 261, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt.left-5 {
+  left: 81%;
+}
+/* line 264, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt.left-6 {
+  left: 94%;
+}
+/* line 267, ../sass/_orderdetail.scss */
+.orderdetail-rate-txt .i-blue {
+  color: #009ff0;
+}
+
+/* line 2, ../sass/_detail.scss */
+.main .detail-head {
+  position: relative;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: left;
+  color: #222;
+  background: #fff;
+  padding: 0.15rem;
+}
+/* line 9, ../sass/_detail.scss */
+.main .detail-head p {
+  line-height: 1;
+}
+/* line 12, ../sass/_detail.scss */
+.main .detail-head .detail-head-name {
+  font-size: 0.15rem;
+  margin-bottom: 0.12rem;
+}
+/* line 16, ../sass/_detail.scss */
+.main .detail-head .detail-head-time {
+  font-size: 0.12rem;
+}
+/* line 19, ../sass/_detail.scss */
+.main .detail-head .pcDetail-arrow {
+  position: absolute;
+  top: 50%;
+  right: 0.15rem;
+  margin-top: -0.075rem;
+  height: 0.15rem;
+  width: 0.15rem;
+  background: url(../images/pcDetail-6.png) right center no-repeat;
+  background-size: auto 100%;
+}
+/* line 30, ../sass/_detail.scss */
+.main .detail-info {
+  text-align: left;
+  margin-top: 0.15rem;
+  padding-left: 0.15rem;
+  color: #666;
+  font-size: 0.12rem;
+  background: #fff;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+/* line 39, ../sass/_detail.scss */
+.main .detail-info li {
+  padding-right: 0.15rem;
+}
+/* line 41, ../sass/_detail.scss */
+.main .detail-info li div {
+  float: right;
+}
+/* line 45, ../sass/_detail.scss */
+.main .detail-info .detail-info-type {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid #e6e6e6;
+  line-height: 0.18rem;
+}
+/* line 50, ../sass/_detail.scss */
+.main .detail-info .detail-info-type span {
+  font-size: 0.15rem;
+  color: #222;
+}
+/* line 55, ../sass/_detail.scss */
+.main .detail-info .detail-info-money {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+}
+/* line 58, ../sass/_detail.scss */
+.main .detail-info .detail-info-money span {
+  font-size: 0.24rem;
+  color: #009ff0;
+}
+/* line 61, ../sass/_detail.scss */
+.main .detail-info .detail-info-money span em {
+  font-size: 0.15rem;
+}
+/* line 65, ../sass/_detail.scss */
+.main .detail-info .detail-info-money p {
+  line-height: 1.5;
+}
+/* line 71, ../sass/_detail.scss */
+.main .detail-join .detail-join-btn {
+  width: 2.1rem;
+  line-height: 0.4rem;
+  border: 1px solid #009ff0;
+  margin: 0.15rem auto 0;
+  color: #009ff0;
+  font-size: 0.15rem;
+  border-radius: 0.2rem;
+}
+/* line 79, ../sass/_detail.scss */
+.main .detail-join .detail-join-btn.started {
+  border: 1px solid #aaa;
+  color: #aaa;
+}
+/* line 86, ../sass/_detail.scss */
+.main .detail-rate {
+  border-top: 1px solid #e6e6e6;
+  background: #fff;
+}
+/* line 91, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li div {
+  background: #e9e9e9;
+}
+/* line 93, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li div em {
+  color: #666;
+}
+/* line 95, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li div em i.detail-current {
+  color: #009ff0;
+}
+/* line 99, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li div span {
+  background: #bbb;
+  color: #fff;
+}
+/* line 102, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li div span:after {
+  border-top: 0.06rem solid #bbb;
+}
+/* line 106, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li div .detail-full {
+  background: #009ff0;
+}
+/* line 108, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li div .detail-full:after {
+  border-top: 0.06rem solid #009ff0;
+}
+/* line 115, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-bar li.active div {
+  background: #009ff0;
+}
+/* line 122, ../sass/_detail.scss */
+.main .detail-rate .orderdetail-member {
+  border-top: none;
+}
+/* line 126, ../sass/_detail.scss */
+.main .detail-tip {
+  text-align: left;
+  padding: 0.15rem;
+  color: #666;
+}
+/* line 130, ../sass/_detail.scss */
+.main .detail-tip img {
+  width: 0.12rem;
+  margin-right: 0.05rem;
+  vertical-align: -2px;
+}
+/* line 136, ../sass/_detail.scss */
+.main .detail-observe {
+  position: fixed;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  width: 100%;
+  max-width: 750px;
+  font-size: 0;
+}
+/* line 147, ../sass/_detail.scss */
+.main .detail-space70 {
+  height: 0.8rem;
+}
+
+/* line 1, ../sass/_guide.scss */
+.header {
+  width: 100%;
+  height: 0.44rem;
+  background-color: #009ff0;
+  text-align: center;
+  line-height: 0.44rem;
+  position: relative;
+}
+
+/* line 10, ../sass/_guide.scss */
+.header .center {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+  position: relative;
+  font-size: 0.18rem;
+  color: #fff;
+}
+
+/* line 21, ../sass/_guide.scss */
+.header .left,
+.header .right {
+  width: 0.5rem;
+  height: 0.44rem;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  font-size: 0;
+}
+
+/* line 31, ../sass/_guide.scss */
+.header .left {
+  left: 0;
+}
+
+/* line 35, ../sass/_guide.scss */
+.header .right {
+  right: 0;
+  font-size: 0.15rem;
+  color: #fff;
+}
+
+/* line 41, ../sass/_guide.scss */
+.header .icon-back {
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.075rem;
+  margin-top: -0.075rem;
+  -moz-transform: rotateZ(45deg);
+  -ms-transform: rotateZ(45deg);
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+/* line 57, ../sass/_guide.scss */
+.guide-wrap {
+  text-align: left;
+  background: #fff;
+  color: #222;
+}
+
+/* line 62, ../sass/_guide.scss */
+.guide-title {
+  font-size: 0.12rem;
+  padding: 0.1rem 0;
+  margin-left: 0.15rem;
+  margin-bottom: 0.3rem;
+  text-align: left;
+  display: inline-block;
+  border-bottom: 1px solid #222;
+}
+
+/* line 71, ../sass/_guide.scss */
+.guide-info {
+  margin: 0 0.15rem 0.4rem;
+}
+
+/* line 74, ../sass/_guide.scss */
+.guide-list {
+  padding-left: 0.6rem;
+  font-size: 0.15rem;
+}
+/* line 79, ../sass/_guide.scss */
+.guide-list li .guide-question {
+  line-height: 3.333;
+  border-bottom: 1px solid #e6e6e6;
+  position: relative;
+}
+/* line 83, ../sass/_guide.scss */
+.guide-list li .guide-question .guide-arrow {
+  float: right;
+  width: 0.12rem;
+  margin-right: 0.15rem;
+  margin-top: 0.22rem;
+}
+/* line 89, ../sass/_guide.scss */
+.guide-list li .guide-question .guide-sign {
+  position: absolute;
+  width: 0.3rem;
+  left: -0.45rem;
+  top: 0.1rem;
+}
+/* line 96, ../sass/_guide.scss */
+.guide-list li .guide-answer {
+  display: none;
+  margin-top: 0.15rem;
+  padding-right: 0.1rem;
+  line-height: 1.6;
+}
+
+/* line 104, ../sass/_guide.scss */
+.guide-tel {
+  margin-top: 0.9rem;
+  font-size: 0.15rem;
+  text-align: center;
+  padding-bottom: 0.25rem;
+}
+
+@keyframes arrowAni {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+}
+@-ms-keyframes arrowAni {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+}
+@-webkit-keyframes arrowAni {
+  0% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+  }
+}
+/* line 144, ../sass/_guide.scss */
+.arrowAniCss {
+  -webkit-animation: arrowAni 0.05s  both;
+  -ms-animation: arrowAni 0.05s  both;
+  animation: arrowAni 0.05s  both;
+}

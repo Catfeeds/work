@@ -1,0 +1,6 @@
+.foot
+  h2 馆掌&nbsp;GUANZHANG
+  a(href="/about.html",class='about') 关于我们 
+  a(href='/contact.html',class='contact') 联系我们
+  p Copyright&nbsp;©&nbsp;2014-#{new Date().getFullYear()}.All&nbsp;Rights&nbsp;Reserved.
+  p 版权所有&nbsp;&nbsp;&nbsp;粤ICP备15088864号&nbsp;&nbsp;&nbsp;&nbsp;服务热线:4000-410-480

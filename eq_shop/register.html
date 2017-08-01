@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title></title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" charset = "utf-8">
+</head>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="plugin/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="libs/css/register.css">
+
+<!-- js -->
+<script type="text/javascript" src="libs/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="plugin/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="plugin/jquery-validation-1.15.0/dist/jquery.validate.min.js"></script>
+<script src="plugin/jquery-validation-1.15.0/dist/jquery.validate.extend.methods.js"></script>
+<script src="plugin/jquery-validation-1.15.0/dist/jquery.metadata.js"></script>
+<script src="plugin/jquery-validation-1.15.0/dist/localization/messages_zh.min.js"></script>
+<script type="text/javascript" src="libs/js/register.js"></script>
+
+<body>
+    <!-- head -->
+	<div class="head"><span class="glyphicon glyphicon-chevron-left back"></span>欢迎注册coco<span id="ex_listMenu" class="glyphicon glyphicon-list pull-right" style="margin-right: 10px;"> </span></div>
+	<div id="register_hint">注册，即体验<span>狂欢购物</span></div>
+
+    <!-- 弹出列表 -->
+    <div id="listMenu">
+        <span class="glyphicon glyphicon-play"></span>
+        <ul>
+            <li><a href="index.html">首页</a></li>
+            <li><a href="classify.html">分类查询</a></li>
+            <li><a href="shop_cart.html">购物车</a></li>
+            <li><a href="personal.html">会员中心</a></li>
+        </ul>
+    </div>
+
+    <!-- 注册表单 -->
+    <form id="register_form" action="index.html" method="get" >
+	<table class="table table-bordered" id="register_tab" border="1">
+	  <tbody>
+	    <tr>
+	      <td class="col-xs-12" >
+	      	<div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">手机：</button>
+                </span>
+                <input type="text" class="form-control required" name="tel" id="tel">
+            </div>
+	      </td>
+	    </tr>
+	    <tr>
+	      	<td>
+	      		<div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">验证码：</button>
+                </span>
+                <input type="text" class="form-control required" name="code" id="code">
+                <span class="input-group-btn">
+                    <button id="re_code" class="btn btn-default" type="button" >获取验证码</button>
+                </span>
+            	</div>
+	      	</td>
+        </tr>
+        <tr>
+	      <td class="col-xs-12" >
+	      	<div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">用户名：</button>
+                </span>
+                <input type="text" class="form-control required" name="username" id="username">
+            </div>
+	      </td>
+	    </tr>
+        <tr>
+        	<td class="col-xs-12">
+	      	<div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">密码：</button>
+                </span>
+                <input type="password" class="form-control required" name="password" id="password" >
+            </div>
+	      </td>
+        </tr>
+        <tr>
+        	<td class="col-xs-12">
+	      	<div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">再次输入密码：</button>
+                </span>
+                <input type="password" class="form-control required" name="repassword" id="repassword">
+            </div>
+	      </td>
+        </tr>
+        <tr ><td class="col-xs-12" id="fault_hint"></td></tr>
+        <tr>
+        	<td>
+        		<button type="button" class="btn btn-warning btn-lg btn-block " id="submit">立即注册</button>
+        	</td>
+        </tr>
+        <tr>
+        	<td>
+        		<a href="login.html"><button type="button" class="btn btn-default btn-lg btn-block">已注册，点击登录</button></a>
+        	</td>
+        </tr>
+	  </tbody>
+	</table>
+    </form>
+</body>
+</html>

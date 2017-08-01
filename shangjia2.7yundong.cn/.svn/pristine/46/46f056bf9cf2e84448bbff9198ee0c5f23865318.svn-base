@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>趣运动商家后台管理系统</title>
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-weixin.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="container-fluid ui-aw-title hide">
+    <div class="flex-body flex-align-center" style="justify-content: center;">
+        <div style="width:180px;" class="left"><img src="/static/images/logo.png" style="width:100%;"></div>
+        <div>
+            <h1>趣运动商家后台管理系统</h1>
+        </div>
+    </div>
+</div>
+<div class="ui-aw-login">
+	<div class="ui-aw-left"><img src="/static/shangjia/images/avator.png" alt=""></div>
+    <form id="awLoginForm" method="post" action="javascript:;" data-action="/login/dologin" class="form">
+		<div class="ui-form-title">
+            <p class="text1">馆掌</p>
+            <p class="text2">会赚钱的管理系统</p>
+        </div>
+        <div class="form-wrap">
+	        <h4>账号</h4>
+	        <div class="aw-login-userName">
+	            <label for="inputUserName" class="sr-only">账号</label>
+	            <input type="text" id="inputUserName" placeholder="" name="username" value="" />
+	            <h5 class="help-block"></h5>
+	        </div>
+		</div>
+        <div class="form-wrap">
+	        <h4>密码</h4>
+	        <div class="aw-login-password">
+	            <label for="inputPassword" class="sr-only">密码</label>
+	            <input type="password" id="inputPassword" placeholder="" name="password" value="" />
+	            <h5 class="help-block"></h5>
+	        </div>
+		</div>
+        <!-- 开发期间不校验验证码
+        -->
+		<div class="form-wrap">
+	        <h4>验证码</h4>
+	        <div class="aw-login-checkCode">
+	            <div class="ui-aw-codeInput">
+	                <label for="inputCheckCode" class="sr-only">验证码</label>
+	                <input type="text" id="inputCheckCode" placeholder="" name="checkCode">
+	                <input type="hidden" name="hash_token"  value="<?php echo $token; ?>">
+	            </div>
+	            <div class="ui-aw-code">
+					<img src="/login/captcha" id="captcha" onclick="this.src='/login/captcha?rnd='+Math.random()" class="ui-aw-check-code">
+					<img src="/static/shangjia/images/refresh.png"  onclick="changeImg();" style="cursor:pointer;">
+				</div>
+		            <script type="text/javascript">
+		            function changeImg(){
+		                var captche = '/login/captcha?rnd='+Math.random();
+		                $('#captcha').attr("src", captche);
+		            }
+		            </script>
+	            <h5 class="help-block"></h5>
+	        </div>
+		</div>
+        <button id="awLoginSure" type="submit">确定</button>
+        <h3 role="alert" id="spanMessage"></h3>
+    </form>
+</div>
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/javascripts/login_es5.js"></script>
+<script>
+	;(function(){
+		$('.form-wrap').on('click',function(){
+			$(this).find('input').focus();
+		})
+	})()
+</script>
+</body>
+</html>

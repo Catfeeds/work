@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>加入约练</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+	<style type="text/css">
+		html{
+			width: 100%;
+			font-size: 100px;
+			background-color: #f0f0f0;
+		}
+		body{
+			width: 100%;
+			max-width: 640px;
+			margin:0 auto;
+			font-size: 0.16rem;
+			color:#636363;
+			background-color: #f0f0f0;
+			overflow-x: hidden;
+			position: relative;
+			text-align: center;
+		}
+		i{
+			font-style: normal;
+			display: block;
+		}
+		a{
+			text-decoration: none;
+			color:#636363;
+			outline: none;
+		}
+		a:visited{
+			color:#636363;
+		}
+		a:active{
+			outline: none;
+		}
+		button{
+			border:0px;
+		}
+		.hide{
+			display: none;
+		}
+		input::-ms-input-placeholder{text-align: center;color:#cdcdcd;}
+		input::-webkit-input-placeholder{text-align: center;color:#cdcdcd;}
+		.inpout{
+			width: 100%;
+			height: 0.4rem;
+			position: relative;
+		}
+		.note{
+			position: absolute;
+			color: red;
+			font-size: 0.12rem;
+			left:0.2rem;
+			top:0.45rem;
+		}
+		.inputName,.inputNumber{
+			display: block;
+			text-align: center;
+			width: 90%;
+			height: 0.4rem;
+			margin: 0.1rem auto;
+			border: 1px solid #e1e1e1;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			border-radius: 6px;
+			background-color: #fff;
+			position: relative;
+		}
+		.sex{
+			width: 90%;
+			height: 0.4rem;
+			margin: 0.2rem auto;
+			position: relative;
+		}
+		.sex input{margin: 0.1rem;}
+		.man,.woman{
+			position: absolute;
+			display: block;
+			top: 50%;
+			left:50%;
+		}
+		.man{-webkit-transform: translateX(-130%) translateY(-50%);
+		-ms-transform: translateX(-130%) translateY(-50%);
+		-o-transform: translateX(-130%) translateY(-50%);
+		transform: translateX(-130%) translateY(-50%);}
+		.woman{-webkit-transform: translateX(30%) translateY(-50%);
+		-ms-transform: translateX(30%) translateY(-50%);
+		-o-transform: translateX(30%) translateY(-50%);
+		transform: translateX(30%) translateY(-50%);}
+		.avatarbg{
+			width: 1.45rem;
+			height: 1.45rem;
+			
+			background:url(images/yuerecruit/avatarbg.jpg) no-repeat center center;
+			-webkit-background-size: 75% 75%;
+			background-size: 75% 75%;
+			border:1px solid #e1e1e1;
+			border-radius: 6px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			margin: 0.3rem auto 0.1rem;
+			background-color: #fff;
+		}
+		.avatar{
+			width: 100%;
+			height: 100%;
+			background-position: center center;
+			-webkit-background-size: cover;
+			background-size: cover;
+			border-radius: 6px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+		.underline{
+			text-decoration: underline;
+		}
+		.updaate{
+			display: block;
+  			width: 1.45rem;
+  			margin: 0.3rem auto;
+		}
+		#submit,.back{
+			display: block;
+			width: 90%;
+			height: 0.4rem;
+			margin: 0.3rem auto;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			border-radius: 6px;
+			background-color: #74affb;
+			line-height: 0.4rem;
+			color:#fff;
+			font-size: 0.16rem;
+		}
+		.whatis{
+			width: 100%;
+			text-align: left;
+		}
+		.card{
+			width: 90%;
+			margin: 0.1rem auto;
+			border: 1px solid #e1e1e1;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			border-radius: 6px;
+		}
+		.card .title{
+			width: 100%;
+			height: 0.4rem;
+			line-height: 0.4rem;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			border-top-left-radius: 6px;
+			border-top-right-radius: 6px;
+			padding: 0 0.2rem;
+			color:#4c4c4c;
+			background-color: #f9f9f9;
+			position: relative;
+		}
+		.card .content{
+			border-bottom-left-radius: 6px;
+			border-bottom-right-radius: 6px;
+			font-size: 0.14rem;
+			width: 100%;
+			height: auto;
+			line-height: 1.375;
+			border-top: 1px solid #e1e1e1;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			padding:0.2rem;
+			background-color: #fff;
+			-webkit-transition:all 0.4s ease 0s;
+			transition:all 0.4s ease 0s;
+			overflow: hidden;
+		}
+		.card .title i{
+			position: absolute;
+			width: 0.4rem;
+			height: 0.4rem;
+			top:50%;
+			right:0;
+			margin-top: -0.2rem;
+			-wwbkit-transition:all 0.4s ease 0s;
+			transition:all 0.4s ease 0s;
+		}
+		.card .title i:before{
+			display: block;
+			content: "";
+			position: absolute;
+			width: 0.1rem;
+			height: 0.1rem;
+			border-top: 1px solid #939393;
+			border-left: 1px solid #939393;
+			top:50%;
+			right:50%;
+			margin-right: -0.08rem;
+			margin-top: -0.03rem;
+			-webkit-transform:rotate(45deg);
+			transform:rotate(45deg);
+			-webkit-transform-origin: 38% 38%;
+			-moz-transform-origin: 38% 38%;
+			-ms-transform-origin: 38% 38%;
+			-o-transform-origin: 38% 38%;
+			transform-origin: 38% 38%;
+			
+		}
+		.card .title i.cur{
+			-webkit-transform:rotate(180deg);
+			transform:rotate(180deg);
+		}
+		.card .title.cur{
+			border-radius: 6px;
+		}
+		.card .content.cur{
+			padding:0;
+			height: 0;
+			border:none;
+
+		}
+		.share{
+			width: 100%;
+			color:#74b0fb;
+			font-size: 0.18rem;
+		}
+		.share h3{
+			margin: 0.5rem auto;
+			line-height: 0.4rem;
+		}
+		.share h3 i{
+			display: inline-block;
+			width: 0.2rem;
+			height: 0.2rem;
+			background:url(images/yuerecruit/gou.png) no-repeat center center;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.share p{
+			width: 2.4rem;
+			margin: 0.5rem auto;
+			text-align: left;
+			color: #939393;
+			font-size: 0.14rem;
+		}
+		.share a{
+			display: block;
+			width: 2.4rem;
+			height: 0.4rem;
+			line-height: 0.4rem;
+			background-color: #74b0fb;
+			color:#fff;
+			margin: 0.5rem auto;
+			border-radius: 6px;
+		}
+		.cover{
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+			position: fixed;
+			top:0;
+			left:50%;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+			font-size: 0.16rem;
+		}
+		.cover .alert{
+			position: absolute;
+			width: 2.6rem;
+			height: 1.2rem;
+			top:1.5rem;
+			left:50%;
+			margin-left: -1.3rem;
+			background-color: #fff;
+			border-radius: 6px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			padding-top:0.3rem;
+		}
+		.cover .alert button{
+			font-size: 0.16rem;
+			width: 100%;
+			height: 0.4rem;
+			line-height: 0.4rem;
+			position: absolute;
+			left:0;
+			bottom: 0;
+			border-top: 1px solid #e1e1e1;
+			border-bottom-left-radius: 6px;
+			border-bottom-right-radius: 6px;
+			border-color: #f0f0f0;
+		}
+		.upload{
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.8);
+			position: fixed;
+			top:0;
+			left:50%;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+			font-size: 0.18rem;
+		}
+		.upload .alert{
+			font-size: 0.16rem;
+			width: 2.6rem;
+			height: 0.8rem;
+			line-height: 0.8rem;
+			background-color: #fff;
+			border-radius: 6px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			text-align: center;
+			position: absolute;
+			left:50%;
+			top:50%;
+			margin-top: -0.4rem;
+			margin-left: -1.3rem;
+		}
+		.loading:after {
+		    overflow: hidden;
+		    display: inline-block;
+		    vertical-align: bottom;
+		    -webkit-animation: ellipsis 2s infinite;
+		    -moz-animation: ellipsis 2s infinite;
+		    animation: ellipsis 2s infinite;
+		    content: "\2026"; /* ascii code for the ellipsis character */
+		}
+		@-moz-keyframes ellipsis {
+		    from {
+		        width: 2px;
+		    }
+		    to {
+		        width: 15px;
+		    }
+		}
+		@keyframes ellipsis {
+		  from {
+		    width: 2px;
+		  }
+		  to {
+		    width: 15px;
+		  }
+		}
+
+		@-webkit-keyframes ellipsis {
+		  from {
+		    width: 2px;
+		  }
+		  to {
+		    width: 15px;
+		  }
+		}
+		.wxshare{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top:0;
+			left: 0;
+			z-index: 99;
+			background-color:rgba(0,0,0,0.45);
+			font-size: 0.14rem;
+		}
+		.wxshare .alert{
+			width: 2.6rem;
+			height: 2.35rem;
+			background-color: #fff;
+			border-radius: 6px;
+			position: absolute;
+			top:50%;
+			left:50%;
+			-webkit-transform:translate3d(-50%,-50%,0);
+			transform:translate3d(-50%,-50%,0);
+			padding: 0.2rem 0.2rem;
+  			-webkit-box-sizing: border-box;
+  			box-sizing: border-box;
+  			line-height: 1.375;
+		}
+		.wxshare .alert i{
+			width: 0.16rem;
+			height: 0.16rem;
+			position: absolute;
+			top:0.1rem;
+			right:0.1rem;
+			background: url(images/yuerecruit/closebtn.png) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.wxshare .alert p{
+			margin: 0.15rem auto;
+		}
+		.color93{
+			color:#939393;
+			font-size: 0.12rem;
+		}
+		.color33{
+			color:#333;
+		}
+		.color63{
+			text-align: left;
+			color:#636363;
+		}
+		.wxshare .alert .sharepic{
+			width: 1.05rem;
+			height: 0.66rem;
+			margin: -0.05rem auto;
+			background: url(images/yuerecruit/sharepic.png) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.wxshare .alert em{
+			display: inline-block;
+			width: 0.15rem;
+			height: 0.14rem;
+			background: url(images/yuerecruit/sharebtn.png) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+	</style>
+</head>
+<body>
+	<section class="main">
+		<form>
+			<div><input class="inputName" type="text" name="name" placeholder="填写您的姓名" id="inputName"/></div>
+			<div class="inpout"><input class="inputNumber cur" type="text" name="phone" placeholder="输入您的手机号码" id="inputNumber" />
+			<p class="note hide">请输入正确的手机号码</p></div>
+			<div class="sex"><label class="man"><input type="radio" name="sex" value="0" />男</label><label class="woman"><input type="radio" name="sex" value="1" />女</label></div>
+			<label class="updaate">
+			<div class="avatarbg"><div class="avatar"></div></div>
+			<p class="photoSize"></p>
+			<span class="underline">传个靓照吧！</span><input type="file" class="hide" id="photoFile" /></label>
+		</form>
+		<button id="submit">立即加入</button>
+		<section class="whatis">
+			<div class="card">
+				<div class="title"><i></i>什么是陪练？</div>
+				<div class="content">我们不仅可以改善自己和他人的健康状况、搭建良好的社交关系，还能通过消耗卡路里获得收入。<br />如此简单又乐趣，你，何乐而不为呢？</div>
+			</div>
+			<div class="card">
+				<div class="title"><i></i>关于陪练</div>
+				<div class="content">陪练是这样的一群人，<br />他们热爱生活、追求运动的快乐；<br />他们专注于向有运动需求和社交需要的都市人群提供陪同锻炼的服务。<br />陪练倡导活力和新鲜的社交运动理念，从没有想过运动也可以如此别出心裁，还等什么，现在就出发！</div>
+			</div>
+			<p style="text-align:right;padding-right:0.1rem;"><a href="../appwebview/CoachQa" style="display: inline-block;height: 0.3rem;text-decoration:underline;">更多问题?</a></p>
+		</section>
+		<a class="back" href="yuerecruit.html?is_share=1&share_info=url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fyuerecruit.html%26img_url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fimages%252Ftouxiang1.png%26thumb_url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fimages%252Ftouxiang1.png%26title%3D%E4%BD%A0%E7%9A%84%E5%8D%A1%E8%B7%AF%E9%87%8C%E4%BC%9A%E8%B5%9A%E9%92%B1%26description%3D%E6%88%90%E4%B8%BA%E8%B6%A3%E8%BF%90%E5%8A%A8%E7%BA%A6%E7%BB%83%E7%9A%84%E4%B8%80%E5%91%98%EF%BC%8C%E5%90%8C%E6%97%B6%E4%BA%AB%E5%8F%97%E5%8D%A1%E8%B7%AF%E9%87%8C%E7%87%83%E7%83%A7%E5%92%8C%E8%8E%B7%E5%BE%97%E6%94%B6%E5%85%A5%E7%9A%84%E5%BF%AB%E4%B9%90%EF%BC%81" style="color:#fff;">返回</a>
+	</section>
+	<section class="share hide">
+		<h3><i></i>信息已提交！</h3>
+		<p>我们会尽快与你联系，请保持手机畅通<br />邀请好友成为陪练一员，还将获得丰厚奖励</p>
+		<!-- <a id="wxShareBtn" href="gosport://share_info?url=http%3A%2F%2Fm.quyundong.com%2Fstatic%2Fyuerecruit.html&img_url=http%3A%2F%2Fm.quyundong.com%2Fstatic%2Fimages%2Ftouxiang1.png&thumb_url=http%3A%2F%2Fm.quyundong.com%2Fstatic%2Fimages%2Ftouxiang1.png&title=你的卡路里会赚钱&description=成为趣运动约练的一员，同时享受卡路里燃烧和获得收入的快乐！">邀请好友一起陪练</a> -->
+		<a class="back" href="yuerecruit.html?is_share=1&share_info=url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fyuerecruit.html%26img_url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fimages%252Ftouxiang1.png%26thumb_url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fimages%252Ftouxiang1.png%26title%3D%E4%BD%A0%E7%9A%84%E5%8D%A1%E8%B7%AF%E9%87%8C%E4%BC%9A%E8%B5%9A%E9%92%B1%26description%3D%E6%88%90%E4%B8%BA%E8%B6%A3%E8%BF%90%E5%8A%A8%E7%BA%A6%E7%BB%83%E7%9A%84%E4%B8%80%E5%91%98%EF%BC%8C%E5%90%8C%E6%97%B6%E4%BA%AB%E5%8F%97%E5%8D%A1%E8%B7%AF%E9%87%8C%E7%87%83%E7%83%A7%E5%92%8C%E8%8E%B7%E5%BE%97%E6%94%B6%E5%85%A5%E7%9A%84%E5%BF%AB%E4%B9%90%EF%BC%81" style="color:#fff;">返回</a>
+	</section>
+	<section class="cover hide">
+		<div class="alert">
+			<p id="alertNote">该手机号已提交，请勿重复操作</p>
+			<button id="closeCover">确定</button>
+		</div>
+	</section>
+	<section class="upload hide">
+		<div class="alert"><span class="loading">上传中</span></div>
+	</section>
+	<section class="wxshare hide">
+		<div class="alert"><i class="close"></i>
+			<p class="color33">邀请好友加入吧！<br />一起用卡路里换取更多的快乐！</p>
+			<p class="color63"><span class="color93">分享步骤：</span><br />1、点击右上角图标 <em></em><br />2、选择分享给朋友或者朋友圈</p>
+			<div class="sharepic"></div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/zeptoWithFx.min.js"></script>
+	<script src="js/mobileFix.mini.js"></script>
+	<script src="js/exif.js"></script>
+	<script src="js/lrz.js"></script>
+	<script type="text/javascript" src="js/coach.js?ver=1.09"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var $windowWidth = $(window).width();
+			setTimeout(function(){
+				$windowWidth = $(window).width();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+			},100);
+			
+
+			$(window).resize(function(){
+				$windowWidth = $(window).width();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+			});
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+extends mobile_layout
+block headContent
+  script(src="/js/mobile/zeptoWithFx.min.js")
+  script(src="/js/mobile/mobileResponsive.js")
+block content
+  link(href="/css/mobile/error/stylesheets/error.css",type="text/css",rel="stylesheet")
+  .loading#loading(data-lock="1")
+    .loading-icon
+  .main.hide
+      .icon-404
+        img(src='/images/mobile/error/404.png')
+      h2 页面出错了～
+      a.btn(onclick='window.history.back()') 返回上一页
+  script.
+    window.onload = function  () {
+      var loadInterval = setInterval(function() {
+        if($(".loading").attr("data-lock") == 1){
+           $(".loading").addClass("hide");
+           $(".main").removeClass("hide");
+           clearInterval(loadInterval);
+        }
+      },500);
+    }

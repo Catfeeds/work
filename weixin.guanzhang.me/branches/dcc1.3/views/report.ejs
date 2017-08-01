@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN" ng-app="report">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta content="telephone=no" name="format-detection" />
+		<title>馆掌微信报表</title>
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_1457495392_3053968.css" />
+		<link rel="stylesheet" href="css/main.css" />
+		<script>
+			var ver = '2.0',
+				deviceWidth = document.documentElement.clientWidth;
+			deviceWidth = deviceWidth>640?640:deviceWidth;
+			document.documentElement.style.fontSize = deviceWidth / 6.4 + 'px';
+			window.addEventListener('resize', function(){
+				deviceWidth = document.documentElement.clientWidth;
+				deviceWidth = deviceWidth>640?640:deviceWidth;
+				document.documentElement.style.fontSize = deviceWidth / 6.4 + 'px';
+			})
+		</script>
+		<script src="js/angular.all.min.js"></script>
+		<script src="js/chart/chart.min.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+	<body>
+		<!--view-->
+			<div id="view" ng-view></div>
+		<!--全局提示-->
+	        <div id="tips" ng-show="tipsShow" ng-controller="tipsCtrl">
+	        	<span ng-bind-html="tipsWord"></span>
+	        </div>
+		<!--加载等待-->
+			<div id="loading" class="ng-hide" ng-show="loadShow">
+				<img src="img/loading.gif" width="30" height="30" />
+			</div>
+		<!--公共背景层-->
+			<div id="js-bg" ng-click="bgFun()" ng-show="bgShow"></div>
+		<!--百度统计-->
+	        <script>
+				var _hmt = _hmt || [];
+				(function() {
+				  var hm = document.createElement("script");
+				  hm.src = "//hm.baidu.com/hm.js?35b4827d5110e44e20389f9835c2fca2";
+				  var s = document.getElementsByTagName("script")[0]; 
+				  s.parentNode.insertBefore(hm, s);
+				})();
+			</script>
+	</body>
+</html>

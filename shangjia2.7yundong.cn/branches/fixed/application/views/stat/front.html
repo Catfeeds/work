@@ -1,0 +1,182 @@
+<!-- 搜索模块 start -->
+<form action="">
+    <div class="bbs-header">
+        <div class="filter-control">
+            <div class="filter-radio">
+                <label>
+                    <input type="radio" name="statTimeType" value="1"  <?php if($statTimeType==1) echo "checked"; ?> /><em> </em><span>收款时间</span>
+                </label>
+            </div>
+            <div class="filter-radio">
+                <label>
+                    <input type="radio" name="statTimeType" value="2"  <?php if($statTimeType==2) echo "checked"; ?> /><em> </em><span>消费时间</span>
+                </label>
+            </div> 
+        </div>
+        <div class="filter-control">
+            <!-- 日期选择插件 -->
+            <div class="filter-time"><span id="timeStart" class="btn-bdru"><?php echo $startDate;?>
+                <i class="glyphicon glyphicon-chevron-down"></i></span><em>至</em><span id="timeEnd" class="btn-bdru"><?php echo $endDate; ?>
+                <i class="glyphicon glyphicon-chevron-down"></i></span><input id="reservation" type="text" readonly value="<?php echo $startDate .' - '. $endDate; ?>">
+            </div>
+            <script>
+                $(document).ready(function () {
+                    $('#reservation').daterangepicker({
+                        locale:{
+                            applyLabel: '确认',
+                            cancelLabel: '取消',
+                            fromLabel: '从',
+                            toLabel: '到',
+                            weekLabel: 'W',
+                            customRangeLabel: 'Custom Range',
+                            daysOfWeek:["日","一","二","三","四","五","六"],
+                            monthNames: ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"]
+                        }
+                    }, function (start, end, label) {
+                        var t1 = new Date(start.toString());
+                        var t2 = new Date(end.toString());
+                        var txt1 = t1.format('yyyy-MM-dd');
+                        var txt2 = t2.format('yyyy-MM-dd');
+                        $("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                        $("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+                        $('#startDate').val(txt1);
+                        $('#endDate').val(txt2);
+                    });
+                    
+                 // 给导出结算记录按钮绑定事件
+                    $("#export_business_btn").click(function () {
+                        var accountType = $("input[name=statTimeType]:checked").val();
+                        var startDate =  $("#startDate").val();
+                        var endDate =  $("#endDate").val();
+                        var href = $(this).attr("data-href") + "?export=1&startDate=" + startDate + "&endDate=" + endDate + "&accountType=" + accountType;
+                        href += "&area=" + $("#area").val() + "&operator=" + $("#operator").val();
+                      	$(this).attr("href", href);
+                        setTimeout(function () {
+                            $("#export_business_btn").attr('href', 'javascript:void(0);');
+                        }, 0)
+                    });
+                });
+            </script>
+        </div>
+        <input type="text" hidden id="startDate" name="startDate" value="<?php echo $startDate;?>">
+        <input type="text" hidden id="endDate" name="endDate" value="<?php echo $endDate;?>">
+        <!-- 日期选择插件 end -->
+        <div class="filter-control form-inline">
+            <div class="filter-check">
+                <label for="">所在区域：</label>
+                <select name="area" id="area" class='form-control'>
+                	<option value="-1" <?php if(-1 == $area)  {echo 'selected="selected"';}?> >全部</option>
+                	<option value="0" <?php if(0 == $area)  {echo 'selected="selected"';}?> >趣运动</option>
+                <?php
+                foreach ($operat_area_list as $key=>$value){
+                ?>
+                    <option value="<?=$value?>" <?php if($value == $area)  {echo 'selected="selected"';}?> ><?=$value?></option>
+                <?php }?>    
+                </select>
+            </div>
+        </div>
+        <div class="filter-control form-inline">
+            <div class="filter-check">
+                <label for="">操作人员：</label>
+                <select name="operator" id="operator" class='form-control'>
+                	<option value="">全部</option>
+                <?php
+                foreach ($operators_list as $key=>$value){
+                ?>
+                    <option value="<?=$value?>" <?php if($value == $operator)  {echo 'selected="selected"';}?>><?=$value?></option>
+                <?php }?> 
+                </select>
+            </div>
+        </div>
+        <div class="filter-control">
+             <div class="btn search-btn btn-bdru btn-sj-blue" onclick="$('form').submit();"><span>查询</span></div>
+              <a href="javascript:void(0);" data-href="/stat/front" class="search-btn btn-sj-blue btn-bdru btn btn-default" id="export_business_btn" >导出</a> 
+        </div>
+    </div>
+    
+</form>
+<!-- 搜索模块 end -->
+<h1>多前台收入</h1>
+<ul class="consume-container">
+    <li>
+        <div>
+            <div><img src="/static/images/consume-icon1.png" alt=""></div>
+            <div>
+                <p><?=$total_info['payable_amount']?></p>
+                <p>应收合计(元)</p>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div>
+            <div><img src="/static/images/consume-icon2.png" alt=""></div>
+            <div>
+                <p><?=$total_info['apay_amount']?></p>
+                <p>实收合计(元)</p>
+            </div>
+        </div>
+    </li>
+</ul>
+<div class="consume-detail">
+    <?php
+        $pay_stat = '( ';
+        foreach(helper_StatHelper::PAY_MODE AS $k=>$v){
+			$info = isset($pay_mode_list[$k]) && isset($pay_mode_list[$k]) ? $pay_mode_list[$k] : 0;
+         $pay_stat .= '<span>'.$v . ' : '. $info .'</span>';
+    }
+    echo $pay_stat.')';
+    ?>
+</div>
+<div class="body-table stage-table">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>收款时间</th>
+                <th>所在区域</th>
+                <th>订单类型</th>
+                <th>收款类型</th>
+                <th>应付金额</th>
+                <th>实付金额</th>
+                <th>支付方式</th>
+                <th>操作员</th>
+            </tr>
+        </thead>
+        <tbody>
+         <?php
+                foreach ($list as $key=>$value){
+         ?>
+            <tr>
+                <td><?= date("Y-m-d H:i:s", $value['pay_time'])?></td>
+                <td><?php echo $value['operate_area_name'] =="" && $value['qyd_order_code'] !="" ? StatController::DEFALULT_FRONT : $value['operate_area_name'] ;?></td>
+                <td><?php echo helper_StatHelper::ORDER_TYPE[$value['order_type']];?></td>
+                <td><?php echo helper_StatHelper::INCOME_TYPE[$value['income_type']];?></td>
+                <td><?=$value['payable_amount']?></td>
+                <td><?=$value['apay_amount']?></td>
+                <td><?php echo helper_StatHelper::PAY_MODE[$value['pay_mode']];?></td>
+                <td><?=$value['create_by']?></td>
+            </tr>
+          <?php }?>
+        </tbody>
+    </table>
+    
+     <!-- 分页插件 -->
+		<?php if ($page['totalPage'] > 1) { ?>
+		<div id="pagination" data-page="<?= $page['totalPage']; ?>" data-current="<?= $page['currentPage']; ?>" class="pagination-container">
+			<div class="pagination"></div>
+			<div class="pagination-go">
+				<span class="totalPage">共<?= $page['totalPage']; ?>页</span>
+				<span class="btn-bdru"><i>第</i>
+				<input class="page" type='text'/><i>页</i></span>
+				<span class="go">GO</span>
+			</div>
+		</div>
+		<script type='text/javascript'>
+			$(function(){
+				 var calFn1 = function (p) {
+					window.location.href = "<?= $page['url']; ?>" + p;
+				};
+				createPageFn($("#pagination"), calFn1);
+			});
+			</script>
+		<?php } ?>
+</div>

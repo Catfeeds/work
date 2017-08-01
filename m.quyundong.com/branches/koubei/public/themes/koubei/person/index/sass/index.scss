@@ -1,0 +1,113 @@
+@import '../../../../koubei/sass-lib/reset';
+@import '../../../../koubei/sass-lib/common';
+@import '../../../../koubei/sass-lib/base';
+
+
+.person-index-bar{
+  width: 100%;
+  height: pxToRem(90px);
+  line-height: pxToRem(90px);
+  font-size: 0;
+  position: relative;
+  background-color: #fff;
+  @include box-sizing(border-box);
+  text-align: left;
+  a.person-index-bar-select{
+    font-size: pxToRem(30px);
+    color:#000;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    @extend %text-overflow;
+    &.cur:after{
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: $kouBeiRed;
+      position: absolute;
+      bottom:0;
+      left:0;
+    }
+  }
+  .person-index-bar-arr{
+    width: pxToRem(120px);
+    height: pxToRem(90px);
+    line-height: pxToRem(90px);
+    display: inline-block;
+    position: absolute;
+    right:0;
+    top:0;
+    text-align: center;
+    background-color: #fff;
+    @include transition(all 0.3s ease-out 0s);
+    &.l{
+      @include transform(scaleX(-1));
+    }
+    &:active i{
+      background: transparent url('/themes/koubei/person/index/images/arr_right_active.png') 0 0 / cover no-repeat;
+    }
+    i{
+      width: pxToRem(38px);
+      height: pxToRem(38px);
+      border-top: pxToRem(24px) solid transparent;
+      display: inline-block;
+      background: transparent url('/themes/koubei/person/index/images/arr_right.png') 0 0 / cover no-repeat;
+
+    }
+  }
+}
+.person-index-ticket{
+  width: pxToRem(690px);
+  @include box-sizing(border-box);
+  margin:pxToRem(30px) auto;
+  padding:pxToRem(30px);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  min-height: pxToRem(180px);
+  background-color: #fff;
+  // background: transparent url('/themes/koubei/person/index/images/ticket.png') right bottom  no-repeat;
+  @include background-size(1.23rem.77rem);
+  position: relative;
+  a.pay{
+      display: inline-block;
+      font-size: pxToRem(26px);
+      padding:pxToRem(10px) pxToRem(20px);
+      position: absolute;
+      color:$kouBeiRed;
+      border: 1px solid $kouBeiRed;
+      background-color: #fff;
+      bottom:pxToRem(30px);
+      right:pxToRem(30px);
+      border-radius: 3px;
+      &:active:not([disabled]){
+        color:$kouBeiRed;
+        background-color: rgba(251, 101, 101 , 0.5 );
+      }
+      &[disabled]{
+        // background-color: #ddd;
+        border: 1px solid #ddd;
+        color:#888;
+        &:after,&:before{
+          content:'　';
+        }
+      }
+    }
+  .person-index-ticket-title{
+    font-size: pxToRem(34px);
+    color:#000;
+    padding-bottom:pxToRem(30px);
+    text-align: left;
+    position: relative;
+  }
+  .person-index-ticket-info{
+    font-size: pxToRem(24px);
+    color:#888;
+    text-align: left;
+    margin-bottom: pxToRem(20px);
+  }
+  .person-index-ticket-title-price{
+    font-size: pxToRem(34px);
+    color:$kouBeiRed;
+    text-align: left;
+  }
+}

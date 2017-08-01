@@ -1,0 +1,269 @@
+@import "compass/reset";
+@import "compass/css3";
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+    width: 100%;
+    height: 100%;
+    font-size: 100px;
+    overflow-x: hidden;
+    overflow: auto;
+    background-color: #f5f5f9;
+    line-height: 1.375;
+}
+
+body {
+    @include user-select(none);
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    max-width: 750px;
+    font-size: 0.24rem;
+    text-align: center;
+    background-color: #f5f5f9;
+    font-size: 0.12rem;
+    color: #000;
+    @include box-sizing(border-box);
+}
+
+input {
+    -webkit-box-sizing: border-box;
+}
+
+a,
+input,
+lable,
+button,
+div {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none;
+}
+
+a,
+a:hover,
+a:visited {
+    text-decoration: none;
+    color: #000;
+}
+
+.hide {
+    display: none !important;
+}
+
+input::-ms-input-placeholder {
+    text-align: center;
+    color: #a9a9a9;
+}
+
+input::-webkit-input-placeholder {
+    text-align: center;
+    color: #a9a9a9;
+}
+
+img {
+    width: 100%;
+}
+
+.loading {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #f5f5f9;
+    z-index: 99999;
+}
+
+.loading-icon {
+    width: 0.6rem;
+    height: 0.6rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -0.3rem;
+    margin-left: -0.3rem;
+    background: url(/static/images/loading.png) no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    -webkit-animation: rotate360 1s linear 0s infinite;
+    -moz-animation: rotate360 1s linear 0s infinite;
+    animation: rotate360 1s linear 0s infinite;
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+    from {
+        transform: rotateZ(0deg);
+    }
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes rotate360 {
+    from {
+        -webkit-transform: rotateZ(0deg);
+        transform: rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+        transform: rotateZ(360deg);
+    }
+}
+
+@-webkit-keyframes rotate360 {
+    from {
+        -webkit-transform: rotateZ(0deg);
+    }
+    to {
+        -webkit-transform: rotateZ(360deg);
+    }
+}
+
+img {
+    width: 100%;
+}
+
+@import "form";
+
+$lineHei : 1.375;
+
+.main{
+    padding-bottom:0.2rem;
+}
+
+.status-info {
+    padding: 0 0.15rem;
+    background: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    .status-title {
+        font-size: 0.15rem;
+        color: #222;
+        line-height: 3.6;
+    }
+    .status-table {
+        font-size: 0.14rem;
+        color: #666;
+        tr {
+            &:nth-of-type(2) {
+                color: #222;
+            }
+            td {
+                width: 25%;
+                text-align: center;
+                border: 1px solid #e6e6e6;
+                padding: 0.05rem;
+            }
+        }
+    }
+    .status-more {
+        text-align: right;
+        font-size: 0.12rem;
+        color: #666;
+        line-height: 3.333;
+    }
+}
+
+.status-detail {
+    background: #fff;
+    margin-top: 0.15rem;
+    padding:0 0.15rem;
+    text-align:left;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    .status-time{
+        padding-top:0.05rem;
+        span{
+            display:inline-block;
+            color:#fff;
+            background:#ff8d25;
+            width:0.2rem;
+            height:0.2rem;
+            border-radius:0.03rem;
+            line-height:$lineHei;
+            margin:0 0.04rem;
+        }
+    }
+    .status-tip{
+        font-size:0.12rem;
+        color:#666;
+        line-height:1.6;
+        border-bottom: 1px solid #e6e6e6;
+        padding-bottom:0.1rem;
+    }
+    .status-time,.status-member{
+        color:#222;
+        text-align:center;
+        font-size:0.14rem;
+        line-height:2.6;
+    }
+    .status-member{
+        padding-bottom:0.1rem;
+        border-bottom: 1px solid #e6e6e6;
+        div{
+            padding:0.1rem 0;
+        }
+        ul{
+            line-height:1.6;
+            li{
+                span{
+                    display: inline-block;
+                    width:5em;
+                    text-overflow: ellipsis;
+                    white-space:nowrap; 
+                    overflow:hidden;
+                    vertical-align:middle;
+                    text-align:left;
+                }
+            }
+            &:after{
+                content:"";
+                display:block;
+                clear:both;
+            }
+        }
+        &:last-child{
+            border-bottom:none;
+        }
+    }
+    .status-mark{
+        color:#666;
+        font-size:0.12rem;
+        padding:0.1rem 0;
+        line-height:1.6;
+    }
+    .status-th{
+        text-align:left;
+    }
+}
+
+.status-space60{
+    height:0.6rem;
+}
+
+.status-tel {
+    background:#fff;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    border-top:1px solid #e6e6e6;
+    padding:0.1rem 0;
+    div{
+        margin:0 0.5rem;
+        font-size:0.14rem;
+        color:#fff;
+        line-height:2.85;
+        background:#ff8d26;
+        border-radius:0.05rem;
+    }
+    .status-disable{
+        background:#999;
+    }
+}

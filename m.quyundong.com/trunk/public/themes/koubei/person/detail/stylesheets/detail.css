@@ -1,0 +1,432 @@
+/* line 5, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../../../sass-lib/reset.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #f5f5f9;
+  line-height: 1.375;
+}
+
+/* line 17, ../../../sass-lib/reset.scss */
+body {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f5f5f9;
+  font-size: 0.12rem;
+  color: #000;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 31, ../../../sass-lib/reset.scss */
+input {
+  -webkit-box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+/* line 39, ../../../sass-lib/reset.scss */
+a,
+input,
+lable,
+button,
+div {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* line 48, ../../../sass-lib/reset.scss */
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+
+/* line 54, ../../../sass-lib/reset.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 58, ../../../sass-lib/reset.scss */
+input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+/* line 62, ../../../sass-lib/reset.scss */
+input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+/* line 66, ../../../sass-lib/reset.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f9;
+  z-index: 99999;
+}
+
+/* line 75, ../../../sass-lib/reset.scss */
+.loading-icon {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 124, ../../../sass-lib/reset.scss */
+img {
+  width: 100%;
+}
+
+/* line 149, ../../../sass-lib/reset.scss */
+.main {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 5, ../../../sass-lib/_common.scss */
+.borderBottom1px:after, .borderTop1px:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  -moz-transform: translateY(0.5);
+  -ms-transform: translateY(0.5);
+  -webkit-transform: translateY(0.5);
+  transform: translateY(0.5);
+  background-color: #ddd;
+  z-index: 99;
+}
+
+/* line 16, ../../../sass-lib/_common.scss */
+.borderRight1px:before, .borderLeft1px:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  -moz-transform: translateX(0.5);
+  -ms-transform: translateX(0.5);
+  -webkit-transform: translateX(0.5);
+  transform: translateX(0.5);
+  background-color: #ddd;
+  z-index: 99;
+}
+
+/* line 58, ../../../sass-lib/_common.scss */
+.borderBottom1px:after {
+  left: 0;
+  bottom: 0;
+}
+
+/* line 66, ../../../sass-lib/_common.scss */
+.borderTop1px:before {
+  left: 0;
+  top: 0;
+}
+
+/* line 73, ../../../sass-lib/_common.scss */
+.borderRight1px:before {
+  right: 0;
+  top: 0;
+}
+
+/* line 81, ../../../sass-lib/_common.scss */
+.borderLeft1px:before {
+  left: 0;
+  top: 0;
+}
+
+/* line 88, ../../../sass-lib/_common.scss */
+.koubei-button-white {
+  display: block;
+  width: 3.45rem;
+  height: 0.42rem;
+  line-height: 0.42rem;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+  font-size: 0.17rem;
+  border-radius: 0.05rem;
+}
+/* line 99, ../../../sass-lib/_common.scss */
+.koubei-button-white:active {
+  background-color: #ddd;
+}
+
+/* line 104, ../../../sass-lib/_common.scss */
+.icon-right {
+  display: block;
+  width: 0.06rem;
+  height: 0.11rem;
+  position: absolute;
+  top: 50%;
+  right: 0.15rem;
+  margin-top: -0.055rem;
+}
+/* line 112, ../../../sass-lib/_common.scss */
+.icon-right img {
+  display: block;
+  width: 100%;
+}
+
+/* line 126, ../../../sass-lib/_common.scss */
+.common-btn {
+  line-height: 0.42rem;
+  font-size: 0.18rem;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.05rem;
+  background-color: #fb6165;
+  margin: 0 0.15rem;
+}
+/* line 134, ../../../sass-lib/_common.scss */
+.common-btn.disable {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 137, ../../../sass-lib/_common.scss */
+.common-btn:active:not(.disable) {
+  background-color: #d95559;
+}
+
+/* line 142, ../../../sass-lib/_common.scss */
+.toast {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* line 151, ../../../sass-lib/_common.scss */
+.toast .toast-alert {
+  width: 2.35rem;
+  height: 1.3rem;
+  padding: 0 0.2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.65rem;
+  margin-left: -1.175rem;
+  border-radius: 6px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 167, ../../../sass-lib/_common.scss */
+.toast .toast-alert .toast-msg {
+  padding-top: 0.25rem;
+  height: 0.9rem;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 0.15rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: relative;
+}
+
+/* line 5, ../sass/detail.scss */
+body {
+  background-color: #fff;
+}
+
+/* line 8, ../sass/detail.scss */
+.person-detail-banner {
+  width: 100%;
+  height: 1.75rem;
+  font-size: 0;
+  background: #fff url("/themes/koubei/person/detail/images/no-pic.png") 0 0/cover no-repeat;
+}
+/* line 13, ../sass/detail.scss */
+.person-detail-banner .person-detail-banner-image {
+  width: 100%;
+  height: 100%;
+  background: transparent center center / cover  no-repeat;
+}
+
+/* line 19, ../sass/detail.scss */
+.person-detail-main {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.15rem;
+  padding-top: 0;
+  padding-bottom: 0.7rem;
+  background-color: #fff;
+}
+/* line 26, ../sass/detail.scss */
+.person-detail-main .person-detail-main-title {
+  width: 100%;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  text-align: center;
+  font-size: 0.17rem;
+  position: relative;
+}
+/* line 34, ../sass/detail.scss */
+.person-detail-main .person-detail-main-info {
+  text-align: left;
+  font-size: 0.15rem;
+  color: #888;
+}
+/* line 38, ../sass/detail.scss */
+.person-detail-main .person-detail-main-info .person-detail-main-info-h3 {
+  color: #000;
+  padding-top: 0.15rem;
+  padding-bottom: 0.1rem;
+}
+/* line 43, ../sass/detail.scss */
+.person-detail-main .person-detail-main-info .person-detail-main-info-textarea {
+  line-height: 1.6;
+}
+
+/* line 49, ../sass/detail.scss */
+.person-detail-bottom {
+  width: 100%;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+}
+/* line 57, ../sass/detail.scss */
+.person-detail-bottom a.pay {
+  display: block;
+  width: 3.45rem;
+  margin: 0.08rem auto;
+}

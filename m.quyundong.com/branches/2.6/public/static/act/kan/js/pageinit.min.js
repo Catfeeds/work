@@ -1,0 +1,11 @@
+function pageInit(b,a){if(/1000|900/i.test(b)){$(".pages").addClass("hide");$(".page4").removeClass("hide");loadingRemove();}if(/300|400|500|700|800/i.test(b)){$(".pages").addClass("hide");
+$(".page3").removeClass("hide");unablePlayButShow(b);}if(/200|600/i.test(b)){$(".pages").addClass("hide");$(".page1").removeClass("hide");playAndShow(a);
+loadingRemove();}if(b=="test"){$(".pages").addClass("hide");$(".check").removeClass("hide");$(".check").removeClass("hide");loadingRemove();}}function loadingRemove(){document.getElementById("loading").setAttribute("data-lock",document.getElementById("loading").getAttribute("data-lock")-0+1);
+}function getURLInformation(){var c={};if(window.location.href.split("#")[0].split("?")[1]){var b=window.location.href.split("#")[0].split("?")[1].split("&");
+}if(b){for(var a=0;a<b.length;a++){c[b[a].split("=")[0]]=b[a].split("=")[1]||"";}}return c;}function playmateShowURL(a){var b=[{url:"/static/act/kan/images/playmateshow1.jpg",height:"4.8rem",css:{top:" 1.8rem",left:"1.5rem","-webkit-transform":"rotateZ(0deg)"}},{url:"/static/act/kan/images/playmateshow2.jpg",height:"5.8rem",css:{top:" 1.9rem",left:"0.1rem","-webkit-transform":"rotateZ(-2.5deg)"}},{url:"/static/act/kan/images/playmateshow3.jpg",height:"5.45rem",css:{top:" 0.4rem",left:"0.4rem","-webkit-transform":"rotateZ(-25deg)"}}];
+if(a>0){return b[a-1];}}function getTicketImageURL(a){if(a==20){return"/static/act/kan/images/ticketyellow.png";}else{if(a==30){return"/static/act/kan/images/ticketblue.png";
+}else{if(a==40){return"/static/act/kan/images/ticketgreen.png";}else{if(a==50){return"/static/act/kan/images/ticketviolet.png";}else{if(a==60){return"/static/act/kan/images/ticketcyan.png";
+}}}}}}$(".btn").each(function(){$(this).on("touchstart",function a(c){$(this).addClass("change");});$(this).on("touchend",function b(c){$(this).removeClass("change");
+});});function activeShow(a){$(".active").addClass("playmate"+a);$(".active").animate({opacity:"1"},1000,"ease-out");}$(".btnHelp").click(function(){$(".share").removeClass("hide");
+});$(".btnHelps").click(function(){$(".share").removeClass("hide");});$(".share").click(function(){$(".share").addClass("hide");});$(".touchtip").on("touchmove",function(a){a.preventDefault();
+$(".touchtip").addClass("hide");});

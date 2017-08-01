@@ -1,0 +1,235 @@
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>订单列表</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="keywords" content="趣运动,在线预订,手机订场,订场优惠,羽毛球订场,足球场,游泳馆查询预订,去运动,订场神器">
+    <meta name="description" content="趣运动专注球场在线预订,羽毛球馆,足球场,网球场,球场在线预订,游泳馆查询预订,手机在线预订,运动场馆价格表,运动场馆优惠信息,去运动就上趣运动.">
+    <link rel="stylesheet" href="/themes/qu/css/qu.css?ver=1.92">
+    <link href="/themes/qu/css/qu_fe.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/themes/qu/js/zepto.min.js"></script>
+    <script type="text/javascript" src="/themes/qu/js/common.js?v=1.9.1"></script>
+    <link rel="stylesheet" href="/themes/qq/stylesheets/mobile-qq.css">
+    <script type="text/javascript" src="http://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+    <script type="text/javascript" src="/themes/qq/js/mobile-qq-menu.js?ver=20161111"></script>
+    <script type="text/javascript">
+    var utmSource = '';
+    </script>
+</head>
+
+<body>
+    <style>
+    body {
+        font-size: 12px;
+    }
+    
+    li p {
+        line-height: 25px;
+    }
+    
+    a:link,
+    a:hover,
+    a:visited {
+        text-decoration: none;
+    }
+    
+    .qu .page-order .order-bd .info-list .t {
+        width: 4rem;
+    }
+    
+    .info-list {
+        border: none !important;
+    }
+    
+    .info-list li {
+        height: 25px;
+    }
+    
+    .order_status {
+        float: right;
+        padding-right: 10px;
+        color: #666;
+    }
+    
+    .qu .page-order .order-bd .info-list .t {
+        margin-right: 0;
+    }
+    
+    .qu .page-order .order-bd .info-list img {
+        margin: 3px 10px 0 10px;
+        vertical-align: sub;
+    }
+    
+    .flw {
+        float: left;
+        width: 40%: overflow: hidden;
+        font-size: 12px;
+    }
+    
+    .frw {
+        float: right;
+        width: 40%;
+        font-size: 12px;
+    }
+    
+    .frw .c {
+        text-align: left;
+    }
+    
+    .btn-wrap a {
+        margin: 0 3px;
+    }
+    
+    .sr-content {
+        position: absolute;
+        top: 100px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #f5f5f9;
+    }
+    
+    #wrapper {
+        position: absolute;
+        left: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #scroller {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        width: 100%;
+    }
+    
+    #scroller ul:after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    
+    .qu .page-order .order-bd .info-list li:nth-of-type(3) .flw .c {
+        width: 8em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+    }
+    
+    .qu .page-order .order-bd .info-list .t {
+        margin-left: 0;
+    }
+    
+    .qu .page-order {
+        background-color: rgb(245, 245, 249);
+    }
+    
+    .loading {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #f5f5f9;
+        z-index: 99999
+    }
+    
+    .loading-icon {
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -30px;
+        margin-left: -30px;
+        background: url(/themes/qu201/images/loading.png) no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        -webkit-animation: rotate360 1s linear 0s infinite;
+        -moz-animation: rotate360 1s linear 0s infinite;
+        animation: rotate360 1s linear 0s infinite;
+        -webkit-transform-origin: 50% 50%;
+        -moz-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        -o-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+        z-index: 99
+    }
+    
+    @-moz-keyframes rotate360 {
+        from {
+            transform: rotateZ(0deg)
+        }
+        to {
+            transform: rotateZ(360deg)
+        }
+    }
+    
+    @keyframes rotate360 {
+        from {
+            -webkit-transform: rotateZ(0deg);
+            transform: rotateZ(0deg)
+        }
+        to {
+            -webkit-transform: rotateZ(360deg);
+            transform: rotateZ(360deg)
+        }
+    }
+    
+    @-webkit-keyframes rotate360 {
+        from {
+            -webkit-transform: rotateZ(0deg)
+        }
+        to {
+            -webkit-transform: rotateZ(360deg)
+        }
+    }
+    </style>
+    <div id="loading" data-lock="1" class="loading hide" style="background-color: transparent;">
+        <div class="loading-icon"></div>
+    </div>
+    <div class="qu">
+        <div class="page page-order page-orderList">
+            <div class="header fontfamily">
+                <div class="left"><a href="javascript:history.go(-1);" class="J_back"><i class="icon-back"></i></a></div>
+                <div class="center">
+                    <h1>我的订单</h1></div>
+                <div class="right mr10">
+                    <a class="pay-ok-right" href="<?= baf_CHtml::createUrl('/');?>">首页</a> </div>
+            </div>
+            <div class="order-hd">
+                <ul>
+                    <li><a href='<?= baf_CHtml::createUrl('/appwebview/pageView?id=myorder');?>'>待开始</a></li>
+                    <li class='cur'><a>全部</a></li>
+                </ul>
+            </div>
+            <div class="sr-content mobile-qq-myorder">
+                <div id="wrapper" style="visibility: visible;">
+                    <div class="touchscrollwrapper" style="overflow: hidden; position: relative; width: 100%; height: 380px;">
+                        <div class="touchscrollelement" style="width: 320px; margin: 0 auto;">
+                            <div id="scroller">
+                                <div class="order-bd" id="no_pay_list" style="text-align: center;"><img width="100%" src="/themes/qu/images/nodata@2x.png"></div>
+                            </div>
+                            <div class="err">
+                                <p class="J_err"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/themes/qu202/js/touchScroll.js"></script>
+    <script>
+    var loadInterval = setInterval(function() {
+        if ($(".loading").attr("data-lock") == "1") {
+            $(".loading").addClass("hide").css("background-color", "transparent");
+            clearInterval(loadInterval);
+        }
+    }, 500);
+    </script>
+</body>
+
+</html>

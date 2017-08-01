@@ -1,0 +1,318 @@
+@import 'compass/css3';
+$baseFontSize: 100px !default;
+$baseDpr: 2 !default;
+
+@function pxToRem($px) {
+  @return $px / $baseFontSize / $baseDpr * 1rem;
+}
+.header{
+  height: 0 !important;
+  border:none !important;
+  .left{
+    display: none;
+  }
+  .center{
+    display: none;
+  }
+  .right{
+    display: none;
+    &.mobile-qq.yue{
+      display: block;
+      color: #666;
+      font-size: 0.12rem;
+      z-index: 0;
+      @include transform(translateY(-110%));
+    }
+  }
+}
+
+.mobile-qq{
+  &.recharge-password,&.recharge-inputPw{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    .recharge-btnGroup{
+      p{
+        line-height: 5.5;
+      }
+      span{
+        border-radius: 50%;
+        border: 1px solid #aaa;
+        top:0.05rem;
+        right:0.05rem;
+        width: 0.2rem;
+        height: 0.2rem;
+      }
+    }
+    
+  }
+}
+.mobile-qq-payok{
+  &.btn-wrap2{
+    display: none;
+  }
+  &.payok-download{
+    display: none;
+  }
+  &.payok-toIndex{
+    display: none;
+  }
+}
+.mobile-qq-moneylog{
+  &.scroll{
+    top: 0.5rem;
+  }
+  &.money{
+    background-color: #e6e6e6;
+    color:#666;
+  }
+}
+#coupon_waper{
+  .mobile-qq-coupon{
+    &.header{
+      margin-bottom: 0;
+      .left{
+        display: none;
+        color: #000;
+        .icon-back{
+          border-bottom: 2px solid #000;
+          border-left: 2px solid #000;
+        }
+      }
+    }
+  }
+}
+.mobile-qq-coupon{
+  &.header{
+    margin-bottom: 40px;
+  }
+  &.right{
+    display: block;
+    padding-right: 1em;
+    .pay-ok-right{
+      color:#666;
+      position: relative;
+      font-size: 18px;
+      &:after{
+        content: '>';
+        
+      }
+    }
+    
+  }
+}
+
+.mobile-qq-myorder{
+  &.sr-content{
+    top:50px;
+  }
+}
+
+.mobile-qq-index{
+  &.web2{
+    padding-bottom: pxToRem(150px);
+  }
+  &.web2:after,&.web2:before{
+    display: block;
+    content: '本服务由趣运动提供';
+    position: absolute;
+    bottom:pxToRem(40px);
+    left:0;
+    height: pxToRem(70px);
+    width: 100%;
+    font-size: pxToRem(24px);
+    color:#666;
+  }
+  &.web2:before{
+    bottom:pxToRem(0px);
+    content: '客服电话：4000410480'
+  }
+  &.web2-banner {
+    display: none;
+  }
+  &.web2-header{
+    background-color: #e6e6e6;
+    .web2-headCity a{color:#222;}
+    .web2-center{
+      display: none;
+    }
+    .web2-headSearch-l{
+      display: none;
+    }
+    .web2-headWrap{
+      .web2-headSearch{
+        background-color: #fff;
+        color:#aaa;
+        input::-webkit-input-placeholder {
+            color: #aaa
+        }
+        .web2-headSearch-c input{
+          color:#000;
+        }
+        .web2-headSearch-r{
+          width: 0.6rem;
+          height: 0.6rem;
+          position: absolute;
+          right: 0.2rem;
+          top: 0rem;
+          z-index: 999999;
+          font-size: 0;
+          border: none;
+          opacity: 0.4;
+          &[style='color: rgb(255, 255, 255);']{
+            opacity: 1;
+          }
+          &:after{
+            position: absolute;
+            content: "";
+            display: block;
+            width: 0.23rem;
+            height: 0.23rem;
+            background:url('/themes/qq/images/icon-search.png') center center no-repeat;
+            @include background-size(1.2em auto);
+            top:50%;
+            left:50%;
+            margin-right: -0.12rem;
+            margin-top: -0.16rem;
+            font-size: 10px;
+          }
+        }
+      }
+    }
+    
+  }
+}
+.mobile-qq-search{
+  .web2-headCity{
+    display: none;
+  }
+}
+
+.mobile-qq-court{
+  &.header{
+    height: 0.44rem !important;
+    background-color: #e6e6e6;
+    .center{
+      display: block;
+      padding-top: 0.1rem;
+      color:#666;
+      div{
+        display: inline-block;
+        &:nth-of-type(1){
+          color:#222;
+          font-size: pxToRem(24px);
+        }
+        &:nth-of-type(3){
+          position: static;
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.mobile-qq-book{
+  &.book-container{
+    top:0.46rem;
+  }
+  &.book-order{
+    z-index: 99;
+  }
+}
+
+.mobile-qq-payok{
+  &.payok-download{
+    display: none;
+  }
+}
+
+.mobile-qq-comment{
+  &.user-comment-container{
+    top:0;
+  }
+}
+
+.mobile-qq-quzone{
+  &.qu-zone{
+    display: none;
+  }
+}
+
+.mobile-qq-hide{
+  display: none !important;
+}
+
+.mobile-qq-show{
+  display: block !important;
+}
+.mobile-qq-show-inline{
+  display: inline-block !important;
+}
+.mobile-qq-user-account{
+  &.login-header{
+    #bind_wx{
+      display: none !important;
+    }
+    .loginPassword{
+      display: none !important;
+    }
+  }
+  &.login-in{
+   display: none !important; 
+  }
+}
+.mobile-qq-menu{
+  position: fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  z-index: 99999999;
+  background-color: rgba(0,0,0,0.7);
+  ul{
+    position: absolute;
+    top:0;
+    right:0;
+    padding:0 (30px/2);
+    background-color: #fff;
+    color:#222;
+    li{
+      padding:(24px/2) 0;
+      border-bottom: 1px solid #e6e6e6;
+      &:last-of-type{
+        border-bottom: none;
+      }
+      a{
+        color:#222;
+        font-size: (28px/2);
+        text-decoration: none;
+        i{
+          display: inline-block;
+          vertical-align: sub;
+          margin-right: (30px/2);
+          width: (32px/2);
+          height: (32px/2);
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nm-photo-album{
+  .title-bar{
+    .close{
+      display: none !important;
+    }
+    .title{
+      display: none !important;
+    }
+    .number{
+      right: 50% !important;
+      @include transform(translate(50%)!important);
+    }
+  }
+}

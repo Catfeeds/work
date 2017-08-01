@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>确认购买</title>
+	<link rel="stylesheet" type="text/css" href="/static/equiment/plugin/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/equiment/css/ensure.css">
+    <script type="text/javascript" src="/static/equiment/plugin/jquery-2.1.1.min.js"></script>
+    <script>
+        var offWidth = window.screen.width/30;
+        document.getElementsByTagName("html")[0].style.fontSize = offWidth + 'px';
+    </script>
+    <style type="text/css">
+    	.show{display: block;}
+    	.hide{display: none;}
+		.chg-address{position: absolute;top:0;left: 0;width: 100%;height: 100%;z-index: 1000;background: #F4F4F8;}
+    </style>
+</head>
+<body>
+	<div class="ensure" id="ensure">
+		<!-- head -->
+	    <div class="head">
+	        <div class="glyphicon glyphicon-menu-left" onclick="javascript: window.history.back(-1);"></div>
+	        <div >确认购买</div>
+	        <div><img src="" style="display: none;"></div>
+	    </div>
+		<div class="sel-goods-property">
+			<div><img id="img" src=""></div>
+			<div class="have-sel">
+				<div id="goods_name" class="goods-name"></div>
+				<div id="goods_pro" class="goods-color"></div>
+				<div class="goods-price">
+					<span id="is_group" class="groud"></span>
+					<span id="price" class="price group-price"></span>
+					<span id="orgin_price" class="origin-price">原价 <span style="text-decoration: line-through;"></span></span>
+				</div>
+			</div>
+		</div>
+		<div class="goods-mount">
+			<div>购买数量</div>
+			<div id="number"></div>
+		</div>
+			<div class="default-address" id="default">
+				<div class="address-title" v-on:click="chgAddress">收货地址</div>
+				
+				<div class="send-address">
+					<div>
+						<div id="address_mobile"><?= !empty($address) ? $address['consignee'].' '.$address['mobile'] : '';?></div>
+						<div id="address_detail"><?= !empty($address) ? $address['address'] : '';?></div>
+					</div>
+					<div class="glyphicon glyphicon-menu-right"></div>
+				</div>
+				
+			</div>
+			<input type="hidden" name="delivery_id" id="delivery_id" value="<?=!empty($address['delivery_id']) ? $address['delivery_id'] : ''?>">
+		<div class="fooster">
+			<div class="all-price price"></div>
+			<div class="buy-now" onclick="doPay()">立即支付</div>
+		</div>
+		<!-- <iframe src="/UserAddress/index" v-bind:class="{'chg-address':true,hide:hideChg}">
+		  <p>您的浏览器不支持  iframe 标签。</p>
+		</iframe> -->
+		<div id="sel_address"  class="chg-address hide"></div>
+	</div>
+</body>
+<script type="text/javascript">
+	var data;
+	$(function(){
+		data = window.localStorage.getItem("pro");
+		if(data) data = JSON.parse(data);
+		console.log(data.pro);
+		if(data.pro.pic){
+			$('#img').attr('src',data.pro.pic);
+		}
+		if(data.pro.name){
+			$('#goods_name').html(data.pro.name);
+		}
+		if(data.sel_property){
+			$('#goods_pro').html(data.sel_property.join(' '));
+		}
+		if(data.group_id<1){
+			$('#is_group').hide();
+		}
+		if(data.pro.price){
+			$('.price').html(data.pro.price);
+		}
+		if(data.mount){
+			$('#number').html(data.mount);
+		}
+	})
+
+	function selectAddress(model){
+		console.log(model);
+		$('#delivery_id').val(model.id);
+		$('#address_mobile').html(model.mobile);
+		$('#address_detail').html(model.address);
+		closeAddress();
+
+	}
+
+	function closeAddress(){
+		$('#sel_address').addClass('hide');
+	}
+
+	function doPay(){
+		var param = {
+			goods_id:data.goods_id,
+			group_id:data.group_id,
+			pro_id:data.pro.pro_id,
+			number:data.mount,
+			delivery_id:$('#delivery_id').val()
+		}
+		if(!param.goods_id || !param.pro_id || !param.number || !param.delivery_id){
+			alert('参数错误');
+			return;
+		}
+		$.ajax({
+			url:'/order/doConfirmGoods',
+			method:'post',
+			data:param,
+			dataType:'json',
+			success:function(res){
+				if(res.status=='0000'){
+					var orderId = res.data.order_id;
+					window.location.href='/order/pay?id='+orderId;
+				}else{
+					var msg = res.msg ? res.msg : '系统繁忙';
+					alert(msg);
+				}
+			},
+			error:function(){
+				alert('系统繁忙');
+			}
+		})
+	}
+	
+	$("#default").click(function(event) {
+		$("#sel_address").removeClass('hide').load('/UserAddress/index?select=1');
+		console.log('here');
+	});
+	
+</script>
+</html>

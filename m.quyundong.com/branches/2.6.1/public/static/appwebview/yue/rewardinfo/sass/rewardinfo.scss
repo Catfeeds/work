@@ -1,0 +1,208 @@
+@import "compass/reset";
+@import "compass/css3";
+
+@mixin border1px-block {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  left:0;
+  @include transform(scaleY(0.5));
+}
+
+html{
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x:hidden; 
+  overflow: auto;
+  background-color:#f0f0f0;
+  line-height: 1.375;
+}
+body{
+  margin: 0 auto;
+  width: 3.2rem;
+  height: 100%;
+  max-width: 640px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+a,lable,button{-webkit-tap-highlight-color:rgba(0,0,0,0); }
+a,a:hover,a:visited{
+  text-decoration: none;
+  color: #000;
+}
+.hide{
+  display: none !important;
+}
+.yue-rei-main{
+  width: 100%;
+  font-size: 0.12rem;
+  color:#636363;
+  text-align: left;
+}
+
+.yue-rei-topinfo{
+  width: 100%;
+  background-color: #fff;
+  padding-left: 0.1rem;
+  @include box-sizing(border-box);
+  line-height: 0.43rem;
+  font-size: 0.16rem;
+  margin-bottom: 0.1rem;
+  position: relative;
+}
+.yue-rei-topinfo:after{
+  background-color: #cdcdcd;
+  bottom:0;
+  @include border1px-block;
+}
+
+.yue-rei-timeline{
+  width: 100%;
+}
+
+.yue-rei-timeline-data{
+  width: 100%;
+  background-color: #f9f9f9;
+  padding-left: 0.1rem;
+  @include box-sizing(border-box);
+  line-height: 0.3rem;
+  color:#939393;
+  font-size: 0.14rem;
+  position: relative;
+}
+.yue-rei-timeline-data:before{
+  background-color: #cdcdcd;
+  top:0;
+  @include border1px-block;
+}
+.yue-rei-timeline-data:after{
+  background-color: #cdcdcd;
+  bottom:0;
+  @include border1px-block;
+}
+
+.yue-rei-timeline-ul{
+  width: 100%;
+  background-color: #fff;
+  padding-left: 0.1rem;
+  @include box-sizing(border-box);
+  position: relative;
+}
+
+.yue-rei-timeline-ul:last-child{
+  
+}
+.yue-rei-timeline-ul:last-child:after{
+  background-color: #cdcdcd;
+  bottom:0;
+  @include border1px-block;
+}
+
+.yue-rei-timeline-li{
+  width: 100%;
+  line-height: 0.43rem;
+  display:-webkit-box;
+  -webkit-align-items: center;
+  -webkit-justify-content: center;
+  position: relative;
+}
+.yue-rei-timeline-li:after{
+  background-color: #cdcdcd;
+  bottom:0;
+  @include border1px-block;
+}
+
+.yue-rei-timeline-li:last-child:after{
+  display: none;
+}
+
+.yue-rei-timeline-li-name{
+  display:-webkit-box;
+  -webkit-align-items: center;
+  width: 33%;
+  font-size: 0.16rem;
+  color:#636363;
+  span{
+    display: inline;
+  }
+}
+
+
+.yue-rei-timeline-li-10,.yue-rei-timeline-li-20{
+  display:-webkit-box;
+  -webkit-box-flex:1;
+  -webkit-align-items: center;
+  color: #cdcdcd;
+  span{
+    display: inline;
+    border-radius: 2px;
+    border: 1px solid #cdcdcd;
+  }
+}
+.yue-rei-timeline-li-10.cur span,.yue-rei-timeline-li-20.cur span{
+  color:#f28f4c;
+  border-color: #f28f4c;
+}
+
+.yue-rei-more{
+  width: 100%;
+  height: 0.4rem;
+  background-color: #f9f9f9;
+  line-height: 0.4rem;
+  text-align: center;
+  color:#000;
+  font-size: 0.16rem;
+  margin:0.1rem auto 0;
+  position: relative;
+}
+.yue-rei-more:after{
+  @include border1px-block;
+  background-color: #cdcdcd;
+  top:0;
+}
+.yue-alert{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,0);
+  z-index: 99999999;
+  .info{
+    font-size: 0.16rem;
+    width: 60%;
+    height: 1.8rem;
+    padding-top: 0.4rem;
+    padding-left: 0.1rem;
+    padding-right: 0.1rem;
+    @include box-sizing(border-box);
+    line-height: 1.5;
+    text-align: center;
+    color:#fff;
+    position: absolute;
+    top:50%;
+    left:50%;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 6px;
+    @include transform(translate3d(-50%,-50%,0));
+    z-index: 99999999;
+  }
+  .close{
+    width: 0.8rem;
+    height: 0.3rem;
+    line-height: 0.3rem;
+    position: absolute;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    top:70%;
+    left:50%;
+    @include transform(translate3d(-50%,-50%,0));
+  }
+}

@@ -1,0 +1,19 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='./css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='./css/pc/stylesheets/official.css')
+  script(src='./js/jquery/jquery-1.8.3.min.js')
+block content
+  body
+    include ./_header
+    .main.w1180
+      h2 定制微信公众号
+      p 打造属于自己的服务+营销平台
+      .cb
+        img(src='/images/pc/v2/weixin.png')
+        .rb
+          h3 服务
+          p 订场、购买门票、充值会员卡、查询余额、消费记录...
+          h3 营销
+          p 公众号发布培训、比赛活动...
+    include ./_footer

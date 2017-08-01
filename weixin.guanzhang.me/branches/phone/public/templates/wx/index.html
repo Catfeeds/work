@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta content="telephone=no" name="format-detection" />
+		<title>馆掌</title>
+		<link rel="stylesheet" href="../css/wx/main.css" />
+	</head>
+	<body>
+		<div id="max">
+			<div id="container" ng-view></div>
+			<footer class="footer" ng-show="footerShow">
+				<div class="link dis-flex">
+					<a ng-href="#ucenter" class="dis-flex-1">我的场馆</a>
+					<a href="#/" class="dis-flex-1">馆掌产品</a>
+				</div>
+				<p>copyright 2015 馆掌版权所有 weixin.guanzhang.me </p>
+			</footer>
+			<!--
+	        	全局提示
+	        -->
+	        <div id="tips" ng-show="tipsShow" ng-controller="tips">
+	        	<span ng-bind-html="tips"></span>
+	        </div>
+			<!--公共确认框-->
+			<div id="js-confirm" ng-if="confirmShow" ng-class="{'show':confirmShow}">
+				<div class="t" ng-bind-html="confirmWord"></div>
+				<div class="c dis-flex">
+					<div class="dis-flex-1 l" ng-bind-html="confirmOkWord" ng-click="confirmOkFun()"></div>
+					<div class="dis-flex-1 r" ng-bind-html="confirmCancelWord" ng-click="confirmCancelFun()"></div>
+				</div>
+			</div>
+	        <div id="loading" ng-if="loadingShow">
+	        	<img src="../images/wx/loading.gif" />
+	        </div>
+			<!--公共背景层-->
+			<div id="js-bg" ng-click="bgFun()" ng-if="bgShow" ng-class="{'show':bgShow}"></div>
+		</div>
+		<div id="pageLoader">
+			<div class="loader">
+				<span class="loading-1"></span>
+				<span class="loading-2"></span>
+				<span class="loading-3"></span>
+			</div>
+		</div>
+    	<script src="../js/wx/loader/loader.min.js"></script>
+        <script>
+        	var root = '/',
+        		ver = '1.1',
+        		_loading = new loader(document.getElementById('pageLoader'));
+        </script>
+        <script src="../js/require/require.min.js" data-main="../js/wx/dist/config.js"></script>
+        <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?35b4827d5110e44e20389f9835c2fca2";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+
+	</body>
+</html>

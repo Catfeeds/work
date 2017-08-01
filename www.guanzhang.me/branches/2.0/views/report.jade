@@ -1,0 +1,27 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='./css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='./css/pc/stylesheets/report.css')
+  script(src='./js/jquery/jquery-1.8.3.min.js')
+block content
+  body
+    include ./_header
+    .main.w1180
+      h2 无漏洞管理
+      .cb.tll
+        img(src='/images/pc/v2/report-iphone.png')
+        .rb
+          img(src='/images/pc/v2/report-icon-light.png')
+          h3 灯控
+          p 付款开灯
+          img.rotateZ90(src='/images/pc/v2/icon-right.png')
+          p 付款开灯时长对应场地费
+      .cb.tlr
+        img(src='/images/pc/v2/report-web.png')
+        .lb
+          img(src='/images/pc/v2/report-icon-gate.png')
+          h3 门闸
+          p 凭票入闸
+          img.rotateZ90(src='/images/pc/v2/icon-right.png')
+          p 凭闸次数对应票款
+    include ./_footer

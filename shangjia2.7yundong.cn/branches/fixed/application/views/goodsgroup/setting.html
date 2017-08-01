@@ -1,0 +1,186 @@
+<link rel="stylesheet" href="/static/shangjia/css/admin.css?v=1.8">
+<link rel="stylesheet" href="/static/shangjia/css/shangjia.css?ver=20160815" type="text/css">
+<link rel="stylesheet" href="/static/shangjia/css/bindcourt.css?ver=20160815" type="text/css">
+<script type="text/javascript">
+    var cat_id = '<?php echo $cat_id; ?>';
+    var week = '<?php echo $week; ?>';
+</script>
+<script type="text/javascript" src="/static/shangjia/js/bindcourtsetting.js"></script>
+<div class="bind-header">
+    <div class="bind-nav"><span class="active">打包设置</span><a href="<?php echo "/Goodsgroup/index"; ?>"><span>场地打包</span></a></div>
+    <div class="form-inline clearfix">
+        <label class="sj-select-lb" style="margin-top: 30px;">
+            <i class="glyphicon glyphicon-chevron-down" style="font-size:16px;"></i>
+            <select id="cat_id_value" name="cat_id" onChange="changeCat()" class="sportselect fl form-control btn-bdru sj-select" style="margin-left: 0;">
+                <?php
+                foreach($cat_list as $key=>$value){
+                    ?>
+                    <option id="cat_id_<?php echo $key; ?>" link='/Goodsgroup/setting/?week=<?php echo $week; ?>&cat_id=<?php echo $key ?>' value="<?php echo $key; ?>" <?php if ($cat_id == $key) echo 'selected';?>><?php echo $value; ?></option>
+                    <?php
+                }
+                ?>
+            </select>
+        </label>
+    </div>
+    <div class="bind-title" style="padding-bottom:15px;"><span ><em style='background-color:#38b6b5;display:none;*display: inline-block;width: 10px;height: 10px;margin-right: 10px;'></em>打包场地</span></div>
+</div>
+<div class="sj-date">
+    <ul>
+        <?php
+        $week_name = array('0'=>'星期日','1'=>'星期一','2'=>'星期二','3'=>'星期三','4'=>'星期四','5'=>'星期五','6'=>'星期六','7'=>'节假日');
+        //7天
+        for($i=0;$i<=7;$i++){
+
+            ?>
+            <li class="<?php echo $i == $week ? 'active' : ''; ?>"><a href="/Goodsgroup/setting/?week=<?php echo $i; ?>&cat_id=<?php echo $cat_id; ?>"><em><?php echo $week_name[$i]; ?></em></a></li>
+        <?php } ?>
+    </ul>
+</div>
+<?php if (!empty($course_list)){ ?>
+<div class="col-busi sj-table">
+    <div class="tablewrap l">
+        <ul class="areanamewrap"></ul>
+        <ul class="areatimewrap hide"></ul>
+        <table id="tableContainer"  class="time-table table-hover" cellspacing="4">
+
+            <tr>
+                <th class='sj-first-th' width="72"></th>
+                <?php
+                    foreach ($hour_list as $hour){
+                        $_last_hour = $hour;
+                ?>
+                <th><em><?php echo $hour; ?></em></th>
+                <?php } ?>
+                <th>
+                    <em>
+                        <?php
+                            if (!empty($hour)){
+                                list($last_hour, $last_hour_suffix) = explode(':', $hour);
+                                echo ($last_hour+1). ':'. $last_hour_suffix;
+                            }
+                        ?>
+                    </em>
+                </th>
+            </tr>
+            <!--循环场地-->
+            <?php foreach ($course_list as $course) { ?>
+                <tr class="">
+                    <td style="height:42px;padding:0px;" course_id="<?php echo $course['course_id']; ?>" class='sj-first-td'><?php echo $course['course_name'] ?></td>
+                    <?php
+                    $have_group    = false; // 如果存在打包
+                    $hour_counter  = 0; // 打包小时计数器(识别多少个小时为一组)
+                    $hour_bind_arr = array(); // 打包的小时数
+
+                    foreach ($hour_list as $hour) {
+                        if (isset($goods_group_setting_list[$course['course_id']])
+                            && !empty($goods_group_setting_list[$course['course_id']]['bind_list'])
+                        ) {
+                            $bind_list = $goods_group_setting_list[$course['course_id']]['bind_list'];
+                            foreach ($bind_list as $_bind_hours) {
+                                $_bind_hour_arr = explode(',', $_bind_hours);
+                                // 把小时值转为数值便于比较
+                                $_bind_hour_int_arr = array_map('intval', $_bind_hour_arr);
+                                $_bind_hour_count   = count($_bind_hour_arr);
+                                if (in_array(intval($hour), $_bind_hour_int_arr)) {
+                                    $have_group = true;
+                                    $hour_counter++;
+                                    $hour_bind_arr[] = $hour;
+                                    break;
+                                }
+                            }
+                        } else {
+                            $have_group   = false;
+                            $hour_counter = 0;
+                            $hour_bind_arr = array();
+                        }
+
+                        if ($have_group) {
+                            if ($hour_counter != $_bind_hour_count) {
+                                continue;
+                            }
+                        }
+                        ?>
+                        <?php
+                            $_time_explode_arr = explode(':', $hour);
+                            $_time_suffix = array_pop($_time_explode_arr);
+                        ?>
+                        <?php if ($have_group) { ?>
+                            <?php
+                                $_group_time_time_start = reset($hour_bind_arr);
+                                $_group_time_time_end = (intval(end($hour_bind_arr))+1). ':'. $_time_suffix;
+                            ?>
+                            <td colspan="<?php echo $_bind_hour_count; ?>" style="padding:0px;">
+                                <span course_id="<?php echo $course['course_id']; ?>" onmousedown="UnLockCourse(this, '<?php echo implode(',', $hour_bind_arr); ?>')" content="<?php echo $_group_time_time_start. '-'. $_group_time_time_end. ' '. $course['course_name']; ?>" class="td-cgsd-group"></span>
+                            </td>
+                            <?php
+                        } else { ?>
+                            <td>
+                            <span onmousedown="LockCourse(event,this)" content="<?php echo $hour. '-'. (intval($hour)+1). ':'. $_time_suffix. ' '. $course['course_name']; ?>" course_id="<?php echo $course['course_id']; ?>" course_name="<?php echo $course['course_name']; ?>" hour="<?php echo $hour; ?>"></span>
+                            </td>
+                        <?php } ?>
+
+                        <?php
+                        // 重置
+                        $have_group   = false;
+                        $hour_counter = 0;
+                        $hour_bind_arr = array();
+                        ?>
+
+                    <?php } ?>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
+</div>
+<?php }else {?>
+<div class="col-busi sj-table sj-noitem"><img src="/static/shangjia/images/noitem.png"><p>暂无数据</p></div>
+<?php } ?>
+<div class="col02-busi"></div>
+<div class="popbg"> </div>
+<div style="height: 260px;" class="pop-validorder2 tl pa">
+    <div class="top-validorder pr l"><span class="closepop cur pa"></span>
+        <h4>场地打包</h4>
+    </div>
+    <div class="mid-validorder l">
+        <div style="margin-top: 10px;" class="part02-preorder fl"></div>
+        <ul id="lock_preorder" style="width: 220px;" class="preorderul"></ul>
+        <span id="lockedSubmit" class="okbtn2 fr">确定打包</span>
+    </div>
+</div>
+<div class="bind-layer setting-edit">
+    <div class="bind-layer-header">
+        <div class="bind-layer-close fr"><img src="/static/shangjia/images/closebtn.jpg" alt=""></div>
+        <div class="bind-nav"><span>打包场地</span></div>
+    </div>
+    <div class="bind-layer-form">
+        <ul id="goods-group-list-setting-edit" class="order-list"></ul>
+        <div class="bind-tips">确定打包所有同时段场地吗？</div>
+        <div class="bind-sure" id="setting-edit-button" style="cursor:pointer;">确定</div>
+        <input type="hidden" name="goods_group_data" id="input_goods_group_data" />
+    </div>
+</div>
+<div class="bind-layer setting-delete">
+    <div class="bind-layer-header">
+        <div class="bind-layer-close fr"><img src="/static/shangjia/images/closebtn.jpg" alt=""></div>
+        <div class="bind-nav"><span>打包取消</span></div>
+    </div>
+    <div class="bind-layer-form">
+        <ul id="goods-group-list-setting-delete" class="order-list"></ul>
+        <div class="bind-tips">取消所有同时段场地打包吗？</div>
+        <div class="bind-sure" id="setting-delete-button" style="cursor:pointer;">确定</div>
+        <input type="hidden" id="setting-delete-course_id" />
+        <input type="hidden" id="setting-delete-hour" />
+        <input type="hidden" id="setting-delete-goods_group_ids" />
+    </div>
+</div>
+<!-- <div style="padding-top: 10px;" class="footer">
+    <div class="cnt">
+        <div>
+            <div class="link-w"></div>
+            <div class="site-info">Copyright © 2013-2014 7yundong.cn，All Rights Reserved<a
+                    href=" http://www.miibeian.gov.cn/publish/query/indexFirst.action"
+                    rel="nofollow">粤ICP备08114786号-1</a> 版权所有<a href="http://www.7yundong.cn/" target="_blank"
+                                                               rel="nofollow">广州柠蜜信息科技有限公司</a></div>
+        </div>
+    </div>
+</div> -->

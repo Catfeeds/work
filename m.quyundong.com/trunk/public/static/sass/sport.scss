@@ -1,0 +1,19 @@
+@import "compass/css3";
+@import "mods/reset";
+@import "mods/header";
+@import "mods/index";
+@import "mods/contact";
+@import "mods/join-us";
+
+body {
+	background: #fff;
+}
+.sport {
+	width: 1000px;
+	margin: 0 auto;
+}
+.clearfix:after {
+	clear: both;
+	display: table;
+	content: '';
+}

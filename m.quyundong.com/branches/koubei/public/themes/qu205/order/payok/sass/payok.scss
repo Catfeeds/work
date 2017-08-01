@@ -1,0 +1,169 @@
+@import "../../../includes/reset";
+@import "../../../sass-lib/header";
+body{
+	background-color:#fff;
+}
+.payok-logo{
+	padding-top:0.5rem;
+	img{
+		width:0.5rem;
+	}
+	p{
+		font-size:0.16rem;
+		color:#666666;
+		margin-top:0.05rem;
+	}
+}
+
+.payok-info-container{
+	text-align:left;
+	margin:0.6rem 0.15rem 0;
+	font-size:0.15rem;
+	ul{
+		li{
+			@include clearfix;
+			line-height:1.8;
+			>span{
+				float: left;
+				width:5em;
+				text-align:right;
+				margin-right:0.05rem;
+				color:#666;
+			}
+			>div{
+				overflow:hidden;
+				color:#222;
+			}
+		}
+	}
+}
+
+.payok-check{
+	margin:0.8rem 0.15rem 0;
+	background-color:#ff850d;
+	font-size:0.15rem;
+	color:#fff;
+	line-height:0.45rem;
+	border-radius:0.05rem;
+}
+
+.payok-toIndex{
+	font-size:0.15rem;
+	margin-top:0.28rem;
+	margin-bottom:0.1rem;
+	color:#009ff0;
+}
+
+.payok-download{
+	position: fixed;
+	bottom:0;
+	left:50%;
+	width:100%;
+	max-width:3.75rem;
+	transform:translateX(-50%);
+	-webkit-transform:translateX(-50%);
+	font-size:0;
+	span{
+		position:absolute;
+		top:0;
+		right:0;
+		width: 15%;
+    	height: 40%;
+	}
+}
+.payok-space{
+	height:0.7rem;
+}
+
+.tips-wrap {
+    color: #343f5f;
+    font-size: 0.15rem;
+    margin-bottom: 0.1rem;
+    .color-tips {
+        padding: 0.2rem 0;
+        font-size:0.2rem;
+        img {
+            width: 0.28rem;
+            height: 0.28rem;
+            margin-right: 0.05rem;
+            vertical-align: top;
+        }
+    }
+}
+
+.order-item {
+    width: 90%;
+    margin: 0.15rem;
+    border: 1px solid #dfdfdf;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background: #fff;
+    li {
+        text-align: left;
+        border-bottom: 1px solid #d5e5ef;
+        padding:0 0.1rem;
+        height:0.36rem;
+        line-height:0.36rem;
+        overflow: hidden;
+        &:last-of-type{
+            border-bottom:none;
+        }
+        p {
+            color: #939393;
+            font-size: 0.15rem;
+            a{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.order-bottom {
+    width: 90%;
+    margin: 0.2rem auto 0;
+    p{
+        font-size: 0.13rem;
+        line-height: 150%;
+        color: #939393;
+        text-align: left;
+    }
+    .btn-wrap2{
+        width:2.7rem;
+        margin:0 auto;
+    }
+    .btn-blue,.btn-orange{
+        width:100%;
+        padding: 0.1rem 0;
+        color: #fff;
+        display: inline-block;
+        border-radius: 3px;
+        font-size:0.15rem;
+    }
+    .btn-blue {
+        background: #01c1eb;
+    }
+    .btn-orange {
+        background: #f2ac59;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

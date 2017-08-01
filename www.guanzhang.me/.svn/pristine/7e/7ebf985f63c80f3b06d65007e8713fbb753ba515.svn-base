@@ -1,0 +1,9 @@
+div(style='display:none;')
+  script.
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?d85aa0895414a871a154e571b0e84213";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui" />
+	<title>趣运动柠檬榜</title>
+	<script type="text/javascript" src="js/zeptoWithFxTouch.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style type="text/css">
+
+	
+		button{
+			display: block;
+			margin: 10px auto;
+			width: 80px;
+			height: 30px;
+			border-radius: 4px;
+			border: 0px solid #000;
+			background-color: gold;
+		}
+		body,html{
+			width: 100%;
+			height: 100%;
+			text-align: center;
+		}
+		section.cover{
+			position: fixed;
+			z-index: 9999;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.6);
+			display: none;
+		}
+		#tip{
+			display: none;
+			width: 87%;
+			height: 130px;
+			border-radius: 3px;
+			background-color: pink;
+			position: absolute;
+			top:200px;
+			left:50%;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+
+		}
+
+		#tip p{
+			padding-top: 34px;
+			text-align: center;
+
+		}
+		#tip button{
+			background-color: #f09029;
+			width:87%;
+			height: 40px;
+			line-height: 40px;
+			position: absolute;
+			bottom: 12px;
+			display: block;
+			left:50%;
+			border-radius: 3px;
+			border: 0px solid #000;
+			color: #fff;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+			
+		}
+		.svg{
+			width: 300px;
+			height: 300px;
+			background:url(images/hg.svg) no-repeat;
+		}
+	</style>
+</head>
+<body>
+	
+		<button id="fixedpagesubmit">更新参赛者资料接口</button>
+		<input type="text" id="she" /> -
+		<input type="text" id="second" />
+		<button id="onesubmit">射柠檬接口</button>
+		<button id="towsubmit">微博分享成功跳转地址接口</button>
+		<button id="submit">分享成功后增加柠檬数接口</button>
+		<button id="applesubmit">获取用户信息</button>
+		<button id="wenxinapplesubmit">微信分享朋友分享增加用户柠檬数接口</button>
+		<p><i id="timeh">??</i>小时<i id="timem">??</i>分<i id="times">??</i>秒</p>
+		<div class="svg"></div>
+	
+	<section class="cover">
+			<div id="tip"><p>xxx</p><button id="tipClose">关闭</button></div>
+		</section>
+	<script type="text/javascript">
+	var she = document.getElementById('she');
+	var fixedpagesubmit = document.getElementById('fixedpagesubmit');
+	var onesubmit = document.getElementById('onesubmit');
+	var towsubmit = document.getElementById('towsubmit');
+	var submit = document.getElementById('submit');
+	var applesubmit = document.getElementById('applesubmit');
+	var wenxinapplesubmit = document.getElementById('wenxinapplesubmit');
+	var second = document.getElementById('second');
+
+	var Gr;
+	
+	second.onblur = function(){
+		var overtime = she.value - second.value ;
+		$("#timeh").html(parseInt(overtime/3600));
+		$("#timem").html(parseInt(overtime%3600/60));
+		$("#times").html(parseInt(overtime%3600%60));
+	}
+
+	fixedpagesubmit.onclick = function () {
+		var fromData = {
+			imagebase64 : "1352352525231342",
+			imagebase64Len : "16",
+			number : "1004",
+			sport_frequency	 : "test",
+			sport_money : "test",
+			sport_time : "测试",
+			sport_facility : ["test","测试"],
+			sport_train : "测试",
+			industry_company : "test",
+			client_time : newDate()
+		}
+
+		console.log(JSON.stringify(fromData));
+
+		var postData = JSON.stringify(fromData);
+
+		$.ajax({
+						url: 'http://m.qydw.net/NmbApi/UpdateUserInfo/',
+						type: 'POST',
+						dataType: 'JSON',
+						cache: false,
+						data: {
+							fromData:postData
+						},
+						success: function(res){
+							var result = JSON.parse(res);
+		                   console.log(result);
+						}
+					});
+	}
+
+	onesubmit.onclick = function(){
+
+
+		var xhr = new XMLHttpRequest();
+				
+				
+				xhr.open('get', 'http://m.qydw.net/NmbApi/GetUserInfo/?number='+she.value+'&client_time='+newDate());
+				xhr.send();
+				// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState === 4 && xhr.status === 200) {
+				    	
+				        var result = JSON.parse(xhr.response);
+				
+				        console.log(result);
+
+				        if(result.code == 1){
+
+				        setTimeout(function(){
+				        	var xhr = new XMLHttpRequest();
+				        			
+				        			
+				        			xhr.open('get', ' http://m.qydw.net/NmbApi/AddUserIntegral/?uid='+result.data.uid+'&client_time='+newDate()+'&sign='+result.data.sign);
+				        			// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+				        			xhr.onreadystatechange = function () {
+				        			    if (xhr.readyState === 4 && xhr.status === 200) {
+				        			    	
+				        			        var result = JSON.parse(xhr.response);
+				        			
+				        			        console.log(result);
+
+				        			        if(result.code == 1){ }
+
+				        			    }
+				        			};
+				        			
+				        		xhr.send();
+				        },100);
+				     }
+
+				    }
+				};
+				
+			
+	}
+	towsubmit.onclick = function(){
+		var xhr = new XMLHttpRequest();
+				
+				
+				xhr.open('get', 'http://m.qydw.net/NmbApi/WeiBaoShare/?client_time='+ newDate());
+				// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState === 4 && xhr.status === 200) {
+				    	
+				        var result = JSON.parse(xhr.response);
+				
+				        console.log(result);
+
+				        if(result.code == 1){ }
+
+				    }
+				};
+				
+			xhr.send();
+	}
+	submit.onclick = function(){
+		var xhr = new XMLHttpRequest();
+				
+				
+				xhr.open('get', 'http://m.qydw.net/NmbApi/AddShare/?from=1&client_time='+ newDate());
+				// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState === 4 && xhr.status === 200) {
+				    	
+				        var result = JSON.parse(xhr.response);
+				
+				        console.log(result);
+
+				        if(result.code == 1){ }
+
+				    }
+				};
+				
+			xhr.send();
+	}
+	applesubmit.onclick = function(){
+		var xhr = new XMLHttpRequest();
+				
+				
+				xhr.open('get', 'http://m.qydw.net/NmbApi/GetUserInfo/?number='+she.value+'&client_time='+ newDate());
+				// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState === 4 && xhr.status === 200) {
+				    	
+				        Gr = JSON.parse(xhr.response);
+				
+				        console.log(Gr.data.sign,Gr);
+
+				        if(Gr.code == 1){ }
+
+				    }
+				};
+				
+			xhr.send();
+	}
+
+	wenxinapplesubmit.onclick = function(){
+        var xhr = new XMLHttpRequest();
+        	console.log(Gr.data.sign);
+        	xhr.open('get','http://m.qydw.net/NmbApi/AddShare/?sign='+ Gr.data.sign +'&from=3&client_time='+ newDate());
+        	// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+        	xhr.onreadystatechange = function () {
+        	    if (xhr.readyState === 4 && xhr.status === 200) {
+        	         var result = JSON.parse(xhr.response);
+        	
+        	        console.log(result);
+
+        	        if(result.code == 1){
+        	        	
+        	        	$('.cover').css("display","block");
+							$("#tip").css("display","block");
+				        	$("#tip p").html("分享成功!");
+				        	$("#tipClose").click(function(){
+				        		$(".cover").css("display","none");
+	        				});
+        	        }
+
+        	    }
+        	};
+        	
+        xhr.send();
+	}
+function newDate (){
+		return parseInt(new Date().getTime()/1000)
+	}
+	</script>
+	
+</body>
+</html>

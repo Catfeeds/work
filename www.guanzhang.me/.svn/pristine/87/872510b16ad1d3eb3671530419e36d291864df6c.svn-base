@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <title>馆掌_运动场馆管理系统_国内体育场馆运营管理软件解决方案提供商</title>
+    <meta name="keywords" content="馆掌,场馆运营管理系统,体育场馆管理系统,羽毛球馆管理软件,场地管理系统,会员卡管理系统,会员管理软件,会员收费系统,商品管理软件,智能场馆管理,收银系统,财务系统,健身房,游泳馆,溜冰场,高尔夫管理软件">
+    <meta name="description" content="馆掌,国内体育场馆运营管理软件解决方案提供商.馆掌提供场馆运营管理,体育场馆管理,羽毛球馆管理,场地管理,会员卡管理系统,会员管理,会员收费,商品管理,智能场馆管理,财务管理,健身房,游泳馆,溜冰场,足球,篮球,高尔夫管理等一体化运营管理软件与IT整合解决方案,是中国运动场馆管理平台领导者.">
+    <meta name="baidu-site-verification" content="BCNmLrnk7J">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/pc/stylesheets/base.css">
+    <link rel="stylesheet" href="./css/pc/stylesheets/index.css">
+    <script src="./js/jquery/jquery-1.8.3.min.js"></script>
+    <script src="./js/jquery/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="./js/fullpage/fullpage.js"></script>
+    <script type="text/javascript" src="./js/pc/main.js"></script>
+    <script type="text/javascript" src="./js/pc/carousel.js"></script>
+</head>
+
+<body>
+    <div id="fullpage">
+        <div class="header">
+            <div class="w1180 clearfix"><a href="/index.html" class="logo-new"><h1>馆掌</h1><p>GUANZHANG</p></a>
+                <div class="nav fr"><a href="/index.html" class="cur">首页</a><a href="/product.html" class="mr200">产品</a><a href="/join.html" class="join">立即加入</a></div>
+            </div>
+        </div>
+        <div class="page1 page section">
+            <div class="triangle"></div>
+            <div class="wrap">
+                <div class="lb"><img src="./images/newpc/index_page1.png"></div>
+                <div class="rb">
+                    <h2><span class="sp">馆掌</span> 会赚钱的管理系统</h2>
+                    <p>多领域、各行业完美支持
+                        <br>完美适用多门店连锁球馆
+                        <br>七大渠道流量变现</p><a href="/product.html#system-info" class="btn blue">全智能硬件配置</a></div>
+            </div>
+        </div>
+        <div class="page2 page section">
+            <div class="wrap">
+                <div class="lb text-left">
+                    <h2>球馆智能管理一体化</h2>
+                    <p>随时开场，精确计算场地费用
+                        <br>会员充值、消费行为明细记录
+                        <br>扫码枪记录商品入货销售
+                        <br>多维度报表供财务进行对账</p><a href="/product.html#system-info" class="btn white">了解管理系统</a></div>
+                <div class="rb"><img src="./images/newpc/index_page2.png"></div>
+            </div>
+        </div>
+        <div class="page3 page section">
+            <div class="wrap">
+                <div class="cb">
+                    <div class="tb">
+                        <h2 class="sp">七大渠道 流量变现<span class="route">_Route</span></h2>
+                        <p class="sp">免费接入各大平台，场地直接销售给全国8亿用户，告别无休止的广告推广，轻松变现</p><a href="/product.html#channel-info" class="btn blue">了解渠道</a></div>
+                    <div class="bb"><img src="./images/newpc/index_page3.png"></div>
+                </div>
+            </div>
+        </div>
+        <div class="page4 page section">
+            <div class="wrap">
+                <div class="lb"><img src="./images/newpc/index_page4.png"></div>
+                <div class="rb text-left">
+                    <h2 class="sp">定制专属微信公众号<span class="hot">HOT!</span></h2>
+                    <p>会员、散客随时随地轻松订场，不错过任何一单生意
+                        <br>球馆情况、分析报告想看就看，做到心中了如指掌
+                        <br>会员消费、场馆通知实时到达，与客户保持紧密联系</p><a href="/product.html#wechat-info" class="btn blue">了解微信公众号</a></div>
+            </div>
+        </div>
+        <div class="pageWX page section">
+            <div class="spWX"></div>
+            <div class="wrap">
+                <div class="lb">
+                    <h2>微信上的智能财务</h2>
+                    <p>场馆日常收入实时记录
+                        <br>清晰、准确的灯控报表
+                        <br>多维度场地利用率
+                        <br>几时回复用户评价</p><a href="product.html#wechat-report" class="btn blue">了解微信报表</a></div>
+                <div class="rb">
+                    <div class="tbox-1"></div>
+                    <div class="tbox-2"></div>
+                </div>
+            </div>
+        </div>
+        <div class="page5 page section">
+            <div class="wrap">
+                <div class="cb">
+                    <h2>全新智能硬件升级<span class="upgrade">_Upgrade</span></h2>
+                    <p>全面提示球馆硬件实力，改变客户体验的一点一滴</p><a href="/product.html#hardware-info" class="btn white">了解硬件</a>
+                    <div class="ball ball1"><span class="balltext1 balltext">智能灯控</span></div>
+                    <div class="ball ball2"><span class="balltext2 balltext">一体售票机</span></div>
+                    <div class="ball ball3"><span class="balltext3 balltext">智能闸机</span></div>
+                    <div class="ball ball4"><span class="balltext4 balltext">全景摄像头</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="page6 page section">
+            <div class="wrap">
+                <div class="cb">
+                    <div class="tb">
+                        <h2 class="sp">1864球馆的共同选择</h2>
+                        <p>国家奥林匹克体育中心、上海宝山体育中心、广州天河体育中心等大型球馆都在使用
+                            <br>你还在等什么？</p>
+                    </div>
+                    <div class="bb">
+                        <div class="album">
+                            <div id="left" class="left"></div>
+                            <div id="right" class="right"></div>
+                            <div class="album-in">
+                                <ul id="carousel">
+                                    <li>
+                                        <div class="photo"><img src="./images/newpc/nc.jpg">
+                                            <div class="hover"></div>
+                                        </div>
+                                        <div class="text">国家奥林匹克体育中心</div>
+                                    </li>
+                                    <li>
+                                        <div class="photo"><img src="./images/newpc/bs.jpg">
+                                            <div class="hover"></div>
+                                        </div>
+                                        <div class="text">上海宝山体育中心</div>
+                                    </li>
+                                    <li>
+                                        <div class="photo"><img src="./images/newpc/th.jpg">
+                                            <div class="hover"></div>
+                                        </div>
+                                        <div class="text">广州天河体育中心</div>
+                                    </li>
+                                    <li>
+                                        <div class="photo"><img src="./images/newpc/df.jpg">
+                                            <div class="hover"></div>
+                                        </div>
+                                        <div class="text">上海东方体育中心</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+            $(document).ready(function() {
+                gz.carousel = new Carousel($('#carousel')[0], {
+                    gap: 20,
+                    visibleItem: 3,
+                    //- carouselOn:true,
+                    leftDom: $('#left')[0],
+                    rightDom: $('#right')[0]
+                })
+            })
+            </script>
+        </div>
+        <div class="page7 page section footer">
+            <div class="foot">
+                <h2>馆掌&nbsp;GUANZHANG</h2>
+                <p>Copyright&nbsp;©&nbsp;2014-2016.All&nbsp;Rights&nbsp;Reserved.</p>
+                <p>广州柠蜜信息科技有限公司&nbsp;版权所有&nbsp;&nbsp;&nbsp;粤ICP备15088864号&nbsp;&nbsp;&nbsp;&nbsp;服务热线:4000-410-480</p>
+            </div>
+        </div>
+    </div>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5324c67fcdbdb9b481f3b4e87fd7c5ac";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</body>
+
+</html>

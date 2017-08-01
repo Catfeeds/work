@@ -1,0 +1,91 @@
+@import 'compass/css3';
+$baseFontSize: 100px !default;
+$baseDpr: 2 !default;
+
+@function pxToRem($px) {
+  @return $px / $baseFontSize / $baseDpr * 1rem;
+}
+
+.user-main .face{
+  &.decathlon{
+    height: auto;
+    .info{
+      display: none;
+    }
+  }
+}
+
+.login-tip{
+  &.decathlon{
+    display: none;
+  }
+}
+
+.decathlon.decathlon-info-msg{
+  display: block !important;
+  padding:pxToRem(20px) pxToRem(60px);
+  text-align: left;
+}
+
+.decathlon.decathlon-info{
+  padding:0 pxToRem(60px);
+  text-align: left;
+  padding-left:pxToRem(120px);
+  position: relative;
+  background:transparent;
+  border: none;
+  margin-top: 0;
+  i{
+    display: inline-block;
+    width: pxToRem(28px);
+    height: pxToRem(28px);
+    border: 1px solid #222;
+    border-radius: 3px;
+    vertical-align: middle;
+    position: absolute;
+    top:0;
+    left:pxToRem(60px);
+  }
+  input{
+    display: inline-block;
+    display: none;
+  }
+  input[type='checkbox']:checked+i{
+    border-color: #5b73f2;
+    &:before{
+      content:'\2713';
+      position: absolute;
+      top:0;
+      left:0;
+      color: #5b73f2;
+    }
+  }
+}
+
+.user-shop{
+  display: block;
+  position: relative;
+  margin-top: .15rem;
+  margin-bottom: .15rem;
+  background-color: #fff;
+  a{
+    display: block;
+    img{
+      width: 100%;
+    }
+  }
+  .user-shop-decathlon{
+    display: block;
+    width: 3.25rem;
+    margin-left: auto;
+    padding-right: .15rem;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: .5rem;
+    font-size: .15rem;
+    color: #222;
+    text-align: left;
+    position: relative;
+  }
+}

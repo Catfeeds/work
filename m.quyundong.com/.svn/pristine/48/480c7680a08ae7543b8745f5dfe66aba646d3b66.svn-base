@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>陪练招募</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+	<style type="text/css">
+		html{
+			width: 100%;
+			height: 100%;
+			max-width: 640px;
+			margin: 0 auto;
+			overflow: hidden;
+			font-size: 100px;
+			background-color: #000;
+		}
+		body{
+			width: 100%;
+			height: 100%;
+			max-width: 640px;
+			margin: 0 auto;
+			background-color: #000;
+			overflow: hidden;
+			position: relative;
+		}
+		i{
+			font-style: normal;
+			display: block;
+		}
+		a{
+			text-decoration: none;
+			color:#636363;
+		}
+		a:visited{
+			color:#636363;
+		}
+		button{
+			border:0px;
+		}
+		.hide{
+			display: none;
+		}
+		.loading{
+			width: 100%;
+			height: 100%;
+			position: relative;
+			background-color: rgba(255,255,255,1);
+		}
+		.loadingIcon{
+			width: 0.6rem;
+			height: 0.6rem;
+			position: absolute;
+			top: 50%;
+			left:50%;
+			margin-top: -0.3rem;
+			margin-left: -0.3rem;
+			background: url(images/loading.png) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+			-webkit-animation: rotate360 1s linear 0s infinite;
+		    -moz-animation: rotate360 1s linear 0s infinite;
+		    animation: rotate360 1s linear 0s infinite;
+		    -webkit-transform-origin: 50% 50%;
+		    -moz-transform-origin: 50% 50%;
+		    -ms-transform-origin: 50% 50%;
+		    -o-transform-origin: 50% 50%;
+		    transform-origin: 50% 50%;
+		    z-index: 99;
+		}
+
+		.begin{
+			width:100%;
+			height: 100%; 
+			max-width: 640px;
+			margin: 0 auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 99;
+			background-color: #fff;
+		}
+		.begin .image{
+			width:3.2rem;
+			height: 2.38rem;
+			position: absolute;
+			left:0;
+			top:50%;
+			margin-top: -1.4rem;
+			background:url(images/yuerecruit/beginpage.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.begin .image .title{
+			width:1.9rem;
+			height: 0.2rem;
+			position: absolute;
+			left:50%;
+			top:0;
+			margin-left: -0.95rem;
+			margin-top: -0.4rem;
+			background:url(images/yuerecruit/begintitle.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.begin .image .text{
+			width:1rem;
+			height: 0.2rem;
+			position: absolute;
+			left:50%;
+			bottom:0;
+			margin-left: -0.5rem;
+			margin-bottom: -0.4rem;
+			background:url(images/yuerecruit/begintext.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.begin .image .text .beginurl{
+			width: 1.5rem;
+			height: 0.15rem;
+			position: absolute;
+			left:50%;
+			bottom:0;
+			margin-left: -0.75rem;
+			margin-bottom: -0.4rem;
+			background:url(images/yuerecruit/beginright.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+
+		}
+		/*main*/
+		#main{
+			width:300%;
+			height: 100%; 
+			position: absolute;
+			top: 0;
+			left:0;
+		}
+		#main .pagecover{
+			width: 100%;
+			height: 100%;
+			background-color: #fff;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 9;
+		}
+		#main .page{
+			background-color: #fff;
+			width:33.333%;
+			height: 100%;
+			float: left;
+			position: relative;
+		}
+
+		#main .page .image{
+			width: 2.5rem;
+			height: 2.5rem;
+			-webkit-background-size: cover;
+			background-size: cover;
+			position: absolute;
+			top:40%;
+			left:50%;
+			margin-top: -1.25rem;
+			margin-left: -1.25rem;
+		}
+		#main .page0 .image{background:url(images/yuerecruit/amy.jpg) no-repeat;-webkit-background-size: cover;
+			background-size: cover;}
+		#main .page1 .image{background:url(images/yuerecruit/man.jpg) no-repeat;-webkit-background-size: cover;
+			background-size: cover;}
+		#main .page2 .image{background:url(images/yuerecruit/allpe.jpg) no-repeat;-webkit-background-size: cover;
+			background-size: cover;}
+		
+		#main .page0 .image .text{
+			width: 2.64rem;
+			height: 0.77rem;
+			background:url(images/yuerecruit/page1text.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+			position: absolute;
+			bottom:-1.1rem;
+			left:50%;
+			margin-left: -1.32rem;
+		}
+		#main .page1 .image .text{
+			width: 1.35rem;
+			height: 0.78rem;
+			background:url(images/yuerecruit/page2text.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+			position: absolute;
+			bottom:-1.1rem;
+			left:50%;
+			margin-left: -0.68rem;
+		}
+		#main .page2 .image .title{
+			width: 1.8rem;
+			height: 0.2rem;
+			background:url(images/yuerecruit/page3title.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+			position: absolute;
+			top:-0.4rem;
+			left:50%;
+			margin-left: -0.9rem;
+		}
+		#main .page2 .image .text{
+			width: 2.4rem;
+			height: 0.16rem;
+			background:url(images/yuerecruit/page3text.jpg) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+			position: absolute;
+			bottom:-0.3rem;
+			left:50%;
+			margin-left: -1.2rem;
+		}
+		a.btn{
+			width: 2.5rem;
+			height: 0.4rem;
+			text-align: center;
+			border: 2px solid #74affb;
+			background-color: #74affb;
+			line-height: 0.4rem;
+			font-size: 0.2rem;
+			border-radius: 6px;
+			position: absolute;
+			bottom:0.4rem;
+			left:250%;
+			margin-left: -1.25rem;
+			color: #fff;
+		}
+		.bar {
+			width: 0.6rem;
+			height: 0.1rem;
+			position: fixed;
+			bottom: 0.1rem;
+			left:50%;
+			-webkit-transform:translateX(-50%);
+			transform:translateX(-50%);
+		}
+		.bar span{
+			width: 0.1rem;
+			height: 0.1rem;
+			border-radius: 50%;
+			background-color:rgba(116, 175, 251, 0.5);
+			position: absolute;
+			top:0;
+		}
+		.bar span:nth-child(1){left:0;}
+		.bar span:nth-child(2){left:50%;margin-left: -0.05rem;}
+		.bar span:nth-child(3){right:0;}
+		.bar span.cur{background-color:#74affb;}
+		#main .page.ip4 .image{
+			width: 2.2rem;
+			height: 2.2rem;
+			-webkit-background-size: cover;
+			background-size: cover;
+			position: absolute;
+			top:40%;
+			left:50%;
+			margin-top: -1.2rem;
+			margin-left: -1.1rem;
+		}
+		a.btn.ip4{bottom:0.4rem;width: 2.2rem;margin-left: -1.1rem;}
+		#main .page0.ip4 .image .text{bottom:-1rem;}
+		#main .page1.ip4 .image .text{bottom:-1rem;}
+		#main .page2.ip4 .image .text{bottom:-0.3rem;}
+		#main .page2.ip4 .image .title{top:-0.3rem;}
+		
+		@-moz-keyframes rotate360 {
+		    from {
+		        transform:rotateZ(0deg);
+		    }
+		    to {
+		        transform:rotateZ(360deg);
+		    }
+		}
+		@keyframes rotate360 {
+		  from {
+		  	-webkit-transform:rotateZ(0deg);
+		    transform:rotateZ(0deg);
+		  }
+		  to {
+		  	-webkit-transform:rotateZ(360deg);
+		    transform:rotateZ(360deg);
+		  }
+		}
+
+		@-webkit-keyframes rotate360 {
+		  from {
+		    -webkit-transform:rotateZ(0deg);
+		  }
+		  to {
+		    -webkit-transform:rotateZ(360deg);
+		  }
+		}
+	</style>
+</head>
+<body>
+	<section class="loading">
+		<div class="loadingIcon"></div>
+	</section>
+	<section class="begin hide">
+		<div class="image">
+			<div class="title"></div>
+			<div class="text">
+				<button class="beginurl"></button>
+			</div>
+		</div>
+	</section>
+	<section id="main">
+		<div class="pagecover"></div>
+		<div class="page page0">
+			<div class="image"><div class="text"></div></div></div>
+		</div>
+		<div class="page page1">
+			<div class="image"><div class="text"></div></div>
+		</div>
+		<div class="page page2">
+			<div class="image"><div class="text"></div><div class="title"></div></div>
+		</div>
+	</section>
+	<a id="gosport" class="btn hide" href="coach.html">我也要加入</a>
+	<div class="bar hide"><span class="cur"></span><span></span><span></span></div>
+	<script type="text/javascript" src="js/zeptoWithFx.min.js"></script>
+	<script type="text/javascript" src="js/yuerecruit.js?ver=1.03"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			$(".loading").addClass("hide");
+			$(".begin").removeClass("hide");
+		}
+		$(document).ready(function(){
+			var $windowWidth = $(window).width();
+			var $windowHeight = $(window).height();
+			setTimeout(function(){
+				$windowWidth = $(window).width();
+				$windowHeight = $(window).height();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+				if($windowHeight <= 480 ){
+					$(".page").addClass("ip4");
+					$(".bar").addClass("ip4");
+					$(".btn").addClass("ip4");
+					console.log("ip4");
+				}else{
+					$(".page").removeClass("ip4");
+					$(".bar").removeClass("ip4");
+					$(".btn").removeClass("ip4");
+				}
+			},100);
+			
+
+			$(window).resize(function(){
+				$windowWidth = $(window).width();
+				$windowHeight = $(window).height();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+				if($windowHeight <= 480 ){
+					$(".page").addClass("ip4");
+					$(".bar").addClass("ip4");
+					$(".btn").addClass("ip4");
+					console.log("ip4");
+				}else{
+					$(".page").removeClass("ip4");
+					$(".bar").removeClass("ip4");
+					$(".btn").removeClass("ip4");
+				}
+			});
+		});
+	</script>
+</body>
+</html>

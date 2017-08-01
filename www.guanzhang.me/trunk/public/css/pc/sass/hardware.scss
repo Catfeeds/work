@@ -1,0 +1,37 @@
+.main{
+  text-align: center;
+  font-size: 18px;
+  color:#000000;
+  font-weight: 200;
+}
+
+h2{
+  margin-top: 215px;
+  font-size: 40px;
+  color:#2b6ffe;
+  margin-bottom: 70px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+.cell{
+  display: inline-block;
+  margin:0 10px;
+  p{
+    padding-top: 18px;
+  }
+  span{
+    font-size: 14px;
+  }
+}
+
+.line{
+  position: relative;
+  top: -110px;
+}
+
+
+.line1{
+  position: relative;
+  top: -130px;
+}

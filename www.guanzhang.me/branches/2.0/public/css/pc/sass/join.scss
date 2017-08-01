@@ -1,0 +1,101 @@
+@import './_header';
+
+.main {
+    padding-top: 130px;
+    padding-bottom: 70px;
+    color: #000;
+    text-align: center;
+    h2 {
+        padding-bottom: 62px;
+        font-size: 30px;
+        color:#000;
+    }
+    form {
+        font-size: 18px;
+        input,textarea{
+          width: 260px;
+          padding:5px 20px;
+          border-radius: 3em;
+          border:1px solid #ccc;
+          &:focus{
+            border: 1px solid #000;
+          }
+        }
+
+        .error-tips{
+          position: absolute;
+          left:330px;
+          top:6px;
+          width: 300px;
+          text-align: left;
+          color:red;
+          font-size: 14px;
+        }
+        .province,.city{
+          width: 80px;
+          padding-right: 40px;
+          float: left;
+          position: relative;
+        }
+        .p,.c{
+          position: absolute;
+          top:6px;
+          color: #777;
+        }
+        .p{
+          left:100px
+        }
+        .c{
+          right:20px;
+        }
+        .city{
+          float: right;
+        }
+
+        textarea{
+          border-radius: 10px;
+          height: 88px;
+          margin-bottom: 30px;
+        }
+    }
+    .row {
+        width: 300px;
+        margin: 0 auto;
+        position: relative;
+        margin-bottom: 10px;
+    }
+    label {
+        color: #777;
+        display: inline-block;
+        position: absolute;
+        right: 330px;
+        width: 300px;
+        top:6px;
+        text-align: right;
+        span{
+          color:red;
+        }
+    }
+    .btn{
+      display: inline-block;
+      color:#fff;
+      background-color: #2b6ffe;
+      border-radius: 3em;
+      padding:8px 50px;
+      &:hover{
+        background-color: rgba(#2b6ffe,.8);
+        cursor: pointer;
+      }
+      &[disabled]{
+        background-color: rgba(#2b6ffe,.3);
+        cursor: not-allowed;
+      }
+
+    }
+    .tip{
+      font-size: 14px;
+      color:#000;
+    }
+}
+
+@import './footer'

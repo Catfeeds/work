@@ -1,0 +1,979 @@
+/* line 5, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 4, ../../../sass-lib/reset.scss */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #f5f5f9;
+  line-height: 1.375;
+}
+
+/* line 17, ../../../sass-lib/reset.scss */
+body {
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  max-width: 750px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f5f5f9;
+  font-size: 0.12rem;
+  color: #000;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 31, ../../../sass-lib/reset.scss */
+input {
+  -webkit-box-sizing: border-box;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+}
+
+/* line 39, ../../../sass-lib/reset.scss */
+a,
+input,
+lable,
+button,
+div {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+/* line 48, ../../../sass-lib/reset.scss */
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+}
+
+/* line 54, ../../../sass-lib/reset.scss */
+.hide {
+  display: none !important;
+}
+
+/* line 58, ../../../sass-lib/reset.scss */
+input::-ms-input-placeholder {
+  color: #aaa;
+}
+
+/* line 62, ../../../sass-lib/reset.scss */
+input::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+/* line 66, ../../../sass-lib/reset.scss */
+.loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #f5f5f9;
+  z-index: 99999;
+}
+
+/* line 75, ../../../sass-lib/reset.scss */
+.loading-icon {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+/* line 124, ../../../sass-lib/reset.scss */
+img {
+  width: 100%;
+}
+
+/* line 149, ../../../sass-lib/reset.scss */
+.main {
+  position: relative;
+  min-height: 100%;
+}
+
+/* line 4, ../../../sass-lib/_common.scss */
+.borderBottom1px:after, .borderTop1px:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  -moz-transform: translateY(0.5);
+  -ms-transform: translateY(0.5);
+  -webkit-transform: translateY(0.5);
+  transform: translateY(0.5);
+  background-color: #ddd;
+  z-index: 99;
+}
+
+/* line 15, ../../../sass-lib/_common.scss */
+.borderRight1px:before, .borderLeft1px:before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  -moz-transform: translateX(0.5);
+  -ms-transform: translateX(0.5);
+  -webkit-transform: translateX(0.5);
+  transform: translateX(0.5);
+  background-color: #ddd;
+  z-index: 99;
+}
+
+/* line 57, ../../../sass-lib/_common.scss */
+.borderBottom1px:after {
+  left: 0;
+  bottom: 0;
+}
+
+/* line 65, ../../../sass-lib/_common.scss */
+.borderTop1px:before {
+  left: 0;
+  top: 0;
+}
+
+/* line 73, ../../../sass-lib/_common.scss */
+.borderRight1px:before {
+  right: 0;
+  top: 0;
+}
+
+/* line 81, ../../../sass-lib/_common.scss */
+.borderLeft1px:before {
+  left: 0;
+  top: 0;
+}
+
+/* line 88, ../../../sass-lib/_common.scss */
+.icon-right {
+  display: block;
+  width: 0.06rem;
+  height: 0.11rem;
+  position: absolute;
+  top: 50%;
+  right: 0.15rem;
+  margin-top: -0.055rem;
+}
+/* line 96, ../../../sass-lib/_common.scss */
+.icon-right img {
+  display: block;
+  width: 100%;
+}
+
+/* line 102, ../../../sass-lib/_common.scss */
+.koubei-button-white {
+  display: block;
+  width: 3.45rem;
+  height: 0.42rem;
+  line-height: 0.42rem;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+  font-size: 0.17rem;
+  border-radius: 0.05rem;
+}
+/* line 113, ../../../sass-lib/_common.scss */
+.koubei-button-white:active {
+  background-color: #ddd;
+}
+
+/* line 129, ../../../sass-lib/_common.scss */
+.common-btn {
+  line-height: 0.42rem;
+  font-size: 0.18rem;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.05rem;
+  background-color: #fb6165;
+  margin: 0 0.15rem;
+}
+/* line 137, ../../../sass-lib/_common.scss */
+.common-btn.disable {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* line 140, ../../../sass-lib/_common.scss */
+.common-btn:active:not(.disable) {
+  background-color: #d95559;
+}
+
+/* line 145, ../../../sass-lib/_common.scss */
+.common-quyundongtips {
+  position: absolute;
+  bottom: 0.2rem;
+  width: 100%;
+  font-size: 0.12rem;
+  color: #888;
+  text-align: center;
+}
+
+/* line 153, ../../../sass-lib/_common.scss */
+.common-quyundongtipsSpace {
+  height: 0.5rem;
+}
+
+/* line 157, ../../../sass-lib/_common.scss */
+.toast {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* line 166, ../../../sass-lib/_common.scss */
+.toast .toast-alert {
+  width: 2.35rem;
+  height: 1.3rem;
+  padding: 0 0.2rem;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.65rem;
+  margin-left: -1.175rem;
+  border-radius: 6px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 182, ../../../sass-lib/_common.scss */
+.toast .toast-alert .toast-msg {
+  padding-top: 0.25rem;
+  height: 0.9rem;
+  line-height: 1.6;
+  color: #fff;
+  font-size: 0.15rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: relative;
+}
+
+/* line 196, ../../../sass-lib/_common.scss */
+.common-toast {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 203, ../../../sass-lib/_common.scss */
+.common-toast .common-alert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2.7rem;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  background-color: #fff;
+  font-size: 0.17rem;
+  border-radius: 0.05rem;
+  overflow: hidden;
+}
+/* line 214, ../../../sass-lib/_common.scss */
+.common-toast .common-alert .common-msg {
+  color: #000;
+  padding: 0.3rem 0.15rem;
+}
+/* line 218, ../../../sass-lib/_common.scss */
+.common-toast .common-alert .common-sure {
+  color: #00aaee;
+  line-height: 0.45rem;
+  border-top: 1px solid #ddd;
+}
+/* line 222, ../../../sass-lib/_common.scss */
+.common-toast .common-alert .common-sure:active {
+  background-color: #dddddd;
+}
+
+/* line 1, ../../../includes/orderCommon.scss */
+.header {
+  width: 100%;
+  height: 0.44rem;
+  background-color: #009ff0;
+  text-align: center;
+  line-height: 0.44rem;
+  position: relative;
+}
+/* line 8, ../../../includes/orderCommon.scss */
+.header .center {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0.5rem;
+  position: relative;
+  font-size: 0.18rem;
+  color: #fff;
+}
+/* line 16, ../../../includes/orderCommon.scss */
+.header .left,
+.header .right {
+  height: 0.44rem;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  font-size: 0;
+}
+/* line 24, ../../../includes/orderCommon.scss */
+.header .left {
+  left: 0;
+  width: 0.5rem;
+}
+/* line 28, ../../../includes/orderCommon.scss */
+.header .right {
+  right: 0.15rem;
+  font-size: 0.15rem;
+  color: #fff;
+}
+/* line 33, ../../../includes/orderCommon.scss */
+.header .icon-back {
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  border-bottom: 2px solid #fff;
+  border-left: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -0.075rem;
+  margin-top: -0.075rem;
+  -moz-transform: rotateZ(45deg);
+  -ms-transform: rotateZ(45deg);
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+/* line 48, ../../../includes/orderCommon.scss */
+.main {
+  text-align: left;
+}
+/* line 50, ../../../includes/orderCommon.scss */
+.main .common-login {
+  display: none;
+}
+/* line 54, ../../../includes/orderCommon.scss */
+.main.common-noLogin .common-coupon,
+.main.common-noLogin .common-tip {
+  display: none;
+}
+/* line 58, ../../../includes/orderCommon.scss */
+.main.common-noLogin .common-login {
+  display: block;
+}
+/* line 61, ../../../includes/orderCommon.scss */
+.main.common-noLogin .common-phone a {
+  color: #aaa;
+}
+
+/* line 67, ../../../includes/orderCommon.scss */
+.common-menu {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding-left: 0.15rem;
+  font-size: 0.15rem;
+  background-color: #fff;
+}
+/* line 73, ../../../includes/orderCommon.scss */
+.common-menu > li {
+  padding: 0.12rem 0;
+  border-bottom: 1px solid #ddd;
+}
+/* line 119, ../../../sass-lib/_common.scss */
+.common-menu > li:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 77, ../../../includes/orderCommon.scss */
+.common-menu > li:last-of-type {
+  border-bottom: none;
+}
+/* line 81, ../../../includes/orderCommon.scss */
+.common-menu > li > div:nth-of-type(1) {
+  float: left;
+  width: 4em;
+  margin-right: 0.15rem;
+}
+/* line 86, ../../../includes/orderCommon.scss */
+.common-menu > li > div:nth-of-type(2) {
+  overflow: hidden;
+  text-align: right;
+  padding-right: 0.15rem;
+  color: #888;
+}
+/* line 94, ../../../includes/orderCommon.scss */
+.common-menu a, .common-menu a:hover, .common-menu a:visited {
+  display: block;
+  color: #888;
+}
+
+/* line 100, ../../../includes/orderCommon.scss */
+.common-money {
+  margin-top: 0.2rem;
+}
+/* line 103, ../../../includes/orderCommon.scss */
+.common-money li #pay_amount {
+  color: #fb6165;
+}
+/* line 109, ../../../includes/orderCommon.scss */
+.common-money .common-coupon div:nth-of-type(1) {
+  width: auto;
+  float: right;
+  margin-left: 0.1rem;
+}
+/* line 113, ../../../includes/orderCommon.scss */
+.common-money .common-coupon div:nth-of-type(1) img {
+  width: 0.18rem;
+  vertical-align: middle;
+  margin-left: 0.1rem;
+  margin-top: -0.03rem;
+}
+/* line 120, ../../../includes/orderCommon.scss */
+.common-money .common-coupon div:nth-of-type(2) {
+  overflow: hidden;
+}
+/* line 122, ../../../includes/orderCommon.scss */
+.common-money .common-coupon div:nth-of-type(2) span {
+  float: left;
+  margin-right: 0.1rem;
+  color: #000;
+}
+/* line 127, ../../../includes/orderCommon.scss */
+.common-money .common-coupon div:nth-of-type(2) p {
+  overflow: hidden;
+  font-size: 0.12rem;
+}
+/* line 130, ../../../includes/orderCommon.scss */
+.common-money .common-coupon div:nth-of-type(2) p em {
+  display: inline-block;
+  border-radius: 3px;
+  padding: 0.01rem 0.05rem;
+  margin-bottom: 0.05rem;
+  margin-right: 0.05rem;
+  border: 1px solid #ff850d;
+  color: #ff850d;
+}
+/* line 140, ../../../includes/orderCommon.scss */
+.common-money .common-coupon div:nth-of-type(2) i {
+  display: inline-block;
+  color: #222;
+  font-size: 0.14rem;
+  border: 1px solid #ddd;
+  padding: 0.02rem 0.05rem;
+  border-radius: 0.03rem;
+}
+/* line 150, ../../../includes/orderCommon.scss */
+.common-money .common-coupon .co-bill-textStyle1 {
+  color: #222;
+}
+/* line 153, ../../../includes/orderCommon.scss */
+.common-money .common-coupon .co-bill-textStyle2 {
+  color: #888;
+  line-height: 1.75;
+}
+/* line 157, ../../../includes/orderCommon.scss */
+.common-money .common-coupon .co-bill-textStyle3 {
+  color: #ff850d;
+}
+
+/* line 163, ../../../includes/orderCommon.scss */
+.common-login {
+  margin-top: 0.2rem;
+}
+/* line 168, ../../../includes/orderCommon.scss */
+.common-login li > div:nth-of-type(2) input {
+  width: 100%;
+  font-size: 0.15rem;
+}
+/* line 173, ../../../includes/orderCommon.scss */
+.common-login li > div:nth-of-type(2) div:nth-of-type(1) {
+  float: right;
+  color: #00aaee;
+  padding-left: 1em;
+  margin-left: 0.1rem;
+  border-left: 1px solid #ddd;
+}
+/* line 180, ../../../includes/orderCommon.scss */
+.common-login li > div:nth-of-type(2) div:nth-of-type(2) {
+  overflow: hidden;
+}
+
+/* line 189, ../../../includes/orderCommon.scss */
+.common-phone {
+  margin-top: 0.2rem;
+}
+/* line 191, ../../../includes/orderCommon.scss */
+.common-phone img {
+  width: 0.18rem;
+  vertical-align: middle;
+  margin-top: -0.03rem;
+}
+
+/* line 198, ../../../includes/orderCommon.scss */
+.common-tip {
+  margin-top: 0.15rem;
+  padding-left: 0.15rem;
+  padding-bottom: 0.15rem;
+  color: #666;
+  font-size: 0.12rem;
+}
+/* line 204, ../../../includes/orderCommon.scss */
+.common-tip img {
+  width: 0.15rem;
+  vertical-align: text-bottom;
+}
+
+/* line 210, ../../../includes/orderCommon.scss */
+.common-footer {
+  width: 3.75rem;
+  margin-top: 0.15rem;
+  background-color: #fff;
+}
+/* line 219, ../../../includes/orderCommon.scss */
+.common-footer .common-footer-tip {
+  color: #888888;
+  font-size: 0.14rem;
+  text-align: center;
+  padding: 0.1rem 0;
+}
+
+/* line 227, ../../../includes/orderCommon.scss */
+.common-space90 {
+  height: 0.9rem;
+}
+
+/* line 231, ../../../includes/orderCommon.scss */
+.pub_disable {
+  color: #888 !important;
+}
+
+/* line 235, ../../../includes/orderCommon.scss */
+.coupon-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+}
+/* line 242, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-list {
+  padding: 0.15rem 0.15rem 0;
+}
+/* line 244, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-list li {
+  margin-bottom: 0.15rem;
+  border: 1px solid #000;
+  border-radius: 0.05rem;
+  height: 1.33rem;
+  background: url(/themes/koubei/order/images/coupon.png) right bottom no-repeat;
+  background-size: 1.17rem auto;
+}
+/* line 252, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-list .coupon-list-title {
+  line-height: 0.3rem;
+  padding: 0 0.15rem;
+  color: #888;
+  border-bottom: 1px dashed #000;
+}
+/* line 119, ../../../sass-lib/_common.scss */
+.coupon-container .coupon-list .coupon-list-title:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 259, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-list .coupon-list-title span:nth-of-type(1) {
+  float: left;
+}
+/* line 262, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-list .coupon-list-title span:nth-of-type(2) {
+  float: right;
+}
+/* line 267, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-list .coupon-list-body {
+  text-align: left;
+  padding: 0 0.15rem;
+}
+/* line 271, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-list .coupon-list-body p:nth-of-type(1) {
+  font-size: 0.24rem;
+  margin: 0.3rem 0 0.1rem;
+}
+/* line 278, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-howtouse {
+  position: absolute;
+  bottom: 0.2rem;
+  left: 0;
+  width: 100%;
+}
+/* line 283, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-howtouse a,
+.coupon-container .coupon-howtouse a:hover,
+.coupon-container .coupon-howtouse a:visited {
+  color: #000;
+  text-decoration: underline;
+}
+/* line 290, ../../../includes/orderCommon.scss */
+.coupon-container .coupon-space {
+  height: 0.4rem;
+}
+
+/* line 295, ../../../includes/orderCommon.scss */
+.book-noPaySprite {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 307, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul {
+  width: 275px;
+  position: relative;
+  top: 50%;
+  margin: 0 auto;
+  line-height: 1;
+  text-align: left;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 5px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+}
+
+/* line 321, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(1) {
+  padding: 0 15px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 0.17rem;
+}
+
+/* line 328, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(2) {
+  padding: 10px 15px;
+  line-height: 1.6;
+}
+
+/* line 333, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(2) p span:nth-of-type(1) {
+  float: left;
+  margin-right: 0;
+}
+
+/* line 338, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(2) p span:nth-of-type(2) {
+  color: #888;
+  display: block;
+  overflow: hidden;
+  text-align: right;
+}
+
+/* line 345, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(2) p span:nth-of-type(2) em {
+  display: block;
+}
+
+/* line 349, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(3) {
+  text-align: center;
+  border-top: 1px solid #e6e6e6;
+}
+
+/* line 354, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(3):after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* line 363, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(3) div {
+  float: left;
+  width: 50%;
+  line-height: 40px;
+}
+
+/* line 369, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(3) #book-Cancel {
+  background-image: url(/themes/koubei/order/images/border-r.jpg);
+  background-position: right top;
+  background-repeat: repeat-y;
+}
+
+/* line 375, ../../../includes/orderCommon.scss */
+.book-noPaySprite ul li:nth-of-type(3) div {
+  color: #00aaee;
+}
+
+/* line 379, ../../../includes/orderCommon.scss */
+.book-noPaySprite a,
+.book-noPaySprite a:hover,
+.book-noPaySprite a:visited {
+  color: #00aaee;
+}
+
+/* line 4, ../sass/confirmOrderperson.scss */
+.cop-numContainer {
+  float: right;
+}
+
+/* line 8, ../sass/confirmOrderperson.scss */
+.quantity-component {
+  overflow: hidden;
+  text-align: center;
+  font-size: 0.15rem;
+}
+/* line 119, ../../../sass-lib/_common.scss */
+.quantity-component:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 13, ../sass/confirmOrderperson.scss */
+.quantity-component li {
+  float: left;
+  height: 0.2rem;
+  line-height: 0.2rem;
+}
+/* line 17, ../sass/confirmOrderperson.scss */
+.quantity-component li:nth-of-type(1) {
+  background-image: url(/themes/koubei/order/images/sub.png);
+}
+/* line 19, ../sass/confirmOrderperson.scss */
+.quantity-component li:nth-of-type(1).disable {
+  background-image: url(/themes/koubei/order/images/sub-off.png);
+}
+/* line 23, ../sass/confirmOrderperson.scss */
+.quantity-component li:nth-of-type(1), .quantity-component li:nth-of-type(3) {
+  width: 0.2rem;
+  border: 1px solid #ddd;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 0.1rem auto;
+  border-radius: 0.04rem;
+}
+/* line 31, ../sass/confirmOrderperson.scss */
+.quantity-component li:nth-of-type(2) {
+  min-width: 0.2rem;
+  padding: 0 0.05rem;
+  background-color: #fff;
+}
+/* line 36, ../sass/confirmOrderperson.scss */
+.quantity-component li:nth-of-type(3) {
+  background-image: url(/themes/koubei/order/images/add.png);
+}
+/* line 38, ../sass/confirmOrderperson.scss */
+.quantity-component li:nth-of-type(3).disable {
+  background-image: url(/themes/koubei/order/images/add-off.png);
+}
+
+/* line 45, ../sass/confirmOrderperson.scss */
+.quantity {
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* line 53, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box {
+  width: 2.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 0.15rem;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  border-radius: 0.05rem;
+  overflow: hidden;
+}
+/* line 63, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box li:nth-of-type(2) {
+  font-size: 0;
+}
+/* line 65, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box li:nth-of-type(2) input {
+  width: 0.3rem;
+  height: 100%;
+  text-align: center;
+  font-size: 0.15rem;
+}
+/* line 74, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box-operate {
+  padding: 0.2rem 0;
+  background-color: #fff;
+}
+/* line 77, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box-operate ul {
+  display: inline-block;
+}
+/* line 81, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box-close {
+  background: #fafafa url(/themes/koubei/order/images/border-r.jpg) left top repeat-x;
+}
+/* line 119, ../../../sass-lib/_common.scss */
+.quantity .quantity-box-close:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 84, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box-close div {
+  float: left;
+  width: 50%;
+  line-height: 0.4rem;
+}
+/* line 88, ../sass/confirmOrderperson.scss */
+.quantity .quantity-box-close div:first-of-type {
+  background: url(/themes/koubei/order/images/border-r.jpg) right top repeat-y;
+}

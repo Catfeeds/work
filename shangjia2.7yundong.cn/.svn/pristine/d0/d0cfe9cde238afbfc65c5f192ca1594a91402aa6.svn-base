@@ -1,0 +1,21 @@
+{
+  "name": "nm_page",
+  "version": "1.0.0",
+  "description": "page component without Lib or Framework",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "page_component"
+  ],
+  "author": {
+    "name": "rococolate"
+  },
+  "license": "ISC",
+  "readme": "## Installation\n\nvia npm:\n\n```bash\n$ npm install nm_page\n```\n\n\n## Use\n\n```javascript\n\n    // how to use ?\n\n    var nm_page_obj = Object.create(NMPAGE);\n\n    var opt = {\n      dom:$('#nm_page-test')[0],\n      totlePage:10,\n      currentPage:1,\n      callback:function(num){\n        console.log(num);\n        opt.currentPage = num;\n        nm_page_obj.setup(opt);\n        // or \n        // window.location.href = '/page?page=' + num;\n      },\n    }\n\n    nm_page_obj.setup(opt);\n\n```",
+  "readmeFilename": "README.md",
+  "_id": "nm_page@1.0.0",
+  "_shasum": "1590f8f1fa1bf1df009e1a7d6ebe1f8f02de3f44",
+  "_from": "nm_page@*"
+}

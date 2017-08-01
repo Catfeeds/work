@@ -1,0 +1,119 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='./css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='./css/pc/stylesheets/product.css')
+  script(src='./js/jquery/jquery-1.8.3.min.js')
+  script(type='text/javascript', src='./js/pc/carousel.js')
+block content
+  body
+    include ./_header
+    .main.w1180
+      #system-info.system-info.page
+        .lb
+          h3 球馆智能管理一体化
+          h2 360°球馆管理无死角
+          ul
+            li 包含在线预定场地，场地付费，退场换场，锁场打包等日常经营功能，告别本子记录模式，有效减少人力成本
+            li 会员资料完整存储，订场、固定场、充值、消费清晰记录，每一位会员的动态都了如指掌，有效避免余额不对、场地冲突等关键问题
+            li 带有扫码枪、进销存的商品体系，令球馆老板头痛的库存、利润问题轻松解决，清晰多维度的统计报表，随时随地都可以查看，大大降低财务的工作量和人手
+        .rb
+          .album
+            ul#carousel
+              li
+                img(src='./images/newpc/pro_page1_0.png')
+              li
+                img(src='./images/newpc/pro_page1_1.png')
+              li
+                img(src='./images/newpc/pro_page1_2.png')
+          #menu.menu
+          script.
+            $(document).ready(function() {
+            var carousel = new Carousel($('#carousel')[0], {
+            gap: 0,
+            carouselOn: true,
+            menu: $('#menu')[0],
+            action:'move'
+            //- leftDom:$('#left')[0],
+            //- rightDom:$('#right')[0]
+            })
+            })
+      #channel-info.channel-info.page
+        .lb
+          img(src='./images/newpc/pro_page2.png')
+        .rb
+          h3 七大渠道流量变现
+          h2 海量用户的选择
+          p
+            | 各大合作平台皆能找到场馆,并可直接付款预订
+            br
+            | 大大提升曝光率和订场数,解决球馆经营面临的推广问题
+      #wechat-info.wechat-info.page
+        .lb
+          h3 定制专属微信公众号
+          h2 抛离对手的价值体现
+          p
+            | 球馆反应，客户和球馆之间仅有打球的交流，无法进行深入的运营
+            br
+            | 公众号使双方紧密联系，轻松开展多元化业务，时刻比对手抢先一步
+            br
+            | 实时推送消费和通知，带有微信声音震动提示，客户100%接收
+        .rb
+          img(src='./images/newpc/pro_page3.png')
+      #wechat-report.wechat-report.page
+        .lb
+          span 财务报表
+          .menu#menuSp
+            ul
+              li
+              li
+          ul#carouselSp
+            li.cur
+              img(src='./images/newpc/pro_report.png') 
+            li
+              img(src='./images/newpc/pro_open.png')
+        script.
+            $(document).ready(function() {
+            var carouselsp = new Carousel($('#carouselSp')[0], {
+            gap: 0,
+            carouselOn: true,
+            menu: $('#menuSp')[0],
+            action:'change'
+            //- leftDom:$('#left')[0],
+            //- rightDom:$('#right')[0]
+            })
+            })
+        .rb
+          h3 微信上的智能财务
+          h2 专业运营的进阶之路
+          p
+            | 出门在外难免无法了解球馆情况，来不及做出调整导致错失良机，微信报表
+            br
+            | 能实时显示球馆的多方面数据，结合趋势分析让球馆收益更进一步
+          p
+            | 场地空置、管理员有否做错的问题让许多老板头痛不已，馆掌系统将推出灯
+            br
+            | 控及调价两大核心功能，助你全方位解决问题
+      #hardware-info.hardware-info.page.text-center
+        .tb
+          h3 全新智能硬件升级
+          h2 一流球馆的硬实力
+          p
+            | 球馆硬件落后一直是导致竞争力不足的原因，经调研50%用户流失归根于此
+            br
+            | 你需要有一整套的智能化设备提升竞争力，智能灯控、智能闸机、IC手环能让你的对手望尘莫及
+        .bb
+          .row
+            .imgbox
+              img(src='./images/newpc/icon-light.png')
+            .imgbox
+              img(src='./images/newpc/icon-door.png')
+            .imgbox
+              img(src='./images/newpc/icon-cctv.png')
+            .imgbox.mr0
+              img(src='./images/newpc/icon-vip.png')
+          .row
+            .textbox 智能灯控
+            .textbox 智能闸机
+            .textbox 全景摄像头
+            .textbox.mr0 一体售卖机
+    include ./_footer

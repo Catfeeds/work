@@ -1,0 +1,30 @@
+<section ng-include="'/templates/wx/calendar.html'" class="calendar" ng-controller="calendarCtrl" ng-swipe-left="nextDate()" ng-swipe-right="prevDate()"></section>
+<div id="order" ng-if="hasDate">
+	<div class="doughnut">
+		<h4 class="t">
+			<span class="pl"><i>●</i>散客订单</span>
+			<span class="pm"><i>●</i>网络订单</span>
+			<span class="pr"><i>●</i>会员订单</span>
+		</h4>
+		<div class="canvas">
+			<canvas class="js-canvas"></canvas>
+			<div class="box" ng-show="canvasComplete">
+				<dl class="number">
+					<h4>订单合计（笔） </h4>
+					<p>{{order.sum.number}}</p>
+				</dl>
+				<dl class="money">
+					<h4>总收入（元） </h4>
+					<p>{{order.sum.money}}</p>
+				</dl>
+			</div>
+		</div>
+	</div>
+	<ul class="list">
+		<li>散客订单&nbsp;/&nbsp;<em class="color-2">{{order.other.number}}笔({{order.other.money}}元)</em></li>
+		<li>网络订单&nbsp;/&nbsp;<em class="color-3">{{order.internet.number}}笔({{order.internet.money}}元)</em></li>
+		<li>会员订单&nbsp;/&nbsp;<em class="color-1">{{order.member.number}}笔({{order.member.money}}元)</em></li>
+	</ul>
+	<div class="hr-list"></div>
+</div>
+<div ng-include="'/templates/wx/nodata.html'" class="nodate" ng-if="!hasDate" ng-style="nodateStyle"></div>

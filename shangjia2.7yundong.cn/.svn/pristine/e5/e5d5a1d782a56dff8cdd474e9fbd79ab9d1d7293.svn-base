@@ -1,0 +1,567 @@
+
+        <script src="/static/shangjia/js/jquery.hoverIntent.js" type="text/javascript"></script>
+        <script src="/static/shangjia/js/jquery.cluetip.min.js" type="text/javascript"></script>
+        <script src="/static/shangjia/js/shangjia.js?ver=20160822A" type="text/javascript"></script>
+        <script src="/static/shangjia/js/jquery.messager.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/static/shangjia/css/admin.css?v=1.8">
+        <link rel="stylesheet" href="/static/shangjia/css/jquery.cluetip.css" type="text/css">
+        <link rel="stylesheet" href="/static/shangjia/css/shangjia.css?ver=20161025" type="text/css">
+        <audio id="chatAudio">
+          <source src="/static/shangjia/neworder.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="refundAudio">
+          <source src="/static/shangjia/refund.mp3" type="audio/mpeg">
+        </audio>
+
+        <div class="toporder l" style="min-width:1200px;">
+          <input id="is_show_mobile" type="hidden" value="0">
+          <input id="cat_info" type="hidden" name="cat_info" value="<?=$cat_id?>" />
+          <input id="venues_id" type="hidden" name="venues_id" value="<?=$venues_id?>" />
+          <input id="book_date" type="hidden" name="book_date" value="<?=$book_date?>" />
+          <label class="sj-select-lb fl form-inline">
+            <i class="glyphicon glyphicon-chevron-down"></i>
+            <select id="cat_id_value" name="cat_id" onChange="changeCat()" class="fl form-control sj-select btn-bdru" style="cursor:pointer;">
+            <?php
+                foreach($catList as $key=>$value){
+                ?>
+                <option value="<?=$key?>" <?php if ($cat_id == $key) echo 'selected';?>><?=$value?></option>
+                <?php
+                }
+                ?> 
+            </select>
+          </label>
+          <div onClick="lockCourt()" class="ordervalid2 btnstyle fl sj-lock afterBorder">场次锁定</div>
+          <label class="fl form-inline sj-select-lb" style="margin-left:30px;">
+           <?php
+           if(!empty($adminList)){
+            ?>  
+            <i class="glyphicon glyphicon-chevron-down"></i>
+
+            <select id="checkSupplier" class="form-control sj-select btn-bdru" style="cursor:pointer;">
+              <option value="0">选择管理员</option>
+              <?php
+                  foreach($adminList as $value){
+                  ?>
+                  <option value="<?=$value['id']?>"><?=$value['admin_name']?></option>
+                  <?php
+                  }
+              ?> 
+            </select>      
+            <?php
+            	echo '<input type="hidden" name="send_type" value="1" id="send_type" />';
+            }
+            else{
+             	echo '<input type="hidden" name="send_type" value="0" id="send_type" />';
+            }
+            ?>
+          </label>
+          <div class="sj-phone fl" style="margin:0 30px;min-height:40px;*min-height:auto;"><span>手机号</span>
+            <input id="phone" type="text" name="phone">
+          </div>
+          <div id="sendSmsBtn" class="btnstyle sendSmsBtn fl" style="cursor:pointer">发 送</div>
+          
+          <div class="ordervalid btnstyle fl">订单验证</div>
+        </div>
+
+        <div class="sj-title sj-margin"><span style="padding-bottom: 10px;margin-top: 20px;">场地预订</span><ul class="orderlist sj-orderStatus fr" style="margin-bottom: 0;margin-top: 28px;">
+            <li class="sj-wlyd"><em style='display:none;*display:inline-block;width: 10px;height: 10px;background-color:#d6a856;margin-right: 10px;'></em>网络预订</li>
+            <li class="sj-wlzf"><em style='display:none;*display:inline-block;width: 10px;height: 10px;background-color:#d6a856;margin-right: 10px;'></em>网络预订支付中</li>
+            <li class="sj-cgsd"><em style='display:none;*display:inline-block;width: 10px;height: 10px;background-color:#0384da;margin-right: 10px;'></em>场馆锁定</li>
+          </ul></div>
+
+        <?php 
+        if(empty($goodsList)){
+        ?>
+        <div class="sj-date sj-noitem">
+         <img src="/static/shangjia/images/noitem.png" /><p>暂无数据</p>
+        </div>
+        <?php 
+        }else {?>
+        <div class="sj-date">
+          <ul>       
+            <?php 
+            if(!empty($dateList)){ 
+                  foreach($dateList as $value){
+                  ?>
+                   <li <?php if($book_date == $value['date']){?>class="active"<?php }?>><a href="/Goods/index?book_date=<?=$value['date']?>&cat_id=<?=$cat_id ?>"><?=$value['date_week']?><em><?=$value['name']?></em></a></li>
+                  <?php
+                  }
+              }
+              ?> 
+          </ul>
+        </div>
+        <div class="col-busi col-busi-order sj-table">
+            <ul class="areanamewrap"></ul>
+            <ul class="areatimewrap hide"></ul>
+            <div class="tablewrap l">
+              <table id="tableContainer" style="background-color: #fff;" class="time-table table-hover" cellspacing="4">
+                <tbody>
+                  <tr>
+                    <th class='sj-first-th' width="72"></th>
+                    <?php
+                      $h =  count($hourList);
+                      if(isset($hourList[$h-1]))
+                      {
+                      	$info_temp = explode(":", $hourList[$h-1]);
+                        $hourList[$h] =  ($hourList[$h-1] + 1 ) . ":" . $info_temp[1];
+                      }
+  
+                      foreach($hourList as $value){
+                      ?>
+                        <th><em><?=$value?></em></th>
+                      <?php
+                      }
+                      ?> 
+                  </tr>
+                  
+                  <?php
+                  $show_shang_icon_map = array(); // 是否显示商子的图标的数组，用于判断是否已经显示shang这个icon了
+                  foreach($goodsList as $value){
+                  ?>  
+                  <tr>
+                    <td class='sj-first-td' style="height:42px;"><?=$value['course_name']?></td>
+                    <?php 
+                    if(!empty($value['item']))
+                    {
+                   	 foreach($value['item']  as $valueItem){?>
+
+                        <?php if( 1 == $valueItem['status']) { 
+                        
+             				//有名称跟账号的显示样式不一样
+                            if($valueItem['name'] || $valueItem['phone']) {
+                             $str_lock_class =  'td-cgsd td-wlyd3'; 
+                            }
+                            else {
+                             $str_lock_class = 'td-cgsd'; 
+                            }?>   
+                            <!-锁定场--> 
+                    <td><span id="span_<?=$valueItem['goods_id'] ?>" <?php if($valueItem['name'] != "" || $valueItem['phone'] != "") { ?> title="名称：<?=$valueItem['name']?>   号码：<?=$valueItem['phone']?>"<?php } ?> price="<?=$valueItem['price']?>" content="<?=$valueItem['hour']?> <?=$value['course_name']?>" goods_id="<?=$valueItem['goods_id']?>"  onClick="UnLockCourse(this,<?=$valueItem['goods_id']?>);" class="<?=$str_lock_class?>"
+ ><span style="height:16px;line-height: 16px;padding-top:2px;"><?=$valueItem['phone']?></span><span style="height:16px;line-height: 16px;"><?=$valueItem['name']?></span></span></td>                 
+                        <?php 
+                        } elseif(2 == $valueItem['status'] || 4 == $valueItem['status']) {
+                        ?>
+                        <!-订单场，会员卡订场--> 
+                             <?php
+                             if(isset($valueItem['order_type']) && $valueItem['order_type'] == 3) {
+								//预留订单
+								if($valueItem['utm_medium'] == $sj_tip) {	 
+                             ?>
+	                              <td style="padding:0px;">
+	                                <span id="span_<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>"   onclick="unBooking(this,<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>);" 
+	                                title="订 单 号：<?php echo isset($valueItem['order_sn']) ? $valueItem['order_sn'] :  "";  ?>|场次金额：￥<?php echo isset($valueItem['total_third_amount']) ? $valueItem['total_third_amount'] :  0; ?><?php if(!empty($valueItem['sale_list'])){ ?><?php } ?>|手机尾号：<?php echo isset($valueItem['mobile_tail']) ? $valueItem['mobile_tail'] :  "";  ?>|支付时间：<?php echo isset($valueItem['pay_time']) ? $valueItem['pay_time'] :  ""; ?>|使用日期：<?php echo isset($valueItem['book_date']) ? $valueItem['book_date'] :  ""; ?>|订单场次：
+				                            <?php
+				                            if(!empty($valueItem['goods_detail'])) {
+                                foreach($valueItem['goods_detail']  as $valueItemDetial){ ?>                     
+				                                    |<?=$valueItemDetial?>
+				                            <?php 
+				                                    }
+                            }?>	" sale_goods='<?php echo !empty($valueItem['sale_list']) ? json_encode($valueItem['sale_list']) : ''; ?>' order_id="<?php  echo isset($valueItem['order_id']) ? $valueItem['order_id'] : 0; ?>" price="<?=$valueItem['price']?>" content="<?php echo isset($valueItem['hour']) ? $valueItem['hour'] :  "";  ?> <?php echo isset($valueItem['course_name']) ? $valueItem['course_name'] :  "";  ?>" goods_id="<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>" class="td-cgsd td-wlyd3 td-wlyd5 booking">
+				                              <span style="height:16px;line-height: 16px;padding-top:2px;"><?=$valueItem['mobile']?></span>
+                                              <span style="height:16px;line-height: 16px;"><?=$valueItem['user_name']?></span>
+	                                            </span>
+	                                            <?php
+	                                            $order_info_detail = [
+													'user_name' => $valueItem['user_name'],
+													'mobile' => $valueItem['mobile'], 
+													'goods_detail' => $valueItem['goods_detail'],
+													'total_amount' => $valueItem['total_third_amount'], 
+													'order_id'	=>  $valueItem['order_id'],
+													'user_id'	=>  $valueItem['user_id'],
+													'order_status'=> $valueItem['order_status']													
+													];
+	                                            ?>
+	                                            <input type="hidden" value='<?=json_encode($order_info_detail);?>' id="order_detail_json_<?=$valueItem['goods_id']?>" >
+	                               </td>
+                             <?php 
+							    } else { ?>
+	                            <td style="padding:0px;"><span id="span_<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>" title="订 单 号：<?php echo isset($valueItem['order_sn']) ? $valueItem['order_sn'] :  "";  ?>|订单类型：会员卡线上订单|姓名：<?php echo isset($valueItem['card_detail']['card_holder']) ? $valueItem['card_detail']['card_holder'] : "";  ?>|卡号：<?php echo isset($valueItem['card_detail']['card_no']) ? $valueItem['card_detail']['card_no'] : "";  ?>|手 机 号：<?php echo isset($valueItem['card_detail']['card_mobile_phone']) ? $valueItem['card_detail']['card_mobile_phone'] : "";  ?>|订单场次：
+	                             <?php
+	                            if(!empty($valueItem['goods_detail'])) {
+                                foreach($valueItem['goods_detail']  as $valueItemDetial){?>                     
+	                                    |<?=$valueItemDetial?>
+	                            <?php 
+	                                    }
+                            }?>			   
+	                            " price="<?=$valueItem['price']?>" content="<?=$valueItem['hour']?> <?=$value['course_name']?>" goods_id="82098698" style="" class="td-hyyd">
+	                                   <div>
+	                                    <p>(线上)<?php echo isset($valueItem['card_detail']['card_holder']) ? $valueItem['card_detail']['card_holder'] : "";  ?></p>
+	                                    <p>手机号:#<?=$valueItem['mobile_tail']?></p>
+	                                  </div></span>
+	                            </td>
+                            
+                            <?php
+                            	}
+							  
+                            } else {
+									//预留订单
+								 	if(isset($valueItem['utm_medium']) && $valueItem['utm_medium'] == $sj_tip){
+									?>
+									 <td style="padding:0px;">
+	                                <span id="span_<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>"   onclick="unBooking(this,<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>);" 
+	                                title="订 单 号：<?php echo isset($valueItem['order_sn']) ? $valueItem['order_sn'] :  "";  ?>|场次金额：￥<?php echo isset($valueItem['total_third_amount']) ? $valueItem['total_third_amount'] :  0; ?><?php if(!empty($valueItem['sale_list'])){ ?><?php } ?>|手机尾号：<?php echo isset($valueItem['mobile_tail']) ? $valueItem['mobile_tail'] :  "";  ?>|支付时间：<?php echo isset($valueItem['pay_time']) ? $valueItem['pay_time'] :  ""; ?>|使用日期：<?php echo isset($valueItem['book_date']) ? $valueItem['book_date'] :  ""; ?>|订单场次：
+				                            <?php
+				                            if(!empty($valueItem['goods_detail'])) {
+                                foreach($valueItem['goods_detail']  as $valueItemDetial){ ?>                     
+				                                    |<?=$valueItemDetial?>
+				                            <?php 
+				                                    }
+                            }?>	" sale_goods='<?php echo !empty($valueItem['sale_list']) ? json_encode($valueItem['sale_list']) : ''; ?>' order_id="<?php  echo isset($valueItem['order_id']) ? $valueItem['order_id'] : 0; ?>" price="<?=$valueItem['price']?>" content="<?php echo isset($valueItem['hour']) ? $valueItem['hour'] :  "";  ?> <?php echo isset($valueItem['course_name']) ? $valueItem['course_name'] :  "";  ?>" goods_id="<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>" class="td-cgsd td-wlyd3 td-wlyd5 booking">
+				                              <span style="height:16px;line-height: 16px;padding-top:2px;"><?=$valueItem['mobile']?></span>
+                                              <span style="height:16px;line-height: 16px;"><?=$valueItem['user_name']?></span>
+	                                            </span>
+	                                            <?php
+	                                            $order_info_detail = [
+													'user_name' => $valueItem['user_name'],
+													'mobile' => $valueItem['mobile'], 
+													'goods_detail' => $valueItem['goods_detail'],
+													'total_amount' => $valueItem['total_third_amount'], 
+													'order_id'	=>  $valueItem['order_id'],
+													'user_id'	=>  $valueItem['user_id'],
+													'order_status'=> $valueItem['order_status']													
+													];
+	                                            ?>
+	                                            <input type="hidden" value='<?=json_encode($order_info_detail);?>' id="order_detail_json_<?=$valueItem['goods_id']?>" >
+	                               </td>	  
+									<?php
+									} else {
+									//非预留（卖品）
+                                 $is_show_shang_icon = false; // 是否显示商子的图标
+
+                                 if (!empty($valueItem['sale_list']) && ($valueItem['sale_action_time'] == 0) && !isset($show_shang_icon_map[$valueItem['order_sn']])){
+                                     $is_show_shang_icon = true;
+                                     $show_shang_icon_map[$valueItem['order_sn']] = 1;
+                                 }
+                            ?>
+	                             <!-订单场，非会员卡下单(场次订单)-->
+	                            <td style="padding:0px;"><span id="span_<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>" title="订 单 号：<?php echo isset($valueItem['order_sn']) ? $valueItem['order_sn'] :  "";  ?>|场次金额：￥<?php echo isset($valueItem['goods_amount']) ? $valueItem['goods_amount'] :  0; ?><?php if(!empty($valueItem['sale_list'])){ ?>|商品金额：￥<?php echo $valueItem['sale_amount']; ?><?php } ?>|手机尾号：<?php echo isset($valueItem['mobile_tail']) ? $valueItem['mobile_tail'] :  "";  ?>|支付时间：<?php echo isset($valueItem['pay_time']) ? $valueItem['pay_time'] :  ""; ?>|使用日期：<?php echo isset($valueItem['book_date']) ? $valueItem['book_date'] :  ""; ?>|订单场次：
+	                            <?php
+	                            if(!empty($valueItem['goods_detail'])) { 
+                                foreach($valueItem['goods_detail']  as $valueItemDetial){ ?>                     
+	                                    |<?=$valueItemDetial?>
+	                            <?php 
+	                                    }
+                            	}?>			                       
+	                            <?php if(!empty($valueItem['sale_list'])) { 
+									$_sale_goods_str = ''; ?>
+	                            |附带商品:
+	                            |   <?php
+	                                    foreach($valueItem['sale_list'] as $_sale){
+                                            $_sale_goods_str .= $_sale['name']. 'X'. $_sale['num']. '，';
+                                    }
+                                    echo rtrim($_sale_goods_str, '，');
+
+                                    }
+                                ?>
+	                            " <?php echo isset($is_show_shang_icon) && $is_show_shang_icon   ? 'shang' :''; ?> <?php if(isset($is_show_shang_icon) && $is_show_shang_icon){ ?>oncontextmenu="verifySale('<?php   echo isset($valueItem['order_id']) ?  $valueItem['order_id'] : 0; ?>', this);"<?php } ?> sale_goods='<?php echo !empty($valueItem['sale_list']) ? json_encode($valueItem['sale_list']) : ''; ?>' order_id="<?php  echo isset($valueItem['order_id']) ? $valueItem['order_id'] : 0; ?>" price="<?=$valueItem['price']?>" content="<?php echo isset($valueItem['hour']) ? $valueItem['hour'] :  "";  ?> <?php echo isset($valueItem['course_name']) ? $valueItem['course_name'] :  "";  ?>" goods_id="<?php echo isset($valueItem['goods_id']) ? $valueItem['goods_id'] :  "";  ?>" class="td-wlyd td-wlyd2">手机#<?php echo isset($valueItem['mobile_tail']) ? $valueItem['mobile_tail'] :  "";  ?></span></td>
+	                        
+	                        <?php 
+	                        	 }
+							}
+                        } elseif(3 == $valueItem['status']) {
+                        
+                        	if(isset($valueItem['utm_medium']) && $valueItem['utm_medium'] == $sj_tip){
+                        ?>
+                        <!-支付中(预留订单)-->
+                         <td> 
+                         	<span id="span_<?=$valueItem['goods_id']?>" class="td-wlyd td-booking booking"  price="<?=$valueItem['price']?>" content="<?=$valueItem['hour']?> <?=$value['course_name']?>" goods_id="<?=$valueItem['goods_id']?>" onclick="unBooking(this,<?=$valueItem['goods_id']?>);"> 预留</span> 
+                         	 <?php
+	                                            $order_info_detail = [
+													'user_name' => $valueItem['user_name'],
+													'mobile' => $valueItem['mobile'], 
+													'goods_detail' => $valueItem['goods_detail'],
+													'total_amount' => $valueItem['total_third_amount'], 
+													'order_id'	=>  $valueItem['order_id'],
+													'user_id'	=>  $valueItem['user_id'],
+													'order_status'=> $valueItem['order_status']													
+													];
+	                                            ?>
+	                                            <input type="hidden" value='<?=json_encode($order_info_detail);?>' id="order_detail_json_<?=$valueItem['goods_id']?>" >
+                         	
+                         </td>   
+                        <?php }else{?>
+                         <!-支付中(普通)-->
+                        <td><span id="span_<?=$valueItem['goods_id']?>" price="<?=$valueItem['price']?>" content="<?=$valueItem['hour']?> <?=$value['course_name']?>" goods_id="<?=$valueItem['goods_id']?>" class="td-wlyd">支付中</span></td> 
+                        <?php
+                        	} 
+                        } else {
+                        
+                            if($valueItem['price'] != 0)
+                            {
+                            ?>
+                             <!-空场--> 
+                            <td><span id="span_<?=$valueItem['goods_id']?>" price="<?=$valueItem['price']?>" content="<?=$valueItem['hour']?> <?=$value['course_name']?>" channel_price="<?=$valueItem['channel_price']?>" goods_id="<?=$valueItem['goods_id']?>" onMouseDown="LockCourse(event,this)"></span></td>
+                            <?php
+                            }
+                            else
+                            {
+                          
+                            ?>
+                             <!-锁定场-->              	
+                               <td>  <span id="span_<?=$valueItem['goods_id']?>" class="td-cgsd" onclick="UnLockCourse(this,<?=$valueItem['goods_id']?>);" goods_id="<?=$valueItem['goods_id']?>" content="?=$valueItem['hour']?> <?=$value['course_name']?>" price="<?=$valueItem['price']?>">
+                                <span style="height:16px;line-height: 16px;padding-top:2px;"></span>
+                                <span style="height:16px;line-height: 16px;"></span>
+                                </span>
+                                </td>  
+                            <?php 
+                            }
+                        	
+                        }?> 
+ 
+                    <?php }?>
+  
+                  </tr>
+                  <?php 
+                  	}
+                  }?>
+                  <tr>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+        <?php }?>
+        <div class="popbg"> </div>
+        <div class="pop-lock tl pa">
+          <div class="top-lock pr l"><strong>提示</strong></div>
+          <div class="mid-lock fl">
+            <div class="part01-lock fl">是否确认锁定？</div>
+            <div class="part02-lock l"><span class="canclebtn btnStyleCancel fr cur">取消</span><span id="lockedBtn" class="okbtn btnStyleDefault fr cur">确定</span></div>
+          </div>
+        </div>
+        <div class="pop-validorder tl pa">
+			
+		  <div class="top-validorder pr l">
+            <div class="closepop cur pa" style="background:none;margin-top:5px;">
+              <img src="/static/shangjia/images/closebtn.jpg" alt="">
+            </div>
+			
+            <h4>订单验证</h4>
+          </div>
+          <div class="mid-validorder l">
+            <ul class="validorder">
+              <li><strong>请输入验证码</strong>
+                <input id="check_code" type="text" name="verification_code" class="validtext">
+              </li>
+            </ul><br><span id="checkOrder" class="btnStyleDefault okbtn2 cur" style="padding:2px 15px;">确定</span>
+          </div>
+        </div>
+        <div class="pop-exit tl pa">
+          <div class="top-lock pr l"><strong>温馨提示</strong></div>
+          <div class="mid-lock fl">
+            <div class="part01-lock fl">是否确定退出？</div>
+            <div class="part02-lock l"><span class="canclebtn btnStyleCancel fr cur">取消</span><span class="okbtn btnStyleDefault fr cur">确定</span></div>
+          </div>
+        </div>
+        <div class="pop-bgorder"> </div>
+        <div class="pop-neworder tl pa">
+          <div class="top-lock pr l"><strong>订单提示</strong></div>
+          <div class="mid-lock fl">
+            <div class="part03-lock fl">
+              <p style="font-size: 14px;">  您有新网络订单</p>
+            </div>
+            <div style="padding-bottom: 10px;" class="part02-lock l"><span class="okbtn2 canclorderbtn btnStyleDefault cur" style="display:inline-block;">确定</span></div>
+          </div>
+        </div>
+        <div class="pop-refundorder tl pa">
+          <div class="top-lock pr l"><strong>订单提示</strong></div>
+          <div class="mid-lock fl">
+            <div class="part03-lock fl">
+              <p style="font-size: 14px;">  您有退订订单</p>
+            </div>
+            <div style="padding-bottom: 10px;" class="part02-lock l"><span style="display:inline-block;" class="okbtn2 canclorderbtn btnStyleDefault cur">确定</span></div>
+          </div>
+        </div>
+        <div class="pop-order-tj tl pa">
+          <div class="top-lock pr l"><strong>温馨提示</strong></div>
+          <div class="mid-lock fl">
+            <div class="part03-lock fl">
+              <p id="order_info"></p>
+              <p id="check_order_msg" style="font-size: 14px;"></p>
+            </div>
+            <div style="padding-bottom: 10px;" class="part02-lock l"><span class="okbtn2 canclorderbtn btnStyleDefault cur" style="display:inline-block;">确定</span></div>
+          </div>
+        </div>
+        <div style="height: 300px; width: 280px;" class="pop-preorder pa">
+          <div class="top-preorder pr tl l"><strong>场地锁定</strong></div>
+          <div class="mid-preorder fl">
+            <div style="display: none;" class="part01-preorder fl"><span>会员类型：</span><b>
+                <input type="radio" name="member" class="memradio">非会员</b><b>
+                <input type="radio" name="member" class="memradio">会员</b></div>
+            <div class="part02-preorder fl" style="padding-left:0;">
+              <div class="form-inline filter-control">
+                  <div style="margin-left:30px;" class="form-group filter-input inputReset">
+                      <label>姓名</label>
+                      <input type="text">
+                  </div>
+                  <div style="margin-left:30px;margin-top:20px;" class="form-group filter-input inputReset">
+                      <label>手机</label>
+                      <input type="text">
+                  </div>
+              </div>
+            </div>
+            <div class="part03-preorder fl">
+              <div style="display: none;" class="part01-preorder"><span>预订周期：</span><b>
+                  <input type="radio" name="cycle" class="memradio">每天</b><b>
+                  <input name="cycle" type="radio" class="memradio">周期</b></div>
+              <ul class="preorderul" style="height:80px;"></ul>
+              <div style="display: none;" class="part01-preorder-date l"><span>有效时间：</span>
+                <input type="text" class="date"><img src="/static/shangjia/images/line_icon.png">
+                <input type="text" class="date">
+              </div>
+              <div style="display: none;" class="btndiv tc l">
+                <input type="submit" value="查询" class="checkbtn">
+              </div>
+              <div style="display: none;" class="part01-preorder"><span>支付类型：</span><b>
+                  <input type="radio" name="type" class="memradio">一次性付款</b><b>
+                  <input type="radio" name="type" class="memradio">按消费时间付款</b></div>
+              <div style="display: none;" class="part01-preorder-preice l"><span>合计场次：</span><b><strong class="blue">0</strong>场x单价</b><b>
+                  <input type="text" class="pricetext"><img src="/static/shangjia/images/eq.png">
+                  <input type="text" class="pricetext"><strong>元</strong></b></div>
+              <div style="display: none;" class="part01-preorder"><span>是否付款：</span><b>
+                  <input type="radio" name="pay" class="memradio">每天</b></div>
+              <div style="display: none;" class="part01-preorder"><span>支付方式：</span><b>
+                  <input type="radio" name="cash" class="memradio">现金</b><b>
+                  <input name="cash" type="radio" class="memradio">刷卡</b></div>
+              <div class="btndiv">
+                <input type="submit" value="锁定" class="btnStyleDefault orderbtn">
+              </div>
+            </div>
+          </div>
+        </div>
+        <?php if(helper_LoginHelper::isReserve())
+        {
+        ?>
+  		<!--场地预留与锁定 -->
+        <div class="pop-validorder2 tl pa">
+          <div class="top-validorder pr l">
+            <!-- <span class="closepop cur pa"></span> -->
+            
+            <div class="closepop cur pa" style="background:none;margin-top:5px;">
+              <img src="/static/shangjia/images/closebtn.jpg" alt="">
+            </div> 
+            <h4>场地锁定</h4>
+          </div>
+          <div class="mid-validorder l">
+            <div style="margin-top: 10px;" class="part02-preorder fl">           
+               <div class="form-inline filter-control">
+                <div class="form-group filter-input inputReset" style="margin-left:30px;">
+                  <label for="locked_name_in">姓名</label>
+                  <input id="locked_name_in" type="text" name="locked_name">
+                </div>
+                <div class="form-group filter-input inputReset" style="margin-left:30px;">
+                  <label for="locked_mobile_in">手机</label>
+                  <input id="locked_mobile_in" type="text" name="locked_mobile">
+                </div>
+              </div>  
+            </div>
+            <ul id="lock_preorder" class="preorderul"></ul>
+            <div class='money'>金额：123元</div>
+            <span id="bookSubmit" disabled class="okbtn2 btnStyleDefault cur" style="display:inline-block;">预留</span><span id="lockedSubmit" class="okbtn2 btnStyleDefault cur" style="display:inline-block;">锁定</span>
+            <div class='tips  hide'>最多只能预留4片场地</div>
+          </div>
+        </div>
+        <?php
+        }else{ 
+        ?>
+         <!--场地锁定 -->
+        <div class="pop-validorder2 tl pa">
+          <div class="top-validorder pr l">
+            <!-- <span class="closepop cur pa"></span> -->
+            <div class="closepop cur pa" style="background:none;margin-top:5px;">
+              <img src="/static/shangjia/images/closebtn.jpg" alt="">
+            </div> 
+            <h4>场地锁定</h4>
+          </div>
+          <div class="mid-validorder l">
+            <div style="margin-top: 10px;" class="part02-preorder fl">           
+               <div class="form-inline filter-control">
+                <div class="form-group filter-input inputReset" style="margin-left:30px;">
+                  <label for="locked_name_in">姓名</label>
+                  <input id="locked_name_in" type="text" name="locked_name">
+                </div>
+                <div class="form-group filter-input inputReset" style="margin-left:30px;">
+                  <label for="locked_mobile_in">手机</label>
+                  <input id="locked_mobile_in" type="text" name="locked_mobile">
+                </div>
+              </div>  
+            </div>
+            <ul id="lock_preorder" class="preorderul"></ul>
+            <span id="lockedSubmit" class="okbtn2 btnStyleDefault cur" style="display:inline-block;">锁定</span>
+          </div>
+        </div>
+        <?php 
+		 }?>
+        <div id='cancelBookingBoxBG' class="com-fixed hide"></div>
+        <div id='cancelBookingBox' class="cancel-booking hide">
+          <div class="cancel-booking-top">
+            <div id='cancelBookingBoxClose' class="cancel-booking-close" style="background:none;margin-top:5px;">
+              <img src="/static/shangjia/images/closebtn.jpg" alt="">
+            </div> 
+            <h4>场地预留</h4>
+          </div>
+          <div class="cancel-booking-mid">
+            <ul>
+              <li>姓名：</li>
+              <li class="book_name"></li>
+            </ul>
+            <ul>
+              <li>手机：</li>
+              <li class="book_phone"></li>
+            </ul>
+            <ul class="book_course">
+            </ul>
+            <div class='money'></div>
+           <input type="hidden" id="book_order_id" value="">
+           <input type="hidden" id="book_user_id" value="">
+           <input type="hidden" id="order_status" value="">
+            <span id="reSendMsg"  class="okbtn2 btnStyleDefault cur" style="display:inline-block;">重发短信</span><span id="unBook" class="okbtn2 btnStyleDefault cur" style="display:inline-block;">取消预留</span>
+          </div>
+        </div>
+        <div class="pop-validorder3 tl pa">
+          <div class="top-validorder pr l">
+            <!-- <span id="close_supplier" class="closepop_pulic cur pa"></span> -->
+            <div id="close_supplier" class="closepop_pulic cur pa" style="background:none;margin-top:5px;">
+              <img src="/static/shangjia/images/closebtn.jpg" alt="">
+            </div> 
+            <h4>切换管理员</h4>
+          </div>
+          <div style="text-align: center;" class="mid-validorder l">
+            <ul class="validorder">
+              <select id="checkSupplier2" name="suppliers2">
+                <option value="0">请选择</option>
+                <option value="3">张三</option>
+                <option value="4">李四</option>
+              </select>
+            </ul><span id="submitSupplier" style="margin-top: 20px;float:none;display:inline-block;" class="okbtn btnStyleDefault cur">确定</span>
+          </div>
+        </div>
+        <div id='msgBox' class="msgbox hide">
+          <div class='msgbox-inner'>
+            <div class='close'></div>
+            <div class='title'>用户拿取商品后，请点击确定</div>
+            <ul class="lists">
+            </ul>
+              <input type="hidden" id="msgbox_order_id" value="0" />
+            <div class="btnstyle">确定</div>
+          </div>
+        </div>
+        <div class="pop-validorder4 tl pa">
+          <div class="top-validorder pr l">
+            <!-- <span id="closeMobile" class="closepop_pulic cur pa"></span> -->
+            <div id="closeMobile" class="closepop_pulic cur pa" style="background:none;margin-top:5px;">
+              <img src="/static/shangjia/images/closebtn.jpg" alt="">
+            </div> 
+            <h4>录入手机号码</h4>
+          </div>
+          <div style="text-align: center;" class="mid-validorder l">
+            <ul class="validorder">
+              <li>
+                <div class="form-group filter-input inputReset" style="margin-left:30px;">
+                  <label for="input_mobile2">姓名</label>
+                  <input id="input_mobile2" type="text" name="mobile2">
+                </div>
+              </li>
+            </ul><span id="submitMobile" style="margin-top: 20px;float:none;display:inline-block;" class="okbtn btnStyleDefault cur">确定</span>
+          </div>
+        </div>
+        <link href="/static/shangjia/css/default.css" rel="stylesheet" type="text/css">

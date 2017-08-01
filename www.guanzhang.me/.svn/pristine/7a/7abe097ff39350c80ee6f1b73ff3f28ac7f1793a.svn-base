@@ -1,0 +1,103 @@
+/* line 1, ../sass/system.scss */
+.main {
+  text-align: center;
+  font-weight: 200;
+}
+
+/* line 7, ../sass/system.scss */
+h2 {
+  padding-bottom: 30px;
+  font-size: 40px;
+  color: #2b6ffe;
+  padding-top: 120px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* line 16, ../sass/system.scss */
+p {
+  font-size: 18px;
+  color: #000;
+}
+
+/* line 20, ../sass/system.scss */
+h3 {
+  font-size: 24px;
+  margin-bottom: 30px;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+}
+
+/* line 26, ../sass/system.scss */
+.img-row {
+  padding-top: 60px;
+  padding-bottom: 90px;
+  position: relative;
+}
+/* line 30, ../sass/system.scss */
+.img-row:after {
+  content: "";
+  height: 1px;
+  width: 500px;
+  background-color: #dcdcdc;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -250px;
+}
+
+/* line 42, ../sass/system.scss */
+.cell {
+  display: inline-block;
+  margin: 0 30px;
+  font-size: 24px;
+}
+/* line 46, ../sass/system.scss */
+.cell .top {
+  margin-bottom: 22px;
+}
+/* line 49, ../sass/system.scss */
+.cell span {
+  font-size: 15px;
+  color: #424242;
+}
+
+/* line 54, ../sass/system.scss */
+.margin-top-60 {
+  margin-top: 60px;
+}
+
+/* line 58, ../sass/system.scss */
+.button {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 3em;
+  color: #fff;
+  background-color: #4566cd;
+  text-align: center;
+  margin: 10px 30px;
+  font-size: 20px;
+}
+
+/* line 69, ../sass/system.scss */
+.gray {
+  background-color: #808080;
+}
+
+/* line 73, ../sass/system.scss */
+.flex {
+  display: flex;
+}
+
+/* line 78, ../sass/system.scss */
+.after-none:after {
+  display: none;
+}
+
+/* line 83, ../sass/system.scss */
+.inline-row {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 18px;
+  color: #424242;
+}

@@ -1,0 +1,246 @@
+/*main*/
+.main{
+	font-size: 0.14rem;
+	margin: 0 auto;
+	width: 3.2rem;
+	max-width: 640px;
+	color:#636363;
+}
+.photoAlbum{
+	display: block;
+	width: 3.2rem;
+	font-size: 0;
+	position: relative;
+}
+.photoAlbum:before{
+	display: block;
+	content: "";
+	width: 100%;
+	height: 0.23rem;
+	background-color: rgba(0,0,0,0.4);
+	position: absolute;
+	left: 0;
+	bottom:0;
+	z-index: 9;
+}
+.photoAlbum:after{
+	display: block;
+	font-size: 0.14rem;
+	content: "点击查看相册";
+	width: 100%;
+	color:#fff;
+	height: 0.23rem;
+	line-height: 0.23rem;
+	text-align: center;
+	position: absolute;
+	left: 0;
+	bottom:0;
+	z-index: 99;
+}
+.photoAlbum img{
+	width: 100%;
+}
+.home{
+	width: 100%;
+	height: 0.43rem;
+	line-height: 0.43rem;
+	background-color: #fff;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding-left:0.4rem; 
+	color:#333;
+	border-bottom: 1px solid #e1e1e1;
+	position: relative;
+}
+.gyminformation{
+	width: 100%;
+	line-height: 0.43rem;
+	background-color: #fff;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding-left:0.1rem; 
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	margin:0.1rem auto;
+}
+.phone{
+	display: block;
+	width: 3.1rem;
+	text-indent: 2em;
+	border-bottom: 1px solid #e1e1e1;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	position: relative;
+}
+.address{
+	width: 3.1rem;
+	text-indent: 2em;
+	padding-top: 0.13rem;
+	padding-bottom: 0.13rem;
+	line-height: 1.25;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	position: relative;
+}
+footer{
+	width: 3.2rem;
+	font-size: 0;
+	margin: 0 auto;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	-webkit-transform:translateX(-50%);
+	transform:translateX(-50%);
+}
+.download{
+	display: block;
+	width: 3.2rem;
+	font-size: 0;
+}
+.download img{
+	width: 100%;
+}
+/*icon-fonts*/
+@font-face {
+	font-family: 'quyundong';
+	src:url('../font/quyundong.eot?r23ksw');
+	src:url('../font/quyundong.eot?#iefixr23ksw') format('embedded-opentype'),
+		url('../font/quyundong.ttf?r23ksw') format('truetype'),
+		url('../font/quyundong.woff?r23ksw') format('woff'),
+		url('../font/quyundong.svg?r23ksw#quyundong') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'quyundong';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-phone:before {
+	color:#cdcdcd;
+	font-size: 0.16rem;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+	line-height: 0.43rem;
+	content: "\e700";
+	text-indent: 0;
+}
+.icon-location:before {
+	color:#cdcdcd;
+	text-indent: 0;
+	font-size: 0.16rem;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0;
+	line-height: 0.43rem;
+	content: "\e701";
+	-webkit-transform: scale(1.3);
+	-ms-transform: scale(1.3);
+	-o-transform: scale(1.3);
+	transform: scale(1.3);
+}
+.icon-home:before {
+	color:#cdcdcd;
+	font-size: 0.16rem;
+	display: block;
+	position: absolute;
+	top:0;
+	left:0.1rem;
+	line-height: 0.43rem;
+	content: "\e705";
+}
+/*cover*/
+.cover{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: #000;
+	z-index: 999;
+	top:0;
+	left:0;
+	display: none;
+}
+.photograph{
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+}
+.photograph ul{
+	width: 200%;
+	height: 100%;
+	transform: translateX(-0%);
+}
+.photograph ul li{
+	width: 50%;
+	height: 100%;
+	float: left;
+	background:url(../images/loading.gif) no-repeat;
+	background-position: center center;
+	position: relative;
+}
+.photograph ul li img{
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left:50%;
+	-webkit-transform:translate3d(-50%,-50%,0);
+	transform:translate3d(-50%,-50%,0);
+}
+.count{
+	font-size: 0.2rem;
+	color:rgba(255,255,255,0.8);
+	position: fixed;
+	top: 0.3rem;
+	left:50%;
+	display: block;
+	-webkit-transform:translateX(-50%);
+	transform:translateX(-50%);
+}
+.photoAlbumClose{
+	width:0.5rem;
+	height: 0.5rem;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	font-size: 0.18rem;
+	background-color:rgba(255,255,255,0);
+	color:#000;
+	position: fixed;
+	top: 0.3rem;
+	right:0rem;
+	display: block;
+	-webkit-transform:translate3d(0%,-50%,0);
+	transform:translate3d(0%,-50%,0);
+}
+.photoAlbumClose:before,.photoAlbumClose:after{
+	content: "";
+	width:0.03rem;
+	height: 0.25rem;
+	background-color:rgba(255,255,255,1);
+	position:absolute;
+	top: 50%;
+	left:50%;
+	display: block;
+	-webkit-transform:translate3d(-50%,-50%,0) rotate(45deg);
+	transform:translate3d(-50%,-50%,0) rotate(45deg);
+}
+.photoAlbumClose:after{
+	-webkit-transform:translate3d(-50%,-50%,0) rotate(-45deg);
+	transform:translate3d(-50%,-50%,0) rotate(-45deg);
+}
+
+
+
+
+
+

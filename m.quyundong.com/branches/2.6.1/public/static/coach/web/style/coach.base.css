@@ -1,0 +1,75 @@
+html {
+  width: 100%;
+  font-size: 100px;
+  background-color: #f0f0f0;
+  line-height: 1.375; }
+
+body {
+  width: 100%;
+  max-width: 640px;
+  font-size: 0.16rem;
+  margin: 0 auto;
+  color: #636363;
+  background-color: #f0f0f0;
+  overflow-x: hidden; }
+
+a {
+  text-decoration: none;
+  color: #636363; }
+
+a:visited {
+  color: #636363; }
+
+.nm-coach-h2 {
+  text-align: center;
+  font-size: 0.2rem;
+  margin-top: 0.1rem;
+  margin-left: 0.1rem; }
+
+.nm-coach-card {
+  width: 90%;
+  margin: 0.1rem auto;
+  border: 1px solid #e1e1e1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.nm-coach-card .title {
+  width: 100%;
+  min-height: 0.4rem;
+  font-size: 0.14rem;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.1rem;
+  color: #636363;
+  background-color: #f9f9f9; }
+
+.nm-coach-card .content {
+  font-size: 0.14rem;
+  color: #939393;
+  width: 100%;
+  height: auto;
+  line-height: 1.375;
+  border-top: 1px solid #e1e1e1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.1rem;
+  background-color: #fff;
+  overflow: hidden; }
+
+.nm-coach-btn-back {
+  display: block;
+  width: 90%;
+  height: 0.4rem;
+  margin: 0.3rem auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 6px;
+  background-color: #74affb;
+  line-height: 0.4rem;
+  color: #fff;
+  font-size: 0.16rem;
+  text-align: center; }

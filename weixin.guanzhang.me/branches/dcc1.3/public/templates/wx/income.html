@@ -1,0 +1,79 @@
+<section ng-include="'/templates/wx/calendar.html'" class="calendar" ng-controller="calendarCtrl" ng-swipe-left="nextDate()" ng-swipe-right="prevDate()"></section>
+<div id="income" ng-if="hasDate">
+	<div class="title">
+		<h4>
+			<i class="fl">￥</i>
+			收入合计：<strong>{{income.sum.total | number:2}}</strong>元
+		</h4>
+	</div>
+	<div class="doughnut">
+		<h4 class="t">
+			<span class="pl"><i>●</i>场地收入</span>
+			<span class="pm"><i>●</i>商品收入</span>
+			<span class="pr"><i>●</i>会员收入</span>
+		</h4>
+		<canvas class="canvas"></canvas>
+		<div class="money" ng-show="canvasComplete">
+			<h4>实际收入 </h4>
+			<p class="tips">(不含会员储值卡消费)</p>
+			<p class="num">{{income.sum.real | number:2}}</p>
+		</div>
+	</div>
+	<dl class="field detail">
+		<dt>
+			<span class="fl">场地收入/<em>{{income.field.total | number:2}}元</em></span>
+			<span class="fr">实收/<em>{{income.field.real | number:2}}元</em></span>
+		</dt>
+		<dd>
+			<div class="fl">
+				<h4>现金/其他</h4>
+				<p>({{income.field.price1 | number:2}}元)</p>
+			</div>
+			<div class="fl add">+</div>
+			<div class="fl">
+				<h4>会员储值卡</h4>
+				<p>({{income.field.price2 | number:2}}元)</p>
+			</div>
+			<div class="fl add">+</div>
+			<div class="fl">
+				<h4>趣运动消费</h4>
+				<p>({{income.field.price3 | number:2}}元)</p>
+			</div>
+		</dd>
+	</dl>
+	<dl class="commodity detail">
+		<dt>
+			<span class="fl">商品收入/<em>{{income.goods.total | number:2}}元</em></span>
+			<span class="fr">实收/<em>{{income.goods.real | number:2}}元</em></span>
+		</dt>
+		<dd>
+			<div class="fl">
+				<h4>现金/其他</h4>
+				<p>({{income.goods.price1 | number:2}}元)</p>
+			</div>
+			<div class="fl add">+</div>
+			<div class="fl">
+				<h4>会员储值卡</h4>
+				<p>({{income.goods.price2 | number:2}}元)</p>
+			</div>
+		</dd>
+	</dl>
+	<dl class="member detail">
+		<dt>
+			<span class="fl">会员收入/<em>{{income.member.total | number:2}}元</em></span>
+			<span class="fr">实收/<em>{{income.member.real | number:2}}元</em></span>
+		</dt>
+		<dd>
+			<div class="fl">
+				<h4>现金/其他</h4>
+				<p>({{income.member.price1 | number:2}}元)</p>
+			</div>
+			<!--<div class="fl add">+</div>
+			<div class="fl">
+				<h4>会员储值卡</h4>
+				<p>({{income.member.price2 | number:2}}元)</p>
+			</div>-->
+		</dd>
+	</dl>
+</div>
+<div ng-include="'/templates/wx/nodata.html'" class="nodate" ng-if="!hasDate" ng-style="nodateStyle"></div>

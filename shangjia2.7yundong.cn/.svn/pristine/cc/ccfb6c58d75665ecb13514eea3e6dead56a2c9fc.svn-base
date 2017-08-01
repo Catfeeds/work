@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-weixin.css" rel="stylesheet">
+    <link href="/static/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/static/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/stylesheets/admin-sj.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/daterangepicker/css/daterangepicker-bs3.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="/static/jquery-page/jquery.page.js"></script>
+    <script src="/static/daterangepicker/js/business.js"></script>
+    <script src="/static/daterangepicker/js/moment.min.js"></script>
+    <script src="/static/daterangepicker/js/daterangepicker.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+  <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+  <script src="/static/shangjia/js/json2.js"></script>
+<![endif]-->
+    <title><?php 
+    if (!empty($title)) {
+        echo $title.' - ';
+        $active_menu = isset($active_menu) ? $active_menu : "";
+    }
+    ?>趣运动商家后台管理系统</title>
+</head>
+<body>
+<div class="main" style=" margin-top: 10px;">
+   
+    <div class="sj-content"  style="width:98%; margin: 0 auto;">
+        <div>
+            <div>
+                <div class="bbs-header">
+                	<form action="/report/invoiceOrder" method="get" class='form-inline'>
+                        <div class="filter-control">
+                           <div class="filter-time afterBorder">
+							结算周期:
+								<input id="start_date" name="start_date" type="text" class='hide'  value="<?= $search['start_date']; ?>" />
+								<input id="end_date" name="end_date" type="text" class='hide'  value="<?= $search['end_date']; ?>" />
+								<span id="timeStart" class="btn-bdru"><?= $search['start_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+								<em>至</em>
+								<span id="timeEnd" class="btn-bdru"><?= $search['end_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+								<input id="reservation" type="text"  readonly value="
+								<?php if ($search['start_date'] && $search['end_date']) { ?>
+								<?= $search['start_date'].' - '.$search['end_date']; ?>
+								<?php } ?> ">
+							</div>
+							<script type="text/javascript">
+							$(function(){
+								$('#reservation').daterangepicker(null, function (start, end, label) {
+									var t1,t2,txt1,txt2;
+				                    t1 = new Date(start.toString());
+				                    t2 = new Date(end.toString());
+				                    txt1 = t1.format('yyyy-MM-dd');
+				                    txt2 = t2.format('yyyy-MM-dd');
+									
+									$("#start_date").val(txt1);
+									$("#end_date").val(txt2);
+									
+									$("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+									$("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+								});
+	
+								// 给导出结算记录按钮绑定事件
+								$("#export_invoice_order_btn").click(function(){
+									var href = $(this).attr("data-href") + "?start_date=" + $("#start_date").val() + "&end_date=" + $("#end_date").val()+ "&export=1";
+									$(this).attr("href", href);
+									setTimeout(function(){
+							            $("#export_invoice_order_btn").attr('href','javascript:void(0);');
+							        },0)
+								});
+							});
+							</script>
+	                   </div>
+	                   <div class="filter-control">
+							<button class="search-btn btn-sj-blue btn-bdru btn btn-default ieBtn" type="submit">查询</button> 
+							<a href="javascript:void(0);" data-href="/report/invoiceOrder" class="search-btn btn-sj-blue btn-bdru btn btn-default ieBtn" id="export_invoice_order_btn" >导出</a>	
+						</div>
+					</form>
+                </div>
+                <h1>发票订单</h1>
+               <div class="clearfix">
+	               <table class='sj-js-table-1' style="float:left;">
+						<tr>
+							<td><b></b></td>
+							<td><b>总订单数：</b></td>
+							<td><b><?=$count?></b></td>
+							<td><b>总发票金额：</b></td>
+							<td><b><?=number_format($total, 2)?></b></td>
+						</tr>
+					</table>	
+				</div>
+                <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                            <th>开票时间</th>
+                            <th>发票金额</th>                       
+                            <th>订单编号</th>
+                            <th>手机尾号</th>
+                            <th>预定方式</th>
+                            <th>订单金额</th>
+                            <th>场地结算</th>
+                            <th>商品结算</th>
+                            <th>结算总金额</th>
+                            <th>项目分类</th>
+                            <th>场次信息</th>
+                            <th>商品信息</th>            
+                            <th>订单备注</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        if(!empty($orderList)){
+                         foreach ($orderList as $row) { 
+                         ?>
+                            <tr>
+                            	<td><?= date("Y-m-d H:i:s", $row['apply_time']) ?></td>
+                                <td><?= number_format($row['total_s_amount'] - $row['sale_s_amount'], 2) ?></td>
+                                <td><?= $row['sn'] ?></td>
+                                <td><?= $row['mobile'] ?></td>
+                                <td><?php echo (isset($row['utm_medium'] ) && ($row['utm_medium'] == helper_VenuesHelper::getutmMedium())) ? "预留" : "趣运动"; ?></td>
+                                <td><?php echo (isset($row['utm_medium'] ) && ($row['utm_medium'] == helper_VenuesHelper::getutmMedium())) ? number_format($row['third_amount'], 2) :  number_format($row['amount'], 2) ?></td>
+                                <td><?=  number_format($row['base_s_amount'], 2)?></td>
+                                <td><?=  number_format($row['sale_s_amount'], 2)?></td>
+                                <td><?= $row['total_s_amount'] ?></td>
+                                <td><?= $row['cat'] ?></td>
+                                <td><?= implode("<br/>", $row['court_info']) ?></td>
+                                <td><?= implode("<br/>", $row['sale_info']) ?></td>                             
+                                <td><?= $row['remark']?></td>
+
+                            </tr>
+                        <?php
+                            }
+                         } ?>
+                    </tbody>
+                </table>
+                
+                <!-- 分页插件 -->
+                <?php if ($page['totalPage'] > 1) { ?>
+                <div id="pagination" data-page="<?= $page['totalPage']; ?>" data-current="<?= $page['currentPage']; ?>" class="pagination-container" style=" margin-bottom:10px;">
+                    <div class="pagination"></div>
+                    <div class="pagination-go">
+                        <span class="totalPage">共<?= $page['totalPage']; ?>页</span>
+                        <span class="btn-bdru"><i>第</i>
+                        <input class="page" type='text'/><i>页</i></span>
+                        <span class="go">GO</span>
+                    </div>
+                </div>
+                <script type='text/javascript'>
+                    $(function(){
+                         var calFn1 = function (p) {
+                            window.location.href = "<?= $page['url']; ?>" + p;
+                        };
+                        createPageFn($("#pagination"), calFn1);
+                    });
+                    </script>
+                <?php } ?>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <link href="/static/shangjia/css/iestyle.css" rel="stylesheet">
+<![endif]-->
+</html>
+
+

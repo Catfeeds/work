@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+/* head */
+.head {
+  width: 100%;
+  height: 40px;
+  background: #DE2319;
+  font-size: 16px;
+  color: white;
+  position: fixed;
+  z-index: 100;
+  top: 0; }
+  .head span {
+    width: 20%;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 40px;
+    float: left; }
+  .head #Pro_detail {
+    margin-left: 10%; }
+  .head span:last-child {
+    float: right; }
+
+#listMenu {
+  height: 120px;
+  width: 30%;
+  position: fixed;
+  top: 53px;
+  right: 10px;
+  background: #4c4945;
+  z-index: 100;
+  border-radius: 5px;
+  display: none; }
+  #listMenu span {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    font-size: 20px;
+    color: #4c4945;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg); }
+  #listMenu li {
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    border-bottom: 1px solid white;
+    list-style: none; }
+    #listMenu li a:link {
+      color: white; }
+    #listMenu li a:active {
+      background: purple; }
+  #listMenu li:last-child {
+    border-bottom: none; }
+
+.critrcism {
+  width: 100%;
+  margin-top: 40px;
+  background: #f1f1f1;
+  display: none; }
+  .critrcism .list-group {
+    margin: 0; }
+    .critrcism .list-group li {
+      height: 40px; }
+      .critrcism .list-group li img {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin: 0 5px; }
+      .critrcism .list-group li span {
+        float: right; }
+    .critrcism .list-group li:nth-child(2) {
+      clear: both;
+      height: 80px;
+      line-height: 20px;
+      font-size: 12px;
+      padding-left: 10px;
+      margin: 0; }
+      .critrcism .list-group li:nth-child(2) div {
+        height: 20px; }
+      .critrcism .list-group li:nth-child(2) div:nth-child(1) {
+        color: red; }
+        .critrcism .list-group li:nth-child(2) div:nth-child(1) span {
+          float: left; }
+      .critrcism .list-group li:nth-child(2) div:nth-child(3) {
+        font-size: 12px;
+        color: #999; }
+
+.content {
+  width: 100%;
+  margin-top: 40px;
+  background: #f1f1f1; }
+  .content .banner {
+    height: 52%;
+    width: 100%;
+    background: white; }
+    .content .banner .swiper-container {
+      width: 100%;
+      height: 75%;
+      margin-bottom: 5px; }
+      .content .banner .swiper-container .swiper-wrapper {
+        width: 100%;
+        height: 100%; }
+        .content .banner .swiper-container .swiper-wrapper img {
+          width: 60%;
+          height: 100%;
+          margin-left: 20%; }
+  .content P {
+    line-height: 15px;
+    text-indent: 10px;
+    color: #333; }
+  .content p:nth-child(3) {
+    color: red;
+    font-size: 18px;
+    font-weight: bolder; }
+  .content .detail_intro {
+    width: 100%;
+    height: 220px;
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px; }
+    .content .detail_intro p {
+      line-height: 20px;
+      text-indent: 10px;
+      font-size: 12px;
+      color: #333; }
+  .content .img_detail {
+    width: 100%;
+    margin-bottom: 50px; }
+    .content .img_detail img {
+      width: 100%; }
+
+.fooster {
+  width: 100%;
+  height: 40px;
+  background: purple;
+  position: fixed;
+  bottom: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  font-weight: bolder;
+  color: white; }
+  .fooster div {
+    padding: 0; }
+  .fooster #cart_mount {
+    background: white;
+    height: 100%;
+    border-top: 2px solid purple;
+    color: purple;
+    position: relative; }
+    .fooster #cart_mount a:link {
+      color: purple; }
+    .fooster #cart_mount span {
+      line-height: 40px;
+      font-size: 24px; }
+    .fooster #cart_mount #mount {
+      line-height: 18px;
+      font-size: 12px;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      background: purple;
+      right: 50%;
+      top: 0%; }
+  .fooster #add_cart {
+    background: #b96097;
+    height: 100%; }
+
+/*# sourceMappingURL=product_detail.css.map */

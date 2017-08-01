@@ -1,0 +1,175 @@
+<script type="text/javascript" src="/static/shangjia/js/bindcourt.js"></script>
+
+<div class="comment-header">
+	<form action="/comment/index" method="get">
+		<div style="margin-bottom:0;" class="filter-control">
+			<div class="filter-time afterBorder">
+				<input id="start_date" name="start_date" type="text" value="<?php echo $search['start_date']; ?>" class="hide">
+				<input id="end_date" name="end_date" type="text" value="<?php echo $search['end_date']; ?>" class="hide">
+				<span id="timeStart" class="btn-bdru"><?php echo $search['start_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+				<em>至</em>
+				<span id="timeEnd" class="btn-bdru"><?php echo  $search['end_date']; ?> <i class="glyphicon glyphicon-chevron-down"></i></span>
+				<input id="reservation" type="text" readonly="" 
+				<?php if ($search['start_date'] && $search['end_date']) { ?>
+				value="<?php echo $search['start_date'].' - '.$search['end_date']; ?>"
+				<?php } ?>
+				 >
+			</div>
+			<script type="text/javascript">
+				$(function() {
+					$('#reservation').daterangepicker(null, function(start, end, label) {
+						var t1 = new Date(start.toString());
+						var t2 = new Date(end.toString());
+						var txt1 = t1.format('yyyy-MM-dd');
+						var txt2 = t2.format('yyyy-MM-dd');
+						$("#start_date").val(txt1);
+						$("#end_date").val(txt2);
+						$("#timeStart").html(txt1 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+						$("#timeEnd").html(txt2 + '<i class="glyphicon glyphicon-chevron-down"></i>');
+					});
+				})
+			</script>
+		</div>
+		<button type="submit" class="search-btn btn-sj-blue btn-bdru btn btn-default">查询</button>
+	</form>
+</div>
+<h1>用户评论</h1>
+<table style="text-align:center;" class="comment-table table table-bordered">
+	<thead>
+		<tr>
+			<th>用户名</th>
+			<th>手机号</th>
+			<th>评论时间</th>
+			<th>评分</th>
+			<th>评论内容</th>
+			<th>回复内容</th>
+			<th>操作</th>
+		</tr>
+	</thead>
+    
+	<?php if( !empty($comments) ){ ?>
+	<?php foreach($comments AS $key=>$val){ ?>
+	<tr>
+
+		<td><?php echo $val['user_name']; ?></td>   <!-- 用户名 -->
+		<td><?php echo baf_Des::decrypt($val['phone_encode']); ?></td>  <!-- 手机号 -->
+		<td><?php echo date("Y-m-d H:i:s",$val['create_time']); ?></td>     <!-- 评论时间 -->
+
+		<td class="comment-star">
+			<div class="star<?php echo $val['comment_rank']; ?>"></div>     <!-- 评分 -->
+		</td>
+        
+		<td id="json-<?php echo $val['comment_id'] ?>" style="display:none">
+			<?php $json = json_encode($val); echo $json;?>
+		</td>
+
+		<td>
+			<p><?php echo $val['content']; ?></p>           <!-- 评论内容 -->
+			<?php if( !empty($val['image_list']) ){ ?>
+			<ul class="comment-img-list">
+				<?php foreach($val['image_list'] AS $k=>$v){ ?>
+				<li style="background-image:url(<?php echo $v['image_url']; ?>)"></li>       <!-- 评论缩略图 -->
+				<?php } ?>
+			</ul>
+			<?php } ?>
+		</td>
+       
+		<?php if( !empty($val['reply_list']) ){ ?>
+		<?php foreach( $val['reply_list'] AS $kk=>$vv ){ ?>
+		<td><?php echo $vv['reply_remark']; ?></td>      <!-- 回复内容 -->
+		<?php } ?>
+		<?php }else{ ?>
+		<td>未回复</td>    <!-- 回复内容 -->
+		<?php } ?>
+
+		<?php if( !empty($val['reply_list']) ){ ?>
+		<td>
+			<div class="comment-reply-btn btn-sj-blue btn-bdru disable">已回复</div>    <!-- 操作 已回复状态 -->
+		</td>
+		<?php }else if( isset($is_reply) && $is_reply=='0' ){ ?>
+		<td>
+			<div class="comment-reply-btn btn-sj-blue btn-bdru comment-reply-forbid">回复</div>        <!-- 操作 被禁言状态 -->
+		</td>
+		<?php }else{ ?>
+		<td>
+			<div class="comment-reply-btn btn-sj-blue btn-bdru" onclick="replyComment(<?php echo $val['comment_id'] ?>,<?php echo $val['user_id'] ?>)">回复</div>        <!-- 操作 未回复状态 -->
+		</td>
+		<?php } ?>
+
+	</tr>
+	<?php } ?>
+	<?php } ?>
+</table>
+<script>
+	function replyComment(comment_id, user_id){
+		var json = $('#json'+'-'+comment_id).text();
+		json = JSON.parse(json);
+		$('#comment_id').val(json.comment_id);
+		$('#user_id').val(json.user_id);
+		$('#user_name').val(json.user_name);
+	}
+</script>
+
+<?php if($total_page > 1){ ?>
+
+<div id="pagination" data-page="<?php echo $total_page ?>" data-current="<?php echo $page; ?>" class="pagination-container">
+	<div class="pagination"></div>
+	<div class="pagination-go"><i style="color:#9baabe">共<?php echo $total_count; ?>条，</i><span class="totalPage"></span><span class="btn-bdru"><i>第</i>
+	<input type="text" class="page"><i>页</i></span><span class="go">GO</span></div>
+</div>
+<script>
+	var  calFn = function(p){
+		window.location.href = '/comment/index?'+'<?php echo 'start_date='.$search['start_date'] ?>'+'&'+'<?php echo 'end_date='.$search['end_date'] ?>'+'&'+'page='+p;
+	};
+	createPageFn($("#pagination"),calFn);
+</script>
+
+<?php } ?>
+<div class="popbg"></div>
+<div class="dialog-layer comment-tips btn-bdru">
+	<div class="dialog-close"><img src="/static/shangjia/images/closebtn.jpg" alt="" class=""></div>
+	<div class="dialog-msg">您已被趣运动禁言，可联系趣运动了解详情</div>
+	<div class="dialog-btn btn-sj-blue btn-bdru btn">知道了</div>
+</div>
+<div class="dialog-layer comment-reply btn-bdru">
+	<div class="dialog-close">
+		<span>回复评论</span>
+		<img src="/static/shangjia/images/closebtn.jpg">
+	</div>
+	<form action="/comment/form" method="post" id="comment_form">
+	<div id="textareaCount" class="reply-content">
+		<textarea id="remark" name="remark" cols="30" rows="8" max="140"></textarea>
+		<div class="reply-count">0/140</div>
+		<input id="comment_id" type="hidden" name="comment_id" value="">
+		<input id="user_id" type="hidden" name="user_id" value="">
+		<input id="user_name" type="hidden" name="user_name" value="">
+		<input type="hidden" name="form_start_data" value="<?php echo $search['start_date'] ?>">
+		<input type="hidden" name="form_end_data" value="<?php echo $search['end_date'] ?>">
+		<input type="hidden" name="form_page" value="<?php echo $page ?>">
+	</div>
+	<div class="reply-tips">回复后不可再编辑或删除，请谨慎回复</div>
+	<div class="reply-operate">
+		<div class="dialog-btn btn-sj-blue btn-bdru btn cancel">取消</div>
+		<button id="submitComment" type="submit" class="dialog-btn btn-sj-blue btn-bdru btn">确定</button>
+	</div>
+	</form>
+</div>
+<div id="commentPreview" class="dialog-layer comment-preview">
+	<div class="dialog-close"><img src="/static/shangjia/images/closebtn.jpg" alt="" class=""></div>
+	<ul class="preview-list"></ul>
+	<div class="pagination-container">
+		<div class="pagination">
+			<a data-delta="-1" class="prev"></a><em></em>
+			<a data-delta="1" class="next"></a>
+		</div>
+    </div>
+</div>
+<script>
+	$('#submitComment').click(function(){
+		var remark = $('#remark').val();
+		if( remark == '' ){
+			alert("评论内容不能为空!");
+			return false;
+		}
+	});
+</script>

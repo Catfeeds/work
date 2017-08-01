@@ -1,0 +1,33 @@
+--20160727+i6JTVQ-
+ALTER TABLE +AGA-orders+AGA- ADD  +AGA-pay+AF8-time+AGA- int NOT NULL DEFAULT '0' COMMENT '+ZS9O2GX2lfT/CGU2az5l9pX0/wk-'+ADs-
+ALTER TABLE +AGA-orders+AGA- ADD  +AGA-operate+AF8-area+AF8-id+AGA- VARCHAR(64) CHARACTER SET utf8 COLLATE utf8+AF8-general+AF8-ci NOT NULL DEFAULT '' COMMENT '+WRpSTVPwUzpX3w-ID'+ADs-
+ALTER TABLE +AGA-orders+AGA- ADD  +AGA-operate+AF8-area+AF8-name+AGA- VARCHAR(64) CHARACTER SET utf8 COLLATE utf8+AF8-general+AF8-ci NOT NULL DEFAULT '' COMMENT '+WRpSTVPwUzpX31QNefA-'+ADs-
+ALTER TABLE +AGA-orders+AGA- ADD  +AGA-member+AF8-card+AF8-catalog+AGA- VARCHAR(64) CHARACTER SET utf8 COLLATE utf8+AF8-general+AF8-ci NOT NULL DEFAULT '' COMMENT '+TxpUWFNhfHtXiw-'+ADs-
+ALTER TABLE +AGA-orders+AGA- ADD  +AGA-consume+AF8-category+AF8-id+AGA- VARCHAR(64) CHARACTER SET utf8 COLLATE utf8+AF8-general+AF8-ci NOT NULL DEFAULT '' COMMENT '+bYiNOZh5du4-ID'+ADs-
+ALTER TABLE +AGA-orders+AGA- ADD  +AGA-consume+AF8-category+AF8-name+AGA- VARCHAR(64) CHARACTER SET utf8 COLLATE utf8+AF8-general+AF8-ci NOT NULL DEFAULT '' COMMENT '+bYiNOZh5du5UDXnw-'+ADs-
+
+--20160727+VUZUwQ-
+
+
+CREATE TABLE IF NOT EXISTS +AGA-members+AF8-trading+AF8-log+AGA- (
++AGA-id+AGA- int(10) unsigned NOT NULL,
+  +AGA-order+AF8-id+AGA- varchar(32) NOT NULL DEFAULT '' COMMENT '+TqRmE1NVU/c-ID',
+  +AGA-order+AF8-code+AGA- varchar(50) NOT NULL COMMENT '+TqRmE1NVU/c-',
+  +AGA-qyd+AF8-order+AF8-code+AGA- varchar(32) NOT NULL DEFAULT '' COMMENT '+jaOP0FKoi6JTVVP3-',
+  +AGA-type+AGA- tinyint(4) NOT NULL DEFAULT '0' COMMENT '1+UUVQPDAB-2+kACNOf8IY9BzsP8JMAE-3+YmNrPv8IVzpXMJiEi6L/CTAB-4+kABrPv8IVzpXMJiEi6L/CQ-',
+  +AGA-card+AF8-no+AGA- varchar(50) NOT NULL DEFAULT '' COMMENT '+TxpUWFNhU/c-',
+  +AGA-mebmer+AF8-name+AGA- varchar(128) NOT NULL DEFAULT '' COMMENT '+TxpUWFQNefA-',
+  +AGA-member+AF8-type+AGA- varchar(32) NOT NULL DEFAULT '' COMMENT '+TxpUWHx7V4s-',
+  +AGA-amount+AGA- decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '+TqRmE5HRmJ0-',
+  +AGA-amount+AF8-gift+AGA- decimal(10,2) unsigned NOT NULL DEFAULT '0.00' COMMENT '+TqRmE41gkAGR0Zid-',
+  +AGA-venues+AF8-id+AGA- int(10) unsigned NOT NULL DEFAULT '0' COMMENT '+VzqZhg-ID',
+  +AGA-supplier+AF8-id+AGA- int(10) unsigned NOT NULL DEFAULT '0' COMMENT '+VUZiNw-id',
+  +AGA-op+AF8-user+AGA- varchar(50) NOT NULL DEFAULT '' COMMENT '+ZM1PXE66VFg-',
+  +AGA-addtime+AGA- int(10) unsigned NOT NULL COMMENT '+TqRmE2X2lfQ-'
+) ENGINE+AD0-MyISAM DEFAULT CHARSET+AD0-utf8 COMMENT+AD0-'+TxpUWE6kZhOLsF9ViGg-'+ADs-
+
+ALTER TABLE +AGA-members+AF8-trading+AF8-log+AGA-
+ ADD PRIMARY KEY (+AGA-id+AGA-), ADD KEY +AGA-venues+AF8-id+AGA- (+AGA-venues+AF8-id+AGA-), ADD KEY +AGA-supplier+AF8-id+AGA- (+AGA-supplier+AF8-id+AGA-), ADD KEY +AGA-type+AGA- (+AGA-type+AGA-)+ADs-
+
+ALTER TABLE +AGA-members+AF8-trading+AF8-log+AGA-
+MODIFY +AGA-id+AGA- int(10) unsigned NOT NULL AUTO+AF8-INCREMENT+ADs-

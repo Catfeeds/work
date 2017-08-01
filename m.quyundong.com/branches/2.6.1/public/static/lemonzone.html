@@ -1,0 +1,1103 @@
+<!DOCTYPE html> 
+<html xmlns:wb="http://open.weibo.com/wb">
+<head>
+	<meta charset="UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui" />
+	<title>趣运动柠檬榜</title>
+	<script type="text/javascript">
+		var overtime = 0;
+		var httpHead = '../' ;
+		// var httpHead = 'http://m.quyundong.com/';
+
+		(function(){
+			var xhr = new XMLHttpRequest();
+				xhr.open('get', httpHead + 'NmbApi/GetNowTime/?'+ parseInt(new Date().getTime()/1000));
+				// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState === 4 && xhr.status === 200) {
+				    	
+				        var result = JSON.parse(xhr.response);
+				
+				        console.log(result);
+
+				        if(result.code == 1){
+
+				        	 overtime = parseInt(result.data.end_time) - parseInt(result.data.now_time);
+				        	 
+				        	var timer = setInterval(function(){
+				        		overtime --;
+				        		
+				        		if(overtime <= 0){
+				        			
+									window.location.href = httpHead + 'static/over.html';
+				        		}
+				        	},1000);
+					    }
+				    }
+				};
+			xhr.send();		
+		})();
+	</script>
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3510799784&debug=true" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+	<script type="text/javascript" src="js/zeptoWithFxTouch.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style type="text/css">
+		i{
+			font-style: normal;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			min-height: 550px;
+			font-size: 18px;
+			overflow-x:hidden; 
+			font-family: "Source Han Sans";
+
+		}
+		body{
+			background: url(images/background.png) no-repeat bottom center;
+			-webkit-background-size: 100% auto;
+			background-size: 100% auto;
+		}
+		header,section.main,footer,section.alert,section.cover{
+			width: 100%;
+			max-width: 500px;
+			margin: 0 auto;
+			
+		}
+		header{
+			height: 40px;
+			background-color: #74affb;
+			position: fixed;
+			z-index: 9990;
+			text-align: center;
+			line-height: 40px;
+			font-size: 22px;
+			color: #fff;
+			left:50%;
+			-webkit-transform:translateX(-50%);
+			transform:translateX(-50%);
+		}
+
+		header .gotoIndex{
+			width: 50px;
+			position: relative;
+			height: 30px;
+			font-size: 18px;
+			text-align: center;
+			border-radius: 3px;
+			display: block;
+			text-decoration: none;
+			color: #000;
+			line-height: 30px;
+			position: absolute;
+			top: 50%;
+			left: 5px;
+			cursor: pointer;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		.gotoIndex::after{
+			content: "";
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+			position: absolute;
+			border:10px solid red;
+			border-color: transparent #fff transparent transparent ;
+			top: 50%;
+			left: 0;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+			z-index: 88;
+		}
+		.gotoIndex::before{
+			content: "";
+			display: inline-block;
+			width: 0px;
+			height: 0px;
+			position: absolute;
+			border:10px solid red;
+			border-color: transparent #74affb transparent transparent ;
+			top: 50%;
+			left: 0;
+			margin-left: 3px;
+			z-index: 99;
+			-webkit-transform: translateY(-50%);
+			-ms-transform: translateY(-50%);
+			-o-transform: translateY(-50%);
+			transform: translateY(-50%);
+		}
+		section.main{
+			margin-top: 40px;
+			font-size: 16px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			text-align: center;
+		}
+
+		section.main .notice{
+			width: 100%;
+			height: 30px;
+			background-color: rgba(0,0,0,0.4);
+			margin: 0px auto 35px;
+			overflow: hidden;
+		}
+		section.main .notice ul{
+			width: 100%;
+			line-height: 30px;
+			text-align: center;
+			display: block;
+			color: #fff;
+			
+
+			
+		}
+		section.main .notice ul li{
+			width: 100%;
+			height: 30px;
+		
+		}
+		section.main .avatar{
+			width: 85px;
+			height: 85px;
+			background-color: pink;
+			border-radius: 3px;
+			margin: 0 auto;
+			position: relative;
+		}
+		section.main .avatar span{
+			width: 80px;
+			font-size: 18px;
+			position: absolute;
+			bottom:-30px;
+			left:50%;
+			-webkit-transform:translateX(-50%);
+			transform:translateX(-50%);
+		}
+		section.main p{
+			color: #cdcdcd;
+			font-size: 14px;
+		}
+		section.main button{
+			width: 100px;
+			background-color: gold;
+			height: 40px;
+			border: 0px solid #000;
+			border-radius: 4px;
+			margin: 10px 0;
+			font-size: 24px;
+			color: #fff;
+		}
+		
+
+		.userMassage{
+			margin-top: 40px;
+			color: #939393;
+		}
+		.userMassage>li{
+			
+			font-size: 14px;
+			padding:2px;
+			height: 20px;
+			text-align: center;
+
+		}
+		.userMassage .massageLeft{
+			
+			position: relative;
+			float: left;
+			padding-left: 50%;
+
+		}
+		.userMassage .massageLeft span{
+			display: inline-block;
+			-webkit-transform:translateX(-50%);
+			transform:translateX(-50%);
+
+			
+		}
+		.userMassage .massageLeft span i{
+			
+			color: #f28f4c;
+		}
+		.userMassage .massageLeft2{
+			width: 50%;
+			float: left;
+			font-size: 16px;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			text-align: right;
+			padding-right: 5px;
+
+		}
+		.userMassage .massageLeft2 span{
+			/*display: inline-block;*/
+
+			
+		}
+		.userMassage .massageLeft2 span i{
+			
+			color: #f28f4c;
+		}
+		.userMassage .massageRight2{
+			font-size: 16px;
+			width: 50%;
+			padding-left: 5px;
+			float: left;
+			text-align: left;
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			
+			
+		}
+		.iwant{
+			padding-top: 10px;
+		}
+		.iwant h4{
+			font-size: 14px;
+		}
+		.iwant span{
+			color:#f28f4c;
+		}
+		button#guestButton{
+
+			margin: 10px auto;
+			width: 60%;
+			height: 55px;
+			border-radius: 3px;
+          	background-color: #f28f4c;
+          	color: #fff;
+          	font-size: 18px;
+          	border:0px solid #fff;
+		}
+		button#hostButton{
+          	
+          	width: 60%;
+          	height: 55px;
+          	border-radius: 3px;
+          	background-color: #f28f4c;
+          	color: #fff;
+          	font-size: 18px;
+          	border:0px solid #fff;
+          	margin: 0 auto;
+
+		}
+		footer{
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+			width: 100%;
+			position: fixed;
+			left:50%;
+			-webkit-transform:translateX(-50%);
+			transform:translateX(-50%);
+			bottom: 0px;
+			/*background-color: blue;*/
+			z-index: 9;	
+			font-size: 0;
+		}
+		section.alert{
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.4);
+			position: fixed;
+			top:0;
+			z-index: 9991;
+		}
+		section.alert .alertBox{
+			width:100%;
+			height: 170px;
+			position: absolute;
+			bottom:0;
+			background-color: #fff;
+			text-align: center;
+			padding-top: 20px;
+			
+		}
+		section.alert .alertBox span#closeAlert{
+			position: absolute;
+			top:10px;
+			right:10px;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			background-color: #cdcdcd;
+			color:#fff;
+			background:url(images/x.png) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		section.alert .alertBox ul{
+			padding-top: 30px;
+		}
+		section.alert .alertBox ul li{
+
+			position: relative;
+
+		}
+		section.alert .alertBox ul li button i{
+			position: absolute;
+			text-align: center;
+			left: 50%;
+			margin-left: -30px;
+			bottom:-20px;
+			width: 60px;
+		}
+		section.alert .alertBox ul li button img{
+			width: 100%;
+		}
+		section.alert .alertBox ul li button{
+			position: absolute;
+			width: 60px;
+			height: 60px;
+			-webkit-box-sizing:border-box;
+			padding:0;
+			background-color: #fff;
+			box-sizing:border-box;
+			left: 50%;
+			border:0px solid #fff;
+			margin-left: -30px;
+		}
+		section.cover{
+			position: fixed;
+			z-index: 9990;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.6);
+			display: none;
+		}
+		#tip{
+			display: none;
+			width: 87%;
+			height: 130px;
+			border-radius: 3px;
+			background-color: #fff;
+			position: absolute;
+			z-index: 9999;
+			top:200px;
+			left:50%;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+
+		}
+
+		#tip p{
+			padding-top: 34px;
+			text-align: center;
+
+		}
+		#tip button{
+			background-color: #f09029;
+			width:87%;
+			height: 40px;
+			line-height: 40px;
+			position: absolute;
+			bottom: 12px;
+			display: block;
+			left:50%;
+			border-radius: 3px;
+			border: 0px solid #000;
+			color: #fff;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+			
+		}
+		
+		
+		.banner a {
+			display: block;
+		}
+		.banner img{
+			width: 100%;
+		}
+		#userAvatar{
+			background-image:url(images/avatar.jpg);
+			background-repeat: no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+			background-position: center center;
+			position: relative;
+		}
+		#userAvatar i{
+			border-radius: 3px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 85px;
+			height: 85px;
+			background-image:url(images/avatar.jpg);
+			background-repeat: no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+			background-position: center center;
+		}
+		.loading{
+			width: 100px;
+			height: 100px;
+			margin: 100px auto;
+			background:url(images/loading.gif) no-repeat;
+			background-position: center center;
+		}
+		#weixinphoto{
+			width: 80%;
+			height: 0px;
+			padding-top: 72%;
+			
+			background-color: #fff;
+			position: fixed;
+			top: 100px;
+			left: 50%;
+			-webkit-transform: translateX(-50%) ;
+			-ms-transform: translateX(-50%) ;
+			-o-transform: translateX(-50%) ;
+			transform: translateX(-50%) ;
+			background: url(images/wenxinshare.png);
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+			background-position: top center;
+			background-repeat: no-repeat;
+			border-radius: 3px;
+			z-index: 9997;
+
+		}
+		#weixinphoto i{
+			position: absolute;
+			top:4px;
+			right:4px;
+			width: 30px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+			background-color: #cdcdcd;
+			color: #fff;
+			background:url(images/x.png) no-repeat;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+
+		div.WB_widgets.WB_dialog.WB_publishBox{
+			width: 100%;
+			height: 100%;
+			margin: 0 auto;
+			background-color: rgba(0,0,0,0.4);
+			-webkit-box-sizing:border-box;
+			box-sizing:border-box;
+		}
+		div.WB_pubBoxPlus .WB_Plus_btn{
+			float: left;
+		}
+		div.WB_panel{
+			height: 300px;
+			position: relative;
+			top:100px;
+		}
+		div.WB_pubBoxHead{
+			padding: 40px 0px;
+		}
+		div.WB_pubBoxMain.WB_xline2{
+			height:300px;
+		}
+		div.WB_pubBoxMain.WB_xline2 div.WB_pubBoxInr{
+			margin: 0 10px;
+			padding: 0;
+			height: 300px;
+		}
+		div.WB_pubBoxInr div.WB_pubBody div.WB_pubBoxTa textarea.WB_textarea{
+			width: 260px;
+			height: 80px;
+		}
+		div.WB_pubBoxTa{
+			width: 280px;
+			height: 90px;
+
+		}
+		div.WB_pubBoxPlus.clearfix{
+			padding-top: 20px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<header>
+		<h2 id="mytitle">我的柠檬</h2>
+		<a href="index.html" class="gotoIndex"></a>
+	</header>
+	<section class="loading" style="display:block;"></section>
+	<section class="main" style="display:none;">
+		<div class="notice">
+			<ul id="integralLog">
+				<li>用户A向用户B射了1个柠檬</li>
+			</ul>
+		</div>
+		<div class="avatar" id="userAvatar">
+			<i></i>
+			<span id="userName">王宝强</span>
+		</div>
+		<ul class="userMassage">
+			<li style="margin-bottom:20px;">
+				<div class="massageLeft"> <span id="userNumber">参赛码：2002</span></div>
+			</li>
+			<li>
+				<div class="massageLeft2"><span id="ningMengNumber" style="color:#333;"><i>904</i> 柠檬</span></div>
+				<div class="massageRight2" id="userRange">排名：103</div>
+			</li>
+			
+		</ul>
+		<p id="hostP"  style="display:none;">Come on ! 你离Apple watch更近一步了！<br/>快点击求表邀请好友射柠檬吧!</p>
+		<p id="guestP"  style="display:none;">你的好友离Apple watch仅一步之遥！<br/>快来帮他射柠檬吧！</p>
+		<div class="iwant">
+			<h4 id="howManyNingmengIHas">您还有<i style="color:#f28f4c;font-size:18px">0</i>个柠檬！</h4>
+			
+			<button id="guestButton" style="display:none;">射柠檬</button>
+		</div>
+		<span class="iWantMore" id="iWantMore" style="color:#f28f4c;">获得更多柠檬>> </span>
+	</section>
+	<button id="hostButton" style="display:block;">求表</button>
+	
+	<footer>
+		<a href="http://www.quyundong.com/d" target="_blank" class="banner"><img src="images/footbanner.png"></a>
+	</footer>
+	
+	<div id="weixinphoto" style="display:none;"><i></i></div>
+	<section class="alert" id="alertBox" style="display:none;">
+		<div class="alertBox">
+			<span id="closeAlert"></span>
+			<p id="whereAreYouComeFrom">分享即可获得5个柠檬!<br/>好友还能帮你增加柠檬能量哦!</p>
+			<ul>
+				<li id="weiboli"><button type="button" id="wb_publish">
+					<img src="images/weibo.png">
+				<i>微博</i></wb:button></li>
+			</ul>
+		</div>
+	</section>
+	<section class="cover">
+		<div id="tip"><p>xxx</p><button id="tipClose">关闭</button></div>
+	</section>
+	<script type="text/javascript">
+
+	var star1 = 0 ;
+	var star2 = 0 ;
+	
+
+
+	var nowLog = 0;
+	var howlongtheMassage = 0
+	var $myul = $("#integralLog");
+
+	getIntegralLog();
+
+	var ulmove = setInterval(function(){
+		nowLog++;
+		
+		
+		if(nowLog>howlongtheMassage - 1){
+			$myul.animate({"-webkit-transform":"translateY("+nowLog*-30+"px)"},300,function(){
+				nowLog = 0 ;
+				$myul.css({"-webkit-transform":"translateY(0px)"});
+			});
+			
+		}else{
+			$myul.animate({"-webkit-transform":"translateY("+nowLog*-30+"px)"},300);
+		}
+	},5000);
+
+	function getIntegralLog(){
+		console.log("getIntegralLogStar");
+		var xhr = new XMLHttpRequest();
+		xhr.open('get', httpHead + 'NmbApi/GetIntegralLog?'+ newDate());
+		// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+		xhr.onreadystatechange = function () {
+		    if (xhr.readyState === 4 && xhr.status === 200) {
+		        var result = JSON.parse(xhr.response);
+		
+		        console.log(result);
+				
+		       if (result.code == 1) {
+		       	howlongtheMassage = result.data.length;
+		       	$myul.html("");
+		       	for(var i = 0 ;i < result.data.length+1; i++){
+		       		if(i == result.data.length){
+		       			b = 0 ;
+		       		}else{
+		       			b = i ;
+		       		}
+		       		$("<li>"+result.data[b].content+"</li>").appendTo($myul);
+		       	}
+		       };
+		    }
+		};
+		
+		xhr.send();
+	}
+
+	var getIntegralLog = setInterval(getIntegralLog,60000);
+	
+	
+	//剪掉 url 中＃后的字段
+	var myURL = window.location.href.split('#')[0];
+	var $windowWidth = $(window).width();
+	var result;
+	var Gresult;
+	
+
+	//微博发布器组件
+	$("#wb_publish").click(function(){
+		$(".cover").css("display","none");
+		$("#alertBox").css("display","none");
+		
+	});
+	WB2.anyWhere(function(W){
+
+	    W.widget.publish({
+	        'id' : 'wb_publish',
+	        'default_text' : '我在柠檬榜离Apple watch仅一步之遥!快来帮我射柠檬吧!\r\n'+myURL,
+	        'callback' : function(o) {
+	        	
+	            	//成功后的回调
+		            var xhr = new XMLHttpRequest();
+		            	console.log("a");
+		            	
+		            	xhr.open('get', 'http://m.quyundong.com/NmbApi/AddShare/?sign='+ Gresult.data.sign +'&from=1&client_time='+ newDate());
+		            	// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+		            	xhr.onreadystatechange = function () {
+		            	    if (xhr.readyState === 4 && xhr.status === 200) {
+		            	         var result = JSON.parse(xhr.response);
+		            	
+		            	        console.log(result);
+
+		            	        if(result.code == 1){
+		            	        	$("#alertBox").css("display","none");
+		            	        	$('.cover').css("display","block");
+        							$("#tip").css("display","block");
+        				        	$("#tip p").html("分享成功!");
+        				        	Gresult.data.times = Gresult.data.times + 5;
+        				        	$("#howManyNingmengIHas i").html(Gresult.data.times);
+        				        	$("#tipClose").click(function(){
+        				        		$(".cover").css("display","none");
+        	        				});
+        	        				$("#guestButton").css("background-color","#f28f4c");
+        	        				
+		            	        }
+
+		            	    }
+		            	};
+		            	
+		            xhr.send();
+
+	            
+	        }
+	    });
+	});
+	
+	var ningmengL = 1;
+	
+	
+	var guestButton = document.getElementById('guestButton');
+	var hostButton = document.getElementById('hostButton');
+	//微信config用
+	var enURL = encodeURIComponent(myURL);
+	//http://m.quyundong.com/static/lemonzone.html?
+	//http://m.qydw.net/static/lemonzone.html?
+	var longstr = 52 ;  //47
+
+	//检查是否有number字段，并获取number
+	var checkURLname = window.location.href.substring(longstr-7,longstr-1)
+	var postURLNumber = window.location.href.substring(longstr).split('&')[0];
+	console.log(postURLNumber);
+	//主客显示态
+
+	if(isHost() == true){
+		console.log(1);
+		$(".iwant").css("display","none");
+		$("#hostP").css("display","block");
+		$("#guestP").css("display","none");
+		$("#hostButton").css("display","block");
+		$("#guestButton").css("display","none");
+		$('#iWantMore').css("display","none");
+		$('#mytitle').html('我的柠檬');
+
+	}else{
+		console.log(0);
+		$(".iwant").css("display","block");
+		$("#hostP").css("display","none");
+		$("#guestP").css("display","block");
+		$("#hostButton").css("display","none");
+		$("#guestButton").css("display","block");
+		$('#iWantMore').css("display","inline-block");
+		$('#mytitle').html('射柠檬');
+	}
+	var timerStart = setInterval(function(){
+		if(star1 == 1 && star2 == 1){
+			$(".loading").css("display","none");
+			$("section.main").css("display","block");
+			clearInterval(timerStart);
+		}
+	},1000);
+	
+
+	//页面加载信息
+	(function(){
+		if(checkURLname == "number"){
+
+				var xhr = new XMLHttpRequest();
+					
+					
+					xhr.open('get', httpHead + 'NmbApi/GetUserInfo/?number='+postURLNumber+'&client_time='+ newDate());
+					// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+					xhr.onreadystatechange = function () {
+					    if (xhr.readyState === 4 && xhr.status === 200) {
+					         Gresult = JSON.parse(xhr.response);
+					
+					        console.log(Gresult);
+
+					        if(Gresult.code == 1){
+					        	$("#userAvatar i").css("background-image",'url('+Gresult.data.avatar+');');
+					        	$("#userName").html(Gresult.data.name);
+					        	$("#userNumber").html("参赛码:"+Gresult.data.number);
+					        	// $("#userTeam").html("队名:"+Gresult.data.team_name);
+					        	$("#ningMengNumber i").html(Gresult.data.integral);
+					        	$("#userRange").html("排名:"+Gresult.data.rank);
+					        	$("#howManyNingmengIHas i").html(Gresult.data.times);
+					        	star1 = 1;
+					        	if(Gresult.data.times == 0){
+					        		$("#guestButton").css("background-color","#cdcdcd");
+					        	}else{
+					        		$("#guestButton").css("background-color","#f28f4c");
+					        	}
+
+					        }else{
+					        	$('.cover').css("display","block");
+    							$("#tip").css("display","block");
+    				        	$("#tip p").html(Gresult.msg);
+    				        	$("#tipClose").click(function(){
+    				        		$(".cover").css("display","none");
+    	        				});	
+					        }
+
+					    }
+					};
+					
+				xhr.send();
+		}else{
+			alert("地址错误！");
+		}
+	})();
+	
+
+	//微信检查并开启微信config	
+	if(isWeixin()){
+		// alert("在用微信 "+ver);
+		$("#weiboButton").css("display","none");
+		
+		wxConfigToken (enURL);
+	}else{
+		star2 = 1;
+		// alert("不是微信 "+ver);
+		// wxConfigToken (enURL);
+	}
+
+	guestButton.onclick = function(){
+		if(ningmengL){
+			ningmengL = 0;
+			setTimeout(function(){
+				var xhr = new XMLHttpRequest();
+						
+						
+						xhr.open('get', httpHead + 'NmbApi/AddUserIntegral/?uid='+Gresult.data.uid+'&client_time='+newDate()+'&sign='+Gresult.data.sign);
+						// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+						xhr.onreadystatechange = function () {
+						    if (xhr.readyState === 4 && xhr.status === 200) {
+						    	
+						        var result = JSON.parse(xhr.response);
+						
+						        console.log(result);
+						        ningmengL = 1; 
+						        if(result.code == 1){
+
+						        	Gresult.data.times = parseInt(Gresult.data.times) - 1;
+
+						        	Gresult.data.integral = parseInt(Gresult.data.integral) + 1;
+						        	
+        				        	$('.cover').css("display","block");
+        							$("#tip").css("display","block");
+        							if(result.data.status == 0){
+        								$("#tip p").html("成功帮好友增加柠檬！");
+        							}else if(result.data.status == 1){
+        								$("#userRange").html("排名："+result.data.rank);
+        								$("#tip p").html("成功帮好友提升排名至"+result.data.rank+"！");
+
+        							}
+        				        	
+        				        	$("#tipClose").click(function(){
+        				        		$(".cover").css("display","none");
+        	        				});	
+        				        	
+        	        				if(Gresult.data.times == 0){
+        	        					console.log("as");
+        	        					$("#guestButton").css("background-color","#cdcdcd");
+        	        					$("#howManyNingmengIHas i").html(0);
+        	        					$("#ningMengNumber i").html(Gresult.data.integral);
+        	        				}else{
+        	        					console.log("wewe");
+        	        					$("#guestButton").css("background-color","#f28f4c");
+        	        					$("#howManyNingmengIHas i").html(Gresult.data.times);
+						        		$("#ningMengNumber i").html(Gresult.data.integral);
+        	        				}
+						        	
+						        }else{
+        				        	$('.cover').css("display","block");
+        							$("#tip").css("display","block");
+        				        	$("#tip p").html(result.msg);
+        				        	$("#tipClose").click(function(){
+        				        		$(".cover").css("display","none");
+        	        				});	
+						        }
+
+						    }
+						
+					}
+					xhr.send();
+			},100);
+		}
+	}
+	
+	//分享提示框弹出
+	document.getElementById('closeAlert').onclick = function  () {
+		document.getElementById('alertBox').style.display = "none";
+		$(".cover").css("display","none");
+	}
+	document.getElementById('iWantMore').onclick = function  () {
+		if(isWeixin()){
+			$("#whereAreYouComeFrom").html("分享即可获得5个柠檬!<br/>好友还能帮你增加柠檬能量哦!");
+			$("#weixinphoto").css("display","block");
+			$("#tip").css("display","none");
+			$(".cover").css("display","block");
+		}else{
+			$("#whereAreYouComeFrom").html("分享即可获得5个柠檬!<br/>好友还能帮你增加柠檬能量哦!");
+			$("#tip").css("display","none");
+			document.getElementById('alertBox').style.display = "block";
+			}	
+	}
+	$("#weixinphoto i").click(function(){
+		$(".cover").css("display","none");
+		$("#weixinphoto").css("display","none");
+	});
+	hostButton.onclick = function(){
+		if(isWeixin()){
+			$("#whereAreYouComeFrom").html("分享即可获得5个柠檬!<br/>好友还能帮你增加柠檬能量哦!");
+			$("#weixinphoto").css("display","block");
+			$(".cover").css("display","block");
+			$("#tip").css("display","none");
+
+		}else{
+			$("#whereAreYouComeFrom").html("分享即可获得5个柠檬!<br/>好友还能帮你增加柠檬能量哦!");
+			$(".cover").css("display","block");
+			$("#tip").css("display","none");
+			document.getElementById('alertBox').style.display = "block";
+			}
+		
+	}
+
+	var weiboShare = document.getElementById('weiboShare');
+	var weChatShare = document.getElementById('weChatShare');
+	var firendsShare = document.getElementById('firendsShare');
+	
+
+	//微信config ok后启用
+	wx.ready(function(){
+
+	    // config信息验证后会执行ready方法，所有接口调用都必须在config接口获得结果之后，config是一个客户端的异步操作，所以如果需要在页面加载时就调用相关接口，则须把相关接口放在ready函数中调用来确保正确执行。对于用户触发时才调用的接口，则可以直接调用，不需要放在ready函数中。
+	    wx.onMenuShareTimeline({
+	        title: '轻松一射，任性拿奖!biubiubiu~Apple Watch快到碗里来！', // 分享标题
+	        link: 'http://m.quyundong.com/static/lemonzone.html?number='+Gresult.data.number, // 分享链接
+	        imgUrl: 'http://m.quyundong.com/static/images/touxiang1.png', // 分享图标
+	        success: function () { 
+	            // 用户确认分享后执行的回调函数
+	            // alert("success");
+	            var xhr = new XMLHttpRequest();
+	            	console.log("a");
+	            	
+	            	xhr.open('get', httpHead + 'NmbApi/AddShare/?sign='+ Gresult.data.sign +'&from=3&client_time='+ newDate());
+	            	// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+	            	xhr.onreadystatechange = function () {
+	            	    if (xhr.readyState === 4 && xhr.status === 200) {
+	            	         var result = JSON.parse(xhr.response);
+	            	
+	            	        console.log(result);
+
+	            	        if(result.code == 1){
+	            	        	$("#weixinphoto").css("display","none");
+	            	        	$('.cover').css("display","block");
+    							$("#tip").css("display","block");
+    				        	$("#tip p").html("分享成功!");
+    				        	Gresult.data.times = Gresult.data.times + 5;
+    				        	$("#howManyNingmengIHas i").html(Gresult.data.times);
+    				        	$("#tipClose").click(function(){
+    				        		$(".cover").css("display","none");
+    	        				});
+    	        				$("#guestButton").css("background-color","#f28f4c");
+	            	        }
+	            	    }
+	            	};
+	            	
+	            xhr.send();
+
+	        },
+	        cancel: function () { 
+	            // 用户取消分享后执行的回调函数
+	            // alert("cancel");
+	        }
+	    });
+
+	    wx.onMenuShareAppMessage({
+	        title: '轻松一射，任性拿奖', // 分享标题
+	        desc: 'biubiubiu~Apple Watch快到碗里来！', // 分享描述
+	        link: 'http://m.quyundong.com/static/lemonzone.html?number='+Gresult.data.number, // 分享链接
+	        imgUrl: 'http://m.quyundong.com/static/images/touxiang1.png', // 分享图标
+	        type: 'link', // 分享类型,music、video或link，不填默认为link
+	        dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+	        success: function () { 
+	            // 用户确认分享后执行的回调函数
+	             // alert("success");
+     	            var xhr = new XMLHttpRequest();
+     	            	
+     	            	
+     	            	xhr.open('get', httpHead + 'NmbApi/AddShare/?sign='+ Gresult.data.sign +'&from=2&client_time='+ newDate());
+     	            	// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+     	            	xhr.onreadystatechange = function () {
+     	            	    if (xhr.readyState === 4 && xhr.status === 200) {
+     	            	         var result = JSON.parse(xhr.response);
+     	            	
+     	            	        console.log(result);
+
+     	            	        if(result.code == 1){
+     	            	        	
+     	            	        	$("#weixinphoto").css("display","none");
+     	            	        	$('.cover').css("display","block");
+         							$("#tip").css("display","block");
+         				        	$("#tip p").html("分享成功!");
+         				        	Gresult.data.times = Gresult.data.times + 5;
+         				        	$("#howManyNingmengIHas i").html(Gresult.data.times);
+         				        	$("#tipClose").click(function(){
+         				        		$(".cover").css("display","none");
+         	        				});
+         	        				$("#guestButton").css("background-color","#f28f4c");
+     	            	        }
+
+     	            	    }
+     	            	};
+     	            	
+     	            xhr.send();
+	        },
+	        cancel: function () { 
+	            // 用户取消分享后执行的回调函数
+	            // alert("cancel");
+	        }
+	    });
+
+	});
+	
+
+	
+	
+	// 微信config
+	function wxConfigToken (url){
+		var xhr = new XMLHttpRequest();
+		var url = url;
+		console.log(url);
+		xhr.open('get', httpHead + 'NmbApi/GetWeixinToken/?url='+url
+			);
+    			
+				// xhr.setRequestHeader('Content-Type', 'application/json; charset=utf-8');
+				xhr.onreadystatechange = function () {
+				    if (xhr.readyState === 4 && xhr.status === 200) {
+				        result = JSON.parse(xhr.response);
+						star2 = 1;
+				        console.log(3,result);
+				        console.log(result.data.timestamp - 0 ,result.data.noncestr,result.data.sha_sign,result.data.jsapi_ticket);
+				        wx.config({
+				        	    //debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				        	    appId: 'wxe37215df86f33faa', // 必填，公众号的唯一标识
+				        	    timestamp: result.data.timestamp - 0 , // 必填，生成签名的时间戳
+				        	    nonceStr: result.data.noncestr, // 必填，生成签名的随机串
+				        	    signature: result.data.sha_sign,// 必填，签名，见附录1
+				        	    jsApiList: [
+				                'onMenuShareTimeline',
+				                'onMenuShareAppMessage',
+				                'onMenuShareQQ',
+				                'onMenuShareWeibo',
+				                'hideMenuItems',
+				                'showMenuItems',
+				                'hideAllNonBaseMenuItem',
+				                'showAllNonBaseMenuItem',
+				                'translateVoice',
+				                'startRecord',
+				                'stopRecord',
+				                'onRecordEnd',
+				                'playVoice',
+				                'pauseVoice',
+				                'stopVoice',
+				                'uploadVoice',
+				                'downloadVoice',
+				                'chooseImage',
+				                'previewImage',
+				                'uploadImage',
+				                'downloadImage',
+				                'getNetworkType',
+				                'openLocation',
+				                'getLocation',
+				                'hideOptionMenu',
+				                'showOptionMenu',
+				                'closeWindow',
+				                'scanQRCode',
+				                'chooseWXPay',
+				                'openProductSpecificView',
+				                'addCard',
+				                'chooseCard',
+				                'openCard'
+				              ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+				        	});
+				        
+				    }
+				}
+		xhr.send();
+	}
+
+	//主人态判别
+	function isHost(){
+		if(postURLNumber == window.localStorage.getItem("quyundongusernumberkey")){
+			return true
+		}else{
+			return false
+		}
+	}
+
+	//微信判别
+	function isWeixin (){
+		if(window.navigator.userAgent.indexOf("MicroMessenger") === -1 ){
+			return false;
+		}else{return true}
+	}
+
+	//生成时间挫
+	function newDate (){
+		return parseInt(new Date().getTime()/1000)
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+extends layout
+block headContent
+  link(rel='stylesheet', href='./css/pc/stylesheets/base.css')
+  link(rel='stylesheet', href='./css/pc/stylesheets/system.css')
+  script(src='./js/jquery/jquery-1.8.3.min.js')
+block content
+  body
+    include ./_header
+    .main.w1180
+      h2 1/ 更加人性化的场地管理
+      p 全方位解决预定场地，付费，退场换场，锁场打包等日常经营场景，操作简易方便，从此告别本子<br>记录的时代，有效减少人力成本，提高效率
+      .img-row
+        img(src='/images/pc/v2/sys1.png')
+      h2 2/ 极速的售票系统
+      p 简单快捷的售票操作，告别纸张票务，大大减少物质成本，更重要的是，避免了繁忙时段的错乱，省心、放心
+      .img-row
+        img(src='/images/pc/v2/sys2.png')
+      h2 3/ 丰富的会员体系可供使用
+      p 满足不同经营模式球馆的会员需求，无论是时间、人次、场次都可以使用，你还需要保存厚厚的本子吗？丢掉吧！
+      .img-row
+        .cell
+          .top 时间卡<span>（年／月卡）</span>
+          .bottom
+            img(src='/images/pc/v2/icon-sys-1.png')
+        .cell
+          .top 多次卡
+          .bottom
+            img(src='/images/pc/v2/icon-sys-2.png')
+        .cell
+          .top 储值卡
+          .bottom
+            img(src='/images/pc/v2/icon-sys-3.png')
+      h2 4/ 商品进销存
+      h3 紧紧把握商品带来的机会
+      br 
+      p 带有图片和扫码枪的商品系统，微信／支付宝扫码支付，全面升级你的商品销售体系，随时了解<br>商品的库存和销售情况
+      .img-row
+        img(src='/images/pc/v2/sys4.png')
+      h2 5/ 完善的培训系统
+      p 适配市场上多种培训体系，完美管理教练和学员的关系，解决课程、班级、结款等复杂问题，有效<br>避免人工记录而造成的损失
+      .row.margin-top-60
+        .button 教练管理
+        .button 打卡签到
+        .button 学员上课
+        br
+        .button.gray 课程编排
+        .button.gray 班级分配
+      .img-row
+        img(src='/images/pc/v2/sys5.png')
+      h2 6/ 物品租赁
+      p 有效管理商品的租金和押金，清晰记录商品的变动情况，助你轻松应对每天川流不息的客户
+      .img-row
+        img(src='/images/pc/v2/sys6.png')
+      h2 7/ 实时报表
+      p 走到哪，看到哪；报表在手，决胜千里之外<br>多前台、多门店经营报表、实时查询、场馆财务的好助手
+      .img-row.flex.after-none
+        .inline-row
+          div(style='height:450px;')
+            img(src='/images/pc/v2/sys8.png',style='margin-top:-5px;')
+          p 微信实时报表
+        .inline-row
+          div(style='height:450px;')
+            img(src='/images/pc/v2/sys7.jpg')
+          p 网页实时报表
+    include ./_footer

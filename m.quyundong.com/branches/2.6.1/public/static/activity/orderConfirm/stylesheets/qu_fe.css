@@ -1,0 +1,67 @@
+* { -webkit-tap-highlight-color: transparent; }
+
+.hide { display: none !important; }
+
+body { -moz-user-select: -moz-none; -ms-user-select: none; -webkit-user-select: none; user-select: none; background-color: #f0efed; }
+
+.qu-fe-overtime { color: pink; }
+.qu-fe-overtime h1 { font-size: 33px; }
+
+.clearfix:after { content: ""; display: block; clear: both; overflow: hidden;}
+
+.overtime-1 { height: 44px; line-height: 44px; text-align: center; background: #fff url(../images/overtime-bb.jpg) left bottom no-repeat; }
+.overtime-1 .overtime-1-1 { float: left; width: 50%; color: #939393; border-bottom: 2px solid #d1d1d1; }
+.overtime-1 .overtime-1-1-on { border-bottom: 2px solid #74affb; color: #74affb; }
+
+.overtime-2 .overtime-2-nodata { position: fixed; width: 100%; top: 50%; left: 0; }
+.overtime-2 .overtime-2-nodata .overtime-2-nodata-1 { text-align: center; color: #939393; }
+
+.qu-fe-CT .nothing { color: #cccbca; padding-top: 180px; text-align: center; }
+.qu-fe-CT .bottombar { width: 100%; height: 40px; position: fixed; border-top: 1px solid #cccbca; bottom: 0; left: 0; background-color: #fff; line-height: 40px; text-align: center; font-size: 12px; color: #74affb; }
+.qu-fe-CT .bottombar span { display: inline-block; padding-left: 5px; }
+.qu-fe-CT .bottombar .icon-add-blue { display: inline-block; width: 15px; height: 15px; background: transparent url("../images/icon-add-blue.png") left top no-repeat; -moz-background-size: cover; -o-background-size: cover; -webkit-background-size: cover; background-size: cover; vertical-align: text-bottom; }
+.qu-fe-CT .bottombar .icon-sm-blue { display: inline-block; width: 15px; height: 15px; background: transparent url("../images/icon-sm-blue.png") left top no-repeat; -moz-background-size: cover; -o-background-size: cover; -webkit-background-size: cover; background-size: cover; vertical-align: text-bottom; }
+.qu-fe-CT .bottombar .bottombar-left { color: #74affb; display: block; width: 50%; height: 40px; float: left; border-right: 1px solid #cccbca; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.qu-fe-CT .bottombar .bottombar-right { color: #74affb; display: block; width: 50%; height: 40px; float: left; }
+
+.qu-fe-instructions { color: yellow; }
+.qu-fe-instructions h1 { font-size: 33px; }
+
+.qu-fe-ticketbind { position: relative; padding: 25px 15px; }
+.qu-fe-ticketbind .ticket-num-box { height: 44px; border: 1px solid #74affb; margin-bottom: 15px; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+.qu-fe-ticketbind .ticket-num-box input { border: none; padding: 0; margin: 0; background: none; }
+.qu-fe-ticketbind .ticket-num-box #ticket-num { height: 44px; width: 168px; float: left; padding-left: 15px; padding-right: 15px; line-height: 1.5; font-size: 14px; text-align: center; }
+.qu-fe-ticketbind .ticket-num-box #ticket-num:-moz-placeholder { font-size: 14px; color: #cdcdcd; text-align: center; }
+.qu-fe-ticketbind .ticket-num-box #ticket-num::-moz-placeholder { font-size: 14px; color: #cdcdcd; text-align: center; }
+.qu-fe-ticketbind .ticket-num-box #ticket-num:-ms-input-placeholder { font-size: 14px; color: #cdcdcd; text-align: center; }
+.qu-fe-ticketbind .ticket-num-box #ticket-num::-webkit-input-placeholder { font-size: 14px; color: #cdcdcd; text-align: center; }
+.qu-fe-ticketbind .ticket-num-box #btn-bind { width: 90px; height: 44px; float: right; background: #74affb; color: #ffffff; font-size: 14px; line-height: 44px; text-align: center; }
+.qu-fe-ticketbind .ticket-intro { height: 16px; }
+.qu-fe-ticketbind .ticket-intro i { background: url(/themes/qu/images/sm.png) no-repeat; float: left; -moz-background-size: 100% 100%; -o-background-size: 100% 100%; -webkit-background-size: 100% 100%; background-size: 100% 100%; width: 16px; height: 16px; }
+.qu-fe-ticketbind .ticket-intro span { float: left; font-size: 12px; line-height: 16px; color: #939393; margin-left: 5px; }
+.qu-fe-ticketbind .mask { font-size: 14px; color: #333333; background: rgba(0, 0, 0, 0.7); position: fixed; width: 100%; height: 100%; top: 0; left: 0; }
+.qu-fe-ticketbind .mask .alert { margin: 200px auto 0; width: 240px; min-height: 90px; background: #ffffff; -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; text-align: center; }
+.qu-fe-ticketbind .mask .alert .alert-msg { line-height: 30px; padding:10px; border-bottom: 1px solid #dddddd; }
+.qu-fe-ticketbind .mask .alert .alert-close { height: 35px; line-height: 35px; }
+.qu-fe-ticketbind .loading { font-size: 14px; color: #333333; background: rgba(0, 0, 0, 0.7); position: fixed; width: 100%; height: 100%; top: 0; left: 0; }
+.qu-fe-ticketbind .loading .adding { position: absolute; top: 50%; left: 50%; margin-top: -16px; margin-left: -92px; }
+.qu-fe-ticketbind .loading .adding span { color: #ffffff; height: 32px; line-height: 32px; float: left; margin-left: 10px; }
+.qu-fe-ticketbind .loading .adding img { width: 32px; height: 32px; float: left; animation: loading 1s linear infinite; -moz-animation: loading 1s linear infinite; -webkit-animation: loading 1s linear infinite; -o-animation: loading 1s linear infinite; }
+@keyframes loading { 100% { transform: rotate(360deg); -ms-transform: rotate(360deg); -moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); } }
+@-moz-keyframes loading { 100% { transform: rotate(360deg); -ms-transform: rotate(360deg); -moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); } }
+@-webkit-keyframes loading { 100% { transform: rotate(360deg); -ms-transform: rotate(360deg); -moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); } }
+@-o-keyframes loading { 100% { transform: rotate(360deg); -ms-transform: rotate(360deg); -moz-transform: rotate(360deg); -webkit-transform: rotate(360deg); -o-transform: rotate(360deg); } }
+.ticket-list { width: 100%; padding-bottom: 60px; }
+
+.ticket { margin: 10px 10px 0px; height: 115px; border-top: 1px solid #e1e1e1; border-bottom: 1px solid #e1e1e1; }
+.ticket .ticket-l, .ticket .ticket-r { height: 100%; }
+.ticket .ticket-l { width: 36%; float: left; color: #fff; text-align: center; }
+.ticket .ticket-l .ticket-l-money { font-size: 20px; margin: 30px 0 10px; }
+.ticket .ticket-l .ticket-l-money span { font-size: 1.7em; }
+.ticket .ticket-l .ticket-l-info { font-size: 12px; }
+.ticket .ticket-color0 { background: #cdcdcd url(../images/ticket-gray.jpg) left top no-repeat; background-size: auto 100%; }
+.ticket .ticket-color1 { background: #f2ac59 url(../images/ticket-yellow.jpg) left top no-repeat; background-size: auto 100%; }
+.ticket .ticket-r { background: #fff url(../images/ticket-white.jpg) right top no-repeat; background-size: auto 100%; padding-left: 10px; color: #9f9f9f; font-size: 12px; overflow: hidden; line-height: 140%; }
+.ticket .ticket-r .ticket-r-money { font-size: 15px; color: #f2ac59; margin: 10px 0 8px; }
+.ticket .ticket-r .ticket-r-pw span { color: #636363; }
+.ticket .ticket-r .ticket-mb { margin-bottom: 3px; }

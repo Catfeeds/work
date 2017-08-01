@@ -1,0 +1,53 @@
+<section ng-include="'/templates/wx/calendar.html'" class="calendar" ng-controller="calendarCtrl" ng-swipe-left="nextDate()" ng-swipe-right="prevDate()"></section>
+<div id="index" ng-if="hasDate">
+	<section class="total">
+		<div class="t">
+			<i class="fl">￥</i>
+			<span class="fl" ng-if="selectDate==today">今日收入合计(元)</span>
+			<span class="fl" ng-if="selectDate!=today">{{selectDate | substr:4:2}}-{{selectDate | substr:6:2}}&nbsp;&nbsp;收入合计(元)</span>
+			<span class="fr">数据截止至{{updateDate}}</span>
+		</div>
+		<div class="c">
+			<a href="#income/{{id}}">
+				<strong>{{income.today | number:2}}</strong>
+				<i class="icon-8"></i>
+			</a>
+		</div>
+		<div class="b">
+			<span class="fl" ng-if="withYesterday>=0"><i class="up">&uarr;</i>比昨天多{{withYesterday | number:2}}元</span>
+			<span class="fl" ng-if="withYesterday<0"><i class="down">&darr;</i>比昨天少{{-withYesterday | number:2}}元</span>
+			<span class="fr" ng-if="withWeek>=0"><i class="up">&uarr;</i>比上周{{selectDate | setToWeek}}多{{(withWeek | abs) | number:2}}元</span>
+			<span class="fr" ng-if="withWeek<0"><i class="down">&darr;</i>比上周{{selectDate | setToWeek}}少{{(withWeek | abs) | number:2}}元</span>
+		</div>
+	</section>
+	<section class="box clearfix">
+		<div class="fl">
+			<a href="#order/{{id}}">
+				<h4>
+					<i class="icon-19"></i>
+					订单
+				</h4>
+				<p class="today">今日完成<em>{{order.today}}</em>订单</p>
+				<p class="week">本周累计<em>{{order.week}}</em>订单</p>
+			</a>
+		</div>
+		<div class="fr">
+			<a href="#member/{{id}}">
+				<h4>
+					<i class="icon-15"></i>
+					会员
+				</h4>
+				<p class="today">本日新增<em>{{member.today}}</em>会员</p>
+				<p>本周新增<em>{{member.week}}</em>会员</p>
+			</a>
+		</div>
+	</section>
+	<section class="line" ng-if="nearDays">
+		<h4>
+			<i class="icon-22"></i>
+			最近七天营业收入
+		</h4>
+		<canvas class="canvas" id="canvas-home"></canvas>
+	</section>
+</div>
+<div ng-include="'/templates/wx/nodata.html'" class="nodate" ng-if="!hasDate" ng-style="nodateStyle"></div>

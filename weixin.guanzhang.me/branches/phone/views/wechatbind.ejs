@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <title>馆掌</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="stylesheet" href="/bind/stylesheets/wechatbind.css">
+  </head>
+  <body data-design-width="750" data-design-dpr="2">
+    <div id="loading" data-lock="1" class="loading">
+      <div class="loading-icon"></div>
+    </div>
+    <div class="main hide">
+      <div class="logo">
+        <div class="logoimg"><img src="/bind/images/zglogo.png"></div>
+      </div>
+      <form>
+        <div class="line">
+          <label class="sp">
+            <input id="phone" type="text" placeholder="请输入您在商家帐户绑定的手机号">
+          </label>
+        </div>
+        <div class="line">
+          <label>
+            <input id="code" type="text" placeholder="请输入验证码">
+            <div id="checkCode" data-action="/binding/getSMSCode" class="checkCode">获取验证码</div>
+          </label>
+        </div>
+          <input style="display:none;" id="type" type="text" value="<%= type %>">
+      </form>
+      <div id="submit" data-action="/binding/checkSMSCode" class="btn">绑定</div>
+    </div>
+    <div class="success hide">
+      <div class="icon-success"><img src="/bind/images/bind.png"></div>
+      <h2>绑定成功！</h2>
+      <p>订单消息将会通过微信推送给您</p>
+    </div>
+    <div class="toast hide">
+      <div class="toast-alert">
+        <div class="toast-msg"></div>
+      </div>
+    </div>
+  </body>
+  <script src="/javascripts/zeptoWithFx.min.js"></script>
+  <script>
+    $(window).on('load',function(){
+      var loadInterval = setInterval(function() {
+        if($(".loading").attr("data-lock") == 1){
+          $(".loading").addClass("hide");
+          $(".main").removeClass("hide");
+          clearInterval(loadInterval);
+        }
+      },500);
+    })
+    
+    $('#submit').click(function(){
+      if(this.hasAttribute('disabled')) return false
+      if(!checkTel($('#phone').val())){
+        showToast('请输入正确的手机号码')
+        return false
+      }
+      if(!checkCode($('#code').val())){
+        showToast('请输入正确的验证码')
+        return false
+      }
+      this.setAttribute('disabled','')
+      var url = this.dataset.action
+      var phone = $('#phone').val()
+      var code = $('#code').val()
+      var type = $('#type').val();
+      var successCallback = function(res){
+        if(res.status == '0000'){
+          <% if(type == 2) { %>
+          window.location.href = '/venue/venueList';
+          <% }else{ %>
+          window.location.href = '/binding/bindingInfo';
+          <% } %>
+          //bindSuccess('绑定成功！','订单消息将会通过微信推送给您')
+        }else{
+          showToast(res.msg)
+          $('#submit').removeAttr('disabled')
+        }
+      }
+      var errorCallback = function(res){
+        showToast('网络错误，请稍候重试')
+        $('#submit').removeAttr('disabled')
+      }
+      ajaxSubmit(url,type,phone,code,successCallback,errorCallback)
+    
+    })
+    
+    function bindSuccess(h2,p){
+      $('.main').addClass('hide')
+      $('.success').removeClass('hide')
+      $('.success h2').text(h2)
+      $('.success p').text(p)
+    }
+    
+    $('#checkCode').click(function(){
+      if(this.hasAttribute('disabled')) return false
+      if(!checkTel($('#phone').val())){
+        showToast('请输入正确的手机号码')
+        return false
+      }
+      this.setAttribute('disabled','')
+      var url = this.dataset.action
+      var phone = $('#phone').val()
+      var type = $('#type').val();
+      var successCallback = function(res){
+        if(res.status == '0000'){
+          showToast('验证码已发送，请留意短信')
+          setCodeTimer()
+        }else{
+          showToast(res.msg)
+          $('#checkCode').removeAttr('disabled')
+        }
+      }
+      var errorCallback = function(res){
+        showToast('网络错误，请稍候重试')
+        $('#checkCode').removeAttr('disabled')
+      }
+      ajaxCheckCode(url,type,phone,successCallback,errorCallback)
+    })
+    
+    
+    
+    function ajaxCheckCode(url,type,phone,successCallback,errorCallback){
+      $.ajax({
+        url:url,
+        type: 'GET',
+        data: {
+          type: type,
+          phone: phone
+        },
+        success:function(data){
+          successCallback(data)
+        },
+        error:function(data){
+          errorCallback(data)
+        }
+      })
+    }
+    
+    function ajaxSubmit(url,type,phone,code,successCallback,errorCallback){
+      $.ajax({
+        url:url,
+        type: 'GET',
+        data: {
+          type: type,
+          phone: phone,
+          code:code
+        },
+        success:function(data){
+          successCallback(data)
+        },
+        error:function(data){
+          errorCallback(data)
+        }
+      })
+    }
+    function setCodeTimer() {
+        var t = 60;
+        var codeTimer = null;
+        clearInterval(codeTimer);
+        $("#checkCode").text(t+'s后重新获取');
+        codeTimer = window.setInterval(function() {
+            t--;
+            $("#checkCode").text(t+'s后重新获取');
+            if (t == 0) {
+                window.clearInterval(codeTimer);
+                $("#checkCode").text('重新获取').removeAttr("disabled");
+            }
+        }, 1000);
+    }
+    function checkCode(code) {
+        if (!code || !/^\d{3,20}$/.test(code)) {
+            return false;
+        }
+        return true;
+    }
+    function checkTel(tel) {
+        if (!tel || !/1[2345678]{1}\d{9}$/.test(tel)) {
+            return false;
+        }
+        return true;
+    }
+    // 显示toast
+    function showToast(errMsg,fn) {
+        $(".toast .toast-msg").text(errMsg);
+        $(".toast").removeClass('hide');
+        setTimeout(function(){
+            $(".toast").animate({"opacity":0},300,function(){
+                $(this).css("opacity",1).addClass("hide");
+                if(fn){
+                    fn();
+                }
+            })
+        },1000);
+    }
+  </script>
+</html>

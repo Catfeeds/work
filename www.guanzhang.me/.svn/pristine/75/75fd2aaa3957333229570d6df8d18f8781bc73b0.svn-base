@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    include includes/_mobile_head
+    block headContent
+  body(data-design-width="750")
+    block content
+
+    include includes/_mobile_footer

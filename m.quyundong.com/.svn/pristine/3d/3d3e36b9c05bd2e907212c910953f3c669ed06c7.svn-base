@@ -1,0 +1,221 @@
+@import "../../qu205/includes/reset";
+@import "../../qu205/sass-lib/header";
+@import "../../qu205/sass-lib/base";
+
+.btn{
+  line-height: pxToRem(90px);
+  @include box-sizing(border-box);
+  border-radius: 3em;
+  background-color: #009ff0;
+  color:#fff;
+  display: inline-block;
+  margin:pxToRem(20px);
+  text-align: center;
+  min-width: pxToRem(270px);
+  &:first-child:nth-last-child(1){
+    min-width: pxToRem(500px);
+  }
+  &[disabled]{
+    background-color: #ccc;
+  }
+}
+
+.p-btn{
+  text-align: center;
+}
+.tips{
+  text-align: center;
+  color:#666;
+  font-size: pxToRem(24px);
+
+}
+
+.icon-add{
+  width: pxToRem(40px);
+  height: pxToRem(40px);
+  display: inline-block;
+  background: url('/themes/cash/images/add.png');
+  @include background-size(cover);
+}
+.icon-edit{
+  width: pxToRem(32px);
+  height: pxToRem(32px);
+  display: inline-block;
+  background: url('/themes/cash/images/icon_edit.png');
+  @include background-size(cover);
+}
+.icon-radio{
+  width: pxToRem(40px);
+  height: pxToRem(40px);
+  display: inline-block;
+  // background: url('/themes/cash/images/common_uncheck_icon.png');
+  @include background-size(cover);
+}
+.fr{
+  float: right;
+}
+.main{
+  color:#222;
+  text-align: left;
+  font-size: pxToRem(28px);
+  .big-title{
+    padding-left: pxToRem(30px);
+    padding-right: pxToRem(30px);
+    font-size: pxToRem(30px);
+    margin-top: pxToRem(50px);
+    margin-bottom: pxToRem(50px);
+    position: relative;
+    em{
+      color:#ff860c;
+    }
+  }
+  .little-title{
+    padding-left: pxToRem(30px);
+    font-size: pxToRem(24px);
+    color:#666;
+    margin-bottom:pxToRem(20px);
+  }
+  .list{
+    
+    background-color: #fff;
+    margin:pxToRem(30px) 0;
+    li{
+      padding-left: pxToRem(30px);
+      position: relative;
+      .icon-right{background: url('/themes/qu202/images/user/icon-right.png'); @include background-size(cover);}
+      a,.inner{
+        color:#222;
+        display: inline-block;
+        width: 100%;
+        border-bottom:1px solid #e6e6e6;
+        line-height: pxToRem(90px);
+        position: relative;
+        .icon-takeMoney{background: url('/themes/cash/images/take-money.png');}
+        .icon-transfer{background: url('/themes/cash/images/transfer.png');}
+        .icon-check{background: url('/themes/cash/images/check.png');}
+        
+        .icon{
+          width: pxToRem(40px);
+          height: pxToRem(40px);
+          display: block;
+          position: absolute;
+          top:pxToRem(24px);
+          left:0;
+          @include background-size(cover);
+        }
+        
+      }
+      &:last-of-type {
+        a,.inner{
+          border-bottom: none;
+        }
+      }
+    }
+  }
+  .body{
+    &.index{
+      .list li{
+        a,.inner{
+          text-indent: pxToRem(60px);
+        }
+      }
+    }
+    &.take-money{
+
+      .empty{
+        text-align: center;
+        margin-top: pxToRem(120px);
+        .empty-icon{
+          width: pxToRem(154px);
+          margin:0 auto;
+          img{width:100%;}
+          margin-bottom: pxToRem(140px);
+        }
+        .tips{color:#222;}
+      }
+
+      .bank-list{
+        input[name='bank']{
+          position: absolute;
+          clip:rect(0,0,0,0);
+        }
+        input[name='bank'] + label{
+          position: absolute;
+          right:pxToRem(30px);
+          top:50%;
+          @include transform(translateY(-50%));
+          background-image: url('/themes/cash/images/common_uncheck_icon.png');
+          &:before{
+            content: '';
+            position: absolute;
+            top:pxToRem(-20px);
+            right:pxToRem(-20px);
+            bottom:pxToRem(-20px);
+            left:pxToRem(-700px);
+          }
+        }
+        input[name='bank']:checked + label{
+          background-image: url('/themes/qu205/order/images/radio-on.png');
+        }
+        .icon-edit{
+          position: relative;
+          margin-left: pxToRem(20px);
+          vertical-align: sub;
+          &:before{
+            content: '';
+            position: absolute;
+            top:pxToRem(-20px);
+            right:pxToRem(-20px);
+            bottom:pxToRem(-20px);
+            left:pxToRem(-20px);
+          }
+        }
+        .btn{
+          margin-top: pxToRem(50px);
+        }
+        
+      }
+
+      .add-bank-card{
+        .left-side{
+          display: inline-block;
+          width: pxToRem(150px);
+        }
+      }
+
+      .take-money-success{
+        text-align: center;
+        margin-top: pxToRem(90px);
+        .success-icon{
+          width: pxToRem(136px);
+          img{width:100%};
+          margin:0 auto;
+          margin-bottom: pxToRem(50px);
+        }
+        h3{
+          color:#222;
+          font-size: pxToRem(36px);
+        }
+        .tips{
+          margin-top: pxToRem(30px);
+          margin-bottom: pxToRem(50px);
+        }
+      }
+    }
+    &.check{
+      .list{
+        margin-top: 0;
+        .inner{line-height: pxToRem(65px);}
+        .msg{font-size: pxToRem(28px);}
+        .time{color:#666;}
+        .count{
+          position: absolute;
+          right:pxToRem(30px);
+          top:50%;
+          margin-top: pxToRem(-30px);
+          &.orange{color:#ff860c;}
+        }
+      }
+    }
+  }
+}

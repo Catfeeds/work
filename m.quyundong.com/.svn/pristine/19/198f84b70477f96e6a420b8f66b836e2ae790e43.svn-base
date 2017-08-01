@@ -1,0 +1,25 @@
+@import '../../../../koubei/sass-lib/reset';
+@import '../../../../koubei/sass-lib/common';
+@import '../../../../koubei/sass-lib/base';
+
+body{
+  background-color: #fff;
+}
+
+.author-index{
+  color:#000;
+  .author-index-icon{
+    width: pxToRem(120px);
+    height: pxToRem(120px);
+    margin:0 auto;
+    border-top: pxToRem(220px) solid transparent;
+    background: transparent 0 0 / cover no-repeat;
+  }
+  h2{
+    font-size: pxToRem(36px);
+    margin:pxToRem(30px) auto;
+  }
+  p{
+    font-size: pxToRem(30px);
+  }
+}

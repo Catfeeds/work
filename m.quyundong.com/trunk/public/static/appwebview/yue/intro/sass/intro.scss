@@ -1,0 +1,88 @@
+@import "compass/reset";
+@import "compass/css3";
+
+html{
+  -ms-text-size-adjust: 100%; 
+  -webkit-text-size-adjust: 100%;
+  font-family:"Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif; 
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x:hidden; 
+  overflow: auto;
+  background-color:#f0f0f0;
+  line-height: 1.375;
+}
+body{
+  margin: 0 auto;
+  width: 3.2rem;
+  height: 100%;
+  max-width: 640px;
+  font-size: 0.24rem;
+  text-align: center;
+  background-color: #f0f0f0;
+}
+a,lable,button{-webkit-tap-highlight-color:rgba(0,0,0,0); }
+a,a:hover,a:visited{
+  text-decoration: none;
+  color: #000;
+}
+.yue-ii-main{
+  width: 100%;
+  padding:0.1rem 0.16rem;
+  @include box-sizing(border-box);
+  font-size: 0.12rem;
+  color:#636363;
+  text-align: left;
+}
+
+.yue-ii-card{
+  width: 100%;
+  border-radius: 3px;
+  background-color: #fff;
+  margin-bottom: 0.1rem;
+}
+
+.yue-ii-card-title {
+  width: 100%;
+  @include box-sizing(border-box);
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e1e1e1;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color:#333;
+  padding-left: 0.1rem;
+  line-height: 0.4rem;
+  font-size: 0.16rem;
+}
+
+.yue-ii-card-p{
+  width: 100%;
+  @include box-sizing(border-box);
+  padding: 0.1rem;
+  line-height: 1.5;
+}
+
+.yue-ii-card-ul{
+  width: 100%;
+  @include box-sizing(border-box);
+  padding: 0.1rem;
+  padding-left: 0.2rem;
+  line-height: 1.8;
+}
+
+.yue-ii-card-li{
+  position: relative;
+}
+
+.yue-ii-card-li:before{
+  position: absolute;
+  display: block;
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #cdcdcd;
+  top:0.08rem;
+  left:-0.12rem;
+}

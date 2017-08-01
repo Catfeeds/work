@@ -1,0 +1,18 @@
+{
+  "name": "diy_selecter",
+  "version": "1.0.0",
+  "description": "DIY selecter",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "name": "rococolate"
+  },
+  "license": "ISC",
+  "readme": "## Installation\n\nvia npm:\n\n```bash\n$ npm install diy_selecter\n```\n\n\n## Use\n\n```html\n\n    // how to use ?\n\n    // html\n    \n    <select><option value=\"1\">1</option></select>\n    <select><option value=\"2\">2</option></select>\n    <select><option value=\"3\">3</option></select>\n\n```\n\n```javascript\n\n    // how to use ?\n\n    // js\n    \n    var mySelecter = Object.create(DIYselecter);\n    mySelecter.init(Array.prototype.slice.call($('select')));\n\n\n    // change\n    $('select').change(function(){\n      console.log(this.value);\n      this.innerHTML = '<option>'+ (Number(this.value) + 1) +'</option>';\n      this.action.reset();\n    })\n\n```",
+  "readmeFilename": "README.md",
+  "_id": "diy_selecter@1.0.0",
+  "_shasum": "0a740b8d74647a60e8d4ebda46b145ee6d3d5cea",
+  "_from": "diy_selecter@*"
+}

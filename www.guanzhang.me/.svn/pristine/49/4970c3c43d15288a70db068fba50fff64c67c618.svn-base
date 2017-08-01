@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>产品_馆掌官网_国内体育场馆运营管理软件解决方案提供商</title>
+    <meta name="keywords" content="馆掌体育馆管理系统,运动场馆管理软件,场地管理系统,会员卡管理系统,会员管理软件,会员收费系统,商品管理系统,智能场馆管理系统,财务管理软件,游泳馆管理系统,高尔夫管理系统,健身房管理软件.">
+    <meta name="description" content="馆掌体育馆管理系统,运动场馆管理软件,场地管理系统,会员卡管理系统,会员管理软件,会员收费系统,商品管理系统,智能场馆管理系统,财务管理软件,游泳馆管理系统,高尔夫管理系统,健身房管理软件. ">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/pc/stylesheets/base.css">
+    <link rel="stylesheet" href="./css/pc/stylesheets/product.css">
+    <script src="./js/jquery/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="./js/pc/carousel.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="w1180 clearfix"><a href="/index.html" class="logo-new"><h1>馆掌</h1><p>GUANZHANG</p></a>
+            <div class="nav fr"><a href="/index.html">首页</a><a href="/product.html" class="mr200 cur">产品</a><a href="/join.html" class="join">立即加入</a></div>
+        </div>
+    </div>
+    <div class="main w1180">
+        <div id="system-info" class="system-info page">
+            <div class="lb">
+                <h3>球馆智能管理一体化</h3>
+                <h2>360°球馆管理无死角</h2>
+                <ul>
+                    <li>包含在线预定场地，场地付费，退场换场，锁场打包等日常经营功能，告别本子记录模式，有效减少人力成本</li>
+                    <li>会员资料完整存储，订场、固定场、充值、消费清晰记录，每一位会员的动态都了如指掌，有效避免余额不对、场地冲突等关键问题</li>
+                    <li>带有扫码枪、进销存的商品体系，令球馆老板头痛的库存、利润问题轻松解决，清晰多维度的统计报表，随时随地都可以查看，大大降低财务的工作量和人手</li>
+                </ul>
+            </div>
+            <div class="rb">
+                <div class="album">
+                    <ul id="carousel">
+                        <li><img src="./images/newpc/pro_page1_0.png"></li>
+                        <li><img src="./images/newpc/pro_page1_1.png"></li>
+                        <li><img src="./images/newpc/pro_page1_2.png"></li>
+                    </ul>
+                </div>
+                <div id="menu" class="menu"></div>
+                <script>
+                $(document).ready(function() {
+                    var carousel = new Carousel($('#carousel')[0], {
+                        gap: 0,
+                        carouselOn: true,
+                        menu: $('#menu')[0],
+                        action: 'move'
+                            //- leftDom:$('#left')[0],
+                            //- rightDom:$('#right')[0]
+                    })
+                })
+                </script>
+            </div>
+        </div>
+        <div id="channel-info" class="channel-info page">
+            <div class="lb"><img src="./images/newpc/pro_page2.png"></div>
+            <div class="rb">
+                <h3>七大渠道流量变现</h3>
+                <h2>海量用户的选择</h2>
+                <p>各大合作平台皆能找到场馆,并可直接付款预订
+                    <br>大大提升曝光率和订场数,解决球馆经营面临的推广问题</p>
+            </div>
+        </div>
+        <div id="wechat-info" class="wechat-info page">
+            <div class="lb">
+                <h3>定制专属微信公众号</h3>
+                <h2>抛离对手的价值体现</h2>
+                <p>球馆反应，客户和球馆之间仅有打球的交流，无法进行深入的运营
+                    <br>公众号使双方紧密联系，轻松开展多元化业务，时刻比对手抢先一步
+                    <br>实时推送消费和通知，带有微信声音震动提示，客户100%接收</p>
+            </div>
+            <div class="rb"><img src="./images/newpc/pro_page3.png"></div>
+        </div>
+        <div id="wechat-report" class="wechat-report page">
+            <div class="lb"><span>财务报表</span>
+                <div id="menuSp" class="menu">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <ul id="carouselSp">
+                    <li class="cur"><img src="./images/newpc/pro_report.png"></li>
+                    <li><img src="./images/newpc/pro_open.png"></li>
+                </ul>
+            </div>
+            <script>
+            $(document).ready(function() {
+                var carouselsp = new Carousel($('#carouselSp')[0], {
+                    gap: 0,
+                    carouselOn: true,
+                    menu: $('#menuSp')[0],
+                    action: 'change'
+                        //- leftDom:$('#left')[0],
+                        //- rightDom:$('#right')[0]
+                })
+            })
+            </script>
+            <div class="rb">
+                <h3>微信上的智能财务</h3>
+                <h2>专业运营的进阶之路</h2>
+                <p>出门在外难免无法了解球馆情况，来不及做出调整导致错失良机，微信报表
+                    <br>能实时显示球馆的多方面数据，结合趋势分析让球馆收益更进一步</p>
+                <p>场地空置、管理员有否做错的问题让许多老板头痛不已，馆掌系统将推出灯
+                    <br>控及调价两大核心功能，助你全方位解决问题</p>
+            </div>
+        </div>
+        <div id="hardware-info" class="hardware-info page text-center">
+            <div class="tb">
+                <h3>全新智能硬件升级</h3>
+                <h2>一流球馆的硬实力</h2>
+                <p>球馆硬件落后一直是导致竞争力不足的原因，经调研50%用户流失归根于此
+                    <br>你需要有一整套的智能化设备提升竞争力，智能灯控、智能闸机、IC手环能让你的对手望尘莫及</p>
+            </div>
+            <div class="bb">
+                <div class="row">
+                    <div class="imgbox"><img src="./images/newpc/icon-light.png"></div>
+                    <div class="imgbox"><img src="./images/newpc/icon-door.png"></div>
+                    <div class="imgbox"><img src="./images/newpc/icon-cctv.png"></div>
+                    <div class="imgbox mr0"><img src="./images/newpc/icon-vip.png"></div>
+                </div>
+                <div class="row">
+                    <div class="textbox">智能灯控</div>
+                    <div class="textbox">智能闸机</div>
+                    <div class="textbox">全景摄像头</div>
+                    <div class="textbox mr0">一体售卖机</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        <h2>馆掌&nbsp;GUANZHANG</h2>
+        <p>Copyright&nbsp;©&nbsp;2014-2016.All&nbsp;Rights&nbsp;Reserved.</p>
+        <p>广州柠蜜信息科技有限公司&nbsp;版权所有&nbsp;&nbsp;&nbsp;粤ICP备15088864号&nbsp;&nbsp;&nbsp;&nbsp;服务热线:4000-410-480</p>
+    </div>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?5324c67fcdbdb9b481f3b4e87fd7c5ac";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</body>
+
+</html>

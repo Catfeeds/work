@@ -1,0 +1,96 @@
+.header {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #eee;
+    color:#000;
+    .row{
+        padding:0 50px;
+        margin:0 auto;
+        max-width: 1260px;
+        position: relative;
+        height: 100%;
+    }
+    .logo {
+        float: left;
+        display: block;
+        width: 187px;
+        height: 60px;
+        background: url(/images/pc/logo.png) no-repeat center;
+        text-indent: -200px;
+        overflow: hidden;
+    }
+    .logo-new{
+        display: block;
+        width: 100px;
+        height: 38px;
+        padding-left: 58px;
+        background:transparent url('/images/newpc/logo.png') left top no-repeat;
+        position: absolute;
+        top:50%;
+        margin-top: -19px;
+        left:50px;
+        color:#000;
+        font-size: 18px;
+        line-height: 1.2;
+        p{
+            font-size: 14px;
+            color:#000;
+        }
+        h1{
+            color:#000;
+        }
+    }
+    .nav {
+        float: right;
+        height: 58px;
+        position: relative;
+        padding-right: 140px;
+        &:hover {
+            a.cur {
+                background: none;
+            }
+        }
+        a {
+            display: inline-block;
+            padding: 0;
+            margin-left: 35px;
+            font-size: 16px;
+            height: 60px;
+            line-height: 60px;
+            color: #000;
+            position: relative;
+            &.cur {
+                color: #2b6ffe !important;
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 4px;
+                    background-color: #2b6ffe;
+                    position: absolute;
+                    left: 0;
+                    bottom: -1px;
+                }
+            }
+            &.join {
+                right: 0;
+                padding: 0;
+                margin-top: -16px;
+                text-align: center;
+                height: auto;
+                line-height: 32px;
+                width: 100px;
+                border-radius: 3em;
+                color: #fff;
+                position: absolute;
+                top: 50%;
+                background: #ff8840;
+            }
+        }
+    }
+}

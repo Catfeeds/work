@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<title>确认购买</title>
+	<link rel="stylesheet" type="text/css" href="/static/equiment/plugin/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/static/equiment/css/ensure.css">
+	<script type="text/javascript" src='static/equiment/plugin/vue.min.js'></script>
+    <script type="text/javascript" src='static/equiment/plugin/axios.min.js'></script>
+    <script>
+        var offWidth = window.screen.width/30;
+        document.getElementsByTagName("html")[0].style.fontSize = offWidth + 'px';
+    </script>
+</head>
+<body>
+	<div class="bg" id="ensure">
+		<!-- head -->
+	    <div class="head">
+	        <div class="glyphicon glyphicon-menu-left" onclick="javascript:history.go(-1);"></div>
+	        <div >确认购买</div>
+	        <div><img src="" style="display: none;"></div>
+	    </div>
+		<div class="sel-goods-property">
+			<div><img src="http://apps.source.qydw.net/uploads/20170718/2017071500371543793624577300.jpg-th4NUlQ"></div>
+			<div class="have-sel">
+				<div class="goods-name">亚狮龙背包</div>
+				<div class="goods-color">黑色</div>
+				<div class="goods-price">
+					<span class="groud">拼团价</span>
+					<span class="group-price">￥187</span>
+					<span class="origin-price">原价 <span style="text-decoration: line-through;">￥163</span></span>
+				</div>
+			</div>
+		</div>
+		<div class="goods-mount">
+			<div>购买数量</div>
+			<div><?=$number;?></div>
+		</div>
+			<div class="address">
+				<div class="address-title">收货地址</div>
+				<?php
+				if(!empty($address)){
+				?>
+				<div class="send-address">
+					<div>
+						<div><?= $address['consignee'].' '.$address['mobile'];?></div>
+						<div><?= $address['address']?></div>
+					</div>
+					<div class="glyphicon glyphicon-menu-right"></div>
+				</div>
+				<?php }?>
+			</div>
+		<div class="fooster">
+			<div class="all-price">￥330</div>
+			<div class="buy-now">立即支付</div>
+		</div>
+	</div>
+</body>
+</html>

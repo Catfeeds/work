@@ -1,0 +1,23 @@
+{
+	"success": true,
+	"data":{
+		"date": "2015-08-03",
+		"time": "21:35:00",
+		"sum": {
+			"number": 126,
+			"money": 1435.43
+		},
+		"member": {
+			"number": 225,
+			"money": 152
+		},
+		"internet": {
+			"number": 342,
+			"money": 235
+		},
+		"other": {
+			"number": 165,
+			"money": 124
+		}
+	}
+}

@@ -1,0 +1,158 @@
+<link rel="stylesheet" href="/static/patch/activity/stylesheets/activity.css">
+<script src='/static/patch/activity/js/activity.js'></script>
+<script>
+  var NOW_DATE = '<?php echo date("Y-m-d") ?>';
+</script>
+
+<div class="show-alert hide " id='blackCoverForCourtJoin'></div>
+<div class="show-alert hide " id='blackCoverForPopularize'></div>
+<div class="show-alert hide " id='blackCoverForUserList'></div>
+
+<h1 id='title_index'></h1>
+<p class="hide" id="userMoney">0.00</p>
+<p><span class="btn btn-normal btn-bdru hide" id='addCourtJoinBtn'>发起活动</span></p>
+<p id='tabList' class='hide'><span class='activity-tab cur' id='courtJoinProceedingTab'>进行中的活动</span><span class='activity-tab' id='courtJoinFinishedTab'>已完成的活动</span><span class='activity-tab' id='courtJoinFixedTab'>固定活动</span><span class='activity-tab' id='courtJoinSettleTab'>活动结算</span></p>
+<div class='time-select-bar hide'>
+  <span style='margin-right:10px' id='dateText'>日期</span>
+  <div class="time-select large" style='margin-right:10px'>
+    <div id="finishTimeSelect" class="sj-select-lb">
+      <i class="glyphicon glyphicon-chevron-down"></i>
+      <span class='btn sj-select btn-bdru'><?php echo date("Y-m-d") ?> - <?php echo date("Y-m-d") ?></span>
+      <input id="finishTimeSelectInput" type="text" value="<?php echo date("Y-m-d") ?> - <?php echo date("Y-m-d") ?>" daterangepicker>
+    </div>
+  </div>
+  <span style='margin-right:10px' class='btn btn-normal btn-bdru' id='finishTimeSelectBtn'>查询</span>
+  <form action="/Activity/exportAmountList" Method='get' style='display:none;' id='exportAmountListForm'>
+    <input type="hidden" name='start_time' value=''>
+    <input type="hidden" name='end_time' value=''>
+  </form>
+  <span style='margin-right:10px' class='btn btn-normal btn-bdru hide' id='exportAmountList'>导出</span>
+</div>
+<p class="settle hide">
+  <span>结算金额合计：</span><em id='settle_amount'></em><span>活动数合计：</span><em id='item_count'></em>
+</p>
+
+<div class="activity-main">
+  <table class="table table-bordered table-hover" id='courtJoinProceeding'>
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>项目</th>
+        <th>场次</th>
+        <th>参与人数</th>
+        <th>人均费用</th>
+        <th>球局收入</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <table class="table table-bordered table-hover hide" id='courtJoinFinished'>
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>项目</th>
+        <th>场次</th>
+        <th>参与人数</th>
+        <th>人均费用</th>
+        <th>球局收入</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <table class="table table-bordered table-hover hide" id='courtJoinFixed'>
+    <thead>
+      <tr>
+        <th>星期</th>
+        <th>项目</th>
+        <th>场次</th>
+        <th>参与人数</th>
+        <th>人均费用</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <table class="table table-bordered table-hover hide" id='courtJoinSettle'>
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>项目</th>
+        <th>场次</th>
+        <th>参与人数</th>
+        <th>人均费用</th>
+        <th>活动收入</th>
+        <th>结算金额</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <div class="empty hide">
+    <p><h2>暂时没有数据</h2></p>
+  </div>
+  <div id="pagination"></div>
+</div>
+
+<div class="court-join dialogue-box middle hide" id='courtJoin'>
+  <div class="dialogue-box-inner">
+    <div class="dialogue-title"><h2>发起活动</h2></div>
+    <i class='close'></i>
+    <div class="content">
+      <p id='courtJoinWeekBar'><label class="c" for="courtJoinWeekBarSelect">星期</label><select name="week" id="courtJoinWeekBarSelect"><option value="0">星期日</option><option value="1">星期一</option><option value="2">星期二</option><option value="3">星期三</option><option value="4">星期四</option><option value="5">星期五</option><option value="6">星期六</option></select></p>
+      <div id='courtJoinTimeBar'>
+        <label class="c" for="addCoutrTimeSelectInput">时间</label>
+        <div class="time-select">
+          <div class="sj-select-lb">
+            <i class="glyphicon glyphicon-chevron-down"></i>
+            <span id="addCoutrTimeSelect" class='btn sj-select btn-bdru'><?php echo date("Y-m-d") ?></span>
+            <input  style='height:100%;' id="addCoutrTimeSelectInput" type="text" value="<?php echo date("Y-m-d") ?>" daterangepicker>
+          </div>
+        </div>
+        <span id='weekday'>星期二</span>
+        <span id='fixedWeek'><input type="checkbox" id='fixedWeekInput' name='week_cycle' value='1'><label class="c" for="fixedWeekInput">每周固定自动发起活动</label></span>
+      </div>
+      <p><label class="c" for="courtJoinCat">项目</label><select name="cat_id" id="courtJoinCat"><option value="">羽毛球</option></select></p>
+      <div id='courtJoinSelectCourt'><label class="c" for="">场地</label>
+        <ul>
+          <!-- <li><select name="" id=""><option value="">9:00</option></select><span>至</span><select name="" id=""><option value="">10:00</option></select><select name="" id=""><option value="">一号场</option></select><a class="add">添加</a></li>
+          <li><select name="" id=""><option value="">9:00</option></select><span>至</span><select name="" id=""><option value="">10:00</option></select><select name="" id=""><option value="">一号场</option></select><a class="del">删除</a></li> -->
+        </ul>
+      </div>
+      <p><label class="c" for="courtJoinMaxUserNumber">人数</label><span>每片场最大人数</span><select name="field_capacity" id="courtJoinMaxUserNumber"><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option></select><span>总人数：</span><span style='margin-right:0;' id='hasJoin'></span><span id='totleUser'>6</span></p>
+      <p><label class="c" for="averagePrice">费用</label><span>人均费用</span><input id='averagePrice' type="text" name='unit_price' ><span>元</span><span id ='totlePrice'>总收入：元</span></p>
+      <p class="p-radio"><input type="radio" name='is_refund' value='1' id='is_refund_1'><label for="is_refund_1">开场2小时前可以退款</label><input type="radio" name='is_refund' value='0' id='is_refund_0'><label for="is_refund_0">不可退款</label></p>
+      <p><textarea name="text" id="courtJoinTextarea" rows="3" placeHolder='输入30字以内说明'></textarea></p>
+      <p><span class='tips c'>发起活动后，若活动参与人数达到2人以上，则活动不能取消。如有特殊情况，请联系趣运动客服：4000-410-480</span></p>
+    </div>
+    <p class="p-btn"><span class="btn search-btn btn-bdru btn-sj-blue" id='courtJoinSureBtn'>发起活动</span></p>
+  </div>
+</div>
+
+<div class="dialogue-box hide" id='userList'>
+  <div class="dialogue-box-inner">
+    <div class="dialogue-title"><h2>球友信息</h2></div>
+    <i class='close'></i>
+    <div class="user-list-header"><div class="user-list-header-name">头像</div><div class="user-list-header-name">名称</div><div class="user-list-header-name">手机号</div></div>
+    <div class="content">
+      <ul class="user-list">
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="dialogue-box hide" id='popularize'>
+  <div class="dialogue-box-inner">
+    <div class="dialogue-title"><h2>活动推广</h2></div>
+    <i class='close'></i>
+    <div class="content">
+      <p style="text-align:center">扫描二维码发送活动到QQ群／微信群</p>
+      <p style="text-align:center;"><img src="" id='codeImg'></p>
+      <p class="p-btn"><input type="text" id='copyUrl' ><span class="btn  btn-bdru btn-normal btn-black" id='copyUrlBtn' data-clipboard-target='#copyUrl'>复制活动网址</span></p>
+    </div>
+  </div>
+</div>

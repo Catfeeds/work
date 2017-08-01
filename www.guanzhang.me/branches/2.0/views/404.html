@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>馆掌</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="/js/mobile/zeptoWithFx.min.js"></script>
+    <script src="/js/mobile/mobileResponsive.js"></script>
+  </head>
+  <body data-design-width="750">
+    <link href="/css/mobile/error/stylesheets/error.css" type="text/css" rel="stylesheet">
+    <div id="loading" data-lock="1" class="loading">
+      <div class="loading-icon"></div>
+    </div>
+    <div class="main hide">
+      <div class="icon-404"><img src="/images/mobile/error/404.png"></div>
+      <h2>页面出错了～</h2><a onclick="window.history.back()" class="btn">返回上一页</a>
+    </div>
+    <script>
+      window.onload = function  () {
+        var loadInterval = setInterval(function() {
+          if($(".loading").attr("data-lock") == 1){
+             $(".loading").addClass("hide");
+             $(".main").removeClass("hide");
+             clearInterval(loadInterval);
+          }
+        },500);
+      }
+    </script>
+  </body>
+</html>

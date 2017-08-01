@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title></title>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" charset = "utf-8">
+</head>
+<link rel="stylesheet" type="text/css" href="plugin/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="libs/css/shop_cart.css">
+
+<!-- js -->
+<script type="text/javascript" src="libs/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="plugin/angular.min.js"></script>
+<script type="text/javascript" src="plugin/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="libs/js/shop_cart.js"></script>
+<body ng-app="APP" ng-controller="CON">
+	<!-- head -->
+	<div class="head">
+		<span class="glyphicon glyphicon-chevron-left back"></span>购物车
+		<span id="ex_listMenu" class="glyphicon glyphicon-list"> </span>
+	</div>
+	
+	<!-- 弹出列表 -->
+	<div id="listMenu">
+		<span class="glyphicon glyphicon-play"></span>
+		<ul>
+			<li><a href="index.html">首页</a></li>
+			<li><a href="classify.html">分类查询</a></li>
+			<li><a href="shop_cart.html">购物车</a></li>
+			<li><a href="personal.html">会员中心</a></li>
+		</ul>
+	</div>
+
+	<!-- content -->
+	<div id="content" >
+		<div class='cart_pro' ng-repeat = "x in cart_shop " ng-init="x.mount=1;x.sel=false">
+			<span class='glyphicon glyphicon-unchecked sel' ng-click="sel(x)">
+				<span class='glyphicon glyphicon-ok'  ng-if='x.sel'></span>
+			</span>
+			<img src={{x.img}}>
+			<h6>{{x.brand}}</h6>
+			<p>￥<span class='price'>{{x.price}}</span></p>
+			<div class='input-group'>
+	            <span class='input-group-addon' ng-click="add(x)">+</span>
+	            <input type='text' class='form-control' ng-model="x.mount" name='mount' >
+	            <span class='input-group-addon' ng-click="sub(x)">-</span>
+        	</div>
+        	<div class='glyphicon glyphicon-trash' ng-click="delete($index)"></div>
+		</div> 
+	</div>
+
+	<!-- fooster -->
+	<div class="fooster">
+		<div id="all_sel" class="col-xs-3 " ng-click="all_sel()">
+				<span class="glyphicon glyphicon-unchecked">
+					<span class='glyphicon glyphicon-ok' ng-if = "allSel"></span>
+				</span>全选
+		</div>
+		<div id="page_method" class="col-xs-3">支付方式</div>
+		<div id="buy_instant" class="col-xs-6">确认并支付(<span id="total_price">{{total}}</span>)</div>
+	</div>
+</body>
+</html>

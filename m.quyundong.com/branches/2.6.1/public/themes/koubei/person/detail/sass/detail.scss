@@ -1,0 +1,62 @@
+@import '../../../../koubei/sass-lib/reset';
+@import '../../../../koubei/sass-lib/common';
+@import '../../../../koubei/sass-lib/base';
+
+body{
+  background-color: #fff;
+}
+.person-detail-banner{
+  width: 100%;
+  height: pxToRem(350px);
+  font-size: 0;
+  background: #fff url('/themes/koubei/person/detail/images/no-pic.png') 0 0 / cover no-repeat;
+  .person-detail-banner-image{
+    width: 100%;
+    height: 100%;
+    background: transparent center center / cover  no-repeat;
+  }
+}
+.person-detail-main{
+  width: 100%;
+  @include box-sizing(border-box);
+  padding:pxToRem(30px);
+  padding-top: 0;
+  padding-bottom: pxToRem(140px);
+  background-color: #fff;
+  .person-detail-main-title{
+    width: 100%;
+    height: pxToRem(100px);
+    line-height: pxToRem(100px);
+    text-align: center;
+    font-size: pxToRem(34px);
+    position: relative;
+  }
+  .person-detail-main-info{
+    text-align: left;
+    font-size: pxToRem(30px);
+    color:#888;
+    .person-detail-main-info-h3{
+      color:#000;
+      padding-top:pxToRem(30px);
+      padding-bottom:pxToRem(20px);
+    }
+    .person-detail-main-info-textarea{
+      line-height: 1.6;
+    }
+  }
+  
+}
+.person-detail-bottom{
+  width: 100%;
+  height: pxToRem(120px);
+  line-height: pxToRem(120px);
+  position: fixed;
+  bottom:0;
+  left:0;
+  background-color: #fff;
+  a.pay{
+    display: block;
+    width: pxToRem(690px);
+    margin: pxToRem(16px) auto;
+  }
+}

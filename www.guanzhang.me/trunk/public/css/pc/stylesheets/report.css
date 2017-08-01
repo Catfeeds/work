@@ -1,0 +1,72 @@
+/* line 3, ../sass/report.scss */
+.main {
+  text-align: center;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+}
+
+/* line 11, ../sass/report.scss */
+h2 {
+  margin-top: 215px;
+  font-size: 40px;
+  color: #2b6ffe;
+  margin-bottom: 30px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* line 19, ../sass/report.scss */
+.cb {
+  width: 870px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 100px;
+}
+/* line 24, ../sass/report.scss */
+.cb .rb {
+  position: absolute;
+  top: 78px;
+  right: 100px;
+  text-align: center;
+}
+/* line 30, ../sass/report.scss */
+.cb .lb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+/* line 36, ../sass/report.scss */
+.cb img {
+  margin: 20px auto;
+}
+
+/* line 41, ../sass/report.scss */
+h3 {
+  font-size: 40px;
+  color: #2b6ffe;
+  margin-top: 10px;
+  margin-bottom: 38px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
+
+/* line 50, ../sass/report.scss */
+.tll {
+  text-align: left;
+}
+
+/* line 53, ../sass/report.scss */
+.tlr {
+  text-align: right;
+}
+
+/* line 57, ../sass/report.scss */
+.rotateZ90 {
+  -moz-transform: rotateZ(90deg);
+  -ms-transform: rotateZ(90deg);
+  -webkit-transform: rotateZ(90deg);
+  transform: rotateZ(90deg);
+}

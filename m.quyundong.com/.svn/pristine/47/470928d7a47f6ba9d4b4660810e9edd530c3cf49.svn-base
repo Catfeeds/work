@@ -1,0 +1,132 @@
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 100px;
+  overflow-x: hidden;
+  overflow: auto;
+  background-color: #fff;
+  line-height: 1.375;
+}
+
+body {
+  margin: 0 auto;
+  width: 3.2rem;
+  max-width: 640px;
+  overflow: hidden;
+  font-size: 0.24rem;
+  text-align: center;
+}
+
+a, a:hover, a:visited {
+  text-decoration: none;
+  color: #636363;
+}
+
+.loading {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: white;
+}
+
+.loading-icon {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -0.3rem;
+  margin-left: -0.3rem;
+  background: url(http://m.quyundong.com/static/images/loading.png) no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  -webkit-animation: rotate360 1s linear 0s infinite;
+  -moz-animation: rotate360 1s linear 0s infinite;
+  animation: rotate360 1s linear 0s infinite;
+  -webkit-transform-origin: 50% 50%;
+  -moz-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  -o-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  z-index: 99;
+}
+
+@-moz-keyframes rotate360 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+    transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes rotate360 {
+  from {
+    -webkit-transform: rotateZ(0deg);
+  }
+  to {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+.hide {
+  display: none;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  background-color: #faa264;
+  font-size: 0.3rem;
+  overflow: hidden;
+}
+
+.page2 {
+  background-color: yellowgreen;
+}
+
+.hotspace, .active {
+  width: 80%;
+  height: 4rem;
+  margin: 0.2rem auto;
+  background-color: gold;
+  line-height: 4rem;
+}
+
+.msg {
+  font-size: 0.18rem;
+  padding: 0.3rem;
+  text-align: left;
+}
+
+.moneybar {
+  width: 2.4rem;
+  border: 1px solid #000;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 0.2rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.moneybarInner {
+  width: 100%;
+  height: 100%;
+  background-color: gold;
+  -moz-transform: translateX(-80%);
+  -ms-transform: translateX(-80%);
+  -webkit-transform: translateX(-80%);
+  transform: translateX(-80%);
+}

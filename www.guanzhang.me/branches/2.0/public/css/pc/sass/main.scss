@@ -1,0 +1,524 @@
+@charset "utf-8";
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+.w1200 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.w1180 {
+    width: 1180px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+/* =======
+ * 头部
+ * =======
+ */
+
+#fullpage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    .container {
+        position: relative;
+    }
+}
+
+#video {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 300px;
+    height: 216px;
+    border: 5px solid #fff;
+    background: #fff;
+    overflow: hidden;
+}
+
+.page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    -webkit-transform: translate3d(0px, 0, 0);
+    .wrap {
+        position: relative;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+}
+
+@import './header';
+
+.page1 {
+    // background: url(/images/pc/bg1.png) repeat center #3f84c9;
+    background-color: yellowgreen;
+    .title1 {
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        width: 46%;
+        height: 13.7%;
+        background: url(/images/pc/page1-word.png) no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    .join {
+        position: absolute;
+        height: 25%;
+        top: 45%;
+        left: 20%;
+        z-index: 3;
+        width: 160px;
+        height: 50px;
+        line-height: 50px;
+        cursor: pointer;
+        background: #fce275;
+        color: #174571;
+        text-align: center;
+        font-size: 20px;
+    }
+    .field {
+        position: absolute;
+        bottom: 7%;
+        right: 0%;
+        z-index: 1;
+        width: 60%;
+        height: 50%;
+        background: url(/images/pc/banner_0114.png) no-repeat;
+        background-size: contain;
+    }
+}
+
+.page2 {
+    .title1 {
+        position: absolute;
+        top: 15%;
+        left: 10%;
+        width: 80%;
+        height: 19%;
+        background: url(/images/pc/page2-1.png) no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    .connect {
+        position: absolute;
+        top: 55%;
+        left: 4%;
+        width: 92%;
+        height: 21%;
+        ul {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            li {
+                float: left;
+                text-align: center;
+                &.icon-1 {
+                    height: 100%;
+                    width: 18.18%;
+                    i {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background: url(/images/pc/page2-3.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+                &.icon-2 {
+                    height: 50%;
+                    width: 9.09%;
+                    i {
+                        display: block;
+                        margin-top: 50%;
+                        width: 100%;
+                        height: 100%;
+                        background: url(/images/pc/page2-4.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+                &.icon-3 {
+                    height: 50%;
+                    width: 9.09%;
+                    i {
+                        display: block;
+                        margin-top: 50%;
+                        width: 100%;
+                        height: 100%;
+                        background: url(/images/pc/page2-5.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+                &.icon-4 {
+                    height: 100%;
+                    width: 18.18%;
+                    i {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        background: url(/images/pc/page2-6.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+                &.fg {
+                    width: 8.27%;
+                    height: 100%;
+                    margin: 0 3.4%;
+                    i {
+                        display: block;
+                        margin-top: 75%;
+                        width: 100%;
+                        height: 31%;
+                        background: url(/images/pc/page2-7.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.page3 {
+    background: url(/images/pc/page3.jpg) no-repeat center;
+    background-size: cover;
+    .title1 {
+        position: absolute;
+        top: 25%;
+        left: 0%;
+        width: 72%;
+        height: 15%;
+        background: url(/images/pc/page3-1.png) no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    .word {
+        position: absolute;
+        top: 50%;
+        left: 1%;
+        width: 24.58%;
+        height: 8.5%;
+        background: url(/images/pc/page3-3.png) no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    .mobile {
+        position: absolute;
+        right: 0%;
+        bottom: 10%;
+        z-index: 10;
+        width: 64.08%;
+        height: 53.19%;
+        background: url(/images/pc/page3-4.png) no-repeat;
+        background-size: contain;
+    }
+}
+
+.page4 {
+    .title1 {
+        position: absolute;
+        top: 20%;
+        right: 0;
+        z-index: 10;
+        width: 67%;
+        height: 27%;
+        background: url(/images/pc/page4-1.png) no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    .pic {
+        position: absolute;
+        top: 17.5%;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 64.89%;
+        background: url(/images/pc/page4.jpg) no-repeat center;
+        background-size: contain;
+    }
+}
+
+.page5 {
+    background: #33CCCC;
+    .title {
+        position: absolute;
+        top: 12%;
+        left: 12%;
+        width: 77%;
+        height: 5%;
+        background: url(/images/pc/page5-1.png) no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    .word {
+        position: absolute;
+        bottom: 0;
+        left: 0%;
+        width: 100%;
+        height: 70.2%;
+        background: url(/images/pc/page5-2.png) no-repeat bottom;
+        background-size: contain;
+    }
+}
+
+.page6 {
+    background: #44b1f8;
+    .title1 {
+        position: absolute;
+        top: 20%;
+        left: 15%;
+        width: 69%;
+        height: 15.85%;
+        background: url(/images/pc/page6-1.png) no-repeat;
+        background-size: contain;
+        text-indent: -9999px;
+        overflow: hidden;
+    }
+    .list {
+        position: absolute;
+        top: 52%;
+        left: 0%;
+        width: 100%;
+        height: 21.28%;
+        ul {
+            width: 100%;
+            height: 100%;
+            li {
+                float: left;
+                width: 24%;
+                height: 100%;
+                i {
+                    display: block;
+                    margin: 0 auto;
+                    width: 50%;
+                    height: 100%;
+                    overflow: hidden;
+                    text-indent: -9999px;
+                }
+                &.list-1 {
+                    i {
+                        background: url(/images/pc/page6-3.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+                &.list-2 {
+                    i {
+                        background: url(/images/pc/page6-4.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+                &.list-3 {
+                    i {
+                        background: url(/images/pc/page6-5.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+                &.list-4 {
+                    i {
+                        background: url(/images/pc/page6-6.png) no-repeat;
+                        background-size: contain;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.page7 {
+    background: #F4F4F2;
+    .title {
+        position: absolute;
+        top: 17%;
+        left: 8%;
+        width: 37%;
+        height: 12.7%;
+        background: url(/images/pc/page7-1.png) no-repeat;
+        background-size: contain;
+    }
+    .con {
+        position: absolute;
+        top: 35%;
+        left: 8%;
+        width: 45%;
+        p {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .btn {
+            display: block;
+            margin-top: 70px;
+            width: 160px;
+            text-align: center;
+            height: 50px;
+            font-size: 16px;
+            line-height: 50px;
+            background: #36CDFF;
+            color: #fff;
+            cursor: pointer;
+        }
+    }
+    .mobile {
+        position: absolute;
+        bottom: 0;
+        right: 0%;
+        width: 44.67%;
+        height: 74.47%;
+        background: url(/images/pc/page7-3.gif) no-repeat;
+        background-size: contain;
+    }
+}
+
+.footer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    .t {
+        background: url(/images/pc/page8.jpg) no-repeat top center;
+        background-size: cover;
+        overflow: hidden;
+        height: 60%;
+        .footer_wrap {
+            position: relative;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .title {
+            position: absolute;
+            top: 15%;
+            left: 10%;
+            width: 79%;
+            height: 11%;
+            background: url(/images/pc/page8-1.png) no-repeat;
+            background-size: contain;
+        }
+        .erweima {
+            position: absolute;
+            top: 35%;
+            left: 20%;
+            width: 21.6%;
+            height: 50%;
+            display: block;
+            background: url(/images/pc/erweima.jpg) no-repeat;
+            background-size: contain;
+        }
+        .link {
+            position: absolute;
+            top: 45%;
+            right: 20%;
+            width: 30%;
+            height: 20%;
+            background: url(/images/pc/page8-2.png) no-repeat;
+            background-size: contain;
+            cursor: pointer;
+        }
+    }
+    .copyright {
+        background: #fff;
+        margin-top: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+        background: #fff;
+    }
+    .total {
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        width: 100%;
+        height: 80px;
+        border-top: 1px solid #eee;
+        background: url(/images/pc/blackbg.png) repeat;
+        text-align: center;
+        &.fixed {
+            position: fixed;
+        }
+        &.absolute {
+            position: absolute;
+        }
+        .w1200 {
+            width: 63%;
+            position: relative;
+            .word {
+                margin: 0 auto;
+                width: 400px;
+                color: #333;
+                line-height: 80px;
+                span {
+                    float: left;
+                    font-size: 18px;
+                }
+                em {
+                    float: left;
+                    font-size: 28px;
+                    margin-left: 10px;
+                    color: #f00;
+                }
+            }
+        }
+        .close {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            right: -30px;
+            top: 32px;
+            background: url(/images/pc/close.png) no-repeat;
+        }
+    }
+}
+
+.menu {
+    position: fixed;
+    top: 50%;
+    margin-top: -100px;
+    right: 10px;
+    z-index: 10;
+    ul {
+        li {
+            width: 4px;
+            height: 4px;
+            padding: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+            span {
+                display: block;
+                width: 4px;
+                height: 4px;
+                border-radius: 100%;
+                background: #174571;
+            }
+            &.cur {
+                width: 14px;
+                height: 14px;
+                padding: 0;
+                span {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+            &:hover {
+                width: 10px;
+                height: 10px;
+                padding: 2px;
+                span {
+                    width: 10px;
+                    height: 10px;
+                }
+            }
+        }
+    }
+}

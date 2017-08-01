@@ -1,0 +1,38 @@
+@import "compass/reset";
+@import "compass/css3";
+
+
+@import "../../../../../../m.quyundong.com/public/sass-lib/base";
+@import "../../../../../../m.quyundong.com/public/sass-lib/loading";
+
+
+html,body{
+  width: 100%;
+}
+img{
+  width: 100%;
+}
+body{
+  font-size: 0.12rem;
+}
+.loading-icon{
+  background-image: url(/images/mobile/index/loading.png);
+}
+.icon-404{
+  width: pxToRem(180px);
+  margin:pxToRem(120px) auto pxToRem(90px) auto;
+}
+h2{
+  font-size: pxToRem(36px);
+  color:#777;
+  margin-bottom: pxToRem(120px);
+}
+a.btn{
+  display: inline-block;
+  padding:pxToRem(15px) pxToRem(30px);
+  margin:0 auto;
+  color:#777;
+  font-size: pxToRem(30px);
+  border-radius: 6px;
+  border:1px solid #777;
+}

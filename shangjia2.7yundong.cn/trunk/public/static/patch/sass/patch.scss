@@ -1,0 +1,300 @@
+@import 'compass/css3';
+@import '../include/sj-color';
+.pop-validorder2.pa.tl {
+    width: 340px;
+    border: 0;
+    height: auto;
+    border-radius: 15px;
+    padding: 10px 20px;
+    padding-bottom: 30px;
+    margin-right: -190px;
+    .top-validorder {
+        float: none;
+        border-bottom: 0;
+        h4 {
+            text-align: left;
+            font-size: 16px;
+            color: #000;
+        }
+        .closepop {
+            margin-right: -10px;
+        }
+    }
+    .mid-validorder {
+        float: none;
+        text-align: center;
+        .filter-control {
+            margin: 0;
+            text-align: left;
+        }
+        .filter-input {
+            font-size: 16px;
+            padding: 12px 0px;
+            border: none;
+            margin: 0;
+            
+            label{
+                width: 70px;
+                padding:0;
+                color:#000;
+            }
+            label:after{display: none;}
+
+            input {
+                width: 210px;
+                display: inline-block;
+                border:1px solid #e6e9f0;
+                padding:10px;
+                &[disabled]{
+                    color:#bbb;
+                }
+            }
+        }
+        .preorderul {
+            padding-left: 50px;
+            position: relative;
+            &:after {
+                content: '场地:';
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 16px;
+                color: #3d4455;
+            }
+            li {
+                font-size: 16px;
+                color: #000;
+                float: none;
+                text-align: left;
+                width: 210px;
+                padding-left: 30px;
+            }
+        }
+        #bookSubmit {
+            background-color: #df494a;
+            &[disabled] {
+                background-color: rgba(#df494a, 0.4);
+            }
+        }
+        .okbtn2 {
+            margin: 0 10px;
+            min-width: 130px;
+        }
+        .money {
+            font-size: 16px;
+            color: #df494a;
+            text-align: left;
+            margin: 20px auto;
+            padding-left: 0px;
+        }
+        .tips {
+            font-size: 14px;
+            color: #9aabb8;
+            margin-top: 20px;
+        }
+    }
+}
+
+.td-booking.booking {
+    padding-left: 32px !important;
+    text-align: left;
+    text-indent: 4px;
+    background: transparent url('/static/images/booking.png') 8px center no-repeat;
+}
+
+.booking {
+    background-color: #df4672 !important;
+    &.td-cgsd {
+        border-color: #df4672 !important;
+    }
+}
+
+.cancel-booking {
+    width: 340px;
+    border: 0;
+    height: auto;
+    border-radius: 15px;
+    padding: 10px 20px;
+    padding-bottom: 30px;
+    margin-right: -190px;
+    position: fixed;
+    z-index: 1002;
+    margin-top: 0;
+    position: fixed;
+    z-index: 1002;
+    margin-top: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ma-transform: translateY(-50%);
+    left: 50%;
+    margin-left: -100px;
+    top: 50%;
+    background: #fbfbfb;
+    .cancel-booking-top {
+        height: 48px;
+        font-size: 18px;
+        color: #898989;
+        line-height: 48px;
+        text-align: center;
+        position: relative;
+        text-align: left;
+        font-size: 16px;
+        color: #000;
+        .cancel-booking-close {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            width: 22px;
+            height: 24px;
+            display: block;
+            margin-right: -10px;
+        }
+    }
+    .cancel-booking-mid {
+        text-align: center;
+        ul {
+            padding-left: 70px;
+            position: relative;
+            width: 270px;
+            overflow-y: auto;
+            margin-bottom: 13px;
+            min-height: 22px;
+            overflow: hidden;
+            li {
+                &:first-child {
+                    position: absolute;
+                    top: 0;
+                    left: 20px;
+                    font-size: 16px;
+                    color: #3d4455;
+                }
+                font-size: 16px;
+                color: #000;
+                float: none;
+                text-align: left;
+                width: 186px;
+                padding-bottom: 6px;
+                padding-left: 15px;
+            }
+        }
+    }
+    .okbtn2 {
+        margin: 0 10px;
+        min-width: 130px;
+        &[disabled]{
+            background-color: #79b0d4;
+            cursor: not-allowed;
+        }
+    }
+    .money {
+        font-size: 16px;
+        color: #d6a856;
+        text-align: left;
+        margin: 20px auto;
+        padding-left: 18px;
+    }
+    .tips {
+        font-size: 14px;
+        color: #9aabb8;
+        margin-top: 20px;
+    }
+}
+
+.com-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.4;
+}
+.p-afterBorder{
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+    &:after{
+        content: "";
+        position: absolute;
+        top: 12px;
+        right: 0px;
+        width: 1px;
+        height: 16px;
+        background-color: $navGrey;
+    }
+}
+
+html,body,.main{
+    background-color: #f5f5f5;
+}
+.sj-content#page-wrapper{
+    background-color: #f5f5f5;
+}
+@media (min-width: 768px){
+    #page-wrapper {
+        border-left: none;
+    }
+}
+table.table{
+    border:none;
+    box-shadow: 0px 0px 0 1px #e5e9ef ;
+}
+table thead.sp{
+    background-color: #e5e9ef;
+}
+.css-table-inline-btn{
+    color:$mainBlue;
+    padding:0 15px;
+    cursor: pointer;
+}
+.btn-cancel{
+    color:#aaa;
+    border-color:#aaa;
+    &:hover{
+        color:#cdcdcd;
+    }
+    &[disabled]{
+        color:#ddd;
+        cursor:not-allowed;
+        border-color: #ddd;
+    }
+}
+
+.nm-inputsearch{
+    position: relative;
+}
+ul.nm-inputsearch-ul{
+    position: absolute;
+    top:-1px;
+    left:79px;
+    width: 210px;
+    z-index: 999;
+    max-height: 200px;
+    background-color: #fff;
+    overflow: scroll;
+    border: 1px solid #e6e9f0;
+    box-shadow: 0 2px 3px 1px rgba(#000,.2);
+}
+li.nm-inputsearch-li{
+    padding:10px;
+    border-bottom:1px solid #e6e9f0;
+    background-color: #fff;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    &:hover{
+        background-color: #f0f8ff;
+    }
+}
+.sj-search-module .sj-submit-btn-group{
+    background-color: transparent;
+}
+.flex-box{
+    display: -webkit-flex;list-style-type: square;
+    -webkit-flex-flow: row wrap;
+    display: -moz-flex;
+    -moz-flex-flow: row wrap;
+    display: -ms-flex;
+    -ms-flex-flow: row wrap;
+    display: flex;
+    flex-flow: row wrap;
+}

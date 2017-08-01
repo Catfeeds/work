@@ -1,0 +1,35 @@
+.header
+  .row
+    a.logo-new(href="/index.html")
+      h1 馆掌
+      p GUANZHANG
+    .nav
+      if opt.indexClass && opt.indexClass != ''
+        a(href="/index.html",class='cur') 首页
+      else
+        a(href="/index.html",class='') 首页
+      //- if opt.productClass && opt.productClass != ''
+      //-   a(href="/product.html",class='cur') 产品
+      //- else 
+      //-   a(href="/product.html",class='') 产品
+      if opt.systemClass && opt.systemClass != ''
+        a(href="/system.html",class='cur') 系统
+      else 
+        a(href="/system.html",class='') 系统
+      if opt.hardwareClass && opt.hardwareClass != ''
+        a(href="/hardware.html",class='cur') 硬件
+      else 
+        a(href="/hardware.html",class='') 硬件
+      if opt.reportClass && opt.reportClass != ''
+        a(href="/report.html",class='cur') 报表
+      else 
+        a(href="/report.html",class='') 报表
+      if opt.platformClass && opt.platformClass != ''
+        a(href="/platform.html",class='cur') 平台
+      else 
+        a(href="/platform.html",class='') 平台
+      if opt.officialClass && opt.officialClass != ''
+        a(href="/official.html",class='cur') 公众号
+      else 
+        a(href="/official.html",class='') 公众号
+      a.join(href="/join.html") 立即加入

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>加入约练</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no,minimal-ui"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<script type="text/javascript" src="js/jweixin-1.0.0.js"></script>
+	<style type="text/css">
+		html{
+			width: 100%;
+			font-size: 100px;
+			background-color: #f0f0f0;
+		}
+		body{
+			width: 100%;
+			max-width: 640px;
+			margin:0 auto;
+			font-size: 0.16rem;
+			color:#636363;
+			background-color: #f0f0f0;
+			overflow-x: hidden;
+			position: relative;
+			text-align: center;
+		}
+		i{
+			font-style: normal;
+			display: block;
+		}
+		a{
+			text-decoration: none;
+			color:#636363;
+		}
+		a:visited{
+			color:#636363;
+		}
+		button{
+			border:0px;
+		}
+		.hide{
+			display: none;
+		}
+		.share{
+			width: 100%;
+			color:#74b0fb;
+			font-size: 0.18rem;
+		}
+		.share h3{
+			margin: 0.5rem auto;
+			line-height: 0.4rem;
+		}
+		.share h3 i{
+			display: inline-block;
+			width: 0.2rem;
+			height: 0.2rem;
+			background:url(images/yuerecruit/gou.png) no-repeat center center;
+			-webkit-background-size: cover;
+			background-size: cover;
+		}
+		.share p{
+			width: 2.4rem;
+			margin: 0.5rem auto;
+			text-align: left;
+			color: #939393;
+			font-size: 0.14rem;
+		}
+		.share a{
+			display: block;
+			width: 2.4rem;
+			height: 0.4rem;
+			line-height: 0.4rem;
+			background-color: #74b0fb;
+			color:#fff;
+			margin: 0.5rem auto;
+			border-radius: 6px;
+		}
+	</style>
+</head>
+<body>
+	<section class="share">
+		<h3><i></i>信息已提交！</h3>
+		<p>我们会尽快与你联系，请保持手机畅通<br />邀请好友成为陪练一员，还将获得丰厚奖励</p>
+		<a href="gosport://share_info?url=http%3A%2F%2Fm.quyundong.com%2Fstatic%2Fyuerecruit.html&img_url=http%3A%2F%2Fm.quyundong.com%2Fstatic%2Fimages%2Ftouxiang1.png&thumb_url=http%3A%2F%2Fm.quyundong.com%2Fstatic%2Fimages%2Ftouxiang1.png&title=你的卡路里会赚钱&description=成为趣运动约练的一员，同时享受卡路里燃烧和获得收入的快乐！">邀请好友一起陪练</a>
+		<a class="back" href="yuerecruit.html?androidwebview=1&is_share=1&share_info=url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fyuerecruit.html%26img_url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fimages%252Ftouxiang1.png%26thumb_url%3Dhttp%253A%252F%252Fm.quyundong.com%252Fstatic%252Fimages%252Ftouxiang1.png%26title%3D%E4%BD%A0%E7%9A%84%E5%8D%A1%E8%B7%AF%E9%87%8C%E4%BC%9A%E8%B5%9A%E9%92%B1%26description%3D%E6%88%90%E4%B8%BA%E8%B6%A3%E8%BF%90%E5%8A%A8%E7%BA%A6%E7%BB%83%E7%9A%84%E4%B8%80%E5%91%98%EF%BC%8C%E5%90%8C%E6%97%B6%E4%BA%AB%E5%8F%97%E5%8D%A1%E8%B7%AF%E9%87%8C%E7%87%83%E7%83%A7%E5%92%8C%E8%8E%B7%E5%BE%97%E6%94%B6%E5%85%A5%E7%9A%84%E5%BF%AB%E4%B9%90%EF%BC%81" style="color:#fff;">返回</a>
+	</section>
+	<script type="text/javascript" src="js/zeptoWithFx.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var $windowWidth = $(window).width();
+			setTimeout(function(){
+				$windowWidth = $(window).width();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+			},100);
+			
+
+			$(window).resize(function(){
+				$windowWidth = $(window).width();
+				if($windowWidth > 640){
+					$windowWidth = 640;
+				}
+				$("html").css("font-size",(100/320) * $windowWidth + "px");
+			});
+		});
+	</script>
+</body>
+</html>

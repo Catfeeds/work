@@ -1,0 +1,260 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+#mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	background: black;
+	opacity: 0.3;
+	z-index: 101;
+	display: none;
+	div{
+		width: 10px;
+		height: 10px;
+		border-radius:50%;
+		position: absolute;
+		background: #999;
+		left: 46%;
+		top: 50%;
+		-webkit-transform:translate(-50%,-50%);
+		-moz-transform:translate(-50%,-50%);
+		-ms-transform:translate(-50%,-50%);
+		-moz-animation:animations 0.5s linear infinite alternate ;
+		-webkit-animation:animations 0.5s linear infinite alternate ;
+		-o-animation:animations 0.5s linear infinite alternate ;
+		-ms-animation:animations 0.5s linear infinite alternate ;
+		-webkit-transform:scale(2);
+		-moz-transform:scale(2);
+		-ms-transform:scale(2);
+	}
+	@-webkit-keyframes animations{
+		0%{-webkit-transform:scale(2);}
+		100%{-webkit-transform:scale(1);}
+	}
+	div:nth-child(2){
+		left: 54%;
+		-webkit-animation-delay:0.5s;
+	}
+}
+
+.head{
+	width: 100%;
+	height: 50px;
+	background: purple;
+	line-height: 50px;
+	text-indent: 20%;
+	font-size: 16px;
+	color: white;
+	font-weight: bold;
+	position: fixed;
+	z-index: 100;
+	top:0;
+	span{
+		line-height: 50px;
+		float: left;
+		font-weight: 400;
+		text-indent: 10%; 
+	}
+	span:last-child{
+		float: right;
+		margin-right: 5%;
+	}
+}
+#listMenu{
+	height: 120px;
+	width: 30%;
+	position: absolute;
+	top:53px;
+	right: 5px;
+	background: rgba(76,73,69,1);
+	z-index: 102;
+	border-radius: 5px;
+	display: none;
+	span{
+		position: absolute;
+		top: -15px;
+		right: 10px;
+		font-size: 20px;
+		color: rgba(76,73,69,1);
+		-webkit-transform:rotate(-90deg);
+		-moz-transform:rotate(-90deg);
+		-ms-transform:rotate(-90deg);
+	}
+	li{
+		width: 100%;
+		height: 30px;
+		text-align: center;
+		line-height: 30px;
+		color: white;
+		border-bottom:1px solid white;
+		list-style: none;
+		a:link{
+			color:white;
+		}
+		a:active {
+			background: purple;
+		}
+	}
+	li:last-child{
+		border-bottom: none;
+	}
+}
+
+.list_nav{
+	width: 100%;
+	background: #f1f1f1;
+	height: 50px;
+	position: fixed;
+	top:40px;
+	z-index: 100;
+	div{
+		font-size: 12px;
+		text-align: center;
+		height: 60%;
+		margin: 0;
+		margin-top: 10px;
+		padding: 0;
+		line-height: 30px;
+		border-left: 1px solid #999;
+		span{
+			line-height: 30px;
+		}
+	}
+	div:first-child{
+		border-left: none;
+	}
+}
+
+
+.nav{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 100;
+}
+
+#wrapper{
+	width:100%;
+	height: 100%;
+	position: relative;
+	z-index: 1;
+	top: 90px;
+	bottom: 50px;
+	left: 0;
+	background: #f1f1f1;
+	overflow: hidden;
+	#pro_list{
+		overflow: hidden;
+		z-index: 1;
+		width: 100%;
+		margin-bottom: 50px;
+		div{
+			margin: 0;
+			padding: 3px;
+		}
+		.thumbnail{
+			.caption{
+				p{
+					line-height: 15px;
+					white-space: nowrap;
+					overflow: hidden;
+					text-overflow:ellipsis; 
+				}
+				p:last-child{
+					color:red;
+				}
+			}
+		}
+	}
+}
+
+#list_nav_content{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top:90px;
+	left: 0px;
+	background: #f1f1f1;
+	z-index: 10;
+	display: none;
+	/* 分类 */
+	.classify{
+		margin:0;
+		padding: 0;
+		display: none;
+		ul{
+			background: #ccc;
+			height: 100%;
+			float: left;
+			padding: 0;
+			li{
+				list-style: none;
+				width: 100%;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+			}
+		}
+		div:nth-child(2){
+			background: #f1f1f1;
+			height: 100%;
+			float: left;
+			margin: 0;
+			padding: 0;
+			ul{
+				background: #f1f1f1;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				display: none;
+			}
+		}
+		div:nth-child(3){
+			background:  white;
+			height: 100%;
+			float: left;
+			margin: 0;
+			padding: 0;
+			ul{
+				background: white;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				display: none;
+				li{
+					list-style: none;
+					width: 100%;
+					height: 40px;
+					line-height: 40px;
+					text-align: center;
+				}
+			}
+		}
+	}
+    /* 商标分类 */
+	#classify_brand{
+		width: 100%;
+		height: 100%;
+		margin:0;
+		padding: 0;
+		display: none;
+		ul{
+			width: 100%;
+			height: 100%;
+			li{
+				width: 100%;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border: 1px solid white;
+			}
+		}
+		
+	}
+}
+

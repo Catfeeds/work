@@ -1,0 +1,13 @@
+<div id="login" ng-style="loginCss">
+	<div class="login">
+		<h4 class="title">提供您在馆掌注册的商家信息</h4>
+		<input class="text" type="text" ng-model="account" placeholder="馆掌商户账号" />
+		<input class="text" type="password" ng-model="password" placeholder="登录密码" />
+		<button type="submit" class="btn text" ng-class="{'loading':loginShow}" ng-click="loginFun()">验证并绑定</button>
+	</div>
+	<div class="bg">
+		<div class="bg-1"></div>
+		<div class="bg-2"></div>
+		<div class="bg-3"></div>
+	</div>
+</div>
